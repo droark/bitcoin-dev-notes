@@ -290,7 +290,7 @@
 
 ./depends/description.md - General description of the depends system. Some high-level technical details of the depends setup.
 
-./depends/funcs.mk - Seems to be what deals with everything in the ./depends/packages subdirectory. (FIX - TALK TO CORY)
+./depends/funcs.mk - Various functions and variables related to building the dependencies in the ./depends/packages subdirectory.
 
 ./depends/Makefile - Makefile called from elsewhere.
 
@@ -298,7 +298,7 @@
 
 ./depends/README.md - Some general details and *make* options and such.
 
-**./depends/builders** - [Shared dependency builder.](https://github.com/bitcoin/bitcoin/pull/4592) Compiler/Linker variables and such required by the machine building the binary. (The "builder" identity is automated and determined by ./config.guess.) Used by ./depends/Makefile. (FIX - CORY)
+**./depends/builders** - [Shared dependency builder.](https://github.com/bitcoin/bitcoin/pull/4592) Compiler/Linker variables and such required by the machine building the binary. (The "builder" identity is automated and determined by ./config.guess.) Used by ./depends/Makefile.
 
 ./depends/builders/darwin.mk - Overriding values for OS X building systems.
 
@@ -306,7 +306,7 @@
 
 ./depends/builders/linux.mk - Overriding values for Linux building systems.
 
-**./depends/hosts** - [Shared dependency builder.](https://github.com/bitcoin/bitcoin/pull/4592) Compiler/Linker variables and such required to build for the host machine (i.e., the machine that’ll run the final binary). The host may be specified, otherwise it’ll default to the builder. Used by ./depends/Makefile. (FIX - CORY)
+**./depends/hosts** - [Shared dependency builder.](https://github.com/bitcoin/bitcoin/pull/4592) Compiler/Linker variables and such required to build for the host machine (i.e., the machine that’ll run the final binary). The host may be specified, otherwise it’ll default to the builder. Used by ./depends/Makefile.
 
 ./depends/hosts/darwin.mk - Overriding OS X build variable values.
 
@@ -352,7 +352,7 @@
 
 ./depends/packages/native_cdrkit.mk - *cdrkit* toolkit (native).
 
-./depends/packages/native_comparisontool.mk - A snapshot of the *bitcoindcomparisontool* code from the *bitcoinj* library. (native) (FIX - CORY - WHAT IS THIS???)
+./depends/packages/native_comparisontool.mk - A snapshot of the [*bitcoindcomparisontool*](https://github.com/TheBlueMatt/test-scripts) code from the *bitcoinj* library. Can be used with the *--with-comparison-tool* and *--enable-tests* configuration options to set the Java comparison tool required by ./qa/pull-tester/run-bitcoind-for-test.sh.
 
 ./depends/packages/native_libdmg-hfsplus.mk - HFS+/DMG manipulation libraries (native).
 
@@ -360,7 +360,7 @@
 
 ./depends/packages/openssl.mk - OpenSSL library.
 
-./depends/packages/packages.mk - Package variables. Lists, among other things, which packages apply to Qt only. Called by ./depends/Makefile. (FIX - GO BACK TO THIS TO UNDERSTAND SOME THINGS)
+./depends/packages/packages.mk - Package variables. Specifies the packages requried various platforms, including packages required by Qt.
 
 ./depends/packages/protobuf.mk - Protocol Buffers variables.
 
@@ -476,11 +476,11 @@
 
 ./qa/README.md - Explains how to run tests.
 
-**./qa/pull-tester** - A set of tools that can be used to kick off tests on a remote server. (FIX - CORY)
+**./qa/pull-tester** - A set of tools that can be used to kick off tests related to RPC functionality.
 
-./qa/pull-tester/rpc-tests.py - Primary script that kicks off one or more tests. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6616)
+./qa/pull-tester/rpc-tests.py - Primary script that kicks off one or more tests found in ./qa/rpc-tests. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6616)
 
-./qa/pull-tester/run-bitcoind-for-test.sh.in - Appears to run an instance of *bitcoind* in regtest mode. AC_CONFIG_FILES() (./configure.ac) processes the file and outputs it as ./qa/pull-tester/run-bitcoind-for-test.sh, which does the actual running of *bitcoind*. See ./Makefile.am for examples of how to run the script. Appears to require [Cory Fields's bitcoind-comparisontool](https://github.com/theuni/bitcoind-comparisontool), which is a snapshot of *bitcoindcomparisontool* from the *bitcoinj* Java library at certain times. The Java tools run the same tests using *bitcoinj* and compare the results with those from the original *bitcoind* binary run. Look [here](https://github.com/TheBlueMatt/test-scripts) for a (poorly documented) example of how the *bitcoindcomparisontool* code can be used. (FIX - IS THIS CORRECT?)
+./qa/pull-tester/run-bitcoind-for-test.sh.in - Runs an instance of *bitcoind* in regtest mode. AC_CONFIG_FILES() (./configure.ac) processes the file and outputs it as ./qa/pull-tester/run-bitcoind-for-test.sh, which does the actual running of *bitcoind*. See ./Makefile.am for examples of how to run the script. Requires [Cory Fields's bitcoind-comparisontool](https://github.com/theuni/bitcoind-comparisontool), which is a snapshot of *bitcoindcomparisontool* from the *bitcoinj* Java library at certain times. The Java tools run the same tests using *bitcoinj* and compare the results with those from the original *bitcoind* binary run. Can be run with or without "expensive" reorg tests. Look [here](https://github.com/TheBlueMatt/test-scripts) for a (poorly documented) example of how the *bitcoindcomparisontool* code can be used.
 
 ./qa/pull-tester/tests_config.py.in - Sets, via AC_CONFIG_FILES() wizardry, some variables to be used in ./qa/pull-tester/rpc-tests.py. Examples include enabling ØMQ tests.
 
@@ -678,7 +678,7 @@
 
 ./src/bloom.h - See the CPP file.
 
-./src/chain.cpp - Covers critical blockchain classes, on-disk and off-disk. There’s the on-disk block position (CDiskBlockPos - *struct*), an entry (final or potential) in the blockchain (CBlockIndex), an on-disk blockchain entry (CDiskBlockIndex), and an in-memory indexed blockchain (CChain). [Moved out of main.cpp & main.h in Sep. 2014.](https://github.com/bitcoin/bitcoin/pull/4796)
+./src/chain.cpp - Covers critical blockchain classes, on-disk and off-disk. There’s the on-disk block position (CDiskBlockPos - *struct*), an entry (final or potential) in the blockchain (CBlockIndex), an on-disk blockchain entry (CDiskBlockIndex), and an in-memory indexed blockchain (CChain). CBlockIndex is [consensus-critical](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2015-September/011161.html). [Moved out of main.cpp & main.h in Sep. 2014.](https://github.com/bitcoin/bitcoin/pull/4796)
 
 ./src/chain.h - See the CPP file.
 
@@ -704,7 +704,7 @@
 
 ./src/coincontrol.h - A class (CCoinControl) specifying a set of coins to be used for a given Tx. (This allows the user to control which coins are used.) [Added in Nov. 2013.](https://github.com/bitcoin/bitcoin/pull/3253)
 
-./src/coins.cpp - Contains code for a pruned transaction that has only metadata and basically represents UTXOs (CCoins). Also includes various helper structs/classes that do things like hash the data, abstract the "view" of the UTXOs (CCoinsView and CCoinsViewCache), etc. (FIX - GET MORE INFO)  [Moved to the current position in Nov. 2013.](https://github.com/bitcoin/bitcoin/pull/3199)
+./src/coins.cpp - Contains code for a pruned transaction that has only metadata and basically represents UTXOs (CCoins). Also includes various helper structs/classes that do things like abstract the "view" of the UTXO database (CCoinsView) and define the actual UTXO database (CCoinsViewCache), entries in the cache (CCoinsCacheEntry), etc. CCoinsViewCache is [consensus-critical](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2015-September/011161.html). [Moved to the current position in Nov. 2013.](https://github.com/bitcoin/bitcoin/pull/3199)
 
 ./src/coins.h - See the CPP file.
 
@@ -836,7 +836,7 @@
 
 ./src/scheduler.h - See the CPP file.
 
-./src/serialize.h - General purpose data output materials, on-and-off-network? (FIX)
+./src/serialize.h - General purpose data input/output materials, on-and-off-network, including streaming data. Also includes the VarInt class (CVarInt) and CompactSize functions that can read/write VarInt-compatible values, various #defines, and other miscellaneous functionality.
 
 ./src/streams.h - Double-ended buffer combining vector and stream-like interfaces (CDataStream), non-refcounted RAII wrapper for FILE*, without (CAutoFile) and with (CBufferedFile) ring buffers that allow the rewinding of X bytes.
 
