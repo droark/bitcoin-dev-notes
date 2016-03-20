@@ -144,7 +144,7 @@
 
 ./contrib/devtools/clang-format.py - Sets the rules for *clang-format*, a program that formats C/C++/ObjC code. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6790)
 
-./contrib/devtools/clang-format-diff.py - [Formats unified Git diffs according to ./src/.clang-format](http://clang.llvm.org/docs/ClangFormat.html). [Taken from the upstream LLVM repo](https://llvm.org/svn/llvm-project/cfe/trunk/tools/clang-format/clang-format-diff.py). *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7304)*.
+./contrib/devtools/clang-format-diff.py - [Formats unified Git diffs according to ./src/.clang-format](http://clang.llvm.org/docs/ClangFormat.html). [Taken from the upstream LLVM repo](https://llvm.org/svn/llvm-project/cfe/trunk/tools/clang-format/clang-format-diff.py). [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7304).
 
 ./contrib/devtools/fix-copyright-headers.py - Script that does a mass copyright year update.
 
@@ -354,45 +354,45 @@
 
 ./depends/packages/miniupnpc.mk - MiniUPnP.
 
-./depends/packages/native_biplist.mk - Python binary property list (plist) read/write library (native). Used for the OS X build. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7192)* to make software name consistency easier.
+./depends/packages/native_biplist.mk - Python binary property list ([plist](https://en.wikipedia.org/wiki/Property_list)) read/write library (native). Used for the OS X build. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7192)* to make software name consistency easier.
 
-./depends/packages/native_ccache.mk - C/C++ compiler cache (native).
+./depends/packages/native_ccache.mk - [C/C++ compiler cache](https://ccache.samba.org/) (native).
 
-./depends/packages/native_cctools.mk - Apple (cctools) toolchain for Linux (native).
+./depends/packages/native_cctools.mk - [Apple (cctools) toolchain for Linux](https://code.google.com/p/ios-toolchain-based-on-clang-for-linux/) (native). Contains the code used to build the binaries needed to create Apple binaries (e.g., *dyld*, *ld64*, etc.). [Needed to link binaries in an Apple-friendly manner.](http://www.ninthavenue.com.au/how-to-build-an-ios-toolchain-for-linux-debian-7)
 
-./depends/packages/native_cdrkit.mk - *cdrkit* toolkit (native).
+./depends/packages/native_cdrkit.mk - [*cdrkit* toolkit](https://en.wikipedia.org/wiki/Cdrkit) (native). The *genisoimage* tool is used to create DMG files used for Apple builds.
 
 ./depends/packages/native_comparisontool.mk - A snapshot of the [*bitcoindcomparisontool*](https://github.com/TheBlueMatt/test-scripts) code from the *bitcoinj* library (native). Can be used with the *--with-comparison-tool* and *--enable-tests* configuration options to set the Java comparison tool required by ./qa/pull-tester/run-bitcoind-for-test.sh.
 
-./depends/packages/native_ds_store.mk - Python .DS_Store read/write library (native). Used for the OS X build. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7192)*.
+./depends/packages/native_ds_store.mk - Python [.DS_Store](https://en.wikipedia.org/wiki/.DS_Store) read/write library (native). Used for the OS X build. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7192)*.
 
-./depends/packages/native_libdmg-hfsplus.mk - HFS+/DMG manipulation libraries (native).
+./depends/packages/native_libdmg-hfsplus.mk - HFS+/DMG manipulation libraries (native). The *dmg* tool is used to compress DMG files used for OS X builds.
 
 ./depends/packages/native_mac_alias.mk - Python [Alias](https://en.wikipedia.org/wiki/Alias_%28Mac_OS%29) read/write library (native). Used for the OS X build. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7192)*.
 
-./depends/packages/native_protobuf.mk - Protocol Buffers library (native).
+./depends/packages/native_protobuf.mk - [Protocol Buffers](https://en.wikipedia.org/wiki/Protocol_Buffers) library (native). Used by Qt as part of BIP 70 support.
 
-./depends/packages/openssl.mk - OpenSSL library.
+./depends/packages/openssl.mk - [OpenSSL](https://www.openssl.org/) library. Provides some cryptographic functionality. Consensus-critical functionality uses libsecp256k1.
 
-./depends/packages/packages.mk - Package variables. Specifies the packages requried various platforms, including packages required by Qt.
+./depends/packages/packages.mk - Package variables. Specifies the packages requried by various platforms, including packages required by Qt.
 
-./depends/packages/protobuf.mk - Protocol Buffers variables.
+./depends/packages/protobuf.mk - [Protocol Buffers](https://en.wikipedia.org/wiki/Protocol_Buffers) variables. Used by Qt as part of BIP 70 support.
 
-./depends/packages/qrencode.mk - *libqrencode* variables.
+./depends/packages/qrencode.mk - [libqrencode](https://fukuchi.org/works/qrencode/) variables.
 
 ./depends/packages/qt.mk - Qt 5 variables.
 
 ./depends/packages/qt46.mk - Qt 4.6 variables.
 
-./depends/packages/xcb_proto.mk - XML-XCB protocol description bindings.
+./depends/packages/xcb_proto.mk - [XML-XCB protocol description bindings](https://xcb.freedesktop.org/XmlXcb/).
 
-./depends/packages/xextproto.mk - X protocol extensions library.
+./depends/packages/xextproto.mk - [X protocol extensions](https://community.linuxmint.com/software/view/libxext6) library.
 
-./depends/packages/xproto.mk - X window system core protocol library.
+./depends/packages/xproto.mk - [X window system core protocol](http://www.x.org/releases/X11R7.7/doc/xproto/x11protocol.html) library.
 
-./depends/packages/xtrans.mk - xtrans library.
+./depends/packages/xtrans.mk - [xtrans](http://www.x.org/releases/X11R7.7/doc/xtrans/xtrans.html) library.
 
-./depends/packages/zmq.mk - ØMQ (aka ZeroMQ).
+./depends/packages/zmq.mk - [ØMQ](http://zeromq.org/) (aka ZeroMQ).
 
 **./depends/patches** - Patches to be applied to downloaded packages before building the packages. *Nothing in the root directory.*
 
@@ -410,7 +410,7 @@
 
 **./depends/patches/native_cdrkit** - cdrkit patches.
 
-./depends/patches/native_cdrkit/cdrkit-deterministic.patch - [Makes ](https://github.com/bitcoin/bitcoin/pull/4592)[*cdrki*t](https://github.com/bitcoin/bitcoin/pull/4592)[ deterministic.](https://github.com/bitcoin/bitcoin/pull/4592)
+./depends/patches/native_cdrkit/cdrkit-deterministic.patch - [Makes *cdrkit* deterministic](https://github.com/bitcoin/bitcoin/pull/4592).
 
 **./depends/patches/qt** - Qt 5 patches.
 
@@ -418,9 +418,9 @@
 
 ./depends/patches/qt/mac-qmake.conf - *qmake* config variables and such.
 
-./depends/patches/qt/mingw-uuidof.patch - Required to build with MinGW. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6471)
+./depends/patches/qt/mingw-uuidof.patch - Required to build with MinGW. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/6471).
 
-./depends/patches/qt/pidlist_absolute.patch - Fixes Qt "PIDLIST_ABSOLUTE" issue. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/commit/0b416c6e9c3f9f81bea16168f82af77f4e8724bb)
+./depends/patches/qt/pidlist_absolute.patch - Fixes Qt "PIDLIST_ABSOLUTE" issue. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/commit/0b416c6e9c3f9f81bea16168f82af77f4e8724bb).
 
 **./depends/patches/qt46** - Qt 4.6 patches.
 
@@ -442,7 +442,7 @@
 
 ./doc/developer-notes.md - General dev notes. Lots of miscellaneous things.
 
-./doc/dnsseed-policy.md - [Details regarding DNS seeds.](https://github.com/bitcoin/bitcoin/pull/4566) Explains the rules necessary to run a DNS seed, which becomes a CDNSSeedData entry [as added in ./src/chainparams.cpp](https://github.com/bitcoin/bitcoin/blob/550d4fa7a77c9763d4de9e0c0c48bc2655a65017/src/chainparams.cpp#L97-L102).
+./doc/dnsseed-policy.md - [Details regarding DNS seeds.](https://github.com/bitcoin/bitcoin/pull/4566) Explains the rules regarding running a DNS seed. The seed will become a CDNSSeedData entry [as added in ./src/chainparams.cpp](https://github.com/bitcoin/bitcoin/blob/550d4fa7a77c9763d4de9e0c0c48bc2655a65017/src/chainparams.cpp#L97-L102).
 
 ./doc/Doxyfile - Doxygen (documentation system) config file.
 
