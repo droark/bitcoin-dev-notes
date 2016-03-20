@@ -1,8 +1,10 @@
-**NB 1**: This document primarily covers a near-final version of Bitcoin Core 0.12. It will be updated later, when the final 0.12 release comes out.
+**NB 1**: This document primarily covers Bitcoin Core 0.12. It is in the process of being updated to cover newer versions.
 
-**NB 2**: Unless there are special reasons for listing them, graphics are left out.
+**NB 2**: Unless there are special reasons for listing them, graphics files are left out, although the general outline of what resides in a subdirectory will be discussed.
 
-./.gitattributes - Settings that can be specified for a path. [Used for version info stuff.](https://github.com/bitcoin/bitcoin/commit/a20c0d0f6792acf532309eee2e9f29120c801ee4)
+**NB 3**: Some of these files may not be in the source code downloads for various releases. They should be available in Core's "master" branch on Github.
+
+./.gitattributes - Settings that can be specified for a path. *[Used for version info stuff](https://github.com/bitcoin/bitcoin/commit/a20c0d0f6792acf532309eee2e9f29120c801ee4)*.
 
 ./.gitignore - File that prevents certain files from showing up in Git.
 
@@ -84,6 +86,8 @@
 
 ./contrib/debian/bitcoin-qt.protocol - [GNOME/KDE support for the "bitcoin" URI.](https://github.com/bitcoin/bitcoin/pull/593)
 
+./contrib/debian/bitcoin-tx.install - [Used to indicate what to install for ](https://www.debian.org/doc/manuals/maint-guide/dother.en.html#install)[*bitcoin-t*x](https://www.debian.org/doc/manuals/maint-guide/dother.en.html#install)[.](https://www.debian.org/doc/manuals/maint-guide/dother.en.html#install)
+
 ./contrib/debian/bitcoind.bash-completion - Rule that [installs ./contrib/bitcoind.bash-completion in Debian systems](https://github.com/bitcoin/bitcoin/pull/1366) as part of the Debian build process. [Adds BASH shell completion for ](http://manpages.ubuntu.com/manpages/trusty/man1/dh_bash-completion.1.html)[*bitcoin*d](http://manpages.ubuntu.com/manpages/trusty/man1/dh_bash-completion.1.html)[.](http://manpages.ubuntu.com/manpages/trusty/man1/dh_bash-completion.1.html) [*Added in May 2012*.](https://github.com/bitcoin/bitcoin/pull/1366)
 
 ./contrib/debian/bitcoind.examples - Contains a list of places to find examples. [Used by lintian.](https://www.debian.org/doc/manuals/maint-guide/dother.en.html#examples)
@@ -93,8 +97,6 @@
 ./contrib/debian/bitcoind.lintian-overrides - Manual warning/error overrides for *lintian*.
 
 ./contrib/debian/bitcoind.manpages - [Indicates where manpages should go.](https://www.debian.org/doc/manuals/maint-guide/dother.en.html#manpages)
-
-./contrib/debian/bitcointx.install - [Used to indicate what to install for ](https://www.debian.org/doc/manuals/maint-guide/dother.en.html#install)[*bitcoin-t*x](https://www.debian.org/doc/manuals/maint-guide/dother.en.html#install)[.](https://www.debian.org/doc/manuals/maint-guide/dother.en.html#install)
 
 ./contrib/debian/changelog - Changelog. Required by *lintian*.
 
@@ -138,7 +140,11 @@
 
 **./contrib/devtools** - Specific tools for devs working on the Core repo.
 
-./contrib/devtools/clang-format - Sets the rules for *clang-format*, a program that formats C/C++/ObjC code. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6790)
+./contrib/devtools/check-doc.py - Checks if all command line args are documented. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7280)*.
+
+./contrib/devtools/clang-format.py - Sets the rules for *clang-format*, a program that formats C/C++/ObjC code. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6790)
+
+./contrib/devtools/clang-format-diff.py - [Formats unified Git diffs according to ./src/.clang-format](http://clang.llvm.org/docs/ClangFormat.html). [Taken from the upstream LLVM repo](https://llvm.org/svn/llvm-project/cfe/trunk/tools/clang-format/clang-format-diff.py). *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7304)*.
 
 ./contrib/devtools/fix-copyright-headers.py - Script that does a mass copyright year update.
 
@@ -201,6 +207,8 @@
 ./contrib/linearize/README.md - Explains how to use everything.
 
 **./contrib/macdeploy** - [Used to create a .dmg package for Bitcoin Core.](https://github.com/bitcoin/bitcoin/commit/6eaa1b36fcf5a3b28c2440a3cf8ab4780f1afef9) [Uses a detached signature repo so that anybody can grab the appropriate sigs.](https://github.com/bitcoin/bitcoin/pull/6269) (Cory Fields/"theuni” is the only person who can actually generate the sigs, which he then uploads to the sig repo.) Used to make Core compatible with Apple’s "Gatekeeper” scheme. *Graphics files have been removed.*
+
+./contrib/macdeploy/custom_dsstore.py - Creates a custom .DS_Store file added to DMG files that deploy Bitcoin Core software to end users. (The file allows for background images and other features.) *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7192)*.
 
 ./contrib/macdeploy/detached-sig-apply.sh - Applies a detached signature from a repo and attached the signature to an unsigned OS X build to create a signed build. ./contrib/gitian-descriptors/gitian-osx-signer.yml contains a usage example.
 
@@ -316,7 +324,7 @@
 
 ./depends/hosts/mingw32.mk - Overriding Windows (MinGW) build variable values.
 
-**./depends/packages** - Info on packages to download and compile as Core dependencies. Almost all the packages are actually required only by Qt 4 or 5.
+**./depends/packages** - Info on packages to download and compile as Core dependencies. Almost all the packages are actually required only by Qt 4 or 5. Native packages are used to build towards particular platforms and, depending on the build platform, may or may not be required by the building system to generate the final host binary.
 
 ./depends/packages/bdb.mk - BerkeleyDB 4.8.
 
@@ -346,15 +354,21 @@
 
 ./depends/packages/miniupnpc.mk - MiniUPnP.
 
+./depends/packages/native_biplist.mk - Python binary property list (plist) read/write library (native). Used for the OS X build. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7192)* to make software name consistency easier.
+
 ./depends/packages/native_ccache.mk - C/C++ compiler cache (native).
 
 ./depends/packages/native_cctools.mk - Apple (cctools) toolchain for Linux (native).
 
 ./depends/packages/native_cdrkit.mk - *cdrkit* toolkit (native).
 
-./depends/packages/native_comparisontool.mk - A snapshot of the [*bitcoindcomparisontool*](https://github.com/TheBlueMatt/test-scripts) code from the *bitcoinj* library. Can be used with the *--with-comparison-tool* and *--enable-tests* configuration options to set the Java comparison tool required by ./qa/pull-tester/run-bitcoind-for-test.sh.
+./depends/packages/native_comparisontool.mk - A snapshot of the [*bitcoindcomparisontool*](https://github.com/TheBlueMatt/test-scripts) code from the *bitcoinj* library (native). Can be used with the *--with-comparison-tool* and *--enable-tests* configuration options to set the Java comparison tool required by ./qa/pull-tester/run-bitcoind-for-test.sh.
+
+./depends/packages/native_ds_store.mk - Python .DS_Store read/write library (native). Used for the OS X build. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7192)*.
 
 ./depends/packages/native_libdmg-hfsplus.mk - HFS+/DMG manipulation libraries (native).
+
+./depends/packages/native_mac_alias.mk - Python [Alias](https://en.wikipedia.org/wiki/Alias_%28Mac_OS%29) read/write library (native). Used for the OS X build. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7192)*.
 
 ./depends/packages/native_protobuf.mk - Protocol Buffers library (native).
 
@@ -382,7 +396,7 @@
 
 **./depends/patches** - Patches to be applied to downloaded packages before building the packages. *Nothing in the root directory.*
 
-**./depends/patches/boost** - Boost patches.
+**./depends/patches/boost** - Boost patches. *REMOVED IN 0.13 - REMOVE EVENTUALLY FROM THIS DOC.*
 
 ./depends/patches/boost/darwin_boost_atomic-1.patch - Upstream patch. [Should be dropped eventually.](https://github.com/bitcoin/bitcoin/commit/1dec09b341f61836147d87656aea7f7be02aab6d#commitcomment-11224252)
 
@@ -390,13 +404,13 @@
 
 ./depends/patches/boost/gcc_5_no_cxx11.patch - Turns off C++11 assumptions in Boost code. [Will probably be dropped once C++11 is allowed in Core.](https://github.com/bitcoin/bitcoin/pull/6280)
 
-**./depends/patches/native_cdrkit** - cdrkit patches.
-
-./depends/patches/native_cdrkit/cdrkit-deterministic.patch - [Makes ](https://github.com/bitcoin/bitcoin/pull/4592)[*cdrki*t](https://github.com/bitcoin/bitcoin/pull/4592)[ deterministic.](https://github.com/bitcoin/bitcoin/pull/4592)
-
 **./depends/patches/libevent** - *libevent* patches.
 
 ./depends/patches/libevent/reuseaddr.patch - [Fixes a Windows socket issue.](https://github.com/bitcoin/bitcoin/pull/5677#issuecomment-135918349) [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/5677)
+
+**./depends/patches/native_cdrkit** - cdrkit patches.
+
+./depends/patches/native_cdrkit/cdrkit-deterministic.patch - [Makes ](https://github.com/bitcoin/bitcoin/pull/4592)[*cdrki*t](https://github.com/bitcoin/bitcoin/pull/4592)[ deterministic.](https://github.com/bitcoin/bitcoin/pull/4592)
 
 **./depends/patches/qt** - Qt 5 patches.
 
@@ -412,7 +426,7 @@
 
 ./depends/patches/qt46/stlfix.patch - [Fixes compile issue under Qt 4.6.](https://github.com/bitcoin/bitcoin/commit/0b416c6e9c3f9f81bea16168f82af77f4e8724bb)
 
-**./doc** - Various documents.
+**./doc** - Various documents. *Graphics are not mentioned.*
 
 ./doc/assets-attribution.md - Graphics attributions. Nothing special.
 
@@ -440,11 +454,11 @@
 
 ./doc/multiwallet-qt.md - "Multiwallet Qt Development and Integration Strategy". Old.
 
+./doc/README.md - General catch-all / index of sorts.
+
 ./doc/README_osx.txt - Details regarding on the deterministic build.
 
 ./doc/README_windows.txt - Vague Windows README. Not much useful info.
-
-./doc/README.md - General catch-all / index of sorts.
 
 ./doc/reduce-traffic.md - Ways to reduce traffic on an Internet connection when running Core.
 
@@ -495,6 +509,8 @@
 ./qa/rpc-tests/bip65-cltv.py - [Confirms that the BIP 65 soft fork/switchover code works properly.](https://github.com/bitcoin/bitcoin/pull/6351) Uses BitcoinTestFramework.
 
 ./qa/rpc-tests/bip65-cltv-p2p.py - [Confirms that the BIP 65 soft fork/switchover code works properly in a P2P environment.](https://github.com/bitcoin/bitcoin/pull/6351) Uses *comptool*/ComparisonTestFramework.
+
+./qa/rpc-tests/bip68-sequence.py - Tests BIP 68 functionality in the mempool. *[Added in 0.12.1](https://github.com/bitcoin/bitcoin/pull/7184)*.
 
 ./qa/rpc-tests/blockchain.py - Tests the *gettxoutsetinfo* RPC functionality.
 
@@ -547,6 +563,8 @@
 ./qa/rpc-tests/p2p-acceptblock.py - [Tests ](https://github.com/bitcoin/bitcoin/pull/5875)[*AcceptBloc*k](https://github.com/bitcoin/bitcoin/pull/5875)[() functionality from ./src/main.cpp](https://github.com/bitcoin/bitcoin/pull/5875), which is basically how unrequested blocks are handled.
 
 ./qa/rpc-tests/p2p-fullblocktest.py - A partial port of [FullBlockTestGenerator.java](https://github.com/TheBlueMatt/test-scripts/blob/master/FullBlockTestGenerator.java), a file driven by BitcoinJ that generates test blockchains used to test/verify the handling of the blockchain in Core and various alternative implementations (e.g., BitcoinJ and BTCD). [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6523)
+
+./qa/rpc-tests/p2p-versionbits-warning.py - Test for BIP 9 warning logic. *[Added in 0.12.1](https://github.com/bitcoin/bitcoin/pull/7575)*.
 
 ./qa/rpc-tests/prioritise_transaction.py - [Tests the ](https://github.com/bitcoin/bitcoin/pull/7147)[*prioritisetransactio*n](https://github.com/bitcoin/bitcoin/pull/7147)[RPC functionality.](https://github.com/bitcoin/bitcoin/pull/7147)
 
@@ -637,6 +655,10 @@
 ./share/qt/Info.plist.in - OS X bundle kickoff file. Processed by AC_CONFIG_FILES() to generate ./share/qt/Info.plist, which is included in the root of the OS X build.
 
 ./share/qt/protobuf.pri - *qmake* file integrating Payment Protocol (BIP 70) with *protoc*. [Requires OpenSSL & Qt.](https://github.com/bitcoin/bitcoin/pull/2539)
+
+**./share/rpcuser** - Helps create multi-user RPC login credentials. *[Added in 0.12](https://github.com/bitcoin/bitcoin/pull/7044)*.
+
+./share/rpcuser/rpcuser.py - Creates multi-user RPC login credentials.
 
 **./src** - The subdirectory with all the Core-specific code.
 
@@ -810,28 +832,6 @@
 
 ./src/reverselock.h - [A class replacing boost::reverse_lock with a local reverse_lock class.](https://github.com/bitcoin/bitcoin/pull/6630)
 
-./src/rpcblockchain.cpp - RPC blockchain command functionality.
-
-./src/rpcclient.cpp - RPC client functionality.
-
-./src/rpcclient.h - See the CPP file.
-
-./src/rpcmining.cpp - RPC mining command functionality, including *getblocktemplate()*.
-
-./src/rpcmisc.cpp - RPC miscellaneous command functionality.
-
-./src/rpcnet.cpp - RPC network command functionality.
-
-./src/rpcprotocol.cpp - RPC protocol commands/enums/etc.
-
-./src/rpcprotocol.h - See the CPP file.
-
-./src/rpcrawtransaction.cpp - RPC raw transaction command functionality.
-
-./src/rpcserver.cpp - RPC server functionality.
-
-./src/rpcserver.h - See the CPP file.
-
 ./src/scheduler.cpp - Lightweight, simple scheduler for background tasks (CScheduler). [Added in May 2015.](https://github.com/bitcoin/bitcoin/pull/5964)
 
 ./src/scheduler.h - See the CPP file.
@@ -893,6 +893,10 @@
 ./src/validationinterface.h - See the CPP file.
 
 ./src/version.h - Various version definitions (Core, P2P, etc.).
+
+./src/versionbits.cpp - Implements BIP 9 versionbits logic. *[Added in 0.12.1](https://github.com/bitcoin/bitcoin/pull/7575)*.
+
+./src/versionbits.h - See the CPP file.
 
 **./src/bench** - Code used to build the *bench_bitcoin* binary, which does rudimentary code benchmarking. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6733)
 
@@ -1270,6 +1274,30 @@
 
 ./src/qt/test/uritests.h - See the CPP file.
 
+**./src/rpc** - General RPC functionality. *Moved from ./src to ./src/rpc in 0.13.*
+
+./src/rpc/rpcblockchain.cpp - RPC blockchain command functionality.
+
+./src/rpc/rpcclient.cpp - RPC client functionality.
+
+./src/rpc/rpcclient.h - See the CPP file.
+
+./src/rpc/rpcmining.cpp - RPC mining command functionality, including *getblocktemplate()*.
+
+./src/rpc/rpcmisc.cpp - RPC miscellaneous command functionality.
+
+./src/rpc/rpcnet.cpp - RPC network command functionality.
+
+./src/rpc/rpcprotocol.cpp - RPC protocol commands/enums/etc.
+
+./src/rpc/rpcprotocol.h - See the CPP file.
+
+./src/rpc/rpcrawtransaction.cpp - RPC raw transaction command functionality.
+
+./src/rpc/rpcserver.cpp - RPC server functionality.
+
+./src/rpc/rpcserver.h - See the CPP file.
+
 **./src/script** - Code that handles Bitcoin scripts. [Moved to the current location in Sep. 2014 to make the code more modular.](https://github.com/bitcoin/bitcoin/pull/4754)
 
 ./src/script/bitcoinconsensus.cpp - Some consensus-critical code, centered primarily around script verification.
@@ -1300,7 +1328,7 @@
 
 ./src/script/standard.h - See the CPP file.
 
-**./src/secp256k1** - Downstream version of the libsecp256k1 library. This is the library that performs all cryptographic functions related to creating and verifying signatures for Bitcoin transactions. *No files listed. Consult the libsecp256k1 doc or the *[*project websit*e](https://github.com/bitcoin/secp256k1)*.*
+**./src/secp256k1** - Downstream version of the libsecp256k1 library. This is the library that performs all cryptographic functions related to creating and verifying signatures for Bitcoin transactions. *No files listed. Consult the libsecp256k1 doc or the [project website](https://github.com/bitcoin/secp256k1)*.
 
 **./src/support** - Used primarily to abstract out some low-level functionality supplied by OpenSSL and Boost. Makes code changes a lot easier since changes occur only in one place.
 
@@ -1346,7 +1374,7 @@
 
 ./src/test/buildenv.py.in - [Helps allow Python tests to run on Windows.](https://github.com/bitcoin/bitcoin/pull/5014)
 
-./src/test/checkblock_tests.cpp - Now-obsolete test that [was used](https://github.com/bitcoin/bitcoin/commit/8c222dca4f961ad13ec64d690134a40d09b20813) to confirm that Core would handle 1 MB blocks after the temporary 500 KB soft fork imposed after the Mar. 2013 hard fork.
+./src/test/checkblock_tests.cpp - Now-obsolete test that [was used](https://github.com/bitcoin/bitcoin/commit/8c222dca4f961ad13ec64d690134a40d09b20813) to confirm that Core would handle 1 MB blocks after the temporary 500 KB soft fork imposed after the Mar. 2013 hard fork. *REMOVED IN 0.13???*
 
 ./src/test/Checkpoints_tests.cpp - A checkpoint-related unit test.
 
@@ -1422,6 +1450,10 @@
 
 ./src/test/test_bitcoin.h - See the CPP file.
 
+./src/test/testutil.cpp - Returns temporary file paths. To be used in tests only due to unchecked error conditions. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7667)*.
+
+./src/test/testutil.h - See the CPP file.
+
 ./src/test/timedata_tests.cpp - [CMedianFilter unit tests.](https://github.com/bitcoin/bitcoin/pull/4748)
 
 ./src/test/transaction_tests.cpp - Transaction unit tests.
@@ -1478,7 +1510,7 @@
 
 ./src/test/data/txcreatesign.hex - *bitcoin-tx -create *loads of flags** input test data. [Used by ./src/test/data/bitcoin-util-test.json](https://github.com/bitcoin/bitcoin/pull/5528), with [a later change to fix some issues](https://github.com/bitcoin/bitcoin/pull/6390).
 
-**./src/univalue** - Downstream version of the libunivalue library. Objects are used for parsing and encoding JSON data. [Replaced JSON Spirit.](https://github.com/bitcoin/bitcoin/pull/6121) *No files listed. *[*Consult the project website*.](https://github.com/jgarzik/univalue)
+**./src/univalue** - Downstream version of the libunivalue library. Objects are used for parsing and encoding JSON data. [Replaced JSON Spirit.](https://github.com/bitcoin/bitcoin/pull/6121) *No files listed. [Consult the project website](https://github.com/jgarzik/univalue)*.
 
 **./src/wallet** - Core’s wallet functionality. Any code here should be used solely by the wallet.
 
@@ -1493,6 +1525,8 @@
 ./src/wallet/rpcdump.cpp - RPC functions related to exporting/importing wallet info, addresses, etc.
 
 ./src/wallet/rpcwallet.cpp - RPC functionality not related to exporting/importing wallet info & such.
+
+./src/wallet/rpcwallet.h - See the CPP file. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7307)*.
 
 ./src/wallet/wallet.cpp - The basic wallet functionality. Includes many constants & policy defaults, keypool entries (CKeyPool), address book data (CAddressBookData), Tx w/ merkle branch linking the Tx to the blockchain (CMerkleTx), Tx w/ only info needed by the owner (CWalletTx), wallet Tx as represented in a TxOut (COutput), private wallet key (CWalletKey), a keystore extension w/ Tx/balance info (CWallet), keys allocated from the keypool (CReserveKey), account info (CAccount), internal accounting info (CAccountEntry), and many structs. The accounting stuff is more-or-less an abandoned concept from Core’s early days.
 
@@ -1510,7 +1544,7 @@
 
 ./src/wallet/test/wallet_tests.cpp - Test code for the wallet.
 
-**./src/zmq **- Code supporting ØMQ. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6103)
+**./src/zmq** - Code supporting ØMQ. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6103)
 
 ./src/zmq/zmqabstractnotifier.cpp - Contains a pure virtual notifier class (CZMQAbstractNotifier).
 
@@ -1525,4 +1559,3 @@
 ./src/zmq/zmqpublishnotifier.cpp - Covers publishing for each covered event type. Has a derived virtual class (CZQAbstractPublishNotifier) that’s used as the base for the classes covering the four event types: block hash (CZMQPublishHashBlockNotifier), raw block (CZMQPublishRawBlockNotifier), Tx hash (CZMQPublishHashTransactionNotifier), and raw Tx (CZMQPublishRawTransactionNotifier).
 
 ./src/zmq/zmqpublishnotifier.h - See the CPP file.
-
