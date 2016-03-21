@@ -1,8 +1,8 @@
-**NB 1**: This document primarily covers Bitcoin Core 0.12. It is in the process of being updated to cover newer versions.
+**NB 1**: This document primarily covers Bitcoin Core 0.12, although it is occasionally updated to match the latest ("master") Core code.
 
 **NB 2**: Unless there are special reasons for listing them, graphics files are left out, although the general outline of what resides in a subdirectory will be discussed.
 
-**NB 3**: Some of these files may not be in the source code downloads for various releases. They should be available in Core's "master" branch on Github.
+**NB 3**: Some of these files may not be in the source code downloads for various releases. They should be available in the Core repo on GitHub.
 
 ./.gitattributes - Settings that can be specified for a path. *[Used for version info stuff](https://github.com/bitcoin/bitcoin/commit/a20c0d0f6792acf532309eee2e9f29120c801ee4)*.
 
@@ -396,13 +396,13 @@
 
 **./depends/patches** - Patches to be applied to downloaded packages before building the packages. *Nothing in the root directory.*
 
-**./depends/patches/boost** - Boost patches. *REMOVED IN 0.13 - REMOVE EVENTUALLY FROM THIS DOC.*
+**./depends/patches/boost** - Boost patches. [*Removed in 0.13*](https://github.com/bitcoin/bitcoin/pull/7616) - Files in the subdirectory will be deleted from this doc eventually.
 
-./depends/patches/boost/darwin_boost_atomic-1.patch - Upstream patch. [Should be dropped eventually.](https://github.com/bitcoin/bitcoin/commit/1dec09b341f61836147d87656aea7f7be02aab6d#commitcomment-11224252)
+./depends/patches/boost/darwin_boost_atomic-1.patch - Upstream patch.
 
-./depends/patches/boost/darwin_boost_atomic-2.patch - Upstream patch. [Should be dropped eventually.](https://github.com/bitcoin/bitcoin/commit/1dec09b341f61836147d87656aea7f7be02aab6d#commitcomment-11224252)
+./depends/patches/boost/darwin_boost_atomic-2.patch - Upstream patch.
 
-./depends/patches/boost/gcc_5_no_cxx11.patch - Turns off C++11 assumptions in Boost code. [Will probably be dropped once C++11 is allowed in Core.](https://github.com/bitcoin/bitcoin/pull/6280)
+./depends/patches/boost/gcc_5_no_cxx11.patch - Turns off C++11 assumptions in Boost code.
 
 **./depends/patches/libevent** - *libevent* patches.
 
@@ -562,6 +562,8 @@
 
 ./qa/rpc-tests/p2p-acceptblock.py - [Tests *AcceptBlock* functionality from ./src/main.cpp](https://github.com/bitcoin/bitcoin/pull/5875), which is basically how unrequested blocks are handled.
 
+./qa/rpc-tests/p2p-feefilter.py - Tests the *feefilter* P2P message. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7542).
+
 ./qa/rpc-tests/p2p-fullblocktest.py - A partial port of [FullBlockTestGenerator.java](https://github.com/TheBlueMatt/test-scripts/blob/master/FullBlockTestGenerator.java), a file driven by BitcoinJ that generates test blockchains used to test/verify the handling of the blockchain in Core and various alternative implementations (e.g., BitcoinJ and BTCD). [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6523)
 
 ./qa/rpc-tests/p2p-versionbits-warning.py - Test for BIP 9 warning logic. [*Added in 0.12.1*](https://github.com/bitcoin/bitcoin/pull/7575).
@@ -668,9 +670,9 @@
 
 ./src/addrman.h - See the CPP file.
 
-./src/alert.cpp - Alerts for older versions of Core. There’s an unsigned alert with all the data (CUnsignedAlert) and an unsigned alert + signature (CAlert).
+./src/alert.cpp - Alerts for older versions of Core. There’s an unsigned alert with all the data (CUnsignedAlert) and an unsigned alert + signature (CAlert). [*Removed in 0.13*](https://github.com/bitcoin/bitcoin/pull/7692).
 
-./src/alert.h - See the CPP file.
+./src/alert.h - See the CPP file. [*Removed in 0.13*](https://github.com/bitcoin/bitcoin/pull/7692).
 
 ./src/amount.cpp - Some basic amount (CAmount, or int64_t) definitions, and a type-safe wrapper class for fee rates (CFeeRate).
 
@@ -1356,6 +1358,8 @@
 
 ./src/test/allocator_tests.cpp - Memory allocation tests. [Has to do with memory "stacking."](https://github.com/bitcoin/bitcoin/pull/1699)
 
+./src/test/amount_tests.cpp - Tests the fee rates. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7705).
+
 ./src/test/arith_uint256_tests.cpp - [uint256 ("opaque" and "arithmetic") testing.](https://github.com/bitcoin/bitcoin/pull/5490)
 
 ./src/test/base32_tests.cpp - Base32 unit tests.
@@ -1374,7 +1378,7 @@
 
 ./src/test/buildenv.py.in - [Helps allow Python tests to run on Windows.](https://github.com/bitcoin/bitcoin/pull/5014)
 
-./src/test/checkblock_tests.cpp - Now-obsolete test that [was used](https://github.com/bitcoin/bitcoin/commit/8c222dca4f961ad13ec64d690134a40d09b20813) to confirm that Core would handle 1 MB blocks after the temporary 500 KB soft fork imposed after the Mar. 2013 hard fork. *REMOVED IN 0.13???*
+./src/test/checkblock_tests.cpp - Now-obsolete test that [was used](https://github.com/bitcoin/bitcoin/commit/8c222dca4f961ad13ec64d690134a40d09b20813) to confirm that Core would handle 1 MB blocks after the temporary 500 KB soft fork imposed after the Mar. 2013 hard fork. [*Removed in 0.13*](https://github.com/bitcoin/bitcoin/pull/7490).
 
 ./src/test/Checkpoints_tests.cpp - A checkpoint-related unit test.
 
@@ -1468,7 +1472,7 @@
 
 **./src/test/data** - Data for unit tests. [Data is built into the binary.](https://github.com/bitcoin/bitcoin/pull/2985)
 
-./src/test/data/alertTests.raw - Alert data used by ./src/test/alert_tests.cpp. Data generated by ./src/Makefile.test.include.
+./src/test/data/alertTests.raw - Alert data used by ./src/test/alert_tests.cpp. Data generated by ./src/Makefile.test.include. [*Removed in 0.13*](https://github.com/bitcoin/bitcoin/pull/7692).
 
 ./src/test/data/base58_encode_decode.json - Base58 test data used by ./src/tests/base58_tests.cpp to confirm that encoding & decoding work. [Generated by ./contrib/testgen/gen_base58_test_vectors.py.](https://github.com/bitcoin/bitcoin/pull/1888)
 
