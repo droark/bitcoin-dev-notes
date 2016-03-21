@@ -54,7 +54,7 @@
 
 ./build-aux/m4/ax_check_preproc_flag.m4 - Checks whether a given flag works with a language’s preprocessor.
 
-./build-aux/m4/ax_gcc_func_attribute.m4 - Checks whether the compiler supports a given GCC function attribute (e.g., "dllimport" or “warn_unused_result").
+./build-aux/m4/ax_gcc_func_attribute.m4 - Checks whether the compiler supports a given GCC function attribute (e.g., "dllimport" or "warn_unused_result").
 
 ./build-aux/m4/ax_pthread.m4 - Determines if pthreads are supported and does some setup work.
 
@@ -1188,7 +1188,7 @@
 
 ./src/qt/transactionview.h - See the CPP file.
 
-./src/qt/utilitydialog.cpp - ["Help message" (HelpMessageDialog) and “Shutdown" (ShutdownWindow) dialog boxes.](https://github.com/bitcoin/bitcoin/pull/3548)
+./src/qt/utilitydialog.cpp - ["Help message" (HelpMessageDialog) and "Shutdown" (ShutdownWindow) dialog boxes.](https://github.com/bitcoin/bitcoin/pull/3548)
 
 ./src/qt/utilitydialog.h - See the CPP file.
 
@@ -1356,7 +1356,7 @@
 
 ./src/test/allocator_tests.cpp - Memory allocation tests. [Has to do with memory "stacking."](https://github.com/bitcoin/bitcoin/pull/1699)
 
-./src/test/arith_uint256_tests.cpp - [uint256 ("opaque" and “arithmetic") testing.](https://github.com/bitcoin/bitcoin/pull/5490)
+./src/test/arith_uint256_tests.cpp - [uint256 ("opaque" and "arithmetic") testing.](https://github.com/bitcoin/bitcoin/pull/5490)
 
 ./src/test/base32_tests.cpp - Base32 unit tests.
 
