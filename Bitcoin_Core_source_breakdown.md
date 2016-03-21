@@ -54,7 +54,7 @@
 
 ./build-aux/m4/ax_check_preproc_flag.m4 - Checks whether a given flag works with a language’s preprocessor.
 
-./build-aux/m4/ax_gcc_func_attribute.m4 - Checks whether the compiler supports a given GCC function attribute (e.g., "dllimport" or “warn_unused_result”).
+./build-aux/m4/ax_gcc_func_attribute.m4 - Checks whether the compiler supports a given GCC function attribute (e.g., "dllimport" or “warn_unused_result").
 
 ./build-aux/m4/ax_pthread.m4 - Determines if pthreads are supported and does some setup work.
 
@@ -68,7 +68,7 @@
 
 ./contrib/bitcoin-qt.pro - [Qt file used by ](http://doc.qt.io/qt-4.8/qmake-project-files.html)[*qmak*e](http://doc.qt.io/qt-4.8/qmake-project-files.html) to help compile Qt-related code for Core.
 
-./contrib/bitcoind.bash-completion - [Used to help bash complete ](https://github.com/bitcoin/bitcoin/pull/1366)[*bitcoin*d](https://github.com/bitcoin/bitcoin/pull/1366)[ commands](https://github.com/bitcoin/bitcoin/pull/1366)? Looks like it’s activated when doing Debian builds.
+./contrib/bitcoind.bash-completion - [Used to help bash complete *bitcoind* commands](https://github.com/bitcoin/bitcoin/pull/1366)? Looks like it’s activated when doing Debian builds.
 
 ./contrib/qt_translations.py - [Helps OS X include the correct translations](https://github.com/bitcoin/bitcoin/commit/6be6be2ed9d5d4b9dc1657d434a7fed3b3935f6f). Apparently no longer used.
 
@@ -82,7 +82,7 @@
 
 ./contrib/debian/bitcoin-qt.install - [Indicates which files need to go where when installing a package.](https://wiki.ubuntu.com/UbuntuOpenWeek/Packaging101)
 
-./contrib/debian/bitcoin-qt.lintian-overrides - [Manual warning/error overrides for ](http://man.he.net/man1/dh_lintian)[*lintia*n](http://man.he.net/man1/dh_lintian)[, the program that inspects Debian packages.](http://man.he.net/man1/dh_lintian)
+./contrib/debian/bitcoin-qt.lintian-overrides - [Manual warning/error overrides for *lintian*, the program that inspects Debian packages.](http://man.he.net/man1/dh_lintian)
 
 ./contrib/debian/bitcoin-qt.protocol - [GNOME/KDE support for the "bitcoin" URI.](https://github.com/bitcoin/bitcoin/pull/593)
 
@@ -102,17 +102,17 @@
 
 ./contrib/debian/compat - [*debhelpe*r](https://www.debian.org/doc/manuals/maint-guide/dother.en.html#compat)[ compatibility level.](https://www.debian.org/doc/manuals/maint-guide/dother.en.html#compat)
 
-./contrib/debian/control - [Values used by various packaging tools (e.g., ](https://www.debian.org/doc/manuals/maint-guide/dreq.en.html#control)[*dpk*g](https://www.debian.org/doc/manuals/maint-guide/dreq.en.html#control)[, ](https://www.debian.org/doc/manuals/maint-guide/dreq.en.html#control)[*apt-ge*t](https://www.debian.org/doc/manuals/maint-guide/dreq.en.html#control)[, etc.) to manage a package.](https://www.debian.org/doc/manuals/maint-guide/dreq.en.html#control)
+./contrib/debian/control - [Values used by various packaging tools (e.g., *dpkg*, *apt-get*, etc.) to manage a package.](https://www.debian.org/doc/manuals/maint-guide/dreq.en.html#control)
 
 ./contrib/debian/copyright - Copyright notice. Required by *lintian*.
 
-./contrib/debian/gbp.conf - [Config file for ](https://wiki.debian.org/PackagingWithGit)[*git-buildpackag*e](https://wiki.debian.org/PackagingWithGit)[ & such.](https://wiki.debian.org/PackagingWithGit)
+./contrib/debian/gbp.conf - [Config file for *git-buildpackage* & such.](https://wiki.debian.org/PackagingWithGit)
 
 ./contrib/debian/README.md - Minimal README. Mostly talks about the "bitcoin" URI.
 
 ./contrib/debian/rules - [Rules applied by dpkg-buikdpackage.](https://www.debian.org/doc/manuals/maint-guide/dreq.en.html#rules)
 
-./contrib/debian/watch - [Used by ](https://www.debian.org/doc/manuals/maint-guide/dother.en.html#watch)[*usca*n](https://www.debian.org/doc/manuals/maint-guide/dother.en.html#watch)[ to monitor where the source was obtained.](https://www.debian.org/doc/manuals/maint-guide/dother.en.html#watch) Seems to use a qa.debian.org redirector.
+./contrib/debian/watch - [Used by *uscan* to monitor where the source was obtained.](https://www.debian.org/doc/manuals/maint-guide/dother.en.html#watch) Seems to use a qa.debian.org redirector.
 
 **./contrib/debian/examples** - Related to Debian packaging. Contains examples for PPA users. *Will not discuss individual files.*
 
@@ -158,7 +158,7 @@
 
 ./contrib/devtools/security-check.py - Confirms that certain security features (e.g., [PIE](https://en.wikipedia.org/wiki/Position-independent_code#PIE), [NX](https://en.wikipedia.org/wiki/NX_bit), [RELRO](http://tk-blog.blogspot.com/2009/02/relro-not-so-well-known-memory.html), and [canaries](https://en.wikipedia.org/wiki/Stack_buffer_overflow#Stack_canaries)) are used for a given binary. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6854)
 
-./contrib/devtools/symbol-check.py - [Makes sure a Linux binary has only ](https://github.com/bitcoin/bitcoin/pull/4089)[gcc, glibc, and libstdc++ version symbols](https://github.com/bitcoin/bitcoin/pull/4089), thereby maintaining compatibility with minimum supported Linux distro versions.
+./contrib/devtools/symbol-check.py - [Makes sure a Linux binary has only gcc, glibc, and libstdc++ version symbols](https://github.com/bitcoin/bitcoin/pull/4089), thereby maintaining compatibility with minimum supported Linux distro versions.
 
 ./contrib/devtools/test-security-check.py - Compiles a simple program in C and confirms that the binary has the security features tested in ./contrib/devtools/security-check.py. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6854)
 
@@ -180,7 +180,7 @@
 
 **./contrib/gitian-downloader** - PGP keys for people who post verifications of Gitian builds. *Will not discuss list individual files.*
 
-**./contrib/init** - [Sample init scripts and service configuration for ](https://github.com/bitcoin/bitcoin/pull/4611)[*bitcoin*d](https://github.com/bitcoin/bitcoin/pull/4611)[.](https://github.com/bitcoin/bitcoin/pull/4611) Used to assist packagers in creating node packages.
+**./contrib/init** - Sample init scripts and service configuration for *bitcoind*. [Used to assist packagers in creating node packages](https://github.com/bitcoin/bitcoin/pull/4611).
 
 ./contrib/init/bitcoind.conf - *Upstart* service configuration file.
 
@@ -198,21 +198,21 @@
 
 **./contrib/linearize** - [Construct a linear, no-fork, best version of the blockchain.](https://github.com/bitcoin/bitcoin/commit/701f6c35bc493739eb0acc97da828c992772cbeb)
 
-./contrib/linearize/example-linearize.cfg - Example of a config to use for both steps. No specific directions for config development seem to exist.
+./contrib/linearize/example-linearize.cfg - Example of a config to use for both linearization steps. No specific directions for config development seem to exist.
 
-./contrib/linearize/linearize-data.py - [Step 2.](https://github.com/bitcoin/bitcoin/pull/4757)
+./contrib/linearize/linearize-data.py - [Step 2 in linearization.](https://github.com/bitcoin/bitcoin/pull/4757)
 
-./contrib/linearize/linearize-hashes.py - [Step 1.](https://github.com/bitcoin/bitcoin/pull/4757)
+./contrib/linearize/linearize-hashes.py - [Step 1 in linearization.](https://github.com/bitcoin/bitcoin/pull/4757)
 
 ./contrib/linearize/README.md - Explains how to use everything.
 
-**./contrib/macdeploy** - [Used to create a .dmg package for Bitcoin Core.](https://github.com/bitcoin/bitcoin/commit/6eaa1b36fcf5a3b28c2440a3cf8ab4780f1afef9) [Uses a detached signature repo so that anybody can grab the appropriate sigs.](https://github.com/bitcoin/bitcoin/pull/6269) (Cory Fields/"theuni” is the only person who can actually generate the sigs, which he then uploads to the sig repo.) Used to make Core compatible with Apple’s "Gatekeeper” scheme. *Graphics files have been removed.*
+**./contrib/macdeploy** - [Used to create a .dmg package for Bitcoin Core.](https://github.com/bitcoin/bitcoin/commit/6eaa1b36fcf5a3b28c2440a3cf8ab4780f1afef9) [Uses a detached signature repo so that anybody can grab the appropriate sigs.](https://github.com/bitcoin/bitcoin/pull/6269) (Cory Fields/"theuni" is the only person who can actually generate the sigs, which he then uploads to the [sig repo](https://github.com/bitcoin/bitcoin-detached-sigs).) Used to make Core compatible with Apple’s "Gatekeeper" scheme. *Graphics files have been removed.*
 
 ./contrib/macdeploy/custom_dsstore.py - Creates a custom .DS_Store file added to DMG files that deploy Bitcoin Core software to end users. (The file allows for background images and other features.) *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7192)*.
 
 ./contrib/macdeploy/detached-sig-apply.sh - Applies a detached signature from a repo and attached the signature to an unsigned OS X build to create a signed build. ./contrib/gitian-descriptors/gitian-osx-signer.yml contains a usage example.
 
-./contrib/macdeploy/detached-sig-create.sh - Creates a detached signature of an OS X build that can then be uploaded to a repo for downloading and attachment via the ./contrib/macdeploy/detached-sig-apply.sh script that [basically uses ](http://blog.erickdransch.com/2012/02/signing-mac-builds/)[*codesig*n](http://blog.erickdransch.com/2012/02/signing-mac-builds/)[ to create a detached signature covering Core’s entire .app directory](http://blog.erickdransch.com/2012/02/signing-mac-builds/). To be used only by somebody with the Apple-supplied signing key.
+./contrib/macdeploy/detached-sig-create.sh - Creates a detached signature of an OS X build that can then be uploaded to a repo for downloading and attachment via the ./contrib/macdeploy/detached-sig-apply.sh script that [basically uses *codesign* to create a detached signature covering Core’s entire .app directory](http://blog.erickdransch.com/2012/02/signing-mac-builds/). To be used only by somebody with the Apple-supplied signing key.
 
 ./contrib/macdeploy/DS_Store - Apple-specific binary file. [Used for packaging purposes.](https://github.com/bitcoin/bitcoin/pull/3885)
 
@@ -266,9 +266,9 @@
 
 ./contrib/verify-commits/allow-revsig-commits - Whitelisted commits signed by a revoked key. [*Added in 0.1*2](https://github.com/bitcoin/bitcoin/pull/6875)*.*
 
-./contrib/verify-commits/gpg.sh - The "gpg.program" Git variable is set to this script, which will [act as a ](https://git-scm.com/docs/git-config)[*GnuP*G](https://git-scm.com/docs/git-config)[ substitute](https://git-scm.com/docs/git-config). Used instead of *GnuPG* to do the actual signature verification.
+./contrib/verify-commits/gpg.sh - The "gpg.program" Git variable is set to this script, which will [act as a *GnuPG* substitute](https://git-scm.com/docs/git-config). Used instead of *GnuPG* to do the actual signature verification.
 
-./contrib/verify-commits/pre-push-hook.sh - [If copied to .git/hooks/pre-push (and BASH is installed), this script prevents the pushing of unsigned commits to ](https://github.com/bitcoin/bitcoin/pull/5149#issuecomment-67726007)[*maste*r](https://github.com/bitcoin/bitcoin/pull/5149#issuecomment-67726007)[ on bitcoin/bitcoin.](https://github.com/bitcoin/bitcoin/pull/5149#issuecomment-67726007) Git info [here.](https://git-scm.com/docs/githooks)
+./contrib/verify-commits/pre-push-hook.sh - [If copied to .git/hooks/pre-push (and BASH is installed)](https://github.com/bitcoin/bitcoin/pull/5149#issuecomment-67726007), this script prevents the pushing of unsigned commits to *master* on bitcoin/bitcoin. Git info [here](https://git-scm.com/docs/githooks).
 
 ./contrib/verify-commits/trusted-git-root - The point at which the commit tree stops looking to confirm that the code is accurate. Everything before this commit is assumed to be safe.
 
@@ -290,11 +290,11 @@
 
 ./depends/.gitignore - Lists files for Git to ignore.
 
-./depends/config.guess - [Used by ](http://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/html_node/Specifying-Target-Triplets.html)[*Autocon*f](http://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/html_node/Specifying-Target-Triplets.html)[ to guess a canonical system name.](http://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/html_node/Specifying-Target-Triplets.html)
+./depends/config.guess - [Used by *Autoconf* to guess a canonical system name.](http://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/html_node/Specifying-Target-Triplets.html)
 
 ./depends/config.site.in - Defines some variables. ./depends/Makefile processes the file and uses it to output ./share/config.site, which causes the build to [override some build settings on the building machine.](http://www.gnu.org/software/automake/manual/html_node/config_002esite.html#config_002esite)
 
-./depends/config.sub - [Used by ](http://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/html_node/Specifying-Target-Triplets.html)[*Autocon*f](http://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/html_node/Specifying-Target-Triplets.html)[ to convert system aliases into full canonical names.](http://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/html_node/Specifying-Target-Triplets.html)
+./depends/config.sub - [Used by *Autoconf* to convert system aliases into full canonical names.](http://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/html_node/Specifying-Target-Triplets.html)
 
 ./depends/description.md - General description of the depends system. Some high-level technical details of the depends setup.
 
@@ -492,7 +492,7 @@
 
 **./qa/pull-tester** - A set of tools that can be used to kick off tests related to RPC functionality.
 
-./qa/pull-tester/rpc-tests.py - Primary script that kicks off one or more tests found in ./qa/rpc-tests. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6616)
+./qa/pull-tester/rpc-tests.py - Primary script that kicks off one or more tests found in ./qa/rpc-tests. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/6616).
 
 ./qa/pull-tester/run-bitcoind-for-test.sh.in - Runs an instance of *bitcoind* in regtest mode. AC_CONFIG_FILES() (./configure.ac) processes the file and outputs it as ./qa/pull-tester/run-bitcoind-for-test.sh, which does the actual running of *bitcoind*. See ./Makefile.am for examples of how to run the script. Requires [Cory Fields's bitcoind-comparisontool](https://github.com/theuni/bitcoind-comparisontool), which is a snapshot of *bitcoindcomparisontool* from the *bitcoinj* Java library at certain times. The Java tools run the same tests using *bitcoinj* and compare the results with those from the original *bitcoind* binary run. Can be run with or without "expensive" reorg tests. Look [here](https://github.com/TheBlueMatt/test-scripts) for a (poorly documented) example of how the *bitcoindcomparisontool* code can be used.
 
@@ -544,11 +544,11 @@
 
 ./qa/rpc-tests/maxuploadtarget.py - Confirms that Core will work properly with the -maxuploadtarget option.
 
-./qa/rpc-tests/mempool_limit.py - [Confirms that Core will work properly with the -maxmempool option.](https://github.com/bitcoin/bitcoin/pull/7153)
+./qa/rpc-tests/mempool_limit.py - [Confirms that Core will work properly with the -maxmempool option](https://github.com/bitcoin/bitcoin/pull/7153).
 
-./qa/rpc-tests/mempool_packages.py - [Tests the ](https://github.com/bitcoin/bitcoin/pull/6654#issuecomment-141692820)[*descendantcoun*t](https://github.com/bitcoin/bitcoin/pull/6654#issuecomment-141692820)[, ](https://github.com/bitcoin/bitcoin/pull/6654#issuecomment-141692820)[*descendantsiz*e](https://github.com/bitcoin/bitcoin/pull/6654#issuecomment-141692820)[, and ](https://github.com/bitcoin/bitcoin/pull/6654#issuecomment-141692820)[*descendantfee*s](https://github.com/bitcoin/bitcoin/pull/6654#issuecomment-141692820)[ values from the ](https://github.com/bitcoin/bitcoin/pull/6654#issuecomment-141692820)[*getrawmempoo*l](https://github.com/bitcoin/bitcoin/pull/6654#issuecomment-141692820)[ RPC functionality.](https://github.com/bitcoin/bitcoin/pull/6654#issuecomment-141692820)
+./qa/rpc-tests/mempool_packages.py - [Tests the *descendantcount*, *descendantsize*, and *descendantfees* values from the *getrawmempool* RPC functionality.](https://github.com/bitcoin/bitcoin/pull/6654#issuecomment-141692820)
 
-./qa/rpc-tests/mempool_reorg.py - [Tests the ](https://github.com/bitcoin/bitcoin/pull/5267)[*invalidatebloc*k](https://github.com/bitcoin/bitcoin/pull/5267)[ RPC functionality.](https://github.com/bitcoin/bitcoin/pull/5267) In particular, it makes sure that coins that were valid due toinvalidated blocks will no longer be valid.
+./qa/rpc-tests/mempool_reorg.py - [Tests the *invalidateblock* RPC functionality.](https://github.com/bitcoin/bitcoin/pull/5267) In particular, it makes sure that coins that were valid due toinvalidated blocks will no longer be valid.
 
 ./qa/rpc-tests/mempool_resurrect_test.py - [Confirms that a Tx in a block that was reorg'ed out is placed back in the mempool.](https://github.com/bitcoin/bitcoin/pull/5369)
 
@@ -558,17 +558,17 @@
 
 ./qa/rpc-tests/multi_rpc.py - Tests to make sure that multiple *rpcuser* entries in bitcoin.conf will be properly handled by Core.
 
-./qa/rpc-tests/nodehandling.py - [Tests the ](https://github.com/bitcoin/bitcoin/pull/6158)[*setba*n](https://github.com/bitcoin/bitcoin/pull/6158)[, ](https://github.com/bitcoin/bitcoin/pull/6158)[*listbanne*d](https://github.com/bitcoin/bitcoin/pull/6158)[, and ](https://github.com/bitcoin/bitcoin/pull/6158)[*disconnectnod*e](https://github.com/bitcoin/bitcoin/pull/6158)[ RPC functionality.](https://github.com/bitcoin/bitcoin/pull/6158)
+./qa/rpc-tests/nodehandling.py - [Tests the *setban*, *listbanned*, and *disconnectnode* RPC functionality.](https://github.com/bitcoin/bitcoin/pull/6158)
 
-./qa/rpc-tests/p2p-acceptblock.py - [Tests ](https://github.com/bitcoin/bitcoin/pull/5875)[*AcceptBloc*k](https://github.com/bitcoin/bitcoin/pull/5875)[() functionality from ./src/main.cpp](https://github.com/bitcoin/bitcoin/pull/5875), which is basically how unrequested blocks are handled.
+./qa/rpc-tests/p2p-acceptblock.py - [Tests *AcceptBlock* functionality from ./src/main.cpp](https://github.com/bitcoin/bitcoin/pull/5875), which is basically how unrequested blocks are handled.
 
 ./qa/rpc-tests/p2p-fullblocktest.py - A partial port of [FullBlockTestGenerator.java](https://github.com/TheBlueMatt/test-scripts/blob/master/FullBlockTestGenerator.java), a file driven by BitcoinJ that generates test blockchains used to test/verify the handling of the blockchain in Core and various alternative implementations (e.g., BitcoinJ and BTCD). [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6523)
 
-./qa/rpc-tests/p2p-versionbits-warning.py - Test for BIP 9 warning logic. *[Added in 0.12.1](https://github.com/bitcoin/bitcoin/pull/7575)*.
+./qa/rpc-tests/p2p-versionbits-warning.py - Test for BIP 9 warning logic. [*Added in 0.12.1*](https://github.com/bitcoin/bitcoin/pull/7575).
 
-./qa/rpc-tests/prioritise_transaction.py - [Tests the ](https://github.com/bitcoin/bitcoin/pull/7147)[*prioritisetransactio*n](https://github.com/bitcoin/bitcoin/pull/7147)[RPC functionality.](https://github.com/bitcoin/bitcoin/pull/7147)
+./qa/rpc-tests/prioritise_transaction.py - [Tests the *prioritisetransaction* RPC functionality.](https://github.com/bitcoin/bitcoin/pull/7147)
 
-./qa/rpc-tests/proxy_test.py - [Various proxy tests for the ](https://github.com/bitcoin/bitcoin/pull/5911)[*prox*y](https://github.com/bitcoin/bitcoin/pull/5911)[, ](https://github.com/bitcoin/bitcoin/pull/5911)[*onio*n](https://github.com/bitcoin/bitcoin/pull/5911)[, and ](https://github.com/bitcoin/bitcoin/pull/5911)[*proxyrandomiz*e](https://github.com/bitcoin/bitcoin/pull/5911)[ CL arguments.](https://github.com/bitcoin/bitcoin/pull/5911)
+./qa/rpc-tests/proxy_test.py - [Various proxy tests for the *proxy*, *onion*, and *proxyrandomize* CL args.](https://github.com/bitcoin/bitcoin/pull/5911)
 
 ./qa/rpc-tests/pruning.py - [Tests block pruning functionality.](https://github.com/bitcoin/bitcoin/pull/5863)
 
@@ -576,7 +576,7 @@
 
 ./qa/rpc-tests/README.md - Explains some the test_framework subdirectory’s contents, along with some of the underlying technical details.
 
-./qa/rpc-tests/receivedby.py - [Tests the ](https://github.com/bitcoin/bitcoin/pull/3960)[*getreceivedbyaddres*s](https://github.com/bitcoin/bitcoin/pull/3960)[ and ](https://github.com/bitcoin/bitcoin/pull/3960)[*listreceivedbyaddres*s](https://github.com/bitcoin/bitcoin/pull/3960)[ functionality.](https://github.com/bitcoin/bitcoin/pull/3960)
+./qa/rpc-tests/receivedby.py - [Tests the *getreceivedbyaddress* and *listreceivedbyaddress*  functionality.](https://github.com/bitcoin/bitcoin/pull/3960)
 
 ./qa/rpc-tests/reindex.py - [Tests reindexing with CheckBlockIndex functionality enabled, all on the CL.](https://github.com/bitcoin/bitcoin/pull/6012)
 
@@ -584,9 +584,9 @@
 
 ./qa/rpc-tests/rpcbind_test.py - [Tests binding of RPC functionality to various interfaces.](https://github.com/bitcoin/bitcoin/pull/3695)
 
-./qa/rpc-tests/sendheaders.py - [Tests the ](https://github.com/bitcoin/bitcoin/pull/7129)[*sendheader*s](https://github.com/bitcoin/bitcoin/pull/7129)[ P2P message.](https://github.com/bitcoin/bitcoin/pull/7129)
+./qa/rpc-tests/sendheaders.py - [Tests the *sendheaders* P2P message.](https://github.com/bitcoin/bitcoin/pull/7129)
 
-./qa/rpc-tests/signrawtransactions.py - [Tests the ](https://github.com/bitcoin/bitcoin/pull/5937)[*signrawtransactio*n](https://github.com/bitcoin/bitcoin/pull/5937)[ RPC functionality.](https://github.com/bitcoin/bitcoin/pull/5937)
+./qa/rpc-tests/signrawtransactions.py - [Tests the *signrawtransaction* RPC functionality.](https://github.com/bitcoin/bitcoin/pull/5937)
 
 ./qa/rpc-tests/smartfees.py - [Tests the fee estimation code.](https://github.com/bitcoin/bitcoin/pull/3959)
 
@@ -598,7 +598,7 @@
 
 ./qa/rpc-tests/walletbackup.py - Tests wallet backup functionality.
 
-./qa/rpc-tests/zapwallettxes.py - [Tests ](https://github.com/bitcoin/bitcoin/pull/5612)[*zapwallettxe*s](https://github.com/bitcoin/bitcoin/pull/5612)[ functionality (CL argument).](https://github.com/bitcoin/bitcoin/pull/5612)
+./qa/rpc-tests/zapwallettxes.py - [Tests *zapwallettxes* functionality (CL arg)](https://github.com/bitcoin/bitcoin/pull/5612).
 
 ./qa/rpc-tests/zmq_test.py - Tests ØMQ RPC functionality.
 
@@ -606,7 +606,7 @@
 
 ./qa/rpc-tests/test_framework/__init__.py - Standard Python package init file.
 
-./qa/rpc-tests/test_framework/authproxy.py - [Enhanced version of ](https://github.com/jgarzik/python-bitcoinrpc/blob/master/bitcoinrpc/authproxy.py)[*ServiceProx*y](https://github.com/jgarzik/python-bitcoinrpc/blob/master/bitcoinrpc/authproxy.py)[ from ](https://github.com/jgarzik/python-bitcoinrpc/blob/master/bitcoinrpc/authproxy.py)[*python-jsonrp*c](https://github.com/jgarzik/python-bitcoinrpc/blob/master/bitcoinrpc/authproxy.py). Used to handle RPC calls and such.
+./qa/rpc-tests/test_framework/authproxy.py - [Enhanced version of *ServiceProxy* from *python-jsonrpc*](https://github.com/jgarzik/python-bitcoinrpc/blob/master/bitcoinrpc/authproxy.py). Used to handle RPC calls and such.
 
 ./qa/rpc-tests/test_framework/bignum.py - Helpers for qa/rpc-tests/test_framework/script.py.
 
@@ -850,7 +850,7 @@
 
 ./src/timedata.h - See the CPP file.
 
-./src/tinyformat.h - [Typesafe drop-in for ](https://github.com/bitcoin/bitcoin/pull/3549)[*sprint*f](https://github.com/bitcoin/bitcoin/pull/3549)[ and logging.](https://github.com/bitcoin/bitcoin/pull/3549)
+./src/tinyformat.h - [Typesafe drop-in for *sprintf* and logging.](https://github.com/bitcoin/bitcoin/pull/3549)
 
 ./src/torcontrol.cpp - Contains functions for enabling and disabling a Tor hidden service. The CPP includes various Tor-related classes used internally. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6639)
 
@@ -924,7 +924,7 @@
 
 ./src/compat/sanity.h - [Tests the environment sanity.](https://github.com/bitcoin/bitcoin/pull/4339)
 
-./src/compat/strnlen.cpp - [Provides ](https://github.com/bitcoin/bitcoin/pull/5340)[*strnle*n](https://github.com/bitcoin/bitcoin/pull/5340)[() if not present on the system.](https://github.com/bitcoin/bitcoin/pull/5340)
+./src/compat/strnlen.cpp - [Provides *strnlen* if not present on the system.](https://github.com/bitcoin/bitcoin/pull/5340)
 
 **./src/config** - ./configure.ac generates ./src/config/bitcoin-config.h dynamically. [AC_CONFIG_HEADERS defines the file, and all the output between AC_INIT and AC_OUTPUT is placed in the file.](https://www.gnu.org/software/autoconf/manual/autoconf-2.69/html_node/Configuration-Headers.html)
 
@@ -1188,7 +1188,7 @@
 
 ./src/qt/transactionview.h - See the CPP file.
 
-./src/qt/utilitydialog.cpp - ["Help message" (HelpMessageDialog) and “Shutdown” (ShutdownWindow) dialog boxes.](https://github.com/bitcoin/bitcoin/pull/3548)
+./src/qt/utilitydialog.cpp - ["Help message" (HelpMessageDialog) and “Shutdown" (ShutdownWindow) dialog boxes.](https://github.com/bitcoin/bitcoin/pull/3548)
 
 ./src/qt/utilitydialog.h - See the CPP file.
 
@@ -1356,7 +1356,7 @@
 
 ./src/test/allocator_tests.cpp - Memory allocation tests. [Has to do with memory "stacking."](https://github.com/bitcoin/bitcoin/pull/1699)
 
-./src/test/arith_uint256_tests.cpp - [uint256 ("opaque" and “arithmetic”) testing.](https://github.com/bitcoin/bitcoin/pull/5490)
+./src/test/arith_uint256_tests.cpp - [uint256 ("opaque" and “arithmetic") testing.](https://github.com/bitcoin/bitcoin/pull/5490)
 
 ./src/test/base32_tests.cpp - Base32 unit tests.
 
@@ -1504,9 +1504,9 @@
 
 ./src/test/data/txcreate2.hex - *bitcoin-tx -create outscript=0:* (i.e., null scriptPubKey) test data used for output comparison. [Used by ./src/test/data/bitcoin-util-test.json.](https://github.com/bitcoin/bitcoin/pull/4909)
 
-./src/test/data/txcreatedata1.hex - [Data for tests regarding data-based outputs (OP_RETURN) from ](https://github.com/bitcoin/bitcoin/pull/6346)[*bitcoin-t*x](https://github.com/bitcoin/bitcoin/pull/6346)[.](https://github.com/bitcoin/bitcoin/pull/6346)
+./src/test/data/txcreatedata1.hex - [Data for tests regarding data-based outputs (OP_RETURN) from *bitcoin-tx*](https://github.com/bitcoin/bitcoin/pull/6346).
 
-./src/test/data/txcreatedata2.hex - [Data for tests regarding data-based outputs (OP_RETURN) from ](https://github.com/bitcoin/bitcoin/pull/6346)[*bitcoin-t*x](https://github.com/bitcoin/bitcoin/pull/6346)[.](https://github.com/bitcoin/bitcoin/pull/6346)
+./src/test/data/txcreatedata2.hex - [Data for tests regarding data-based outputs (OP_RETURN) from *bitcoin-tx*](https://github.com/bitcoin/bitcoin/pull/6346).
 
 ./src/test/data/txcreatesign.hex - *bitcoin-tx -create *loads of flags** input test data. [Used by ./src/test/data/bitcoin-util-test.json](https://github.com/bitcoin/bitcoin/pull/5528), with [a later change to fix some issues](https://github.com/bitcoin/bitcoin/pull/6390).
 
