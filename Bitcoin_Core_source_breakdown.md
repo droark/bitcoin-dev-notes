@@ -66,7 +66,7 @@
 
 **./contrib** - External tools that may be useful but aren’t directly related to Core.
 
-./contrib/bitcoin-qt.pro - [Qt file used by ](http://doc.qt.io/qt-4.8/qmake-project-files.html)[*qmak*e](http://doc.qt.io/qt-4.8/qmake-project-files.html) to help compile Qt-related code for Core.
+./contrib/bitcoin-qt.pro - [Qt file used by *qmake*](http://doc.qt.io/qt-4.8/qmake-project-files.html) to help compile Qt-related code for Core.
 
 ./contrib/bitcoind.bash-completion - [Used to help bash complete *bitcoind* commands](https://github.com/bitcoin/bitcoin/pull/1366)? Looks like it’s activated when doing Debian builds.
 
@@ -86,13 +86,13 @@
 
 ./contrib/debian/bitcoin-qt.protocol - [GNOME/KDE support for the "bitcoin" URI.](https://github.com/bitcoin/bitcoin/pull/593)
 
-./contrib/debian/bitcoin-tx.install - [Used to indicate what to install for ](https://www.debian.org/doc/manuals/maint-guide/dother.en.html#install)[*bitcoin-t*x](https://www.debian.org/doc/manuals/maint-guide/dother.en.html#install)[.](https://www.debian.org/doc/manuals/maint-guide/dother.en.html#install)
+./contrib/debian/bitcoin-tx.install - [Used to indicate what to install for *bitcoin-tx*](https://www.debian.org/doc/manuals/maint-guide/dother.en.html#install).
 
-./contrib/debian/bitcoind.bash-completion - Rule that [installs ./contrib/bitcoind.bash-completion in Debian systems](https://github.com/bitcoin/bitcoin/pull/1366) as part of the Debian build process. [Adds BASH shell completion for ](http://manpages.ubuntu.com/manpages/trusty/man1/dh_bash-completion.1.html)[*bitcoin*d](http://manpages.ubuntu.com/manpages/trusty/man1/dh_bash-completion.1.html)[.](http://manpages.ubuntu.com/manpages/trusty/man1/dh_bash-completion.1.html) [*Added in May 2012*.](https://github.com/bitcoin/bitcoin/pull/1366)
+./contrib/debian/bitcoind.bash-completion - Rule that [installs ./contrib/bitcoind.bash-completion in Debian systems](https://github.com/bitcoin/bitcoin/pull/1366) as part of the Debian build process. [Adds BASH shell completion for [*bitcoind*](http://manpages.ubuntu.com/manpages/trusty/man1/dh_bash-completion.1.html). [*Added in May 2012*.](https://github.com/bitcoin/bitcoin/pull/1366)
 
 ./contrib/debian/bitcoind.examples - Contains a list of places to find examples. [Used by lintian.](https://www.debian.org/doc/manuals/maint-guide/dother.en.html#examples)
 
-./contrib/debian/bitcoind.install - [Used to indicate what to install for ](https://www.debian.org/doc/manuals/maint-guide/dother.en.html#install)[*bitcoin*d](https://www.debian.org/doc/manuals/maint-guide/dother.en.html#install)[.](https://www.debian.org/doc/manuals/maint-guide/dother.en.html#install)
+./contrib/debian/bitcoind.install - [Used to indicate what to install for *bitcoind*](https://www.debian.org/doc/manuals/maint-guide/dother.en.html#install).
 
 ./contrib/debian/bitcoind.lintian-overrides - Manual warning/error overrides for *lintian*.
 
@@ -502,7 +502,7 @@
 
 ./qa/rpc-tests/.gitignore - Files for Git to ignore.
 
-./qa/rpc-tests/bipdersig.py - [Confirms that the BIP 66 soft fork/switchover code works properly.](https://github.com/bitcoin/bitcoin/pull/5713) Uses BitcoinTestFramework.
+./qa/rpc-tests/bipdersig.py - [Confirms that the BIP 66 soft fork/switchover code works properly.](https://github.com/bitcoin/bitcoin/pull/5713) Uses BitcoinTestFramework. [Mike Hearn believes this is incomplete and removed it from Bitcoin XT](https://github.com/bitcoinxt/bitcoinxt/commit/8a4875b9ba9aacbeaead771a4c16ec3747c5a9df).
 
 ./qa/rpc-tests/bipdersig-p2p.py - [Confirms that the BIP 66 soft fork/switchover code works properly in a P2P environment.](https://github.com/bitcoin/bitcoin/pull/5981) Uses *comptool*/ComparisonTestFramework.
 
@@ -1364,11 +1364,11 @@
 
 ./src/test/base64_tests.cpp - Base64 unit tests.
 
-./src/test/bctest.py - [Support code for ](https://github.com/bitcoin/bitcoin/pull/4624)[*bitcoin-t*x](https://github.com/bitcoin/bitcoin/pull/4624)[ binary test.](https://github.com/bitcoin/bitcoin/pull/4624)
+./src/test/bctest.py - [Support code for *bitcoin-tx* binary test.](https://github.com/bitcoin/bitcoin/pull/4624)
 
 ./src/test/bip32_tests.cpp - [Hierarchical deterministic (HD) wallet unit tests.](https://github.com/bitcoin/bitcoin/pull/2829)
 
-./src/test/bitcoin-util-test.py - [Kicks off ](https://github.com/bitcoin/bitcoin/pull/4624)[*bitcoin-t*x](https://github.com/bitcoin/bitcoin/pull/4624)[ binary test.](https://github.com/bitcoin/bitcoin/pull/4624)
+./src/test/bitcoin-util-test.py - [Kicks off *bitcoin-tx* binary test.](https://github.com/bitcoin/bitcoin/pull/4624)
 
 ./src/test/bloom_tests.cpp - [CBloomFilter and CMerkleBlock unit tests.](https://github.com/bitcoin/bitcoin/pull/1795)
 
