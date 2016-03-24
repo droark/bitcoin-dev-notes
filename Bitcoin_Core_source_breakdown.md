@@ -26,7 +26,7 @@
 
 ./README.md - Base README file.
 
-**./.tx** - Transifex (i.e., translation) stuff
+**./.tx** - Transifex (i.e., translation) stuff. Used by Qt.
 
 ./.tx/config - Transifex config file.
 
