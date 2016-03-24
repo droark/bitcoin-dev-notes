@@ -230,9 +230,23 @@
 
 **./contrib/qos** - [Script that can limit bandwidth used by Core.](https://github.com/bitcoin/bitcoin/pull/2728)
 
-./contrib/qos/README.md - Script explaining the code.
+./contrib/qos/README.md - Explains the QOS script.
 
 ./contrib/qos/tc.sh - Script that uses *tc* to limit the bandwidth.
+
+**./contrib/rpm** - Spec files for generating [RPM packages](https://en.wikipedia.org/wiki/RPM_Package_Manager). [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7609).
+
+./contrib/rpm/bitcoin-0.12.0-libressl.patch - Needed only if building 0.12.0 against [*LibreSSL*](http://www.libressl.org/). *Will probably be deleted for the 0.12.1 release*.
+
+./contrib/rpm/bitcoin.fc - RPM file contexts file. [Used by *SELinux*](http://man7.org/linux/man-pages/man8/sepolicy-generate.8.html).
+
+./contrib/rpm/bitcoin.if - RPM interface file. [Used by *SELinux*](http://man7.org/linux/man-pages/man8/sepolicy-generate.8.html).
+
+./contrib/rpm/bitcoin.spec - RPM spec file. [Used by *SELinux*](http://man7.org/linux/man-pages/man8/sepolicy-generate.8.html).
+
+./contrib/rpm/bitcoin.te - RPM type enforcement. [Used by *SELinux*](http://man7.org/linux/man-pages/man8/sepolicy-generate.8.html).
+
+./contrib/rpm/README.md - Notes explaining both the concept and the purpose of some of the files in the subdir.
 
 **./contrib/seeds** - [Generates a list of fixed seed nodes.](https://github.com/bitcoin/bitcoin/commit/9126e08739f5115c3032997cabd23f27037131ef) Nodes are then used to update ./src/chainparamsseeds.h
 
