@@ -988,6 +988,8 @@
 
 **./src/leveldb** - LevelDB code. *Will not list individual files (too many).*
 
+**./src/libbtcnet** - [Customized network code](https://github.com/theuni/libbtcnet) written by Cory Fields/"theuni". *This is a work-in-progress and may not make it into 0.13, or ever be adopted, for that matter.*
+
 **./src/obj-test** - Doesn’t seem to be used anymore.
 
 ./src/obj-test/.gitignore - Files for Git to ignore.
