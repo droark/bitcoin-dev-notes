@@ -544,6 +544,8 @@
 
 ./qa/rpc-tests/httpbasics.py - [Tests HTTP "keep-alive" functionality.](https://github.com/bitcoin/bitcoin/pull/5436)
 
+./qa/rpc-tests/importprunedfunds.py - Tests the *importprunedfunds* and *removeprunedfunds* RPC calls. [*Added in 0.13*.](https://github.com/bitcoin/bitcoin/pull/7558)
+
 ./qa/rpc-tests/invalidateblock.py - Tests the hidden *invalidateblock* RPC function.
 
 ./qa/rpc-tests/invalidblockrequest.py - Tests P2P ability to process valid and invalid blocks received after requesting blocks.
