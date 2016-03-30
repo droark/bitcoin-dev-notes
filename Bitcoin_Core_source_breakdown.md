@@ -520,11 +520,15 @@
 
 ./qa/rpc-tests/bipdersig-p2p.py - [Confirms that the BIP 66 soft fork/switchover code works properly in a P2P environment.](https://github.com/bitcoin/bitcoin/pull/5981) Uses *comptool*/ComparisonTestFramework.
 
+./qa/rpc-tests/bip9-softforks.py - Tests BIP 9 activation logic. [Added in 0.12.1](https://github.com/bitcoin/bitcoin/pull/7648).
+
 ./qa/rpc-tests/bip65-cltv.py - [Confirms that the BIP 65 soft fork/switchover code works properly.](https://github.com/bitcoin/bitcoin/pull/6351) Uses BitcoinTestFramework.
 
 ./qa/rpc-tests/bip65-cltv-p2p.py - [Confirms that the BIP 65 soft fork/switchover code works properly in a P2P environment.](https://github.com/bitcoin/bitcoin/pull/6351) Uses *comptool*/ComparisonTestFramework.
 
 ./qa/rpc-tests/bip68-sequence.py - Tests BIP 68 functionality in the mempool. *[Added in 0.12.1](https://github.com/bitcoin/bitcoin/pull/7184)*.
+
+./qa/rpc-tests/bip68-112-113-p2p.py - Tests the activation logic of BIP 9 (aka "versionbits") and the consensus logic for BIPs 68, 112, and 113, all in a P2P environment. [Added in 0.12.1](https://github.com/bitcoin/bitcoin/pull/7648).
 
 ./qa/rpc-tests/blockchain.py - Tests the *gettxoutsetinfo* RPC functionality.
 
