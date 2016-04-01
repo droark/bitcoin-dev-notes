@@ -1,4 +1,4 @@
-**NB 1**: This document primarily covers Bitcoin Core 0.12, although it is occasionally updated to match the latest ("master") Core code.
+**NB 1**: This document primarily covers Bitcoin Core as it was in 0.11, although it is occasionally updated to match the latest ("master") Core code. Due to refactors and other code changes, it's possible that some of the functionality mentioned in specific entries was right in 0.11 (or whenever the file was introduced) but isn't now. Corrections are welcomed!
 
 **NB 2**: Unless there are special reasons for listing them, graphics files are left out, although the general outline of what resides in a subdirectory will be discussed.
 
@@ -1298,29 +1298,31 @@
 
 ./src/qt/test/uritests.h - See the CPP file.
 
-**./src/rpc** - General RPC functionality. *Moved from ./src to ./src/rpc in 0.13.*
+**./src/rpc** - General RPC functionality. *[Most files moved from ./src to ./src/rpc in 0.13](https://github.com/bitcoin/bitcoin/pull/7348).*
 
-./src/rpc/rpcblockchain.cpp - RPC blockchain command functionality.
+./src/rpc/blockchain.cpp - RPC blockchain command functionality.
 
-./src/rpc/rpcclient.cpp - RPC client functionality.
+./src/rpc/client.cpp - RPC client functionality.
 
-./src/rpc/rpcclient.h - See the CPP file.
+./src/rpc/client.h - See the CPP file.
 
-./src/rpc/rpcmining.cpp - RPC mining command functionality, including *getblocktemplate()*.
+./src/rpc/mining.cpp - RPC mining command functionality, including *getblocktemplate()*.
 
-./src/rpc/rpcmisc.cpp - RPC miscellaneous command functionality.
+./src/rpc/misc.cpp - RPC miscellaneous command functionality.
 
-./src/rpc/rpcnet.cpp - RPC network command functionality.
+./src/rpc/net.cpp - RPC network command functionality.
 
-./src/rpc/rpcprotocol.cpp - RPC protocol commands/enums/etc.
+./src/rpc/protocol.cpp - RPC protocol commands/enums/etc.
 
-./src/rpc/rpcprotocol.h - See the CPP file.
+./src/rpc/protocol.h - See the CPP file.
 
-./src/rpc/rpcrawtransaction.cpp - RPC raw transaction command functionality.
+./src/rpc/rawtransaction.cpp - RPC raw transaction command functionality.
 
-./src/rpc/rpcserver.cpp - RPC server functionality.
+./src/rpc/register.h - Contains prototypes for functions used to register various types of RPC commands. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7766).
 
-./src/rpc/rpcserver.h - See the CPP file.
+./src/rpc/server.cpp - RPC server functionality.
+
+./src/rpc/server.h - See the CPP file.
 
 **./src/script** - Code that handles Bitcoin scripts. [Moved to the current location in Sep. 2014 to make the code more modular.](https://github.com/bitcoin/bitcoin/pull/4754)
 
