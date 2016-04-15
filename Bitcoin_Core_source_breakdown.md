@@ -458,7 +458,7 @@
 
 ./doc/dnsseed-policy.md - [Details regarding DNS seeds.](https://github.com/bitcoin/bitcoin/pull/4566) Explains the rules regarding running a DNS seed. The seed will become a CDNSSeedData entry [as added in ./src/chainparams.cpp](https://github.com/bitcoin/bitcoin/blob/550d4fa7a77c9763d4de9e0c0c48bc2655a65017/src/chainparams.cpp#L97-L102).
 
-./doc/Doxyfile - Doxygen (documentation system) config file.
+./doc/Doxyfile - Doxygen (documentation system) config file. Defines certain variables lused throughout Core related to names (*PACKAGE_NAME*), Core version (*PACKAGE_VERSION*), etc.
 
 ./doc/files.md - Explains which files are made by Core (e.g., blockchain files).
 
@@ -1510,9 +1510,7 @@
 
 ./src/test/data/README.md - Mentions that this is data for various tests.
 
-./src/test/data/script_invalid.json - Invalid scripts. [Used by ./src/tests/script_tests.cpp.](https://github.com/bitcoin/bitcoin/pull/1121)
-
-./src/test/data/script_valid.json - Valid scripts. [Used by ./src/tests/script_tests.cpp.](https://github.com/bitcoin/bitcoin/pull/1121)
+./src/test/data/script_tests.json - Data for valid and invalid scripts. [Used by ./src/tests/script_tests.cpp.](https://github.com/bitcoin/bitcoin/pull/1121)
 
 ./src/test/data/sighash.json - Sighash data. [Used by ./src/tests/sighash_tests.cpp.](https://github.com/bitcoin/bitcoin/pull/3975)
 
