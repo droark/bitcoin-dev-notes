@@ -178,7 +178,7 @@
 
 ./contrib/gitian-descriptors/README.md - Rough instructions explaining how to do Gitian builds.
 
-**./contrib/gitian-downloader** - PGP keys for people who post verifications of Gitian builds. *Will not discuss list individual files.*
+**./contrib/gitian-keys** - PGP keys for people who post verifications of Gitian builds. *Will not discuss list individual files.* [Moved from /.contrib/gitian-downloader in 0.13.0](https://github.com/bitcoin/bitcoin/pull/7870).
 
 **./contrib/init** - Sample init scripts and service configuration for *bitcoind*. [Used to assist packagers in creating node packages](https://github.com/bitcoin/bitcoin/pull/4611).
 
