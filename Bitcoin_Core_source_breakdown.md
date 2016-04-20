@@ -236,7 +236,7 @@
 
 **./contrib/rpm** - Spec files for generating [RPM packages](https://en.wikipedia.org/wiki/RPM_Package_Manager). [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7609).
 
-./contrib/rpm/bitcoin-0.12.0-libressl.patch - Needed only if building 0.12.0 against [*LibreSSL*](http://www.libressl.org/). *Will probably be deleted for the 0.12.1 release*.
+./contrib/rpm/bitcoin-0.12.0-libressl.patch - Needed only if building Core against [*LibreSSL*](http://www.libressl.org/). [*Added in 0.13, although it'll probably be deleted eventually*](https://github.com/bitcoin/bitcoin/pull/7609#discussion-diff-54885829).
 
 ./contrib/rpm/bitcoin.fc - RPM file contexts file. [Used by *SELinux*](http://man7.org/linux/man-pages/man8/sepolicy-generate.8.html).
 
@@ -515,6 +515,8 @@
 **./qa/rpc-tests** - Regression tests to run. [These tests focus on high-level RPC (i.e., external-facing) functionality.](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2014-July/006379.html)
 
 ./qa/rpc-tests/.gitignore - Files for Git to ignore.
+
+./qa/rpc-tests/abandontransaction.py - Tests the *abandontransaction* RPC call. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/7312).
 
 ./qa/rpc-tests/bipdersig.py - [Confirms that the BIP 66 soft fork/switchover code works properly.](https://github.com/bitcoin/bitcoin/pull/5713) Uses BitcoinTestFramework. [Mike Hearn believes this is incomplete and removed it from Bitcoin XT](https://github.com/bitcoinxt/bitcoinxt/commit/8a4875b9ba9aacbeaead771a4c16ec3747c5a9df).
 
@@ -886,6 +888,8 @@
 
 ./src/txmempool.h - See the CPP file. Lots and lots of important comments.
 
+./src/ui_interface.cpp - Contains basic UI initialization error code. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7787).
+
 ./src/ui_interface.h - Contains CClientUIInterface, the class that handles signals for UI communication.
 
 ./src/uint256.cpp - A template class for opaque blobs (base_blob), derived classes for 160-bit and 256-bit data (uint160 and uint256), and functs for handling 256-bit data strings (uint256S).
@@ -916,7 +920,7 @@
 
 ./src/version.h - Various version definitions (Core, P2P, etc.).
 
-./src/versionbits.cpp - Implements BIP 9 versionbits logic. *[Added in 0.12.1](https://github.com/bitcoin/bitcoin/pull/7575)*.
+./src/versionbits.cpp - Implements BIP 9 versionbits logic. [*Added in 0.12.1*](https://github.com/bitcoin/bitcoin/pull/7575).
 
 ./src/versionbits.h - See the CPP file.
 
@@ -1334,6 +1338,10 @@
 
 ./src/script/interpreter.h - See the CPP file. Also includes many script hash & verification flags.
 
+./src/script/ismine.cpp - Helps determine the wallet type and how many keys are in the wallet. [*Moved here from ./src/wallet in 0.13*](https://github.com/bitcoin/bitcoin/pull/7905).
+
+./src/script/ismine.h - See the CPP file. [*Moved here from ./src/wallet in 0.13*](https://github.com/bitcoin/bitcoin/pull/7905).
+
 ./src/script/script.cpp - Covers classes like the serialized script used in Tx inputs & outputs (CScript), and the class that enforces the arithmetic operation semantics of opcodes (CScriptNum).
 
 ./src/script/script.h - See the CPP file. Has the script enums and related script constants.
@@ -1373,8 +1381,6 @@
 ./src/support/allocators/zeroafterfree.h - Safe memory deallocation (zero_after_free_allocator struct).
 
 **./src/test** - [Unit tests for internal (i.e., not outward-facing, like RPC calls) source code.](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2014-July/006379.html) Uses Boost’s test framework. Can be built with *make check* and run with the *test_bitcoin* binary.
-
-./src/test/accounting_tests.cpp - [Wallet accounting entry tests.](https://github.com/bitcoin/bitcoin/pull/1393)
 
 ./src/test/addrman_tests.cpp - Tests for the CAddrMan class. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6720)
 
@@ -1450,8 +1456,6 @@
 
 ./src/test/rpc_tests.cpp - Internal RPC/JSON unit tests.
 
-./src/test/rpc_wallet_tests.cpp - Internal RPC/JSON wallet unit tests.
-
 ./src/test/sanity_tests.cpp - [Compiler sanity check unit tests.](https://github.com/bitcoin/bitcoin/pull/5604)
 
 ./src/test/scriptnum10.h - Class implementing the *ScriptNum* implementation from Core 0.10.0. [Used for comparison purposes.](https://github.com/bitcoin/bitcoin/pull/7095)
@@ -1493,6 +1497,8 @@
 ./src/test/univalue_tests.cpp - [Unit tests for the UniValue class.](https://github.com/bitcoin/bitcoin/pull/4730)
 
 ./src/test/util_tests.cpp - Unit tests for various utility-related files.
+
+./src/test/versionbits_tests.cpp - Tests the BIP 9 deployment logic. [*Added in 0.12.1*](https://github.com/bitcoin/bitcoin/pull/7543).
 
 **./src/test/data** - Data for unit tests. [Data is built into the binary.](https://github.com/bitcoin/bitcoin/pull/2985)
 
@@ -1558,15 +1564,19 @@
 
 ./src/wallet/wallet.h - See the CPP file.
 
-./src/wallet/wallet_ismine.cpp - Helps determine the wallet type and how many keys are in the wallet.
-
-./src/wallet/wallet_ismine.h - See the CPP file.
-
 ./src/wallet/walletdb.cpp - Classes that provide key metadata (CKeyMetadata) and a derived class providing access to the wallet DB (wallet.dat) (CWalletDB).
 
 ./src/wallet/walletdb.h - See the CPP file.
 
 **./src/wallet/test** - Test code for the wallet.
+
+./src/wallet/test/accounting_tests.cpp - [Wallet accounting entry tests](https://github.com/bitcoin/bitcoin/pull/1393). [*Moved here from ./src/test in 0.13*](https://github.com/bitcoin/bitcoin/pull/7905).
+
+./src/wallet/test/rpc_wallet_tests.cpp - Internal RPC/JSON wallet unit tests. [*Moved here from ./src/test in 0.13*](https://github.com/bitcoin/bitcoin/pull/7905).
+
+./src/wallet/test/wallet_test_fixture.cpp - Does some wallet test setup. Forces the wallet to use its own test fixtures, and not those for the rest of Core. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7905).
+
+./src/wallet/test/wallet_test_fixture.h - See the CPP file.
 
 ./src/wallet/test/wallet_tests.cpp - Test code for the wallet.
 
