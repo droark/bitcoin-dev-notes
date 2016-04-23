@@ -806,11 +806,13 @@
 
 ./src/Makefile.bench.include - Makefile include file for the *bench_bitcoin* binary.
 
-./src/Makefile.qt.include - Some Makefile materials related to the ./src/qt subdirectory.
+./src/Makefile.leveldb.include - Makefile include file for the *LevelDB* library in ./src/leveldb. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7911).
 
-./src/Makefile.qttest.include - ./src/qt/test subdirectory.
+./src/Makefile.qt.include - Makefile include file for the ./src/qt subdirectory.
 
-./src/Makefile.test.include - ./src/test subdirectory.
+./src/Makefile.qttest.include - Makefile include file for the ./src/qt/test subdirectory.
+
+./src/Makefile.test.include - Makefile include file for the ./src/test subdirectory.
 
 ./src/memusage.h - Some tools to track basic memory usage.
 
