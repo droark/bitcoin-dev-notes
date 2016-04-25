@@ -290,11 +290,11 @@
 
 ./contrib/verify-commits/verify-commits.sh - Called by ./contrib/verify-commits/pre-push-hook.sh. Verifies that the commits before the current one have been properly signed, and that the commit about to be pushed has been signed by an accepted key.
 
-**./contrib/verifysfbinaries** - [Script that verifies binaries downloaded from bitcoin.org.](https://github.com/bitcoin/bitcoin/pull/1935)
+**./contrib/verifybinaries** - [Script that verifies binaries downloaded from bitcoin.org](https://github.com/bitcoin/bitcoin/pull/1935). [*Moved from ./contrib/verifysfbinaries in 0.13*](https://github.com/bitcoin/bitcoin/pull/7881).
 
-./contrib/verifysfbinaries/README.md - Basically explains what’s going on.
+./contrib/verifybinaries/README.md - Basically explains what’s going on.
 
-./contrib/verifysfbinaries/verify.sh - The verification script!
+./contrib/verifybinaries/verify.sh - The verification script.
 
 **./contrib/zmq** - Support for ØMQ (ZeroMQ), an asynchronous messaging library. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6103)
 
