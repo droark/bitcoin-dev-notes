@@ -426,6 +426,9 @@
 
 ./depends/patches/native_cdrkit/cdrkit-deterministic.patch - [Makes *cdrkit* deterministic](https://github.com/bitcoin/bitcoin/pull/4592).
 
+**./depends/patches/native_mac_alias** - Alias (Python) patches. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7920).
+./depends/patches/native_mac_alias/python3.patch - Makes *Alias* Python3 compatible.
+
 **./depends/patches/qt** - Qt 5 patches.
 
 ./depends/patches/qt/fix-xcb-include-order.patch - Fixes various compile errors for *libxcb*.
