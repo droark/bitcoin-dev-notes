@@ -54,6 +54,8 @@
 
 ./build-aux/m4/ax_check_preproc_flag.m4 - Checks whether a given flag works with a language’s preprocessor.
 
+./build-aux/m4/ax_cxx_compile_stdcxx.m4 - Checks whether C++11 or C++14 (Core uses C++11) code can be compiled on a given system. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7165).
+
 ./build-aux/m4/ax_gcc_func_attribute.m4 - Checks whether the compiler supports a given GCC function attribute (e.g., "dllimport" or "warn_unused_result").
 
 ./build-aux/m4/ax_pthread.m4 - Determines if pthreads are supported and does some setup work.
