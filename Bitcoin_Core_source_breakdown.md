@@ -429,6 +429,7 @@
 ./depends/patches/native_cdrkit/cdrkit-deterministic.patch - [Makes *cdrkit* deterministic](https://github.com/bitcoin/bitcoin/pull/4592).
 
 **./depends/patches/native_mac_alias** - Alias (Python) patches. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7920).
+
 ./depends/patches/native_mac_alias/python3.patch - Makes *Alias* Python3 compatible.
 
 **./depends/patches/qt** - Qt 5 patches.
@@ -509,7 +510,7 @@
 
 ./qa/README.md - Explains how to run tests.
 
-**./qa/pull-tester** - A set of tools that can be used to kick off tests related to RPC functionality.
+**./qa/pull-tester** - A set of tools that can be used to kick off Python-based tests, primarily based on Core's RPC functionality but including other test types based on external functionality.
 
 ./qa/pull-tester/rpc-tests.py - Primary script that kicks off one or more tests found in ./qa/rpc-tests. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/6616).
 
@@ -517,7 +518,7 @@
 
 ./qa/pull-tester/tests_config.py.in - Sets, via AC_CONFIG_FILES() wizardry, some variables to be used in ./qa/pull-tester/rpc-tests.py. Examples include enabling ØMQ tests.
 
-**./qa/rpc-tests** - Regression tests to run. [These tests focus on high-level RPC (i.e., external-facing) functionality.](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2014-July/006379.html)
+**./qa/rpc-tests** - Regression tests to run. [These tests focus on high-level external-facing functionality](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2014-July/006379.html), mostly related to RPC calls, but the tests also includes other test types (e.g., block serialization and various protocols).
 
 ./qa/rpc-tests/.gitignore - Files for Git to ignore.
 
