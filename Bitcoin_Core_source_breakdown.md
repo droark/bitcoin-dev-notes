@@ -540,6 +540,8 @@
 
 ./qa/rpc-tests/blockchain.py - Tests the *gettxoutsetinfo* RPC functionality.
 
+./qa/rpc-tests/create_cache.py - Helper code that initializes the blockchain cache used by the QA tests. [*Assists with parallelized RPC tests, and added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7972).
+
 ./qa/rpc-tests/decodescript.py - Tests the *decodescript* RPC functionality.
 
 ./qa/rpc-tests/disablewallet.py - Confirms that Core will work properly with the -disablewallet option.
@@ -615,6 +617,8 @@
 ./qa/rpc-tests/rpcbind_test.py - [Tests binding of RPC functionality to various interfaces.](https://github.com/bitcoin/bitcoin/pull/3695)
 
 ./qa/rpc-tests/sendheaders.py - [Tests the *sendheaders* P2P message.](https://github.com/bitcoin/bitcoin/pull/7129)
+
+./qa/rpc-tests/signmessages.py - Tests signatures and verifications using the *signmessagewithprivkey* RPC call. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7953).
 
 ./qa/rpc-tests/signrawtransactions.py - [Tests the *signrawtransaction* RPC functionality.](https://github.com/bitcoin/bitcoin/pull/5937)
 
@@ -730,7 +734,7 @@
 
 ./src/bloom.h - See the CPP file.
 
-./src/chain.cpp - Covers critical blockchain classes, on-disk and off-disk. There’s the on-disk block position (CDiskBlockPos - *struct*), an entry (final or potential) in the blockchain (CBlockIndex), an on-disk blockchain entry (CDiskBlockIndex), and an in-memory indexed blockchain (CChain). CBlockIndex is [consensus-critical](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2015-September/011161.html). [Moved out of main.cpp & main.h in Sep. 2014.](https://github.com/bitcoin/bitcoin/pull/4796)
+./src/chain.cpp - Covers critical blockchain classes, on-disk and off-disk. There’s the on-disk block position (CDiskBlockPos - *struct*), an entry (final or potential) in the blockchain (CBlockIndex), an on-disk blockchain entry (CDiskBlockIndex), block file info (CBlockFileInfo - [*moved from ./src/main.h in 0.13](https://github.com/bitcoin/bitcoin/pull/7815)) and an in-memory indexed blockchain (CChain). CBlockIndex is [consensus-critical](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2015-September/011161.html). [Moved out of main.cpp & main.h in Sep. 2014.](https://github.com/bitcoin/bitcoin/pull/4796)
 
 ./src/chain.h - See the CPP file.
 
@@ -804,7 +808,7 @@
 
 ./src/limitedmap.h - STL-like map container class that only keeps the N elements with the highest value (limitedmap).
 
-./src/main.cpp - Loads of critical functionality. Examples include script op count functions (GetP2SHSigOpCount & the like), checking inputs (CheckInputs), applying Tx effects to the UTXO (UpdateCoins), validity checks (CheckTransaction), consensus-critical functions telling if a Tx is final at a given time/location (IsFinalTx) or in the next block (CheckFinalTx), etc. Also includes the CScriptCheck, CBlockFileInfo, and CVerifyDB classes.
+./src/main.cpp - Loads of critical functionality. Examples include script op count functions (GetP2SHSigOpCount & the like), checking inputs (CheckInputs), applying Tx effects to the UTXO (UpdateCoins), validity checks (CheckTransaction), consensus-critical functions telling if a Tx is final at a given time/location (IsFinalTx) or in the next block (CheckFinalTx), etc. Also includes the CScriptCheck, and CVerifyDB classes.
 
 ./src/main.h - See the CPP file. Includes loads of important definitions.
 
@@ -888,7 +892,7 @@
 
 ./src/torcontrol.h - See the CPP file.
 
-./src/txdb.cpp - Tx DB, which is chainstate/ (coin DB) + CCoinsView (CCoinsViewDB). Includes related #defs and such.
+./src/txdb.cpp - Tx DB, which is chainstate/ (coin DB) + CCoinsView (CCoinsViewDB). Includes related #defs and such, such as the transaction position in a block file (CDiskTxPos - [*moved from ./src/main.h in 0.13](https://github.com/bitcoin/bitcoin/pull/7815)).
 
 ./src/txdb.h - See the CPP file.
 
@@ -942,7 +946,11 @@
 
 ./src/bench/bench_bitcoin.cpp - Code that kicks off the *bench_bitcoin* binary.
 
+./src/bench/crypto_hash.cpp - Code that benchmarks various crypto hashing algorithms used by Core. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8039).
+
 ./src/bench/Examples.cpp - Examples of how to apply the benchmark code.
+
+./src/bench/rollingbloom.cpp - Code that benchmarks rolling bloom filters. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7934).
 
 **./src/compat** - Added to allow Core binaries to be compiled on older computers. *glibc* & *libstdc++*, when compiled into Core on newer machines, will have symbols that are undefined when dynamically linked on older machines. This code can be compiled in to define the newer stuff while allowing dynamic linking for *glibc* & *libstdc++*. [Added in Apr. 2014.](https://github.com/bitcoin/bitcoin/pull/4042) Also general compatibility code.
 
