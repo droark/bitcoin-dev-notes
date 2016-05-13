@@ -540,7 +540,7 @@
 
 ./qa/rpc-tests/blockchain.py - Tests the *gettxoutsetinfo* RPC functionality.
 
-./qa/rpc-tests/create_cache.py - Helper code that initializes the blockchain cache used by the QA tests. [*Assists with parallelized RPC tests, and added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7972).
+./qa/rpc-tests/create_cache.py - Helper code that initializes the blockchain cache used by the QA tests. It's meant to be called before any tests are run so that the blockchain is cached by [the *initialize_chain* call in *BitcoinTestFramework* (the parent of *CreateCache*)](https://www.botbot.me/freenode/bitcoin-core-dev/2016-05-12/?msg=65947836&page=3). [*Assists with parallelized RPC tests, and added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7972).
 
 ./qa/rpc-tests/decodescript.py - Tests the *decodescript* RPC functionality.
 
