@@ -1456,6 +1456,8 @@
 
 ./src/test/multisig_tests.cpp - Various multisig-related unit tests.
 
+./src/test/net_tests.cpp - Used to test CAddrDB and ensure that CAddrMan objects aren't corrupted. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7696).
+
 ./src/test/netbase_tests.cpp - Some unit tests for basic network functionality (netbase).
 
 ./src/test/pmt_tests.cpp - [CPartialMerkleTree (Bloom filter) unit tests.](https://github.com/bitcoin/bitcoin/pull/1795)
