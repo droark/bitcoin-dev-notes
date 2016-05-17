@@ -698,7 +698,7 @@
 
 ./src/.clang-format - Sets the rules for *clang-format*, a program that formats C/C++/ObjC code. [Added in Aug. 2014.](https://github.com/bitcoin/bitcoin/pull/4498)
 
-./src/addrman.cpp - Stochastic address manager (CAddrMan) and CAddress stats (CAddrInfo).
+./src/addrman.cpp - [Stochastic address manager](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2012-January/001100.html) (CAddrMan) and CAddress stats (CAddrInfo). [*Added in 0.6*](https://github.com/bitcoin/bitcoin/pull/787).
 
 ./src/addrman.h - See the CPP file.
 
