@@ -598,6 +598,8 @@
 
 ./qa/rpc-tests/p2p-fullblocktest.py - A partial port of [FullBlockTestGenerator.java](https://github.com/TheBlueMatt/test-scripts/blob/master/FullBlockTestGenerator.java), a file driven by BitcoinJ that generates test blockchains used to test/verify the handling of the blockchain in Core and various alternative implementations (e.g., BitcoinJ and BTCD). [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6523)
 
+./qa/rpc-tests/p2p-mempool.py - Test for *mempool* RPC command, in conjunction with disabled bloom filters. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8078).
+
 ./qa/rpc-tests/p2p-versionbits-warning.py - Test for BIP 9 warning logic. [*Added in 0.12.1*](https://github.com/bitcoin/bitcoin/pull/7575).
 
 ./qa/rpc-tests/prioritise_transaction.py - [Tests the *prioritisetransaction* RPC functionality.](https://github.com/bitcoin/bitcoin/pull/7147)
