@@ -646,7 +646,7 @@
 
 ./qa/rpc-tests/test_framework/authproxy.py - [Enhanced version of *ServiceProxy* from *python-jsonrpc*](https://github.com/jgarzik/python-bitcoinrpc/blob/master/bitcoinrpc/authproxy.py). Used to handle RPC calls and such.
 
-./qa/rpc-tests/test_framework/bignum.py - Helpers for qa/rpc-tests/test_framework/script.py.
+./qa/rpc-tests/test_framework/bignum.py - Helpers for ./qa/rpc-tests/test_framework/script.py.
 
 ./qa/rpc-tests/test_framework/blockstore.py - Helper that implements disk-based block & Tx storage. Useful for replying to *getheaders* & *getdata*, and constructing a *getheaders* message.
 
@@ -721,6 +721,8 @@
 ./src/base58.cpp - Base58 support code, including CBitcoinAddress and CSecret, along with a derived (from CBase58Data) external class (CBitcoinExtKey) that, when typedef’d, is used for external, Base58-encoded private (CBitcoinExtKeyBase) and public (CBitcoinExtPubKeyBase) keys.
 
 ./src/base58.h - See the CPP file.
+
+./src/bignum.h - C++ wrapper around OpenSSL's BIGNUM class (CBigNum). Was used when Core had OpenSSL dependencies in things like the scripting system. [*Moved to ./src/test/bignum.h in 0.11*](https://github.com/bitcoin/bitcoin/pull/4160) because only ./src/test/scriptnum_tests.cpp still required the CBigNum class.
 
 ./src/bitcoin-cli.cpp - Binary used to communicate with / send commands to *bitcoind*.
 
@@ -1442,6 +1444,8 @@
 
 ./src/test/bctest.py - [Support code for *bitcoin-tx* binary test.](https://github.com/bitcoin/bitcoin/pull/4624)
 
+./src/test/bignum.h - See the ./src/bignum.h entry. [*Removed in 0.12*](https://github.com/bitcoin/bitcoin/pull/7095) and replaced with ./src/test/scriptnum10.h.
+
 ./src/test/bip32_tests.cpp - [Hierarchical deterministic (HD) wallet unit tests.](https://github.com/bitcoin/bitcoin/pull/2829)
 
 ./src/test/bitcoin-util-test.py - [Kicks off *bitcoin-tx* binary test.](https://github.com/bitcoin/bitcoin/pull/4624)
@@ -1502,7 +1506,7 @@
 
 ./src/test/sanity_tests.cpp - [Compiler sanity check unit tests.](https://github.com/bitcoin/bitcoin/pull/5604)
 
-./src/test/scriptnum10.h - Class implementing the *ScriptNum* implementation from Core 0.10.0. [Used for comparison purposes.](https://github.com/bitcoin/bitcoin/pull/7095)
+./src/test/scriptnum10.h - Class implementing the CScriptNum implementation from Core 0.10.0 (CScriptNum10), which itself was a replacement for the CBigNum class (i.e., a class with an OpenSSL dependency). [Used for comparison purposes and the removal of another OpenSSL dependency in the test code](https://github.com/bitcoin/bitcoin/pull/7086). [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/7095).
 
 ./src/test/scheduler_tests.cpp - [CScheduler unit tests.](https://github.com/bitcoin/bitcoin/pull/5964)
 
@@ -1510,7 +1514,7 @@
 
 ./src/test/script_tests.cpp - Unit tests for general script validity.
 
-./src/test/scriptnum_tests.cpp - [CScriptNum unit tests.](https://github.com/bitcoin/bitcoin/pull/3965)
+./src/test/scriptnum_tests.cpp - CScriptNum unit tests. Added to ensure that CScriptNum continued to function properly after the scripting system removed its OpenSSL dependency. [*Added in 0.10*](https://github.com/bitcoin/bitcoin/pull/3965).
 
 ./src/test/serialize_tests.cpp - [CVarInt unit tests.](https://github.com/bitcoin/bitcoin/pull/1677)
 
