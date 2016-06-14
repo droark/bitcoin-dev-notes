@@ -160,6 +160,8 @@
 
 ./contrib/devtools/security-check.py - Confirms that certain security features (e.g., [PIE](https://en.wikipedia.org/wiki/Position-independent_code#PIE), [NX](https://en.wikipedia.org/wiki/NX_bit), [RELRO](http://tk-blog.blogspot.com/2009/02/relro-not-so-well-known-memory.html), and [canaries](https://en.wikipedia.org/wiki/Stack_buffer_overflow#Stack_canaries)) are used for a given binary. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6854)
 
+./contrib/devtools/split-debug.sh.in - Splits the debug information from a built binary and places it in a separate file. [Used to keep debugging info handy if a stripped binary needs to be debugged](https://sourceware.org/gdb/onlinedocs/gdb/Separate-Debug-Files.html). AC_CONFIG_FILES() (./configure.ac) processes the file and outputs it as ./contrib/devtools/split-debug.sh, which does the actual splitting. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8188).
+
 ./contrib/devtools/symbol-check.py - [Makes sure a Linux binary has only gcc, glibc, and libstdc++ version symbols](https://github.com/bitcoin/bitcoin/pull/4089), thereby maintaining compatibility with minimum supported Linux distro versions.
 
 ./contrib/devtools/test-security-check.py - Compiles a simple program in C and confirms that the binary has the security features tested in ./contrib/devtools/security-check.py. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6854)
