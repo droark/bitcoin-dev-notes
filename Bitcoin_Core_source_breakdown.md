@@ -20,7 +20,7 @@
 
 ./INSTALL - Just points you to doc/build-*.md for build instructions.
 
-./libbitcoinconsensus.pc.in - [Used for pkgconfig support.](https://github.com/bitcoin/bitcoin/commit/eef747bba81e66b2d551a3670a659bbe9dd4a8ce)
+./libbitcoinconsensus.pc.in - [Used for *pkg-config* support](https://github.com/bitcoin/bitcoin/pull/5334). *pkg-config* allows developers to create .pc files that go alongside libraries (*libbitcoinconsensus* in this case, which is intended to eventually become a standalone library with all the consensus-critical code, separate from the rest of Core). If other programs intend to use the library, the .pc file allows the programs to know which libraries also need to be compiled if the programs are going to use the library in question.
 
 ./Makefile.am - *automake* input file. It’s basically the recipe used to create the final Makefile. Run as *./Makefile* once *./autogen.sh* and *./configure* have been run.
 
@@ -280,13 +280,15 @@
 
 ./contrib/testgen/README.md - Shows how to run the script but doesn’t explain what it all means.
 
-**./contrib/verify-commits** - [Git tool to verify that every merge commit was signed by a developer using ./contrib/devtools/github-merge.sh.](https://github.com/bitcoin/bitcoin/pull/5149) It’s meant only for those with commit access.
+**./contrib/verify-commits** - [Git tool to verify that every merge commit was signed by a trusted key using ./contrib/devtools/github-merge.sh](https://github.com/bitcoin/bitcoin/pull/5149), along with forcing PGP-signed commits. It’s meant only for those with commit access.
 
 ./contrib/verify-commits/allow-revsig-commits - Whitelisted commits signed by a revoked key. [*Added in 0.1*2](https://github.com/bitcoin/bitcoin/pull/6875)*.*
 
 ./contrib/verify-commits/gpg.sh - The "gpg.program" Git variable is set to this script, which will [act as a *GnuPG* substitute](https://git-scm.com/docs/git-config). Used instead of *GnuPG* to do the actual signature verification.
 
 ./contrib/verify-commits/pre-push-hook.sh - [If copied to .git/hooks/pre-push (and BASH is installed)](https://github.com/bitcoin/bitcoin/pull/5149#issuecomment-67726007), this script prevents the pushing of unsigned commits to *master* on bitcoin/bitcoin. Git info [here](https://git-scm.com/docs/githooks).
+
+./contrib/verify-commits/README.md - README explaining the purpose of the tool and how to use it safely. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7713).
 
 ./contrib/verify-commits/trusted-git-root - The point at which the commit tree stops looking to confirm that the code is accurate. Everything before this commit is assumed to be safe.
 
@@ -437,6 +439,8 @@
 **./depends/patches/qt** - Qt 5 patches.
 
 ./depends/patches/qt/fix-xcb-include-order.patch - Fixes various compile errors for *libxcb*.
+
+./depends/patches/qt/fix_qt_pkgconfig.patch - Mods a [Qt feature file](http://doc.qt.io/qt-5/qmake-project-files.html) such that [*pkg-config*](http://pkg-config.freedesktop.org/) support continues to be enabled. Undoes a Qt [commit](https://github.com/qtproject/qtbase/commit/6c5d227da1709eb81968823f38a133747c0e95b0) that disabled .pc files for Qt frameworks and internal modules. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8210).
 
 ./depends/patches/qt/mac-qmake.conf - *qmake* config variables and such.
 
