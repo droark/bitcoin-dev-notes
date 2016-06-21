@@ -484,7 +484,7 @@
 
 ./doc/README.md - General catch-all / index of sorts.
 
-./doc/README_osx.txt - Details regarding on the deterministic build.
+./doc/README_osx.md - Details regarding on the deterministic build. [*Changed from .txt to .md in 0.13*](https://github.com/bitcoin/bitcoin/pull/8229).
 
 ./doc/README_windows.txt - Vague Windows README. Not much useful info.
 
