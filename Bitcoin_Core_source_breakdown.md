@@ -742,6 +742,10 @@
 
 ./src/bitcoin-tx-res.rc - [Resource definition script for Windows.](https://en.wikipedia.org/wiki/Resource_%28Windows%29) Needed for the *bitcoin-tx* binary.
 
+./src/blockencodings.cpp - Implements multiple classes representing objects from [BIP 152](https://github.com/bitcoin/bips/blob/master/bip-0152.mediawiki) (e.g., BlockTransacions, BlockRequest, CBlockHeadAndShortTxIDs), aka Compact Block Relay. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8068).
+
+./src/blockencodings.h - See the CPP file.
+
 ./src/bloom.cpp - Bloom filter material. Includes bloom filters (CBloomFilter) and "rolling" filters (CRollingBloomFilter), which tracks the last N items you’ve seen if you can tolerate a small number of false positives. [Added in Jan. 2013](https://github.com/bitcoin/bitcoin/pull/1795), with [rolling filters added in May 2015](https://github.com/bitcoin/bitcoin/pull/6064).
 
 ./src/bloom.h - See the CPP file.
@@ -1455,6 +1459,8 @@
 ./src/test/bip32_tests.cpp - [Hierarchical deterministic (HD) wallet unit tests.](https://github.com/bitcoin/bitcoin/pull/2829)
 
 ./src/test/bitcoin-util-test.py - [Kicks off *bitcoin-tx* binary test.](https://github.com/bitcoin/bitcoin/pull/4624)
+
+./src/test/blockencodings_test.cpp - Implements Compact Block Relay tests. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8068).
 
 ./src/test/bloom_tests.cpp - [CBloomFilter and CMerkleBlock unit tests.](https://github.com/bitcoin/bitcoin/pull/1795)
 
