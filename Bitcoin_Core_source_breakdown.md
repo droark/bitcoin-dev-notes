@@ -606,6 +606,8 @@
 
 ./qa/rpc-tests/p2p-mempool.py - Test for *mempool* RPC command, in conjunction with disabled bloom filters. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8078).
 
+./qa/rpc-tests/p2p-segwit.py - Test for external results of Segregated Witness functionality. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8149).
+
 ./qa/rpc-tests/p2p-versionbits-warning.py - Test for BIP 9 warning logic. [*Added in 0.12.1*](https://github.com/bitcoin/bitcoin/pull/7575).
 
 ./qa/rpc-tests/prioritise_transaction.py - [Tests the *prioritisetransaction* RPC functionality.](https://github.com/bitcoin/bitcoin/pull/7147)
@@ -625,6 +627,8 @@
 ./qa/rpc-tests/rest.py - Tests the REST interface functionality.
 
 ./qa/rpc-tests/rpcbind_test.py - [Tests binding of RPC functionality to various interfaces.](https://github.com/bitcoin/bitcoin/pull/3695)
+
+./qa/rpc-tests/segwit.py - Test for various bits of Segregated Witness functionality. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8149).
 
 ./qa/rpc-tests/sendheaders.py - [Tests the *sendheaders* P2P message.](https://github.com/bitcoin/bitcoin/pull/7129)
 
