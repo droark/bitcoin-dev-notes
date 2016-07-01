@@ -838,7 +838,7 @@
 
 ./src/Makefile.bench.include - Makefile include file for the *bench_bitcoin* binary.
 
-./src/Makefile.leveldb.include - Makefile include file for the *LevelDB* library in ./src/leveldb. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7911).
+./src/Makefile.leveldb.include - Makefile include file for the *LevelDB* library in ./src/leveldb. [*Added in 0.12.2*](https://github.com/bitcoin/bitcoin/pull/8148).
 
 ./src/Makefile.qt.include - Makefile include file for the ./src/qt subdirectory.
 
