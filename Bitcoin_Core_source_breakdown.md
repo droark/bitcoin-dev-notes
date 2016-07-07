@@ -1442,7 +1442,7 @@
 
 ./src/test/addrman_tests.cpp - Tests for the CAddrMan class. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6720)
 
-./src/test/alert_tests.cpp - [Alert system (CAlert) unit tests.](https://github.com/bitcoin/bitcoin/pull/1393)
+./src/test/alert_tests.cpp - [Alert system (CAlert) unit tests.](https://github.com/bitcoin/bitcoin/pull/1393) Used to determine if a set of blocks are getting fed to the system too quickly or slowly. [Removed in 0.13](https://github.com/bitcoin/bitcoin/pull/8275).
 
 ./src/test/allocator_tests.cpp - Memory allocation tests. [Has to do with memory "stacking."](https://github.com/bitcoin/bitcoin/pull/1699)
 
