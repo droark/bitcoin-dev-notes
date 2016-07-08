@@ -644,6 +644,8 @@
 
 ./qa/rpc-tests/wallet.py - Various wallet tests.
 
+./qa/rpc-tests/wallet-hd.py - Tests hierarchical deterministic qualities of the Core wallet. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8309).
+
 ./qa/rpc-tests/walletbackup.py - Tests wallet backup functionality.
 
 ./qa/rpc-tests/zapwallettxes.py - [Tests *zapwallettxes* functionality (CL arg)](https://github.com/bitcoin/bitcoin/pull/5612).
