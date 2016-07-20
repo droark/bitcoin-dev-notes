@@ -416,13 +416,9 @@
 
 **./depends/patches** - Patches to be applied to downloaded packages before building the packages. *Nothing in the root directory.*
 
-**./depends/patches/boost** - Boost patches. [*Removed in 0.13*](https://github.com/bitcoin/bitcoin/pull/7616) - Files in the subdirectory will be deleted from this doc eventually.
+**./depends/patches/biplist** - [*biplist*](https://bitbucket.org/wooster/biplist) patches. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8373).
 
-./depends/patches/boost/darwin_boost_atomic-1.patch - Upstream patch.
-
-./depends/patches/boost/darwin_boost_atomic-2.patch - Upstream patch.
-
-./depends/patches/boost/gcc_5_no_cxx11.patch - Turns off C++11 assumptions in Boost code.
+./depends/patches/biplist/sorted_list.patch - Patch that makes the *biplist* output in the .DS_Store file of OSX DMG files deterministic. *Added in 0.13 via a direct commit to the 0.13 branch, and not a pull request. See [here](https://github.com/bitcoin/bitcoin/pull/8373) for the master commit*.
 
 **./depends/patches/libevent** - *libevent* patches.
 
