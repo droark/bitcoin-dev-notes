@@ -678,6 +678,8 @@
 
 ./qa/rpc-tests/test_framework/util.py - Generally useful utilities.
 
+./qa/rpc-tests/test_framework/wallet-dump.py - Tests the *dumpwallet* (and related) RPC functionality. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8417).
+
 **./share** - External materials used by Core one way or another but not part of the source code.
 
 ./share/genbuild.sh - [Used to generate build info (and ./src/build.h).](https://github.com/bitcoin/bitcoin/pull/1054)
