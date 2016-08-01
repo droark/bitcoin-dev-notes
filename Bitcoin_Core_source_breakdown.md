@@ -448,6 +448,14 @@
 
 ./depends/patches/qt46/stlfix.patch - [Fixes compile issue under Qt 4.6.](https://github.com/bitcoin/bitcoin/commit/0b416c6e9c3f9f81bea16168f82af77f4e8724bb)
 
+**./depends/patches/zeromq** - ØMQ patches. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8238).
+
+./depends/patches/zeromq/9114d3957725acd34aa8b8d011585812f3369411.patch - Upstream patch that enables MinGW static linking. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8238).
+
+./depends/patches/zeromq/9e6745c12e0b100cd38acecc16ce7db02905e27c.patch - Upstream patch that fixes an issue with MinGW static linking. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8238).
+
+./depends/patches/qt46/stlfix.patch - [Fixes compile issue under Qt 4.6.](https://github.com/bitcoin/bitcoin/commit/0b416c6e9c3f9f81bea16168f82af77f4e8724bb)
+
 **./doc** - Various documents. *Graphics are not mentioned.*
 
 ./doc/assets-attribution.md - Graphics attributions. Nothing special.
