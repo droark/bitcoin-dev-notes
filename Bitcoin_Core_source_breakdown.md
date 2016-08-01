@@ -382,7 +382,7 @@
 
 ./depends/packages/native_cdrkit.mk - [*cdrkit* toolkit](https://en.wikipedia.org/wiki/Cdrkit) (native). The *genisoimage* tool is used to create DMG files used for Apple builds.
 
-./depends/packages/native_comparisontool.mk - A [snapshot](https://github.com/theuni/bitcoind-comparisontool) of the [*pull-tests*](https://github.com/TheBlueMatt/test-scripts) code that was eventually merged into to the *bitcoinj* library (native). (*bitcoinj* now contains [the latest version](https://github.com/bitcoinj/bitcoinj/blob/master/core/src/test/java/org/bitcoinj/core/BitcoindComparisonTool.java) but this package use the latest version for unknown reasons.]) Can be used with the *--with-comparison-tool* and *--enable-tests* configuration options to set the Java comparison tool required by ./qa/pull-tester/run-bitcoind-for-test.sh.
+./depends/packages/native_comparisontool.mk - A [snapshot](https://github.com/theuni/bitcoind-comparisontool) of the [*pull-tests*](https://github.com/TheBlueMatt/test-scripts) code that was eventually merged into to the *bitcoinj* library (native). (*bitcoinj* now contains [the latest version](https://github.com/bitcoinj/bitcoinj/blob/master/core/src/test/java/org/bitcoinj/core/BitcoindComparisonTool.java) but this package doesn't use the latest version for unknown reasons.) Can be used with the *--with-comparison-tool* and *--enable-tests* configuration options to set the Java comparison tool required by ./qa/pull-tester/run-bitcoind-for-test.sh.
 
 ./depends/packages/native_ds_store.mk - Python [.DS_Store](https://en.wikipedia.org/wiki/.DS_Store) read/write library (native). Used for the OS X build. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7192)*.
 
