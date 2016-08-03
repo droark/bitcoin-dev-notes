@@ -344,7 +344,7 @@
 
 ./depends/hosts/mingw32.mk - Overriding Windows (MinGW) build variable values.
 
-**./depends/packages** - Info on packages to download and compile as Core dependencies. Almost all the packages are actually required only by Qt 4 or 5. Native packages are used to build towards particular platforms and, depending on the build platform, may or may not be required by the building system to generate the final host binary.
+**./depends/packages** - Info on packages to download and compile as Core dependencies. Almost all the packages are actually required only by Qt 4 or 5. Native packages are used to build towards particular host/target platforms when the host requires tools not directly found on the build/host platform, so the build/host platform must use alternate tools.
 
 ./depends/packages/bdb.mk - BerkeleyDB 4.8.
 
