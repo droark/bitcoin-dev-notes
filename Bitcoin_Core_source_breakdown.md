@@ -604,6 +604,8 @@
 
 ./qa/rpc-tests/p2p-acceptblock.py - [Tests *AcceptBlock* functionality from ./src/main.cpp](https://github.com/bitcoin/bitcoin/pull/5875), which is basically how unrequested blocks are handled.
 
+./qa/rpc-tests/p2p-compactblocks.py - Tests various bits of CompactBlock functionality. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8418).
+
 ./qa/rpc-tests/p2p-feefilter.py - Tests the *feefilter* P2P message. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7542).
 
 ./qa/rpc-tests/p2p-fullblocktest.py - A partial port of [FullBlockTestGenerator.java](https://github.com/TheBlueMatt/test-scripts/blob/master/FullBlockTestGenerator.java), a file driven by BitcoinJ that generates test blockchains used to test/verify the handling of the blockchain in Core and various alternative implementations (e.g., BitcoinJ and BTCD). [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6523)
@@ -679,6 +681,8 @@
 ./qa/rpc-tests/test_framework/netutil.py - Generally useful network utilities.
 
 ./qa/rpc-tests/test_framework/script.py - Bitcoin script manipulation utilities.
+
+./qa/rpc-tests/test_framework/siphash.py - [SipHash](https://en.wikipedia.org/wiki/SipHash) test utilities. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8418).
 
 ./qa/rpc-tests/test_framework/socks5.py - Dummy SOCKS5 server.
 
