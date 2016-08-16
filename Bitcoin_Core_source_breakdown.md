@@ -26,6 +26,9 @@
 
 ./README.md - Base README file.
 
+**./.github** - GitHub-specific materials.
+
+./.github/ISSUE_TEMPLATE.md - GitHub [issue template](https://github.com/blog/2111-issue-and-pull-request-templates). [*Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8058).
 **./.tx** - Transifex (i.e., translation) stuff. Used by Qt.
 
 ./.tx/config - Transifex config file.
@@ -872,7 +875,11 @@
 
 ./src/net.h - See the CPP file. Includes loads of value definitions and such.
 
-./src/netbase.cpp - Some basic network items, including IPv4/IPv6 addresses (CNetAddr), subnets (CSubNet), IP address + port (CService), and the proxy type (proxyType).
+./src/netaddr.cpp - The IP address stuff, including IPv4/IPv6 addresses (CNetAddr), subnets (CSubNet) and IP address + port (CService). [*Moved here from ./src/netbase.cpp in 0.14*](https://github.com/bitcoin/bitcoin/pull/8128).
+
+./src/netaddr.h - See the CPP file.
+
+./src/netbase.cpp - Some basic network items, such as the proxy type (proxyType).
 
 ./src/netbase.h - See the CPP file.
 
