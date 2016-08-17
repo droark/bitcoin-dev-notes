@@ -377,7 +377,7 @@
 
 ./depends/packages/miniupnpc.mk - MiniUPnP.
 
-./depends/packages/native_biplist.mk - Python binary property list ([plist](https://en.wikipedia.org/wiki/Property_list)) read/write library (native). Used for the OS X build. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7192)* to make software name consistency easier.
+./depends/packages/native_biplist.mk - Python binary property list ([plist](https://en.wikipedia.org/wiki/Property_list)) read/write library (native). Used for the OS X build. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7192) to make software name consistency easier.
 
 ./depends/packages/native_ccache.mk - [C/C++ compiler cache](https://ccache.samba.org/) (native).
 
@@ -385,13 +385,13 @@
 
 ./depends/packages/native_cdrkit.mk - [*cdrkit* toolkit](https://en.wikipedia.org/wiki/Cdrkit) (native). The *genisoimage* tool is used to create DMG files used for Apple builds.
 
-./depends/packages/native_comparisontool.mk - A [snapshot](https://github.com/theuni/bitcoind-comparisontool) of the [*pull-tests*](https://github.com/TheBlueMatt/test-scripts) code that was eventually merged into to the *bitcoinj* library (native). (*bitcoinj* now contains [the latest version](https://github.com/bitcoinj/bitcoinj/blob/master/core/src/test/java/org/bitcoinj/core/BitcoindComparisonTool.java) but this package doesn't use the latest version for unknown reasons.) Can be used with the *--with-comparison-tool* and *--enable-tests* configuration options to set the Java comparison tool required by ./qa/pull-tester/run-bitcoind-for-test.sh.
+./depends/packages/native_comparisontool.mk - A [snapshot](https://github.com/theuni/bitcoind-comparisontool) of the [*pull-tests*](https://github.com/TheBlueMatt/test-scripts) code that was eventually merged into to the *bitcoinj* library (native). (*bitcoinj* now contains [the latest version](https://github.com/bitcoinj/bitcoinj/blob/master/core/src/test/java/org/bitcoinj/core/BitcoindComparisonTool.java) but this package doesn't use the latest version for unknown reasons.) Can be used with the *--with-comparison-tool* and *--enable-tests* configuration options to set the Java comparison tool required by ./qa/pull-tester/run-bitcoind-for-test.sh. [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/8504) when support for the Java comparison tool was removed.
 
-./depends/packages/native_ds_store.mk - Python [.DS_Store](https://en.wikipedia.org/wiki/.DS_Store) read/write library (native). Used for the OS X build. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7192)*.
+./depends/packages/native_ds_store.mk - Python [.DS_Store](https://en.wikipedia.org/wiki/.DS_Store) read/write library (native). Used for the OS X build. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7192).
 
 ./depends/packages/native_libdmg-hfsplus.mk - HFS+/DMG manipulation libraries (native). The *dmg* tool is used to compress DMG files used for OS X builds.
 
-./depends/packages/native_mac_alias.mk - Python [Alias](https://en.wikipedia.org/wiki/Alias_%28Mac_OS%29) read/write library (native). Used for the OS X build. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7192)*.
+./depends/packages/native_mac_alias.mk - Python [Alias](https://en.wikipedia.org/wiki/Alias_%28Mac_OS%29) read/write library (native). Used for the OS X build. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7192).
 
 ./depends/packages/native_protobuf.mk - [Protocol Buffers](https://en.wikipedia.org/wiki/Protocol_Buffers) library (native). Used by Qt as part of BIP 70 support.
 
@@ -419,7 +419,7 @@
 
 **./depends/patches** - Patches to be applied to downloaded packages before building the packages. *Nothing in the root directory.*
 
-**./depends/patches/biplist** - [*biplist*](https://bitbucket.org/wooster/biplist) patches. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8373).
+**./depends/patches/biplist** - [*biplist*](https://bitbucket.org/wooster/biplist) patches. *Added in 0.13 via a direct commit to the 0.13 branch, and not a pull request. See [here](https://github.com/bitcoin/bitcoin/pull/8373) for the master commit*.
 
 ./depends/patches/biplist/sorted_list.patch - Patch that makes the *biplist* output in the .DS_Store file of OSX DMG files deterministic. *Added in 0.13 via a direct commit to the 0.13 branch, and not a pull request. See [here](https://github.com/bitcoin/bitcoin/pull/8373) for the master commit*.
 
