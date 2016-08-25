@@ -653,6 +653,8 @@
 
 ./qa/rpc-tests/wallet.py - Various wallet tests.
 
+./qa/rpc-tests/wallet-account.py - Various RPC/JSON wallet unit tests. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8450) to replace ./src/wallet/test/rpc_wallet_tests.cpp.
+
 ./qa/rpc-tests/wallet-hd.py - Tests hierarchical deterministic qualities of the Core wallet. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8309).
 
 ./qa/rpc-tests/walletbackup.py - Tests wallet backup functionality.
@@ -1661,7 +1663,7 @@
 
 ./src/wallet/tests/crypto_tests.cpp - Various tests for the CTAES code. Ensures functionality matches OpenSSL, and that failures occur exactly like failures in OpenSSL. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7689) as a replacement for OpenSSL-dependent functionality.
 
-./src/wallet/test/rpc_wallet_tests.cpp - Internal RPC/JSON wallet unit tests. [*Moved here from ./src/test in 0.13*](https://github.com/bitcoin/bitcoin/pull/7905).
+./src/wallet/test/rpc_wallet_tests.cpp - Internal RPC/JSON wallet unit tests. [*Moved here from ./src/test in 0.13*](https://github.com/bitcoin/bitcoin/pull/7905) and [*replaced with ./qa/rpc-tests/wallet-accounts.py in 0.14*](https://github.com/bitcoin/bitcoin/pull/8450).
 
 ./src/wallet/test/wallet_test_fixture.cpp - Does some wallet test setup. Forces the wallet to use its own test fixtures, and not those for the rest of Core. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7905).
 
