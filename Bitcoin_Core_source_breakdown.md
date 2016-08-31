@@ -75,6 +75,8 @@
 
 ./contrib/bitcoind.bash-completion - [Used to help bash complete *bitcoind* commands](https://github.com/bitcoin/bitcoin/pull/1366)? Looks like it’s activated when doing Debian builds.
 
+./contrib/gitian-build.sh - Script that simplifies the process of creating a Gitian build. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8566).
+
 ./contrib/qt_translations.py - [Helps OS X include the correct translations](https://github.com/bitcoin/bitcoin/commit/6be6be2ed9d5d4b9dc1657d434a7fed3b3935f6f). Apparently no longer used.
 
 ./contrib/README.md - Briefly explains many things in the subdirs.
@@ -222,6 +224,8 @@
 ./contrib/macdeploy/detached-sig-create.sh - Creates a detached signature of an OS X build that can then be uploaded to a repo for downloading and attachment via the ./contrib/macdeploy/detached-sig-apply.sh script that [basically uses *codesign* to create a detached signature covering Core’s entire .app directory](http://blog.erickdransch.com/2012/02/signing-mac-builds/). To be used only by somebody with the Apple-supplied signing key.
 
 ./contrib/macdeploy/DS_Store - Apple-specific binary file. [Used for packaging purposes.](https://github.com/bitcoin/bitcoin/pull/3885)
+
+./contrib/macdeploy/extract-osx-sdk.sh - Shell script used to extract the OS X SDK from [*Xcode*](https://en.wikipedia.org/wiki/Xcode). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8617).
 
 ./contrib/macdeploy/fancy.plist - Used to generate a "fancy" DMG disk image (i.e., the screen that allows the user, when a DMG file is double-clicked, to install Core).
 
