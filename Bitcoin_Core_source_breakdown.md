@@ -409,7 +409,7 @@
 
 ./depends/packages/qt.mk - Qt 5 variables.
 
-./depends/packages/qt46.mk - Qt 4.6 variables.
+./depends/packages/qt46.mk - Qt 4.6 variables. [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/8640), although support for Qt4 was removed in an earlier version (0.13?).
 
 ./depends/packages/xcb_proto.mk - [XML-XCB protocol description bindings](https://xcb.freedesktop.org/XmlXcb/).
 
