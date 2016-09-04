@@ -665,7 +665,7 @@
 
 ./qa/rpc-tests/zmq_test.py - Tests ØMQ RPC functionality.
 
-**./qa/rpc-tests/test_framework** - Test support tools.
+**./qa/rpc-tests/test_framework** - Non-test classes. [*Added in 0.11*](https://github.com/bitcoin/bitcoin/pull/6097).
 
 ./qa/rpc-tests/test_framework/__init__.py - Standard Python package init file.
 
