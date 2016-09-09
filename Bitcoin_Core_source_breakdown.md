@@ -67,7 +67,9 @@
 
 ./build-aux/m4/bitcoin_qt.m4 - Checks if Qt dependencies are met. [Came about to help make Qt 5 detection more sane](https://github.com/bitcoin/bitcoin/pull/3346).
 
-./build-aux/m4/bitcoin_subdir_to_include.m4 - I believe this is [used only to indicate the location of BerkeleyDB 4.8 #include files](https://github.com/bitcoin/bitcoin/pull/2979).
+./build-aux/m4/bitcoin_subdir_to_include.m4 - Used to [indicate the location of BerkeleyDB 4.8 #include files](https://github.com/bitcoin/bitcoin/pull/2979).
+
+./build-aux/m4/l_atomic.m4 - Checks if *libatomic* is available for std::atomic operations. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8563).
 
 **./contrib** - External tools that may be useful but aren’t directly related to Core.
 
@@ -730,6 +732,10 @@
 **./src** - The subdirectory with all the Core-specific code.
 
 ./src/.clang-format - Sets the rules for *clang-format*, a program that formats C/C++/ObjC code. [Added in Aug. 2014.](https://github.com/bitcoin/bitcoin/pull/4498)
+
+./src/addrdb.cpp - Includes code for the classes allowing access to peers.dat (the IP address DB) (CAddrDB) and banlist.dat (the banned node DB) (CBanDB), along with ban list entries (CBanEntry). [*Moved from ./src/net.cpp in 0.14*](https://github.com/bitcoin/bitcoin/pull/8085).
+
+./src/addrdb.h - See the CPP file.
 
 ./src/addrman.cpp - [Stochastic address manager](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2012-January/001100.html) (CAddrMan) and CAddress stats (CAddrInfo). [*Added in 0.6*](https://github.com/bitcoin/bitcoin/pull/787).
 
