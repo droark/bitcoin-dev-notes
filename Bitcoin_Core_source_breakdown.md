@@ -149,13 +149,15 @@
 
 **./contrib/devtools** - Specific tools for devs working on the Core repo.
 
-./contrib/devtools/check-doc.py - Checks if all command line args are documented. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7280)*.
+./contrib/devtools/check-doc.py - Checks if all command line args are documented. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7280).
 
 ./contrib/devtools/clang-format.py - Sets the rules for *clang-format*, a program that formats C/C++/ObjC code. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6790)
 
 ./contrib/devtools/clang-format-diff.py - [Formats unified Git diffs according to ./src/.clang-format](http://clang.llvm.org/docs/ClangFormat.html). [Taken from the upstream LLVM repo](https://llvm.org/svn/llvm-project/cfe/trunk/tools/clang-format/clang-format-diff.py). [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7304).
 
 ./contrib/devtools/fix-copyright-headers.py - Script that does a mass copyright year update.
+
+./contrib/devtools/gen-manpages.sh - A script that's used to generate man pages (located at ./doc/man). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8608)
 
 ./contrib/devtools/github-merge.sh - [Used to merge PRs securely and to sign the merge commits.](https://github.com/bitcoin/bitcoin/pull/3302) Used only by those with commit access to the Core repo.
 
@@ -522,6 +524,18 @@
 ./doc/zmq.md - Details regarding using ØMQ.
 
 **./doc/gitian-building** - Graphics used in Gitian guide. *Will not list the files.*
+
+**./doc/man** - *man* pages that, as of 0.14, are installed by default when running *make install* during the build process.
+
+./doc/man/bitcoin-cli.1 - The *man* page for the *bitcoin-cli* binary. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8608)
+
+./doc/man/bitcoin-qt.1 - The *man* page for the *bitcoin-qt* binary. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8608)
+
+./doc/man/bitcoin-tx.1 - The *man* page for the *bitcoin-tx* binary. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8608)
+
+./doc/man/bitcoind.1 - The *man* page for the *bitcoind* binary. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8608)
+
+./doc/man/Makefile.am - The Makefile that's used to instal the *man* pages. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8608)
 
 **./doc/release-notes** - Release note archive. *Will not list the files.*
 
