@@ -1395,6 +1395,10 @@
 
 ./src/qt/test/paymentservertests.h - See the CPP file.
 
+./src/qt/test/rpcnestedtests.cpp - Tests the ability of the RPC console to support nested commands and simple value queries. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/7783).
+
+./src/qt/test/rpcnestedtests.h - See the CPP file.
+
 ./src/qt/test/test_main.cpp - [Bitcoin Core (GUI) test suite kickoff file.](https://github.com/bitcoin/bitcoin/pull/807)
 
 ./src/qt/test/uritests.cpp - [Bitcoin URI test code.](https://github.com/bitcoin/bitcoin/pull/987)
