@@ -79,7 +79,7 @@
 
 ./contrib/gitian-build.sh - Script that simplifies the process of creating a Gitian build. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8566).
 
-./contrib/qt_translations.py - [Helps OS X include the correct translations](https://github.com/bitcoin/bitcoin/commit/6be6be2ed9d5d4b9dc1657d434a7fed3b3935f6f). Apparently no longer used.
+./contrib/qt_translations.py - [Helped OS X include the correct translations](https://github.com/bitcoin/bitcoin/commit/6be6be2ed9d5d4b9dc1657d434a7fed3b3935f6f). [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/8781).
 
 ./contrib/README.md - Briefly explains many things in the subdirs.
 
@@ -93,9 +93,13 @@
 
 ./contrib/debian/bitcoin-qt.lintian-overrides - [Manual warning/error overrides for *lintian*, the program that inspects Debian packages.](http://man.he.net/man1/dh_lintian)
 
+./contrib/debian/bitcoin-qt.manpages - *Bitcoin-Qt* manpage. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8743)*.
+
 ./contrib/debian/bitcoin-qt.protocol - [GNOME/KDE support for the "bitcoin" URI.](https://github.com/bitcoin/bitcoin/pull/593)
 
 ./contrib/debian/bitcoin-tx.install - [Used to indicate what to install for *bitcoin-tx*](https://www.debian.org/doc/manuals/maint-guide/dother.en.html#install).
+
+./contrib/debian/bitcoin-tx.manpages - *bitcoin-tx* manpage. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8743)*.
 
 ./contrib/debian/bitcoind.bash-completion - Rule that [installs ./contrib/bitcoind.bash-completion in Debian systems](https://github.com/bitcoin/bitcoin/pull/1366) as part of the Debian build process. [Adds BASH shell completion for [*bitcoind*](http://manpages.ubuntu.com/manpages/trusty/man1/dh_bash-completion.1.html). [*Added in May 2012*.](https://github.com/bitcoin/bitcoin/pull/1366)
 
@@ -127,7 +131,7 @@
 
 ./contrib/debian/examples/bitcoin.conf
 
-**./contrib/debian/manpages** - Related to Debian packaging. Package manpages. *Will not discuss individual files.*
+**./contrib/debian/manpages** - Related to Debian packaging. Package manpages. *Will not discuss individual files.* *[Removed in 0.14](https://github.com/bitcoin/bitcoin/pull/8743)*.
 
 ./contrib/debian/manpages/bitcoin.conf.5
 
@@ -275,7 +279,7 @@
 
 ./contrib/seeds/README.md - Gives a bit of context to the tool.
 
-**./contrib/spendfrom** - [Use the raw transactions API to send coins received on a particular address (or addresses).](https://github.com/bitcoin/bitcoin/pull/2162)
+**./contrib/spendfrom** - [Use the raw transactions API to send coins received on a particular address (or addresses).](https://github.com/bitcoin/bitcoin/pull/2162) [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/8779).
 
 ./contrib/spendfrom/README.md - Explains how to use the script.
 
@@ -623,6 +627,8 @@
 
 ./qa/rpc-tests/nodehandling.py - [Tests the *setban*, *listbanned*, and *disconnectnode* RPC functionality.](https://github.com/bitcoin/bitcoin/pull/6158)
 
+./qa/rpc-tests/nulldummy.py - Tests the P2P functionality with the [NULLDUMMY](https://github.com/bitcoin/bips/blob/master/bip-0147.mediawiki) softfork. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8636).
+
 ./qa/rpc-tests/p2p-acceptblock.py - [Tests *AcceptBlock* functionality from ./src/main.cpp](https://github.com/bitcoin/bitcoin/pull/5875), which is basically how unrequested blocks are handled.
 
 ./qa/rpc-tests/p2p-compactblocks.py - Tests various bits of CompactBlock functionality. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8418).
@@ -737,7 +743,7 @@
 
 ./share/qt/Info.plist.in - OS X bundle kickoff file. Processed by AC_CONFIG_FILES() to generate ./share/qt/Info.plist, which is included in the root of the OS X build.
 
-./share/qt/protobuf.pri - *qmake* file integrating Payment Protocol (BIP 70) with *protoc*. [Requires OpenSSL & Qt.](https://github.com/bitcoin/bitcoin/pull/2539)
+./share/qt/protobuf.pri - *qmake* file integrating Payment Protocol (BIP 70) with *protoc*. [Required OpenSSL & Qt.](https://github.com/bitcoin/bitcoin/pull/2539). [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/8783).
 
 **./share/rpcuser** - Helps create multi-user RPC login credentials. *[Added in 0.12](https://github.com/bitcoin/bitcoin/pull/7044)*.
 
@@ -1204,6 +1210,8 @@
 ./src/qt/macnotificationhandler.mm - OS X-specific notification handler (MacNotificationHandler).
 
 ./src/qt/Makefile - Kicks off Bitcoin Core (GUI) builds in the parent directory.
+
+./src/qt/modaloverlay.cpp - Implements the *ModalOverlay* class, which enables modal overlays. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8371)*
 
 ./src/qt/networkstyle.cpp - [Coin network-specific (e.g., testnet) style info for GUIs (Networkstyle).](https://github.com/bitcoin/bitcoin/pull/4802)
 
