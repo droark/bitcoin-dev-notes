@@ -69,7 +69,7 @@
 
 ./build-aux/m4/bitcoin_subdir_to_include.m4 - Used to [indicate the location of BerkeleyDB 4.8 #include files](https://github.com/bitcoin/bitcoin/pull/2979).
 
-./build-aux/m4/l_atomic.m4 - Checks if *libatomic* is available for std::atomic operations. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8563).
+./build-aux/m4/l_atomic.m4 - Checks if *libatomic* is available for std::atomic operations. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8563).
 
 **./contrib** - External tools that may be useful but aren’t directly related to Core.
 
@@ -719,7 +719,7 @@
 
 ./qa/rpc-tests/test_framework/util.py - Generally useful utilities.
 
-./qa/rpc-tests/test_framework/wallet-dump.py - Tests the *dumpwallet* (and related) RPC functionality. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8417).
+./qa/rpc-tests/test_framework/wallet-dump.py - Tests the *dumpwallet* (and related) RPC functionality. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8417).
 
 **./share** - External materials used by Core one way or another but not part of the source code.
 
