@@ -627,11 +627,11 @@
 
 ./qa/rpc-tests/nodehandling.py - [Tests the *setban*, *listbanned*, and *disconnectnode* RPC functionality.](https://github.com/bitcoin/bitcoin/pull/6158)
 
-./qa/rpc-tests/nulldummy.py - Tests the P2P functionality with the [NULLDUMMY](https://github.com/bitcoin/bips/blob/master/bip-0147.mediawiki) softfork. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8636).
+./qa/rpc-tests/nulldummy.py - Tests the P2P functionality with the [NULLDUMMY](https://github.com/bitcoin/bips/blob/master/bip-0147.mediawiki) softfork. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8636).
 
 ./qa/rpc-tests/p2p-acceptblock.py - [Tests *AcceptBlock* functionality from ./src/main.cpp](https://github.com/bitcoin/bitcoin/pull/5875), which is basically how unrequested blocks are handled.
 
-./qa/rpc-tests/p2p-compactblocks.py - Tests various bits of CompactBlock functionality. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8418).
+./qa/rpc-tests/p2p-compactblocks.py - Tests various bits of CompactBlock functionality. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8418).
 
 ./qa/rpc-tests/p2p-feefilter.py - Tests the *feefilter* P2P message. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7542).
 
@@ -711,7 +711,7 @@
 
 ./qa/rpc-tests/test_framework/script.py - Bitcoin script manipulation utilities.
 
-./qa/rpc-tests/test_framework/siphash.py - [SipHash](https://en.wikipedia.org/wiki/SipHash) test utilities. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8418).
+./qa/rpc-tests/test_framework/siphash.py - [SipHash](https://en.wikipedia.org/wiki/SipHash) test utilities. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8418).
 
 ./qa/rpc-tests/test_framework/socks5.py - Dummy SOCKS5 server.
 
