@@ -449,6 +449,8 @@
 
 **./depends/patches/qt** - Qt 5 patches.
 
+./depends/patches/qt/configure-xcoderun.patch - Allows *Qt* compilation (using the *depends* system) to occur when using *Xcode 8*. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8820).
+
 ./depends/patches/qt/fix-xcb-include-order.patch - Fixes various compile errors for *libxcb*.
 
 ./depends/patches/qt/fix_qt_pkgconfig.patch - Mods a [Qt feature file](http://doc.qt.io/qt-5/qmake-project-files.html) such that [*pkg-config*](http://pkg-config.freedesktop.org/) support continues to be enabled. Undoes a Qt [commit](https://github.com/qtproject/qtbase/commit/6c5d227da1709eb81968823f38a133747c0e95b0) that disabled .pc files for Qt frameworks and internal modules. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8210).
