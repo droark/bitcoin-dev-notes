@@ -501,7 +501,7 @@
 
 ./doc/init.md - "Sample init scripts and service configuration for bitcoind".
 
-./doc/multiwallet-qt.md - "Multiwallet Qt Development and Integration Strategy". Old.
+./doc/multiwallet-qt.md - "Multiwallet Qt Development and Integration Strategy". *Old document that was [removed in 0.14](https://github.com/bitcoin/bitcoin/pull/8879)*.
 
 ./doc/README.md - General catch-all / index of sorts.
 
@@ -525,7 +525,7 @@
 
 ./doc/translation_strings_policy.md - Details on how the translation system works.
 
-./doc/travis-ci.txt - Details regarding the Travis CI testing system.
+./doc/travis-ci.md - Details regarding the Travis CI testing system. [*Changed from .txt to .md in 0.14*](https://github.com/bitcoin/bitcoin/pull/8879).
 
 ./doc/unit-tests.md - Details regarding running and adding unit tests.
 
