@@ -18,7 +18,7 @@
 
 ./CONTRIBUTING.md - A document explaining some ways in which people can conttribute to the Core project.
 
-./INSTALL - Just points you to doc/build-*.md for build instructions.
+./INSTALL.md - Just points you to doc/build-\*.md for build instructions. [*Changed from ./INSTALL to ./INSTALL.md in 0.14*](https://github.com/bitcoin/bitcoin/pull/8896).
 
 ./libbitcoinconsensus.pc.in - [Used for *pkg-config* support](https://github.com/bitcoin/bitcoin/pull/5334). *pkg-config* allows developers to create .pc files that go alongside libraries (*libbitcoinconsensus* in this case, which is intended to eventually become a standalone library with all the consensus-critical code, separate from the rest of Core). If other programs intend to use the library, the .pc file allows the programs to know which libraries also need to be compiled if the programs are going to use the library in question.
 
@@ -28,7 +28,7 @@
 
 **./.github** - GitHub-specific materials.
 
-./.github/ISSUE_TEMPLATE.md - GitHub [issue template](https://github.com/blog/2111-issue-and-pull-request-templates). [*Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8058).
+./.github/ISSUE_TEMPLATE.md - GitHub [issue template](https://github.com/blog/2111-issue-and-pull-request-templates). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8058).
 **./.tx** - Transifex (i.e., translation) stuff. Used by Qt.
 
 ./.tx/config - Transifex config file.
@@ -99,7 +99,7 @@
 
 ./contrib/debian/bitcoin-tx.install - [Used to indicate what to install for *bitcoin-tx*](https://www.debian.org/doc/manuals/maint-guide/dother.en.html#install).
 
-./contrib/debian/bitcoin-tx.manpages - *bitcoin-tx* manpage. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8743)*.
+./contrib/debian/bitcoin-tx.manpages - *bitcoin-tx* manpage. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8743).
 
 ./contrib/debian/bitcoind.bash-completion - Rule that [installs ./contrib/bitcoind.bash-completion in Debian systems](https://github.com/bitcoin/bitcoin/pull/1366) as part of the Debian build process. [Adds BASH shell completion for [*bitcoind*](http://manpages.ubuntu.com/manpages/trusty/man1/dh_bash-completion.1.html). [*Added in May 2012*.](https://github.com/bitcoin/bitcoin/pull/1366)
 
@@ -131,15 +131,7 @@
 
 ./contrib/debian/examples/bitcoin.conf
 
-**./contrib/debian/manpages** - Related to Debian packaging. Package manpages. *Will not discuss individual files.* *[Removed in 0.14](https://github.com/bitcoin/bitcoin/pull/8743)*.
-
-./contrib/debian/manpages/bitcoin.conf.5
-
-./contrib/debian/manpages/bitcoin-cli.1
-
-./contrib/debian/manpages/bitcoind.1
-
-./contrib/debian/manpages/bitcoin-qt.1
+**./contrib/debian/manpages** - Related to Debian packaging. Package manpages. *Will not discuss individual files.* [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/8743).
 
 **./contrib/debian/patches** - Related to Debian packaging. [Used by packagers who need to patch Core’s upstream code.](http://packaging.ubuntu.com/html/patches-to-packages.html) *Not used for now.*
 
@@ -155,7 +147,7 @@
 
 ./contrib/devtools/check-doc.py - Checks if all command line args are documented. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7280).
 
-./contrib/devtools/clang-format.py - Sets the rules for *clang-format*, a program that formats C/C++/ObjC code. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6790)
+./contrib/devtools/clang-format.py - Sets the rules for *clang-format*, a program that formats C/C++/ObjC code. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/6790).
 
 ./contrib/devtools/clang-format-diff.py - [Formats unified Git diffs according to ./src/.clang-format](http://clang.llvm.org/docs/ClangFormat.html). [Taken from the upstream LLVM repo](https://llvm.org/svn/llvm-project/cfe/trunk/tools/clang-format/clang-format-diff.py). [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7304).
 
@@ -171,7 +163,7 @@
 
 ./contrib/devtools/README.md - Explains everything in the subdir.
 
-./contrib/devtools/security-check.py - Confirms that certain security features (e.g., [PIE](https://en.wikipedia.org/wiki/Position-independent_code#PIE), [NX](https://en.wikipedia.org/wiki/NX_bit), [RELRO](http://tk-blog.blogspot.com/2009/02/relro-not-so-well-known-memory.html), and [canaries](https://en.wikipedia.org/wiki/Stack_buffer_overflow#Stack_canaries)) are used for a given binary. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6854)
+./contrib/devtools/security-check.py - Confirms that certain security features (e.g., [PIE](https://en.wikipedia.org/wiki/Position-independent_code#PIE), [NX](https://en.wikipedia.org/wiki/NX_bit), [RELRO](http://tk-blog.blogspot.com/2009/02/relro-not-so-well-known-memory.html), and [canaries](https://en.wikipedia.org/wiki/Stack_buffer_overflow#Stack_canaries)) are used for a given binary. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/6854).
 
 ./contrib/devtools/split-debug.sh.in - Splits the debug information from a built binary and places it in a separate file. [Used to keep debugging info handy if a stripped binary needs to be debugged](https://sourceware.org/gdb/onlinedocs/gdb/Separate-Debug-Files.html). AC_CONFIG_FILES() (./configure.ac) processes the file and outputs it as ./contrib/devtools/split-debug.sh, which does the actual splitting. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8188).
 
@@ -209,7 +201,7 @@
 
 ./contrib/init/bitcoind.service - *systemd* service unit configuration.
 
-./contrib/init/org.bitcoin.bitcoind.plist - [Launch agent](https://developer.apple.com/library/mac/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html) that OS X can use to launch *bitcoind* at startup. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6621)
+./contrib/init/org.bitcoin.bitcoind.plist - [Launch agent](https://developer.apple.com/library/mac/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html) that OS X can use to launch *bitcoind* at startup. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/6621).
 
 ./contrib/init/README.md - Mostly a short version of doc/init.md.
 
