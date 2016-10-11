@@ -1627,7 +1627,7 @@
 
 ./src/test/data/blanktx.hex - Test data for the *bitcoin-tx* binary test. [Used by ./src/test/data/bitcoin-util-test.json](https://github.com/bitcoin/bitcoin/pull/4624).
 
-./src/test/data/blanktx.json - Test data for the *bitcoin-tx* binary test. Checks the results of creating a blank Tx. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8829).
+./src/test/data/blanktx.json - Test data for the *bitcoin-tx* binary test. Checks the results of creating a blank Tx. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
 
 ./src/test/data/README.md - Mentions that this is data for various tests.
 
@@ -1637,15 +1637,15 @@
 
 ./src/test/data/tt-delin1-out.hex - *bitcoin-tx -delin=1* test data used for output comparison. [Used by ./src/test/data/bitcoin-util-test.json.](https://github.com/bitcoin/bitcoin/pull/4733)
 
-./src/test/data/tt-delin1-out.json - *bitcoin-tx -json -delin=1* test data used for output comparison. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8829).
+./src/test/data/tt-delin1-out.json - *bitcoin-tx -json -delin=1* test data used for output comparison. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
 
 ./src/test/data/tt-delout1-out.hex - *bitcoin-tx -delout=1* test data used for output comparison. [Used by ./src/test/data/bitcoin-util-test.json.](https://github.com/bitcoin/bitcoin/pull/4733)
 
-./src/test/data/tt-delout1-out.json - *bitcoin-tx -json -delout=1* test data used for output comparison. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8829).
+./src/test/data/tt-delout1-out.json - *bitcoin-tx -json -delout=1* test data used for output comparison. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
 
 ./src/test/data/tt-locktime317000-out.hex - *bitcoin-tx -lockout=317000* test data used for output comparison. [Used by ./src/test/data/bitcoin-util-test.json.](https://github.com/bitcoin/bitcoin/pull/4733)
 
-./src/test/data/tt-locktime317000-out.json - *bitcoin-tx -json -lockout=317000* test data used for output comparison. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8829).
+./src/test/data/tt-locktime317000-out.json - *bitcoin-tx -json -lockout=317000* test data used for output comparison. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
 
 ./src/test/data/tx_invalid.json - *bitcoin-tx -delin=1* test data. Consists of invalid, deserialized transactions. [Used by ./src/test/data/bitcoin-util-test.json.](https://github.com/bitcoin/bitcoin/pull/4733)
 
@@ -1655,31 +1655,31 @@
 
 ./src/test/data/txcreate1.hex - *bitcoin-tx -create *loads of flags** input test data. [Used by ./src/test/data/bitcoin-util-test.json.](https://github.com/bitcoin/bitcoin/pull/4733)
 
-./src/test/data/txcreate1.json - *bitcoin-tx -json -create *loads of flags** input test data. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8829).
+./src/test/data/txcreate1.json - *bitcoin-tx -json -create *loads of flags** input test data. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
 
 ./src/test/data/txcreate2.hex - *bitcoin-tx -create outscript=0:* (i.e., null scriptPubKey) test data used for output comparison. [Used by ./src/test/data/bitcoin-util-test.json.](https://github.com/bitcoin/bitcoin/pull/4909)
 
-./src/test/data/txcreate2.json - *bitcoin-tx -json -create outscript=0:* (i.e., null scriptPubKey) test data used for output comparison. Empty when committed. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8829).
+./src/test/data/txcreate2.json - *bitcoin-tx -json -create outscript=0:* (i.e., null scriptPubKey) test data used for output comparison. Empty when committed. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
 
 ./src/test/data/txcreatedata_seq0.hex - Output comparison data for *bitcoin-tx* (RPC) transaction creation. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7957).
 
-./src/test/data/txcreatedata_seq0.json - Output comparison data for *bitcoin-tx* (RPC-JSON) transaction creation. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8829).
+./src/test/data/txcreatedata_seq0.json - Output comparison data for *bitcoin-tx* (RPC-JSON) transaction creation. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
 
 ./src/test/data/txcreatedata_seq1.hex - Output comparison data for *bitcoin-tx* (RPC) transaction creation. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7957).
 
-./src/test/data/txcreatedata_seq1.json - Output comparison data for *bitcoin-tx* (RPC-JSON) transaction creation. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8829).
+./src/test/data/txcreatedata_seq1.json - Output comparison data for *bitcoin-tx* (RPC-JSON) transaction creation. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
 
 ./src/test/data/txcreatedata1.hex - [Data for tests regarding data-based outputs (OP_RETURN) from *bitcoin-tx*](https://github.com/bitcoin/bitcoin/pull/6346).
 
-./src/test/data/txcreatedata1.json - Data for tests regarding data-based outputs (OP_RETURN) from *bitcoin-tx* in JSON mode. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8829).
+./src/test/data/txcreatedata1.json - Data for tests regarding data-based outputs (OP_RETURN) from *bitcoin-tx* in JSON mode. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
 
 ./src/test/data/txcreatedata2.hex - [Data for tests regarding data-based outputs (OP_RETURN) from *bitcoin-tx*](https://github.com/bitcoin/bitcoin/pull/6346).
 
-./src/test/data/txcreatedata2.json - Data for tests regarding data-based outputs (OP_RETURN) from *bitcoin-tx* in JSON mode. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8829).
+./src/test/data/txcreatedata2.json - Data for tests regarding data-based outputs (OP_RETURN) from *bitcoin-tx* in JSON mode. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
 
 ./src/test/data/txcreatesign.hex - *bitcoin-tx -create *loads of flags** input test data. [Used by ./src/test/data/bitcoin-util-test.json](https://github.com/bitcoin/bitcoin/pull/5528), with [a later change to fix some issues](https://github.com/bitcoin/bitcoin/pull/6390).
 
-./src/test/data/txcreatesign.json - *bitcoin-tx -json -create *loads of flags** input test data. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8829).
+./src/test/data/txcreatesign.json - *bitcoin-tx -json -create *loads of flags** input test data. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
 
 **./src/univalue** - Downstream version of the libunivalue library. Objects are used for parsing and encoding JSON data. [Replaced JSON Spirit.](https://github.com/bitcoin/bitcoin/pull/6121) *No files listed. [Consult the project website](https://github.com/jgarzik/univalue)*.
 
