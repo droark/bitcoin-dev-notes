@@ -427,6 +427,10 @@
 
 ./depends/patches/biplist/sorted_list.patch - Patch that makes the *biplist* output in the .DS_Store file of OSX DMG files deterministic. *Added in 0.13 via a direct commit to the 0.13 branch, and not a pull request. See [here](https://github.com/bitcoin/bitcoin/pull/8373) for the master commit*.
 
+**./depends/patches/boost** - [*Boost*](http://www.boost.org/) patches.
+
+./depends/patches/boost/fix-win-wake-from-sleep.patch - Upstream Boost patch that fixes a "wake from sleep" issue on Windows. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8899).
+
 **./depends/patches/libevent** - *libevent* patches.
 
 ./depends/patches/libevent/libevent-2-fixes.patch - Fixes an issue when compiling with *mingw-w64* on Ubuntu 15.10 and beyond. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8730).
@@ -686,6 +690,8 @@
 **./qa/rpc-tests/test_framework** - Non-test classes. [*Added in 0.11*](https://github.com/bitcoin/bitcoin/pull/6097).
 
 ./qa/rpc-tests/test_framework/__init__.py - Standard Python package init file.
+
+./qa/rpc-tests/test_framework/address.py - Encodes and decodes Base58 P2PKH and P2SH addresses. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8499).
 
 ./qa/rpc-tests/test_framework/authproxy.py - [Enhanced version of *ServiceProxy* from *python-jsonrpc*](https://github.com/jgarzik/python-bitcoinrpc/blob/master/bitcoinrpc/authproxy.py). Used to handle RPC calls and such.
 
