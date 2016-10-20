@@ -187,7 +187,7 @@
 
 ./contrib/gitian-descriptors/README.md - Rough instructions explaining how to do Gitian builds.
 
-**./contrib/gitian-keys** - PGP keys for people who post verifications of Gitian builds. *Will not discuss list individual files.* [Moved from /.contrib/gitian-downloader in 0.13.0](https://github.com/bitcoin/bitcoin/pull/7870).
+**./contrib/gitian-keys** - PGP keys for people who post verifications of Gitian builds, along with a README file. [Moved from /.contrib/gitian-downloader in 0.13.0](https://github.com/bitcoin/bitcoin/pull/7870). *Will not discuss list individual files.*
 
 **./contrib/init** - Sample init scripts and service configuration for *bitcoind*. [Used to assist packagers in creating node packages](https://github.com/bitcoin/bitcoin/pull/4611).
 
@@ -595,6 +595,8 @@
 
 ./qa/rpc-tests/httpbasics.py - [Tests HTTP "keep-alive" functionality.](https://github.com/bitcoin/bitcoin/pull/5436)
 
+./qa/rpc-tests/importmulti.py - Tests the *importmulti* RPC functionality. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/7551).
+
 ./qa/rpc-tests/importprunedfunds.py - Tests the *importprunedfunds* and *removeprunedfunds* RPC calls. [*Added in 0.13*.](https://github.com/bitcoin/bitcoin/pull/7558)
 
 ./qa/rpc-tests/invalidateblock.py - Tests the hidden *invalidateblock* RPC function.
@@ -642,6 +644,8 @@
 ./qa/rpc-tests/p2p-segwit.py - Test for external results of Segregated Witness functionality. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8149).
 
 ./qa/rpc-tests/p2p-versionbits-warning.py - Test for BIP 9 warning logic. [*Added in 0.12.1*](https://github.com/bitcoin/bitcoin/pull/7575).
+
+./qa/rpc-tests/preciousblock.py - Tests the *preciousblock* RPC functionality. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/6996).
 
 ./qa/rpc-tests/prioritise_transaction.py - [Tests the *prioritisetransaction* RPC functionality.](https://github.com/bitcoin/bitcoin/pull/7147)
 
@@ -1023,9 +1027,17 @@
 
 ./src/bench/crypto_hash.cpp - Code that benchmarks various crypto hashing algorithms used by Core. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8039).
 
+./src/bench/ccoins_caching.cpp - Code that benchmarks CCoinsDBView caching. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8873).
+
+./src/bench/coin_selection.cpp - Code that benchmarks coin selection code. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8873).
+
 ./src/bench/Examples.cpp - Examples of how to apply the benchmark code.
 
+./src/bench/mempool_eviction.cpp - Code that benchmarks mempool eviction code. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8873).
+
 ./src/bench/rollingbloom.cpp - Code that benchmarks rolling bloom filters. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7934).
+
+./src/bench/verify_script.cpp - Code that benchmarks script verification code. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8873).
 
 **./src/compat** - Added to allow Core binaries to be compiled on older computers. *glibc* & *libstdc++*, when compiled into Core on newer machines, will have symbols that are undefined when dynamically linked on older machines. This code can be compiled in to define the newer stuff while allowing dynamic linking for *glibc* & *libstdc++*. [Added in Apr. 2014.](https://github.com/bitcoin/bitcoin/pull/4042) Also general compatibility code.
 
@@ -1600,6 +1612,8 @@
 ./src/test/test_bitcoin.cpp - Some basic test setup code. Mainly used to configure logging and chain parameters.
 
 ./src/test/test_bitcoin.h - See the CPP file.
+
+./src/test/test_random.h - Adds some tests for the FastRandomContext class, which takes secure random input and then quickly outputs insecure, deterministic data. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8914)*.
 
 ./src/test/testutil.cpp - Returns temporary file paths. To be used in tests only due to unchecked error conditions. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7667)*.
 
