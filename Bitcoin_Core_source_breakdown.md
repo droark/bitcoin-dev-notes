@@ -1705,6 +1705,8 @@
 
 **./src/wallet** - Core’s wallet functionality. Any code here should be used solely by the wallet.
 
+./src/wallet/coincontrol.h - A class (CCoinControl) specifying a set of coins to be used for a given Tx. (This allows the user to control which coins are used.) *[Added to the src subdirectory in 0.8](https://github.com/bitcoin/bitcoin/pull/3253), and [moved to the src/wallet subdirectory in 0.14](https://github.com/bitcoin/bitcoin/pull/8990)*.
+
 ./src/wallet/crypter.cpp - Includes the master key class for a wallet’s private key encryption (CMasterKey), encryption/decryption context class w/ key info (CCrypter), and a keystore keeping the private keys (CCryptoKeyStore).
 
 ./src/wallet/crypter.h - See the CPP file.
