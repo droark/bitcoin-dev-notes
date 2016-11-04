@@ -151,7 +151,9 @@
 
 ./contrib/devtools/clang-format-diff.py - [Formats unified Git diffs according to ./src/.clang-format](http://clang.llvm.org/docs/ClangFormat.html). [Taken from the upstream LLVM repo](https://llvm.org/svn/llvm-project/cfe/trunk/tools/clang-format/clang-format-diff.py). [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7304).
 
-./contrib/devtools/fix-copyright-headers.py - Script that does a mass copyright year update.
+./contrib/devtools/copyright_header.py - Script that does a mass copyright year update. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8674) as a replacement for ./contrib/devtools/fix-copyright-headers.py*.
+
+./contrib/devtools/fix-copyright-headers.py - Script that does a mass copyright year update. *[Removed in 0.14](https://github.com/bitcoin/bitcoin/pull/8674) by ./contrib/devtools/copyright_header.py*.
 
 ./contrib/devtools/gen-manpages.sh - A script that's used to generate man pages (located at ./doc/man). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8608)
 
@@ -289,7 +291,7 @@
 
 **./contrib/verify-commits** - [Git tool to verify that every merge commit was signed by a trusted key using ./contrib/devtools/github-merge.sh](https://github.com/bitcoin/bitcoin/pull/5149), along with forcing PGP-signed commits. It’s meant only for those with commit access.
 
-./contrib/verify-commits/allow-revsig-commits - Whitelisted commits signed by a revoked key. [*Added in 0.1*2](https://github.com/bitcoin/bitcoin/pull/6875)*.*
+./contrib/verify-commits/allow-revsig-commits - Whitelisted commits signed by a revoked key. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/6875).
 
 ./contrib/verify-commits/gpg.sh - The "gpg.program" Git variable is set to this script, which will [act as a *GnuPG* substitute](https://git-scm.com/docs/git-config). Used instead of *GnuPG* to do the actual signature verification.
 
@@ -523,7 +525,7 @@
 
 ./doc/travis-ci.md - Details regarding the Travis CI testing system. [*Changed from .txt to .md in 0.14*](https://github.com/bitcoin/bitcoin/pull/8879).
 
-./doc/unit-tests.md - Details regarding running and adding unit tests.
+./doc/unit-tests.md - Details regarding running and adding unit tests. *[Removed in 0.14](https://github.com/bitcoin/bitcoin/pull/9065) and placed inside ./src/test/README.md*.
 
 ./doc/zmq.md - Details regarding using ØMQ.
 
@@ -889,7 +891,7 @@
 
 ./src/Makefile.bench.include - Makefile include file for the *bench_bitcoin* binary.
 
-./src/Makefile.leveldb.include - Makefile include file for the *LevelDB* library in ./src/leveldb. [*Added in 0.12.2*](https://github.com/bitcoin/bitcoin/pull/8148).
+./src/Makefile.leveldb.include - Makefile include file for the *LevelDB* library in ./src/leveldb. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8148).
 
 ./src/Makefile.qt.include - Makefile include file for the ./src/qt subdirectory.
 
@@ -1032,6 +1034,8 @@
 ./src/bench/coin_selection.cpp - Code that benchmarks coin selection code. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8873).
 
 ./src/bench/Examples.cpp - Examples of how to apply the benchmark code.
+
+./src/bench/lockedpool.cpp - Code that benchmarks the LockedPoolManager. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8753).
 
 ./src/bench/mempool_eviction.cpp - Code that benchmarks mempool eviction code. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8873).
 
@@ -1495,9 +1499,13 @@
 
 ./src/support/cleanse.h - See the CPP file.
 
-./src/support/pagelocker.cpp - [Deals with memory locking.](https://github.com/bitcoin/bitcoin/pull/5952) Includes an OS-dependent memory lock/unlock class (MemoryPageLocker), a thread-safe base class that keeps track of locked (i.e., non-swappable) memory pages (LockedPageManagerBase), and a derived singleton class that tracks locked memory pages for use in std::allocator templates (LockedPageManager).
+./src/support/lockedpool.cpp - Intended as a LockedPageManager replacement (from ./src/support/pagelocker.cpp). Includes LockedPoolManager, a singleton class tracking locked (non-swappable) memory for use in std::allocator templates. There are several support classes: An OS-dependent (de)allocator of locked/pinned memory pages (LockedPageAllocator), a manager of contiguous memory (Arena), and a pool for locked memory chunks (LockedPool). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8753).
 
-./src/support/pagelocker.h - See the CPP file.
+./src/support/lockedpool.h - See the CPP file. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8753).
+
+./src/support/pagelocker.cpp - [Deals with memory locking.](https://github.com/bitcoin/bitcoin/pull/5952) Includes an OS-dependent memory lock/unlock class (MemoryPageLocker), a thread-safe base class that keeps track of locked (i.e., non-swappable) memory pages (LockedPageManagerBase), and a derived singleton class that tracks locked memory pages for use in std::allocator templates (LockedPageManager). [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/8753).
+
+./src/support/pagelocker.h - See the CPP file. [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/8753).
 
 **./src/support/allocators** - Secure memory allocation/deallocation code.
 
@@ -1539,7 +1547,7 @@
 
 ./src/test/checkblock_tests.cpp - Now-obsolete test that [was used](https://github.com/bitcoin/bitcoin/commit/8c222dca4f961ad13ec64d690134a40d09b20813) to confirm that Core would handle 1 MB blocks after the temporary 500 KB soft fork imposed after the Mar. 2013 hard fork. [*Removed in 0.13*](https://github.com/bitcoin/bitcoin/pull/7490).
 
-./src/test/Checkpoints_tests.cpp - A checkpoint-related unit test.
+./src/test/Checkpoints_tests.cpp - A checkpoint-related unit test. *[Removed in 0.14](https://github.com/bitcoin/bitcoin/pull/9053) as part of a larger push to remove checkpoints and replace them with most-work chain metrics*.
 
 ./src/test/coins_tests.cpp - [Tests for CCoinsView and related classes.](https://github.com/bitcoin/bitcoin/pull/4834)
 
