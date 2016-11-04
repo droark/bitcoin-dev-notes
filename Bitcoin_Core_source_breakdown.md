@@ -207,13 +207,15 @@
 
 ./contrib/init/README.md - Mostly a short version of doc/init.md.
 
-**./contrib/linearize** - [Construct a linear, no-fork, best version of the blockchain.](https://github.com/bitcoin/bitcoin/commit/701f6c35bc493739eb0acc97da828c992772cbeb)
+**./contrib/linearize** - Construct a linear, no-fork, best version of the blockchain. Was originally one script, and now split into two scripts. *[Added in 0.9](https://github.com/bitcoin/bitcoin/commit/701f6c35bc493739eb0acc97da828c992772cbeb)*.
 
 ./contrib/linearize/example-linearize.cfg - Example of a config to use for both linearization steps. No specific directions for config development seem to exist.
 
-./contrib/linearize/linearize-data.py - [Step 2 in linearization.](https://github.com/bitcoin/bitcoin/pull/4757)
+./contrib/linearize/linearize.py - The original linearization script. *[Added in 0.9](https://github.com/bitcoin/bitcoin/commit/701f6c35bc493739eb0acc97da828c992772cbeb) under a different name, then [moved to ./contrib/linearize/linearize-hashes.py in 0.10](https://github.com/bitcoin/bitcoin/pull/4757)*.
 
-./contrib/linearize/linearize-hashes.py - [Step 1 in linearization.](https://github.com/bitcoin/bitcoin/pull/4757)
+./contrib/linearize/linearize-data.py - Step 2 in linearization. [*Added in 0.10*](https://github.com/bitcoin/bitcoin/pull/4757).
+
+./contrib/linearize/linearize-hashes.py - Step 1 in linearization. [*Moved from ./contrib/linearize/linearize.py in 0.10*](https://github.com/bitcoin/bitcoin/pull/4757).
 
 ./contrib/linearize/README.md - Explains how to use everything.
 
