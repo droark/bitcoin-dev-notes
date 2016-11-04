@@ -1515,9 +1515,9 @@
 
 **./src/test** - [Unit tests for internal (i.e., not outward-facing, like RPC calls) source code.](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2014-July/006379.html) Uses Boost’s test framework. Can be built with *make check* and run with the *test_bitcoin* binary.
 
-./src/test/addrman_tests.cpp - Tests for the CAddrMan class. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6720)
+./src/test/addrman_tests.cpp - Tests for the CAddrMan class. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/6720).
 
-./src/test/alert_tests.cpp - [Alert system (CAlert) unit tests.](https://github.com/bitcoin/bitcoin/pull/1393) Used to determine if a set of blocks are getting fed to the system too quickly or slowly. [Removed in 0.13](https://github.com/bitcoin/bitcoin/pull/8275).
+./src/test/alert_tests.cpp - [Alert system (CAlert) unit tests.](https://github.com/bitcoin/bitcoin/pull/1393) Used to determine if a set of blocks are getting fed to the system too quickly or slowly. [*Removed in 0.13*](https://github.com/bitcoin/bitcoin/pull/8275).
 
 ./src/test/allocator_tests.cpp - Memory allocation tests. [Has to do with memory "stacking."](https://github.com/bitcoin/bitcoin/pull/1699)
 
@@ -1553,7 +1553,7 @@
 
 ./src/test/compress_tests.cpp - [Tests for amount serializer/deserializer code.](https://github.com/bitcoin/bitcoin/pull/1677)
 
-./src/test/crypto_tests.cpp - SHA (regular & HMAC) and RIPEMD-160 unit tests.
+./src/test/crypto_tests.cpp - SHA (regular and HMAC) and RIPEMD-160 unit tests.
 
 ./src/test/dbwrapper_tests.cpp - Tests for the LevelDB wrappers.
 
