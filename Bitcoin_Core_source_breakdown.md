@@ -213,13 +213,13 @@
 
 ./contrib/linearize/linearize.py - The original linearization script. *[Added in 0.9](https://github.com/bitcoin/bitcoin/commit/701f6c35bc493739eb0acc97da828c992772cbeb) under a different name, then [moved to ./contrib/linearize/linearize-hashes.py in 0.10](https://github.com/bitcoin/bitcoin/pull/4757)*.
 
-./contrib/linearize/linearize-data.py - Step 2 in linearization. [*Added in 0.10*](https://github.com/bitcoin/bitcoin/pull/4757).
+./contrib/linearize/linearize-data.py - Step 2 in linearization. Takes the list of incoming block hashes and generates a full, in-order blockchain in one output file. *[Added in 0.10](https://github.com/bitcoin/bitcoin/pull/4757)*.
 
-./contrib/linearize/linearize-hashes.py - Step 1 in linearization. [*Moved from ./contrib/linearize/linearize.py in 0.10*](https://github.com/bitcoin/bitcoin/pull/4757).
+./contrib/linearize/linearize-hashes.py - Step 1 in linearization. Uses the *getblockhash* RPC call to get all the block hashes from block X to block Y and print them to the command line. *[Moved from ./contrib/linearize/linearize.py in 0.10](https://github.com/bitcoin/bitcoin/pull/4757)*.
 
 ./contrib/linearize/README.md - Explains how to use everything.
 
-**./contrib/macdeploy** - [Used to create a .dmg package for Bitcoin Core.](https://github.com/bitcoin/bitcoin/commit/6eaa1b36fcf5a3b28c2440a3cf8ab4780f1afef9) [Uses a detached signature repo so that anybody can grab the appropriate sigs.](https://github.com/bitcoin/bitcoin/pull/6269) (Cory Fields/"theuni" is the only person who can actually generate the sigs, which he then uploads to the [sig repo](https://github.com/bitcoin/bitcoin-detached-sigs).) Used to make Core compatible with Apple’s "Gatekeeper" scheme. *Graphics files have been removed.*
+**./contrib/macdeploy** - [Used to create a .dmg package for Bitcoin Core.](https://github.com/bitcoin/bitcoin/commit/6eaa1b36fcf5a3b28c2440a3cf8ab4780f1afef9) [Uses a detached signature repo so that anybody can grab the appropriate sigs.](https://github.com/bitcoin/bitcoin/pull/6269) (Cory Fields/"theuni" is the only person who can actually generate the sigs, which he then uploads to the [sig repo](https://github.com/bitcoin/bitcoin-detached-sigs).) Used to make Core compatible with Apple’s "Gatekeeper" scheme. *Graphics files have been removed from this listing.*
 
 ./contrib/macdeploy/custom_dsstore.py - Creates a custom .DS_Store file added to DMG files that deploy Bitcoin Core software to end users. (The file allows for background images and other features.) *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7192)*.
 
@@ -251,7 +251,7 @@
 
 **./contrib/rpm** - Spec files for generating [RPM packages](https://en.wikipedia.org/wiki/RPM_Package_Manager). [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7609).
 
-./contrib/rpm/bitcoin-0.12.0-libressl.patch - Needed only if building Core against [*LibreSSL*](http://www.libressl.org/). [*Added in 0.13, although it'll probably be deleted eventually*](https://github.com/bitcoin/bitcoin/pull/7609#discussion-diff-54885829).
+./contrib/rpm/bitcoin-0.12.0-libressl.patch - Needed only if building Core against [*LibreSSL*](http://www.libressl.org/). *[Added in 0.13, although it'll probably be deleted eventually](https://github.com/bitcoin/bitcoin/pull/7609#discussion-diff-54885829)*.
 
 ./contrib/rpm/bitcoin.fc - RPM file contexts file. [Used by *SELinux*](http://man7.org/linux/man-pages/man8/sepolicy-generate.8.html).
 
@@ -307,17 +307,17 @@
 
 ./contrib/verify-commits/verify-commits.sh - Called by ./contrib/verify-commits/pre-push-hook.sh. Verifies that the commits before the current one have been properly signed, and that the commit about to be pushed has been signed by an accepted key.
 
-**./contrib/verifybinaries** - [Script that verifies binaries downloaded from bitcoin.org](https://github.com/bitcoin/bitcoin/pull/1935). [*Moved from ./contrib/verifysfbinaries in 0.13*](https://github.com/bitcoin/bitcoin/pull/7881).
+**./contrib/verifybinaries** - [Script that verifies binaries downloaded from bitcoin.org](https://github.com/bitcoin/bitcoin/pull/1935). *[Moved from ./contrib/verifysfbinaries in 0.13](https://github.com/bitcoin/bitcoin/pull/7881)*.
 
 ./contrib/verifybinaries/README.md - Basically explains what’s going on.
 
 ./contrib/verifybinaries/verify.sh - The verification script.
 
-**./contrib/zmq** - Support for ØMQ (ZeroMQ), an asynchronous messaging library. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6103)
+**./contrib/zmq** - Support for ØMQ (ZeroMQ), an asynchronous messaging library. *[Added in 0.12](https://github.com/bitcoin/bitcoin/pull/6103)*.
 
 ./contrib/verifysfbinaries/zmq_sub.py - Working example of adding ØMQ support.
 
-**./depends** - A shared dependency builder. See AC_CONFIG_AUX_DIR() in ./configure.ac to see how Autotools connects to these files. [Added in Aug. 2014.](https://github.com/bitcoin/bitcoin/pull/4592)
+**./depends** - A shared dependency builder. See AC_CONFIG_AUX_DIR() in ./configure.ac to see how Autotools connects to these files. *[Added in 0.10](https://github.com/bitcoin/bitcoin/pull/4592)*.
 
 ./depends/.gitignore - Lists files for Git to ignore.
 
