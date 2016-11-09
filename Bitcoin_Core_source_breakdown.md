@@ -85,7 +85,7 @@
 
 ./contrib/tidy_datadir.sh - [Script that cleans up Core datadir](https://github.com/bitcoin/bitcoin/pull/2295) (e.g., wallet.dat, blk00001.dat).
 
-**./contrib/debian** - Contains files used to package bitcoind/bitcoin-qt for Debian-based Linux systems. [Added in Nov. 2011.](https://github.com/bitcoin/bitcoin/pull/608) [Included to control PPA builds.](https://github.com/bitcoin/bitcoin/pull/600#issuecomment-2631226)
+**./contrib/debian** - Contains files used to package bitcoind/bitcoin-qt for Debian-based Linux systems. *[Added in 0.5](https://github.com/bitcoin/bitcoin/pull/608) [to control PPA builds](https://github.com/bitcoin/bitcoin/pull/600#issuecomment-2631226)*.
 
 ./contrib/debian/bitcoin-qt.desktop - [Desktop menu entry registration.](https://developer.gnome.org/integration-guide/stable/desktop-files.html.en)
 
@@ -101,7 +101,7 @@
 
 ./contrib/debian/bitcoin-tx.manpages - *bitcoin-tx* manpage. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8743).
 
-./contrib/debian/bitcoind.bash-completion - Rule that [installs ./contrib/bitcoind.bash-completion in Debian systems](https://github.com/bitcoin/bitcoin/pull/1366) as part of the Debian build process. [Adds BASH shell completion for [*bitcoind*](http://manpages.ubuntu.com/manpages/trusty/man1/dh_bash-completion.1.html). [*Added in May 2012*.](https://github.com/bitcoin/bitcoin/pull/1366)
+./contrib/debian/bitcoind.bash-completion - Rule that [installs ./contrib/bitcoind.bash-completion in Debian systems](https://github.com/bitcoin/bitcoin/pull/1366) as part of the Debian build process. [Adds BASH shell completion for [*bitcoind*](http://manpages.ubuntu.com/manpages/trusty/man1/dh_bash-completion.1.html). *[Added in 0.7](https://github.com/bitcoin/bitcoin/pull/1366)*.
 
 ./contrib/debian/bitcoind.examples - Contains a list of places to find examples. [Used by lintian.](https://www.debian.org/doc/manuals/maint-guide/dother.en.html#examples)
 
@@ -357,33 +357,33 @@
 
 **./depends/packages** - Info on packages to download and compile as Core dependencies. Almost all the packages are actually required only by Qt 4 or 5. Native packages are used to build towards particular host/target platforms when the host requires tools not directly found on the build/host platform, so the build/host platform must use alternate tools.
 
-./depends/packages/bdb.mk - BerkeleyDB 4.8.
+./depends/packages/bdb.mk - BerkeleyDB 4.8. Used by all versions of the Bitcoin Core wallet.
 
-./depends/packages/boost.mk - Boost.
+./depends/packages/boost.mk - Boost. Used by all versions of Core, including for consensus-critical functionality.
 
-./depends/packages/dbus.mk - D-Bus.
+./depends/packages/dbus.mk - D-Bus. Used by Qt.
 
-./depends/packages/expat.mk - Expat (XML parser).
+./depends/packages/expat.mk - Expat (XML parser). Used by Qt.
 
-./depends/packages/fontconfig.mk - Fontconfig.
+./depends/packages/fontconfig.mk - Fontconfig. Used by Qt.
 
-./depends/packages/freetype.mk - FreeType.
+./depends/packages/freetype.mk - FreeType. Used by Qt.
 
-./depends/packages/libevent.mk - *libevent* (event notification) library.
+./depends/packages/libevent.mk - *libevent* (event notification) library. Used by all versions of Core.
 
-./depends/packages/libICE.mk - Inter-Client Exchange (ICE) library.
+./depends/packages/libICE.mk - Inter-Client Exchange (ICE) library. Used by Qt.
 
-./depends/packages/libSM.mk - Session Management library (SMlib).
+./depends/packages/libSM.mk - Session Management library (SMlib). Used by Qt.
 
-./depends/packages/libX11.mk - X11 library.
+./depends/packages/libX11.mk - X11 library. Used by Qt.
 
-./depends/packages/libXau.mk - X11 Authorization Protocol library.
+./depends/packages/libXau.mk - X11 Authorization Protocol library. Used by Qt.
 
-./depends/packages/libxcb.mk - X protocol C-language Binding (XCB) library.
+./depends/packages/libxcb.mk - X protocol C-language Binding (XCB) library. Used by Qt.
 
-./depends/packages/libXext.mk - X Record Extension library.
+./depends/packages/libXext.mk - X Record Extension library. Used by Qt.
 
-./depends/packages/miniupnpc.mk - MiniUPnP.
+./depends/packages/miniupnpc.mk - MiniUPnP. Used by all versions of the [UPnP](https://en.wikipedia.org/wiki/Universal_Plug_and_Play) feature of Core.
 
 ./depends/packages/native_biplist.mk - Python binary property list ([plist](https://en.wikipedia.org/wiki/Property_list)) read/write library (native). Used for the OS X build. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7192) to make software name consistency easier.
 
@@ -403,27 +403,27 @@
 
 ./depends/packages/native_protobuf.mk - [Protocol Buffers](https://en.wikipedia.org/wiki/Protocol_Buffers) library (native). Used by Qt as part of BIP 70 support.
 
-./depends/packages/openssl.mk - [OpenSSL](https://www.openssl.org/) library. Provides some cryptographic functionality. Consensus-critical functionality uses libsecp256k1.
+./depends/packages/openssl.mk - [OpenSSL](https://www.openssl.org/) library. Provides some cryptographic functionality. Used by all versions of Core. Used to be part of consensus-critical functionality, all of which has since been changed to use *libsecp256k1*.
 
 ./depends/packages/packages.mk - Package variables. Specifies the packages requried by various platforms, including packages required by Qt.
 
 ./depends/packages/protobuf.mk - [Protocol Buffers](https://en.wikipedia.org/wiki/Protocol_Buffers) variables. Used by Qt as part of BIP 70 support.
 
-./depends/packages/qrencode.mk - [libqrencode](https://fukuchi.org/works/qrencode/) variables.
+./depends/packages/qrencode.mk - [libqrencode](https://fukuchi.org/works/qrencode/) variables. Used by Qt.
 
 ./depends/packages/qt.mk - Qt 5 variables.
 
 ./depends/packages/qt46.mk - Qt 4.6 variables. [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/8640), although support for Qt4 was removed in an earlier version (0.13?).
 
-./depends/packages/xcb_proto.mk - [XML-XCB protocol description bindings](https://xcb.freedesktop.org/XmlXcb/).
+./depends/packages/xcb_proto.mk - [XML-XCB protocol description bindings](https://xcb.freedesktop.org/XmlXcb/). Used by Qt.
 
-./depends/packages/xextproto.mk - [X protocol extensions](https://community.linuxmint.com/software/view/libxext6) library.
+./depends/packages/xextproto.mk - [X protocol extensions](https://community.linuxmint.com/software/view/libxext6) library. Used by Qt.
 
-./depends/packages/xproto.mk - [X window system core protocol](http://www.x.org/releases/X11R7.7/doc/xproto/x11protocol.html) library.
+./depends/packages/xproto.mk - [X window system core protocol](http://www.x.org/releases/X11R7.7/doc/xproto/x11protocol.html) library. Used by Qt.
 
-./depends/packages/xtrans.mk - [xtrans](http://www.x.org/releases/X11R7.7/doc/xtrans/xtrans.html) library.
+./depends/packages/xtrans.mk - [xtrans](http://www.x.org/releases/X11R7.7/doc/xtrans/xtrans.html) library. Used by Qt.
 
-./depends/packages/zmq.mk - [ØMQ](http://zeromq.org/) (aka ZeroMQ).
+./depends/packages/zmq.mk - [ØMQ](http://zeromq.org/) (aka ZeroMQ). Used by all versions of Core.
 
 **./depends/patches** - Patches to be applied to downloaded packages before building the packages. *Nothing in the root directory.*
 
@@ -761,7 +761,7 @@
 
 **./src** - The subdirectory with all the Core-specific code.
 
-./src/.clang-format - Sets the rules for *clang-format*, a program that formats C/C++/ObjC code. [Added in Aug. 2014.](https://github.com/bitcoin/bitcoin/pull/4498)
+./src/.clang-format - Sets the rules for *clang-format*, a program that formats C/C++/ObjC code. *[Added in 0.10](https://github.com/bitcoin/bitcoin/pull/4498)*.
 
 ./src/addrdb.cpp - Includes code for the classes allowing access to peers.dat (the IP address DB) (CAddrDB) and banlist.dat (the banned node DB) (CBanDB), along with ban list entries (CBanEntry). [*Moved from ./src/net.cpp in 0.14*](https://github.com/bitcoin/bitcoin/pull/8085).
 
@@ -793,7 +793,7 @@
 
 ./src/bitcoin-cli-res.rc - [Resource definition script for Windows.](https://en.wikipedia.org/wiki/Resource_%28Windows%29) Needed for the *bitcoin-cli* binary.
 
-./src/bitcoind.cpp - Command line binary that executes Bitcoin Core functionality. [Created in June 2013 to accommodate refactoring](https://github.com/bitcoin/bitcoin/pull/2700).
+./src/bitcoind.cpp - Command line binary that executes Bitcoin Core functionality. *[Added in 0.9 to accommodate refactoring](https://github.com/bitcoin/bitcoin/pull/2700)*.
 
 ./src/bitcoind-res.rc - [Resource definition script for Windows.](https://en.wikipedia.org/wiki/Resource_%28Windows%29) Needed for the *bitcoind* binary.
 
@@ -827,7 +827,7 @@
 
 ./src/checkpoints.h - See the CPP file.
 
-./src/checkqueue.h - Queue for scripts to be verified. Parallelization optimization. [Added in Jan. 2013.](https://github.com/bitcoin/bitcoin/pull/2060)
+./src/checkqueue.h - Queue for scripts to be verified. Parallelization optimization. *[Added in 0.8](https://github.com/bitcoin/bitcoin/pull/2060)*.
 
 ./src/clientversion.cpp - Basic build version numbers & string.
 
@@ -945,11 +945,11 @@
 
 ./src/random.h - See the CPP file.
 
-./src/rest.cpp - HTTP REST interface to public blockchain data. [Added in Nov. 2014.](https://github.com/bitcoin/bitcoin/pull/2844)
+./src/rest.cpp - HTTP REST interface to public blockchain data. *[Added in 0.10](https://github.com/bitcoin/bitcoin/pull/2844)*.
 
 ./src/reverselock.h - [A class replacing boost::reverse_lock with a local reverse_lock class.](https://github.com/bitcoin/bitcoin/pull/6630)
 
-./src/scheduler.cpp - Lightweight, simple scheduler for background tasks (CScheduler). [Added in May 2015.](https://github.com/bitcoin/bitcoin/pull/5964)
+./src/scheduler.cpp - Lightweight, simple scheduler for background tasks (CScheduler). *[Added in 0.11](https://github.com/bitcoin/bitcoin/pull/5964)*.
 
 ./src/scheduler.h - See the CPP file.
 
@@ -1045,7 +1045,7 @@
 
 ./src/bench/verify_script.cpp - Code that benchmarks script verification code. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8873).
 
-**./src/compat** - Added to allow Core binaries to be compiled on older computers. *glibc* & *libstdc++*, when compiled into Core on newer machines, will have symbols that are undefined when dynamically linked on older machines. This code can be compiled in to define the newer stuff while allowing dynamic linking for *glibc* & *libstdc++*. [Added in Apr. 2014.](https://github.com/bitcoin/bitcoin/pull/4042) Also general compatibility code.
+**./src/compat** - Added to allow Core binaries to be compiled on older computers. *glibc* & *libstdc++*, when compiled into Core on newer machines, will have symbols that are undefined when dynamically linked on older machines. This code can be compiled in to define the newer stuff while allowing dynamic linking for *glibc* & *libstdc++*. *[Added in 0.9.2](https://github.com/bitcoin/bitcoin/pull/4042)*.
 
 ./src/compat/byteswap.h - [Endian compatibility.](https://github.com/bitcoin/bitcoin/pull/5510)
 
@@ -1123,7 +1123,7 @@
 
 ./src/crypto/ctaes/test.c - Test suites from FIPS 197 (AES) and SP 800-38A (AES-CBC). [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7689).
 
-**./src/leveldb** - [*https://github.com/google/leveldb*](http://leveldb.org/) code maintained by Core. *Will not list individual files (too many)*.
+**./src/leveldb** - [*LevelDB*](http://leveldb.org/) code maintained by Core. *Will not list individual files (too many)*.
 
 **./src/obj-test** - Doesn’t seem to be used anymore.
 
@@ -1459,7 +1459,7 @@
 
 ./src/rpc/server.h - See the CPP file.
 
-**./src/script** - Code that handles Bitcoin scripts. [Moved to the current location in Sep. 2014 to make the code more modular.](https://github.com/bitcoin/bitcoin/pull/4754)
+**./src/script** - Code that handles Bitcoin scripts. *[Moved to the current location in 0.10 to make the code more modular](https://github.com/bitcoin/bitcoin/pull/4754)*.
 
 ./src/script/bitcoinconsensus.cpp - Some consensus-critical code, centered primarily around script verification.
 
@@ -1493,7 +1493,7 @@
 
 ./src/script/standard.h - See the CPP file.
 
-**./src/secp256k1** - Downstream version of the libsecp256k1 library. This is the library that performs all cryptographic functions related to creating and verifying signatures for Bitcoin transactions. *No files listed. Consult the libsecp256k1 doc or the [project website](https://github.com/bitcoin/secp256k1)*.
+**./src/secp256k1** - Downstream version of the libsecp256k1 library. This is the library that performs all cryptographic functions related to creating and verifying signatures for Bitcoin transactions. *No files listed. Consult the libsecp256k1 doc or the [project website](https://github.com/bitcoin-core/secp256k1)*.
 
 **./src/support** - Used primarily to abstract out some low-level functionality supplied by OpenSSL and Boost. Makes code changes a lot easier since changes occur only in one place.
 
@@ -1547,7 +1547,7 @@
 
 ./src/test/buildenv.py.in - [Helps allow Python tests to run on Windows.](https://github.com/bitcoin/bitcoin/pull/5014)
 
-./src/test/checkblock_tests.cpp - Now-obsolete test that [was used](https://github.com/bitcoin/bitcoin/commit/8c222dca4f961ad13ec64d690134a40d09b20813) to confirm that Core would handle 1 MB blocks after the temporary 500 KB soft fork imposed after the Mar. 2013 hard fork. [*Removed in 0.13*](https://github.com/bitcoin/bitcoin/pull/7490).
+./src/test/checkblock_tests.cpp - Now-obsolete test that [was used](https://github.com/bitcoin/bitcoin/commit/8c222dca4f961ad13ec64d690134a40d09b20813) to confirm that Core would handle 1 MB blocks after the temporary 500 KB soft fork imposed in the wake of the Mar. 2013 hard fork. [*Removed in 0.13*](https://github.com/bitcoin/bitcoin/pull/7490).
 
 ./src/test/Checkpoints_tests.cpp - A checkpoint-related unit test. *[Removed in 0.14](https://github.com/bitcoin/bitcoin/pull/9053) as part of a larger push to remove checkpoints and replace them with most-work chain metrics*.
 
