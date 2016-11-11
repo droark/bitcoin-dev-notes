@@ -1029,6 +1029,8 @@
 
 ./src/bench/bench_bitcoin.cpp - Code that kicks off the *bench_bitcoin* binary.
 
+./src/bench/checkblock.cpp - Benchmarks block deserialization and validation (*CheckBlock()*) code. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/9049)*.
+
 ./src/bench/crypto_hash.cpp - Code that benchmarks various crypto hashing algorithms used by Core. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8039).
 
 ./src/bench/ccoins_caching.cpp - Code that benchmarks CCoinsDBView caching. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8873).
@@ -1044,6 +1046,11 @@
 ./src/bench/rollingbloom.cpp - Code that benchmarks rolling bloom filters. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7934).
 
 ./src/bench/verify_script.cpp - Code that benchmarks script verification code. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8873).
+
+**./src/bench/data** - Data used by code benchmarks. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/9049)*.
+
+./src/bench/data/block413567.raw - Benchmarks block deserialization and validation (*CheckBlock()*) code. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/9049)*.
+
 
 **./src/compat** - Added to allow Core binaries to be compiled on older computers. *glibc* & *libstdc++*, when compiled into Core on newer machines, will have symbols that are undefined when dynamically linked on older machines. This code can be compiled in to define the newer stuff while allowing dynamic linking for *glibc* & *libstdc++*. *[Added in 0.9.2](https://github.com/bitcoin/bitcoin/pull/4042)*.
 
