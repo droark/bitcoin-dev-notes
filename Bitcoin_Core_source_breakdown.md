@@ -1049,7 +1049,7 @@
 
 **./src/bench/data** - Data used by code benchmarks. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/9049)*.
 
-./src/bench/data/block413567.raw - Benchmarks block deserialization and validation (*CheckBlock()*) code. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/9049)*.
+./src/bench/data/block413567.raw - Contains block 413,567. Used in the *CheckBlock()* benchmarking code. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/9049)*.
 
 
 **./src/compat** - Added to allow Core binaries to be compiled on older computers. *glibc* & *libstdc++*, when compiled into Core on newer machines, will have symbols that are undefined when dynamically linked on older machines. This code can be compiled in to define the newer stuff while allowing dynamic linking for *glibc* & *libstdc++*. *[Added in 0.9.2](https://github.com/bitcoin/bitcoin/pull/4042)*.
