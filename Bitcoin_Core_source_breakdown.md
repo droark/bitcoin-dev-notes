@@ -767,7 +767,7 @@
 
 ./src/addrdb.h - See the CPP file.
 
-./src/addrman.cpp - [Stochastic address manager](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2012-January/001100.html) (CAddrMan) and CAddress stats (CAddrInfo). [*Added in 0.6*](https://github.com/bitcoin/bitcoin/pull/787).
+./src/addrman.cpp - [Stochastic address manager](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2012-January/001100.html) (CAddrMan) and CAddress stats (CAddrInfo). In other words, CAddrMan decides what connections to keep in the connection pool, decides what new connections to make, and decides how to respond when a *GetAddr* message comes in. [*Added in 0.6*](https://github.com/bitcoin/bitcoin/pull/787).
 
 ./src/addrman.h - See the CPP file.
 
@@ -911,7 +911,7 @@
 
 ./src/miner.h - See the CPP file.
 
-./src/net.cpp - Loads of networking functionality. Various classes include but are not limited to signals for message handling (CNodeSignals struct), node stats (CNodeStats), net messages (CNetMessage), entries in the ban database (banlist.dat) (CBanEntry), node information (CNode), the connection pool manager for our P2P peer connections (CConnman), and entries in the peer database (peers.dat) (CAddrDB).
+./src/net.cpp - Loads of networking functionality. Various classes include but are not limited to signal collectors/message handlers from P2P peers (CNodeSignals struct), node stats (CNodeStats), net messages (CNetMessage), entries in the ban database (banlist.dat) (CBanEntry), node information (CNode), the P2P connection pool manager where we send messages meant for the network (CConnman), and entries in the peer database (peers.dat) (CAddrDB).
 
 ./src/net.h - See the CPP file. Includes loads of value definitions and such.
 
