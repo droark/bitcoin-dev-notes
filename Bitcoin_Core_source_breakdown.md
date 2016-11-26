@@ -911,7 +911,7 @@
 
 ./src/miner.h - See the CPP file.
 
-./src/net.cpp - Loads of networking functionality. Various items include signals for message handling (CNodeSignals struct), node stats (CNodeStats), net messages (CNetMessage), entries in the ban database (banlist.dat) (CBanEntry), node information (CNode), and entries in the peer database (peers.dat) (CAddrDB).
+./src/net.cpp - Loads of networking functionality. Various classes include but are not limited to signals for message handling (CNodeSignals struct), node stats (CNodeStats), net messages (CNetMessage), entries in the ban database (banlist.dat) (CBanEntry), node information (CNode), the connection pool manager for our P2P peer connections (CConnman), and entries in the peer database (peers.dat) (CAddrDB).
 
 ./src/net.h - See the CPP file. Includes loads of value definitions and such.
 
@@ -922,6 +922,8 @@
 ./src/netbase.cpp - Some basic network items, such as the proxy type (proxyType).
 
 ./src/netbase.h - See the CPP file.
+
+./src/netmessagemaker.h - Contains the *CNetMsgMaker* class, which is a shortcut for creating on-the-fly messages suitable for pushing to the *CConnman* class. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9128).
 
 ./src/noui.cpp - It looks like this is used solely to set up logging signal handlers for *bitcoind* and the test code.
 
