@@ -1045,6 +1045,10 @@
 
 ./src/bench/mempool_eviction.cpp - Code that benchmarks mempool eviction code. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8873).
 
+./src/bench/perf.cpp - Code that benchmarks CPU cycles. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9202).
+
+./src/bench/perf.h - See the CPP file. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9202).
+
 ./src/bench/rollingbloom.cpp - Code that benchmarks rolling bloom filters. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7934).
 
 ./src/bench/verify_script.cpp - Code that benchmarks script verification code. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8873).
