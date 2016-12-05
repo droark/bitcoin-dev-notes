@@ -885,7 +885,7 @@
 
 ./src/limitedmap.h - STL-like map container class that only keeps the N elements with the highest value (limitedmap).
 
-./src/main.cpp - Loads of critical functionality. Examples include script op count functions (GetP2SHSigOpCount & the like), checking inputs (CheckInputs), applying Tx effects to the UTXO (UpdateCoins), validity checks (CheckTransaction), consensus-critical functions telling if a Tx is final at a given time/location (IsFinalTx) or in the next block (CheckFinalTx), etc. Also includes the CScriptCheck, and CVerifyDB classes.
+./src/main.cpp - Loads of critical functionality. Examples include script op count functions (GetP2SHSigOpCount & the like), checking inputs (CheckInputs), applying Tx effects to the UTXO (UpdateCoins), validity checks (CheckTransaction), consensus-critical functions telling if a Tx is final at a given time/location (IsFinalTx) or in the next block (CheckFinalTx), etc. Also includes the CScriptCheck, and CVerifyDB classes. [*Moved to ./src/net_processing.cpp/h and ./src/validation.cpp/h in 0.14*](https://github.com/bitcoin/bitcoin/pull/9260).
 
 ./src/main.h - See the CPP file. Includes loads of important definitions.
 
@@ -924,6 +924,10 @@
 ./src/netbase.h - See the CPP file.
 
 ./src/netmessagemaker.h - Contains the *CNetMsgMaker* class, which is a shortcut for creating on-the-fly messages suitable for pushing to the *CConnman* class. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9128).
+
+./src/net_processing.cpp - Contains the network message processing code. [*Added in 0.14 from part of ./src/main.cpp*](https://github.com/bitcoin/bitcoin/pull/9260).
+
+./src/net_processing.h - See the CPP file. [*Added in 0.14 from part of ./src/main.h*](https://github.com/bitcoin/bitcoin/pull/9260).
 
 ./src/noui.cpp - It looks like this is used solely to set up logging signal handlers for *bitcoind* and the test code.
 
@@ -1008,6 +1012,10 @@
 ./src/utiltime.cpp - Time utilities (e.g., *SetMockTime()*).
 
 ./src/utiltime.h - See the CPP file.
+
+./src/validation.cpp - Contains block validation code (general, DB, etc.), including the CScriptCheck and CVerifyDB, along with many consensus-critical functs and structs. [*Added in 0.14 from part of ./src/main.cpp*](https://github.com/bitcoin/bitcoin/pull/9260).
+
+./src/validation.h - See the CPP file. [*Added in 0.14 from part of ./src/main.cpp*](https://github.com/bitcoin/bitcoin/pull/9260).
 
 ./src/validationinterface.cpp - Has a class (CValidationInterface) that allows modules to hook into startup, shutdown, and node events. Also includes struct (CMainSignals) with signals to listeners. Used to interact with toolslike ØMQ/ZeroMQ.
 
