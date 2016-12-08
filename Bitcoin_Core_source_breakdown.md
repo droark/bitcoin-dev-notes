@@ -101,7 +101,7 @@
 
 ./contrib/debian/bitcoin-tx.manpages - *bitcoin-tx* manpage. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8743).
 
-./contrib/debian/bitcoind.bash-completion - Rule that [installs ./contrib/bitcoind.bash-completion in Debian systems](https://github.com/bitcoin/bitcoin/pull/1366) as part of the Debian build process. [Adds BASH shell completion for [*bitcoind*](http://manpages.ubuntu.com/manpages/trusty/man1/dh_bash-completion.1.html). *[Added in 0.7](https://github.com/bitcoin/bitcoin/pull/1366)*.
+./contrib/debian/bitcoind.bash-completion - Rule that [installs ./contrib/bitcoind.bash-completion in Debian systems](https://github.com/bitcoin/bitcoin/pull/1366) as part of the Debian build process. [Adds BASH shell completion for *bitcoind*](http://manpages.ubuntu.com/manpages/trusty/man1/dh_bash-completion.1.html). *[Added in 0.7](https://github.com/bitcoin/bitcoin/pull/1366)*.
 
 ./contrib/debian/bitcoind.examples - Contains a list of places to find examples. [Used by lintian.](https://www.debian.org/doc/manuals/maint-guide/dother.en.html#examples)
 
