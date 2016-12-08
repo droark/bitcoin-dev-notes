@@ -1570,7 +1570,7 @@
 
 ./src/test/checkblock_tests.cpp - Now-obsolete test that [was used](https://github.com/bitcoin/bitcoin/commit/8c222dca4f961ad13ec64d690134a40d09b20813) to confirm that Core would handle 1 MB blocks after the temporary 500 KB soft fork imposed in the wake of the Mar. 2013 hard fork. [*Removed in 0.13*](https://github.com/bitcoin/bitcoin/pull/7490).
 
-./src/test/Checkpoints_tests.cpp - A checkpoint-related unit test. *[Removed in 0.14](https://github.com/bitcoin/bitcoin/pull/9053) as part of a larger push to remove checkpoints and replace them with most-work chain metrics*.
+./src/test/Checkpoints_tests.cpp - A checkpoint-related unit test. *[Removed in 0.13.2](https://github.com/bitcoin/bitcoin/pull/9293)*. This was [part of a larger push to remove checkpoints and replace them with most-work chain metrics](https://github.com/bitcoin/bitcoin/pull/9053).
 
 ./src/test/coins_tests.cpp - [Tests for CCoinsView and related classes.](https://github.com/bitcoin/bitcoin/pull/4834)
 
