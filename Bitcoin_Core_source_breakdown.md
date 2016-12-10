@@ -779,9 +779,9 @@
 
 ./src/amount.h - See the CPP file. Includes a bit of consensus-critical code.
 
-./src/arith_uint256.cpp - Code for handling unsigned 256-bit big integers (arith_uint256).
+./src/arith_uint256.cpp - Code for handling unsigned 256-bit big integers (arith_uint256). *[Added in 0.11](https://github.com/bitcoin/bitcoin/pull/5490)*. Note that this is, in large part, a copy of the original code from ./src/uint256.cpp, which was meant primarily for things like proof-of-work functionality. However, [the arith_uint256 version is meant only to perform arithmetic functions](https://github.com/bitcoin/bitcoin/pull/5478#issuecomment-67158692); the underlying contents are not to be directly accessed. This is because the arithmetic is required to be compatible with both little and big endian. [Anybody needing direct access to the underlying "blobs" should use the original uint256 class](https://github.com/bitcoin/bitcoin/pull/5490/commits/bfc6070342b9f43bcf125526e6a3c8ed34e29a71), as the arithmetic classes are not to have their underlying memory directly accessed. The arithmetic objects also can't be serialized, unlike the blobs objects.
 
-./src/arith_uint256.h - See the CPP file.
+./src/arith_uint256.h - See the CPP file. *[Added in 0.11](https://github.com/bitcoin/bitcoin/pull/5490)*.
 
 ./src/base58.cpp - Base58 support code, including CBitcoinAddress and CSecret, along with a derived (from CBase58Data) external class (CBitcoinExtKey) that, when typedef’d, is used for external, Base58-encoded private (CBitcoinExtKeyBase) and public (CBitcoinExtPubKeyBase) keys.
 
@@ -991,9 +991,9 @@
 
 ./src/ui_interface.h - Contains CClientUIInterface, the class that handles signals for UI communication.
 
-./src/uint256.cpp - A template class for opaque blobs (base_blob), derived classes for 160-bit and 256-bit data (uint160 and uint256), and functs for handling 256-bit data strings (uint256S).
+./src/uint256.cpp - A template class for opaque blobs (base_blob), derived classes for 160-bit and 256-bit data (uint160 and uint256), and functs for handling 256-bit data strings (uint256S). Originally, this class also performed arithmetic functions. However, [the code was split into "arithmetic" (arith_uint256) and "opaque" (uint256) classes](https://github.com/bitcoin/bitcoin/pull/5490). This was done [primarily to support big endian CPUs](https://github.com/bitcoin/bitcoin/pull/5510). The opaque version here is basically a blob that relies on the endianness of the system, unlike the arithmetic version (./src/arith_uint256.cpp), which has arithmetic functionality and doesn't care about endianness but also loses certain functionality (e.g., serialization). Internally, [the blobs are little endian](https://github.com/bitcoin/bitcoin/blob/0.11/src/arith_uint256.cpp#L251) but are [printed as big endian](https://github.com/bitcoin/bitcoin/blob/0.11/src/uint256.cpp#L25). In addition, when creating uint256 values from strings (e.g., incoming RPC calls like *getblock()*), [the endianness of the string is reversed](https://github.com/bitcoin/bitcoin/blob/0.11/src/uint256.cpp#L42-L55).
 
-./src/uint256.h - See the CPP file.
+./src/uint256.h - See the CPP file. Contains the actual uint160 and uint256 classes, along with the base_blob template class parent.
 
 ./src/undo.h - Undo info for CTxIn (CTxInUndo), CTransaction (CTxUndo), and CBlock (CBlockUndo).
 
@@ -1104,7 +1104,7 @@
 
 ./src/crypto/aes.h - See the implementation file.
 
-./src/crypto/common.h - Endian-specific in/outs for 16, 32, and 64-bit data.
+./src/crypto/common.h - Endian-specific in/outs for 16, 32, and 64-bit data. Used for implementations of SHA-256 and RIPEMD-160, along with converting arith_uint256 values to little endian uint256 values.
 
 ./src/crypto/hmac_sha256.cpp - HMAC-SHA-256 class (CHMAC_SHA256).
 
@@ -1546,7 +1546,7 @@
 
 ./src/test/amount_tests.cpp - Tests the fee rates. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7705).
 
-./src/test/arith_uint256_tests.cpp - [uint256 ("opaque" and "arithmetic") testing.](https://github.com/bitcoin/bitcoin/pull/5490)
+./src/test/arith_uint256_tests.cpp - uint256 ("opaque") and arith_uint256 ("arithmetic") testing. *[Added in 0.11](https://github.com/bitcoin/bitcoin/pull/5490)*.
 
 ./src/test/base32_tests.cpp - Base32 unit tests.
 
