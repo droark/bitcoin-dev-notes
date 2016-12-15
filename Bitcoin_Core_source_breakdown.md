@@ -18,7 +18,7 @@
 
 ./CONTRIBUTING.md - A document explaining some ways in which people can conttribute to the Core project.
 
-./INSTALL.md - Just points you to doc/build-\*.md for build instructions. [*Changed from ./INSTALL to ./INSTALL.md in 0.14*](https://github.com/bitcoin/bitcoin/pull/8896).
+./INSTALL.md - Just points you to doc/build-\*.md for build instructions. [*Changed from ./INSTALL to ./INSTALL.md in 0.13.2*](https://github.com/bitcoin/bitcoin/pull/8896).
 
 ./libbitcoinconsensus.pc.in - [Used for *pkg-config* support](https://github.com/bitcoin/bitcoin/pull/5334). *pkg-config* allows developers to create .pc files that go alongside libraries (*libbitcoinconsensus* in this case, which is intended to eventually become a standalone library with all the consensus-critical code, separate from the rest of Core). If other programs intend to use the library, the .pc file allows the programs to know which libraries also need to be compiled if the programs are going to use the library in question.
 
@@ -853,6 +853,8 @@
 
 ./src/core_write.cpp - [CTransaction hex decode/encode.](https://github.com/bitcoin/bitcoin/pull/4332) Needed by the *bitcoin-tx* binary.
 
+./src/cuckoocache.h - A [cuckoo hash table](https://en.wikipedia.org/wiki/Cuckoo_hashing) implementation. Replaces boost::unordered_set in the CSignatureCache class. Designed to make better utilization of memory, remove the need for locks in some cases, and provide other improvements to the cache functionality. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8895).
+
 ./src/dbwrapper.cpp - LevelDB wrapper code. Includes various CDB* classes related to accessing LevelDB.
 
 ./src/dbwrapper.h - See the CPP file.
@@ -861,7 +863,7 @@
 
 ./src/hash.h - See the CPP file.
 
-./src/httprpc.cpp - Functions that start/stop the HTTP RPC and REST subsystems. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/5677)
+./src/httprpc.cpp - Functions that start/stop the HTTP RPC and REST subsystems. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/5677).
 
 ./src/httprpc.h - See the CPP file.
 
@@ -1577,6 +1579,8 @@
 ./src/test/compress_tests.cpp - [Tests for amount serializer/deserializer code.](https://github.com/bitcoin/bitcoin/pull/1677)
 
 ./src/test/crypto_tests.cpp - SHA (regular and HMAC) and RIPEMD-160 unit tests.
+
+./src/test/cuckoocache_tests.cpp - Provides some unit tests for the cuckoo hash table implementation in ./src/cuckoocache.h. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8895).
 
 ./src/test/dbwrapper_tests.cpp - Tests for the LevelDB wrappers.
 
