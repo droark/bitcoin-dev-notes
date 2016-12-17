@@ -497,6 +497,8 @@
 
 ./doc/files.md - Explains which files are made by Core (e.g., blockchain files).
 
+./doc/fuzzing.md - Explains how to use the *test_bitcoin_fuzzy* fuzzing harness in ./src/test/test_bitcoin_fuzzy.cpp via [AFL](http://lcamtuf.coredump.cx/afl/). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9172).
+
 ./doc/gitian-building.md - Details regarding Gitian building.
 
 ./doc/init.md - "Sample init scripts and service configuration for bitcoind".
@@ -598,6 +600,8 @@
 ./qa/rpc-tests/getchaintips.py - Tests the *getchaintips* RPC functionality.
 
 ./qa/rpc-tests/httpbasics.py - [Tests HTTP "keep-alive" functionality.](https://github.com/bitcoin/bitcoin/pull/5436)
+
+./qa/rpc-tests/import-rescan.py - Tests the ability of the wallet to rescan after importing keys. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9331).
 
 ./qa/rpc-tests/importmulti.py - Tests the *importmulti* RPC functionality. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/7551).
 
@@ -1648,6 +1652,8 @@
 
 ./src/test/test_bitcoin.h - See the CPP file.
 
+./src/test/test_bitcoin_fuzzy.cpp - A basic fuzzing harness meant to be used with [American Fuzzy Lop (AFL)](http://lcamtuf.coredump.cx/afl/). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9172).
+
 ./src/test/test_random.h - Adds some tests for the FastRandomContext class, which takes secure random input and then quickly outputs insecure, deterministic data. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8914)*.
 
 ./src/test/testutil.cpp - Returns temporary file paths. To be used in tests only due to unchecked error conditions. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7667)*.
@@ -1680,9 +1686,13 @@
 
 ./src/test/data/bitcoin-util-test.json - Test data for the *bitcoin-tx* binary test. [Used by ./src/test/bitcoin-util-test.py](https://github.com/bitcoin/bitcoin/pull/4624) to trigger tests.
 
-./src/test/data/blanktx.hex - Test data for the *bitcoin-tx* binary test. [Used by ./src/test/data/bitcoin-util-test.json](https://github.com/bitcoin/bitcoin/pull/4624).
+./src/test/data/blanktx.json - Test data for the *bitcoin-tx* binary test. Checks the results of creating a blank v1 Tx. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
 
-./src/test/data/blanktx.json - Test data for the *bitcoin-tx* binary test. Checks the results of creating a blank Tx. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
+./src/test/data/blanktxv1.hex - Test data for the *bitcoin-tx* binary test. [Used by ./src/test/data/bitcoin-util-test.json](https://github.com/bitcoin/bitcoin/pull/4624) with *bitcoin-tx -create -nversion=1* to ensure that a blank v1 transaction is correct. [*Changed from ./src/test/data/blanktx.hex to ./src/test/data/blanktxv1.hex in 0.14*](https://github.com/bitcoin/bitcoin/pull/7562).
+
+./src/test/data/blanktxv2.hex - Test data for the *bitcoin-tx* binary test. [Used by ./src/test/data/bitcoin-util-test.json](https://github.com/bitcoin/bitcoin/pull/4624) with *bitcoin-tx -create -nversion=1* to ensure that a blank v1 transaction is correct. [*Changed from ./src/test/data/blanktx.hex to ./src/test/data/blanktxv1.hex in 0.14*](https://github.com/bitcoin/bitcoin/pull/7562).
+
+./src/test/data/blanktxv2.json - Test data for the *bitcoin-tx* binary test. Checks the results of creating a blank v2 Tx. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/7562).
 
 ./src/test/data/README.md - Mentions that this is data for various tests.
 
@@ -1732,9 +1742,13 @@
 
 ./src/test/data/txcreatedata2.json - Data for tests regarding data-based outputs (OP_RETURN) from *bitcoin-tx* in JSON mode. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
 
-./src/test/data/txcreatesign.hex - *bitcoin-tx -create *loads of flags** input test data. [Used by ./src/test/data/bitcoin-util-test.json](https://github.com/bitcoin/bitcoin/pull/5528), with [a later change to fix some issues](https://github.com/bitcoin/bitcoin/pull/6390).
+./src/test/data/txcreatesign.json - *bitcoin-tx -json -create \*loads of flags\** input test data. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
 
-./src/test/data/txcreatesign.json - *bitcoin-tx -json -create *loads of flags** input test data. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
+./src/test/data/txcreatesignv1.hex - *bitcoin-tx -create \*loads of flags\** input test data. [Used by ./src/test/data/bitcoin-util-test.json](https://github.com/bitcoin/bitcoin/pull/5528) to create a v1 Tx with a signle input and output, and then sign the Tx. [A later change was made to fix some issues](https://github.com/bitcoin/bitcoin/pull/6390). [*Changed from ./src/test/data/txcreatesign.hex to ./src/test/data/txcreatesignv1.hex in 0.14*](https://github.com/bitcoin/bitcoin/pull/7562).
+
+./src/test/data/txcreatesignv1.json - *bitcoin-tx -json -create \*loads of flags\** input test data. Used to create a v2 Tx with a signle input and output, and then sign the Tx, with the output in json. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/7562).
+
+./src/test/data/txcreatesignv2.hex - *bitcoin-tx -create \*loads of flags\** input test data. Used by ./src/test/data/bitcoin-util-test.json to create a v2 Tx with a signle input and output, and then sign the Tx. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/7562).
 
 **./src/univalue** - Downstream version of the libunivalue library. Objects are used for parsing and encoding JSON data. [Replaced JSON Spirit.](https://github.com/bitcoin/bitcoin/pull/6121) *No files listed. [Consult the project website](https://github.com/jgarzik/univalue)*.
 
