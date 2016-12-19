@@ -1033,6 +1033,8 @@
 
 ./src/versionbits.h - See the CPP file.
 
+./src/warnings.cpp - Contains code for dealing with various warnings and warning situations. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9236).
+
 **./src/bench** - Code used to build the *bench_bitcoin* binary, which does rudimentary code benchmarking. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6733)
 
 ./src/bench/.gitignore - Files for Git to ignore.
@@ -1442,6 +1444,10 @@
 
 **./src/qt/test** - Bitcoin Core (GUI) test code.
 
+./src/qt/test/compattests.cpp - Some Qt cross-platform compatibility tests. It started with *bswap_{16/32/64}()* calls to ensure that the macOS build functions properly, particularly with protobuf defining its own bswap calls. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9366).
+
+./src/qt/test/compattests.h - See the CPP file. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9366).
+
 ./src/qt/test/Makefile - Makefile kicking off Bitcoin Core (GUI) test build code in the parent directory.
 
 ./src/qt/test/paymentrequestdata.h - [Data for ./src/qt/tests/paymentservertests.cpp.](https://github.com/bitcoin/bitcoin/pull/2539)
@@ -1571,6 +1577,8 @@
 ./src/test/blockencodings_test.cpp - Implements Compact Block Relay tests. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8068).
 
 ./src/test/bloom_tests.cpp - [CBloomFilter and CMerkleBlock unit tests.](https://github.com/bitcoin/bitcoin/pull/1795)
+
+./src/test/bswap_tests.cpp - Tests *bswap_{16/32/64}()* calls to ensure that the calls function properly. (This was a problem in particular on macOS builds.) [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9366).
 
 ./src/test/buildenv.py.in - [Helps allow Python tests to run on Windows.](https://github.com/bitcoin/bitcoin/pull/5014)
 
