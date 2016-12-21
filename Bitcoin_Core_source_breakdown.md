@@ -1750,13 +1750,13 @@
 
 ./src/test/data/txcreatedata2.json - Data for tests regarding data-based outputs (OP_RETURN) from *bitcoin-tx* in JSON mode. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
 
-./src/test/data/txcreatesign.json - *bitcoin-tx -json -create \*loads of flags\** input test data. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
+./src/test/data/txcreatesign.json - *bitcoin-tx -json -create *loads of flags** input test data. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829), and [*removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/9376) when it was replaced with ./src/test/data/txcreatesignv1.json.
 
-./src/test/data/txcreatesignv1.hex - *bitcoin-tx -create \*loads of flags\** input test data. [Used by ./src/test/data/bitcoin-util-test.json](https://github.com/bitcoin/bitcoin/pull/5528) to create a v1 Tx with a signle input and output, and then sign the Tx. [A later change was made to fix some issues](https://github.com/bitcoin/bitcoin/pull/6390). [*Changed from ./src/test/data/txcreatesign.hex to ./src/test/data/txcreatesignv1.hex in 0.14*](https://github.com/bitcoin/bitcoin/pull/7562).
+./src/test/data/txcreatesignv1.hex - *bitcoin-tx -create *loads of flags** input test data. [Used by ./src/test/data/bitcoin-util-test.json](https://github.com/bitcoin/bitcoin/pull/5528) to create a v1 Tx with a signle input and output, and then sign the Tx. [A later change was made to fix some issues](https://github.com/bitcoin/bitcoin/pull/6390). [*Changed from ./src/test/data/txcreatesign.hex to ./src/test/data/txcreatesignv1.hex in 0.14*](https://github.com/bitcoin/bitcoin/pull/7562).
 
-./src/test/data/txcreatesignv1.json - *bitcoin-tx -json -create \*loads of flags\** input test data. Used to create a v2 Tx with a signle input and output, and then sign the Tx, with the output in json. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/7562).
+./src/test/data/txcreatesignv1.json - *bitcoin-tx -json -create *loads of flags** input test data. Used to create a v2 Tx with a signle input and output, and then sign the Tx, with the output in json. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/7562).
 
-./src/test/data/txcreatesignv2.hex - *bitcoin-tx -create \*loads of flags\** input test data. Used by ./src/test/data/bitcoin-util-test.json to create a v2 Tx with a signle input and output, and then sign the Tx. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/7562).
+./src/test/data/txcreatesignv2.hex - *bitcoin-tx -create *loads of flags** input test data. Used by ./src/test/data/bitcoin-util-test.json to create a v2 Tx with a signle input and output, and then sign the Tx. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/7562).
 
 **./src/univalue** - Downstream version of the libunivalue library. Objects are used for parsing and encoding JSON data. [Replaced JSON Spirit.](https://github.com/bitcoin/bitcoin/pull/6121) *No files listed. [Consult the project website](https://github.com/jgarzik/univalue)*.
 
