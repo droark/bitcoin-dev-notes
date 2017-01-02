@@ -235,7 +235,7 @@
 
 ./contrib/macdeploy/LICENSE - GNUv3 license.
 
-./contrib/macdeploy/macdeployqtplus - The script that’s used to assemble everything into an OS X-friendly app format (i.e., the .app directory).
+./contrib/macdeploy/macdeployqtplus - The Python script that’s used to assemble everything into an OS X-friendly app format (i.e., the .app directory) and place it in a .dmg file that's ready for distribution.
 
 ./contrib/macdeploy/README.md - Deployment instructions. Presumably up-to-date.
 
