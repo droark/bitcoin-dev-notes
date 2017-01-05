@@ -961,7 +961,7 @@
 
 ./src/reverselock.h - [A class replacing boost::reverse_lock with a local reverse_lock class.](https://github.com/bitcoin/bitcoin/pull/6630)
 
-./src/scheduler.cpp - Lightweight, simple scheduler for background tasks (CScheduler). *[Added in 0.11](https://github.com/bitcoin/bitcoin/pull/5964)*.
+./src/scheduler.cpp - Lightweight, simple scheduler for background tasks (CScheduler). [*Added in 0.11*](https://github.com/bitcoin/bitcoin/pull/5964).
 
 ./src/scheduler.h - See the CPP file.
 
@@ -972,6 +972,10 @@
 ./src/sync.cpp - Various synchronization-related mechanisms: Classes, #defs, typedefs, etc.
 
 ./src/sync.h - See the CPP file.
+
+./src/threadinterrupt.cpp - Includes CThreadInterrupt, a helper class for interruptible sleeps. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9289).
+
+./src/threadinterrupt.h - See the CPP file. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9289).
 
 ./src/threadsafety.h - [Macro annotation code, documenting which locks protect a given piece of data.](https://github.com/bitcoin/bitcoin/pull/2003)
 
