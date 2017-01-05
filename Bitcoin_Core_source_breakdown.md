@@ -1532,11 +1532,13 @@
 
 **./src/secp256k1** - Downstream version of the libsecp256k1 library. This is the library that performs all cryptographic functions related to creating and verifying signatures for Bitcoin transactions. *No files listed. Consult the libsecp256k1 doc or the [project website](https://github.com/bitcoin-core/secp256k1)*.
 
-**./src/support** - Used primarily to abstract out some low-level functionality supplied by OpenSSL and Boost. Makes code changes a lot easier since changes occur only in one place.
+**./src/support** - Used primarily to abstract out some low-level functionality supplied by OpenSSL, Boost, and libevent. Makes code changes a lot easier since changes occur only in one place.
 
 ./src/support/cleanse.cpp - [Abstracts a memory "cleanse" provided by OpenSSL.](https://github.com/bitcoin/bitcoin/pull/5689)
 
 ./src/support/cleanse.h - See the CPP file.
+
+./src/support/events.h - Applies [RAII](https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization) principles to *libevent*. Various *libevent* types are wrapped with unique_ptr\<\> and given deleters to make pointer handling and such, for the most part, automated inside the Core code. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9387).
 
 ./src/support/lockedpool.cpp - Intended as a LockedPageManager replacement (from ./src/support/pagelocker.cpp). Includes LockedPoolManager, a singleton class tracking locked (non-swappable) memory for use in std::allocator templates. There are several support classes: An OS-dependent (de)allocator of locked/pinned memory pages (LockedPageAllocator), a manager of contiguous memory (Arena), and a pool for locked memory chunks (LockedPool). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8753).
 
@@ -1631,6 +1633,8 @@
 ./src/test/pow_tests.cpp - [Unit tests for next difficulty calculations.](https://github.com/bitcoin/bitcoin/pull/5813)
 
 ./src/test/prevector_tests.cpp - Tests for the *prevector* class.
+
+./src/test/raii_event_tests.cpp - Tests for RAII-styled handling of *libevent* objects. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9387).
 
 ./src/test/README.md - Explains how to run the unit tests.
 
