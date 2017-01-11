@@ -673,6 +673,8 @@
 
 ./qa/rpc-tests/rpcbind_test.py - [Tests binding of RPC functionality to various interfaces.](https://github.com/bitcoin/bitcoin/pull/3695)
 
+./qa/rpc-tests/rpcnamedargs.py - Tests support of JSON-RPC named args. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8811) (this file and the support for JSON-RPC named args).
+
 ./qa/rpc-tests/segwit.py - Test for various bits of Segregated Witness functionality. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8149).
 
 ./qa/rpc-tests/sendheaders.py - [Tests the *sendheaders* P2P message.](https://github.com/bitcoin/bitcoin/pull/7129)
