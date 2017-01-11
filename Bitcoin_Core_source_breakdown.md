@@ -435,11 +435,11 @@
 
 ./depends/patches/boost/fix-win-wake-from-sleep.patch - Upstream Boost patch that fixes a "wake from sleep" issue on Windows. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8899).
 
-**./depends/patches/libevent** - *libevent* patches.
+**./depends/patches/libevent** - *libevent* patches. [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/9471).
 
-./depends/patches/libevent/libevent-2-fixes.patch - Fixes an issue when compiling with *mingw-w64* on Ubuntu 15.10 and beyond. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8730).
+./depends/patches/libevent/libevent-2-fixes.patch - Fixes an issue when compiling with *mingw-w64* on Ubuntu 15.10 and beyond. *[Added for intended use in 0.14](https://github.com/bitcoin/bitcoin/pull/8730) but [removed before the final release](https://github.com/bitcoin/bitcoin/pull/9471)*.
 
-./depends/patches/libevent/reuseaddr.patch - [Fixes a Windows socket issue.](https://github.com/bitcoin/bitcoin/pull/5677#issuecomment-135918349) [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/5677).
+./depends/patches/libevent/reuseaddr.patch - [Fixes a Windows socket issue.](https://github.com/bitcoin/bitcoin/pull/5677#issuecomment-135918349) *[Added in 0.12](https://github.com/bitcoin/bitcoin/pull/5677) and [removed in 0.14](https://github.com/bitcoin/bitcoin/pull/9471)*.
 
 **./depends/patches/native_cdrkit** - cdrkit patches.
 
