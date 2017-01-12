@@ -1760,6 +1760,50 @@
 
 ./src/test/data/txcreatedata2.json - Data for tests regarding data-based outputs (OP_RETURN) from *bitcoin-tx* in JSON mode. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
 
+./src/test/data/txcreatemultisig1.hex - Expected output result (hex) when using *bitcoin-tx* to generate, using some given input data, a 2-of-3 multisig Tx P2PKH output. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./src/test/data/txcreatemultisig1.json - Expected output result (JSON) when using *bitcoin-tx* to generate, using some given input data, a 2-of-3 multisig Tx P2PKH out. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./src/test/data/txcreatemultisig2.hex - Expected output result (hex) when using *bitcoin-tx* to generate, using some given input data, a 2-of-3 multisig Tx P2PKH output in P2SH form. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./src/test/data/txcreatemultisig2.json - Expected output result (JSON) when using *bitcoin-tx* to generate, using some given input data, a 2-of-3 multisig Tx P2PKH output in P2SH form. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./src/test/data/txcreatemultisig3.hex - Expected output result (hex) when using *bitcoin-tx* to generate, using some given input data, a 2-of-3 multisig Tx P2WSH output. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./src/test/data/txcreatemultisig3.json - Expected output result (JSON) when using *bitcoin-tx* to generate, using some given input data, a 2-of-3 multisig Tx P2WSH output. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./src/test/data/txcreatemultisig4.hex - Expected output result (hex) when using *bitcoin-tx* to generate, using some given input data, a 2-of-3 multisig Tx P2WSH output in P2SH form. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./src/test/data/txcreatemultisig4.json - Expected output result (JSON) when using *bitcoin-tx* to generate, using some given input data, a 2-of-3 multisig Tx P2WSH output in P2SH form. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./src/test/data/txcreateoutpubkey1.hex - Expected output result (hex) when using *bitcoin-tx* to generate, using some given input data, a Tx P2PK output. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./src/test/data/txcreateoutpubkey1.json - Expected output result (JSON) when using *bitcoin-tx* to generate, using some given input data, a Tx P2PK output. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./src/test/data/txcreateoutpubkey2.hex - Expected output result (hex) when using *bitcoin-tx* to generate, using some given input data, a Tx P2WPK output. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./src/test/data/txcreateoutpubkey2.json - Expected output result (JSON) when using *bitcoin-tx* to generate, using some given input data, a Tx P2WPK output. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./src/test/data/txcreateoutpubkey3.hex - Expected output result (hex) when using *bitcoin-tx* to generate, using some given input data, a Tx P2WPK output in P2SH form. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./src/test/data/txcreateoutpubkey3.json - Expected output result (JSON) when using *bitcoin-tx* to generate, using some given input data, a Tx P2WPK output in P2SH form. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./src/test/data/txcreatescript1.hex - Expected output result (hex) when using *bitcoin-tx* to generate, using some given input data, a Tx P2PKH output with a single script (OP_DROP). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./src/test/data/txcreatescript1.json - Expected output result (JSON) when using *bitcoin-tx* to generate, using some given input data, a Tx P2PKH output with a single script (OP_DROP). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./src/test/data/txcreatescript2.hex - Expected output result (hex) when using *bitcoin-tx* to generate, using some given input data, a Tx P2PKH output with a single script (OP_DROP) in P2SH form. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./src/test/data/txcreatescript2.json - Expected output result (JSON) when using *bitcoin-tx* to generate, using some given input data, a Tx P2PKH output with a single script (OP_DROP) in P2SH form. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./src/test/data/txcreatescript3.hex - Expected output result (hex) when using *bitcoin-tx* to generate, using some given input data, a Tx P2WSH output with a single script (OP_DROP). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./src/test/data/txcreatescript3.json - Expected output result (JSON) when using *bitcoin-tx* to generate, using some given input data, a Tx P2WSH output with a single script (OP_DROP). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./src/test/data/txcreatescript4.hex - Expected output result (hex) when using *bitcoin-tx* to generate, using some given input data, a Tx P2WSH output with a single script (OP_DROP) in P2SH form. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./src/test/data/txcreatescript4.json - Expected output result (JSON) when using *bitcoin-tx* to generate, using some given input data, a Tx P2WSH output with a single script (OP_DROP) in P2SH form. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
 ./src/test/data/txcreatesign.json - *bitcoin-tx -json -create *loads of flags** input test data. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829), and [*removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/9376) when it was replaced with ./src/test/data/txcreatesignv1.json.
 
 ./src/test/data/txcreatesignv1.hex - *bitcoin-tx -create *loads of flags** input test data. [Used by ./src/test/data/bitcoin-util-test.json](https://github.com/bitcoin/bitcoin/pull/5528) to create a v1 Tx with a signle input and output, and then sign the Tx. [A later change was made to fix some issues](https://github.com/bitcoin/bitcoin/pull/6390). [*Changed from ./src/test/data/txcreatesign.hex to ./src/test/data/txcreatesignv1.hex in 0.14*](https://github.com/bitcoin/bitcoin/pull/7562).
