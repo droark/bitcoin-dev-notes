@@ -451,7 +451,7 @@
 
 **./depends/patches/qt** - Qt 5 patches.
 
-./depends/patches/qt/configure-xcoderun.patch - Allows *Qt* compilation (using the *depends* system) to occur when using *Xcode 8*. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8820).
+./depends/patches/qt/configure-xcoderun.patch - Allows *Qt* compilation (using the *depends* system) to occur when using *Xcode 8*. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8820) but [removed before the final release](https://github.com/bitcoin/bitcoin/pull/9469)*.
 
 ./depends/patches/qt/fix-xcb-include-order.patch - Fixes various compile errors for *libxcb*.
 
