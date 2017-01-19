@@ -567,6 +567,8 @@
 
 ./qa/rpc-tests/abandontransaction.py - Tests the *abandontransaction* RPC call. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/7312).
 
+./qa/rpc-tests/assumevalid.py - Tests the *assumevalid* RPC call. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9484).
+
 ./qa/rpc-tests/bipdersig.py - [Confirms that the BIP 66 soft fork/switchover code works properly.](https://github.com/bitcoin/bitcoin/pull/5713) Uses BitcoinTestFramework. [Mike Hearn believes this is incomplete and removed it from Bitcoin XT](https://github.com/bitcoinxt/bitcoinxt/commit/8a4875b9ba9aacbeaead771a4c16ec3747c5a9df).
 
 ./qa/rpc-tests/bipdersig-p2p.py - [Confirms that the BIP 66 soft fork/switchover code works properly in a P2P environment.](https://github.com/bitcoin/bitcoin/pull/5981) Uses *comptool*/ComparisonTestFramework.
