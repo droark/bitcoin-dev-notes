@@ -609,7 +609,7 @@
 
 ./qa/rpc-tests/importmulti.py - Tests the *importmulti* RPC functionality. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/7551).
 
-./qa/rpc-tests/importprunedfunds.py - Tests the *importprunedfunds* and *removeprunedfunds* RPC calls. [*Added in 0.13*.](https://github.com/bitcoin/bitcoin/pull/7558)
+./qa/rpc-tests/importprunedfunds.py - Tests the *importprunedfunds* and *removeprunedfunds* RPC calls. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7558).
 
 ./qa/rpc-tests/invalidateblock.py - Tests the hidden *invalidateblock* RPC function.
 
@@ -618,6 +618,8 @@
 ./qa/rpc-tests/invalidtxrequest.py - Checks to make sure that P2P "reject" mesages are properly sent and handled for transactions and blocks.
 
 ./qa/rpc-tests/keypool.py - Wallet keypool tests that interact with wallet locking/unlocking.
+
+./qa/rpc-tests/listsinceblock.py - Tests the *listsinceblock* RPC functionality. In particular, it really wants to make sure that, if there's a reorg, the code will use the fork point as a reference, and not the relative position of a chain with less work. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9516).
 
 ./qa/rpc-tests/listtransactions.py - Tests the *listtransactions* RPC functionality.
 
