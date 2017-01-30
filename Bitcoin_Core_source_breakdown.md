@@ -149,7 +149,7 @@
 
 ./contrib/devtools/clang-format.py - Sets the rules for *clang-format*, a program that formats C/C++/ObjC code. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/6790).
 
-./contrib/devtools/clang-format-diff.py - [Formats unified Git diffs according to ./src/.clang-format](http://clang.llvm.org/docs/ClangFormat.html). [Taken from the upstream LLVM repo](https://llvm.org/svn/llvm-project/cfe/trunk/tools/clang-format/clang-format-diff.py). [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7304).
+./contrib/devtools/clang-format-diff.py - [Formats unified Git diffs according to ./src/.clang-format](http://clang.llvm.org/docs/ClangFormat.html). [Taken from the upstream LLVM repo](https://llvm.org/svn/llvm-project/cfe/trunk/tools/clang-format/clang-format-diff.py). *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7304) and [removed in 0.14](https://github.com/bitcoin/bitcoin/pull/9649)*.
 
 ./contrib/devtools/copyright_header.py - Script that does a mass copyright year update. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8674) as a replacement for ./contrib/devtools/fix-copyright-headers.py*.
 
@@ -422,6 +422,8 @@
 ./depends/packages/xproto.mk - [X window system core protocol](http://www.x.org/releases/X11R7.7/doc/xproto/x11protocol.html) library. Used by Qt.
 
 ./depends/packages/xtrans.mk - [xtrans](http://www.x.org/releases/X11R7.7/doc/xtrans/xtrans.html) library. Used by Qt.
+
+./depends/packages/zlib.mk - [zlib](http://www.zlib.net/). Used by all versions of Core built for Qt 5.7 and beyond. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9646).
 
 ./depends/packages/zmq.mk - [ØMQ](http://zeromq.org/) (aka ZeroMQ). Used by all versions of Core.
 
