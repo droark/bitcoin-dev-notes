@@ -29,6 +29,7 @@
 **./.github** - GitHub-specific materials.
 
 ./.github/ISSUE_TEMPLATE.md - GitHub [issue template](https://github.com/blog/2111-issue-and-pull-request-templates). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8058).
+
 **./.tx** - Transifex (i.e., translation) stuff. Used by Qt.
 
 ./.tx/config - Transifex config file.
