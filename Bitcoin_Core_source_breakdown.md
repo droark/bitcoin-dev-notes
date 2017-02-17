@@ -656,9 +656,13 @@
 
 ./qa/rpc-tests/p2p-fullblocktest.py - A partial port of [FullBlockTestGenerator.java](https://github.com/TheBlueMatt/test-scripts/blob/master/FullBlockTestGenerator.java), a file driven by BitcoinJ that generates test blockchains used to test/verify the handling of the blockchain in Core and various alternative implementations (e.g., BitcoinJ and BTCD). [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6523)
 
+./qa/rpc-tests/p2p-leaktests.py - Test for "leaky" P2P message behavior (e.g., messages received before a version is received, messages other than version/reject before sending a VERACK, etc.). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9720).
+
 ./qa/rpc-tests/p2p-mempool.py - Test for *mempool* RPC command, in conjunction with disabled bloom filters. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8078).
 
 ./qa/rpc-tests/p2p-segwit.py - Test for external results of Segregated Witness functionality. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8149).
+
+./qa/rpc-tests/p2p-timeouts.py - Test for peer disconnection logic (i.e., disconnect when no VERACKs are received within one minute). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9715).
 
 ./qa/rpc-tests/p2p-versionbits-warning.py - Test for BIP 9 warning logic. [*Added in 0.12.1*](https://github.com/bitcoin/bitcoin/pull/7575).
 
