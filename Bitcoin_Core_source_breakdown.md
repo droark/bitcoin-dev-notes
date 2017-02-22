@@ -308,17 +308,19 @@
 
 ./contrib/verify-commits/verify-commits.sh - Called by ./contrib/verify-commits/pre-push-hook.sh. Verifies that the commits before the current one have been properly signed, and that the commit about to be pushed has been signed by an accepted key.
 
-**./contrib/verifybinaries** - [Script that verifies binaries downloaded from bitcoin.org](https://github.com/bitcoin/bitcoin/pull/1935). *[Moved from ./contrib/verifysfbinaries in 0.13](https://github.com/bitcoin/bitcoin/pull/7881)*.
+**./contrib/verifybinaries** - [Script that verifies binaries downloaded from bitcoin.org](https://github.com/bitcoin/bitcoin/pull/1935). [*Moved from ./contrib/verifysfbinaries in 0.13*](https://github.com/bitcoin/bitcoin/pull/7881).
 
 ./contrib/verifybinaries/README.md - Basically explains what’s going on.
 
 ./contrib/verifybinaries/verify.sh - The verification script.
 
-**./contrib/zmq** - Support for ØMQ (ZeroMQ), an asynchronous messaging library. *[Added in 0.12](https://github.com/bitcoin/bitcoin/pull/6103)*.
+**./contrib/zmq** - Support for ØMQ (ZeroMQ), an asynchronous messaging library. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/6103).
 
-./contrib/verifysfbinaries/zmq_sub.py - Working example of adding ØMQ support.
+./contrib/verifysfbinaries/zmq_sub.py - Working example of adding ØMQ support. [*Requires Python 3.5 or higher as of 0.15*](https://github.com/bitcoin/bitcoin/pull/6103).
 
-**./depends** - A shared dependency builder. See AC_CONFIG_AUX_DIR() in ./configure.ac to see how Autotools connects to these files. *[Added in 0.10](https://github.com/bitcoin/bitcoin/pull/4592)*.
+./contrib/verifysfbinaries/zmq_sub3.4.py - Working example of adding ØMQ support using Python 3.4. Basically the same as ./contrib/verifysfbinaries/zmq_sub.py, with the only difference being in how the [*asyncio*](https://docs.python.org/3/library/asyncio.html) library is used. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/9485).
+
+**./depends** - A shared dependency builder. See AC_CONFIG_AUX_DIR() in ./configure.ac to see how Autotools connects to these files. [*Added in 0.10*](https://github.com/bitcoin/bitcoin/pull/4592).
 
 ./depends/.gitignore - Lists files for Git to ignore.
 
