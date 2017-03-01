@@ -1657,6 +1657,8 @@
 
 ./src/test/raii_event_tests.cpp - Tests for RAII-styled handling of *libevent* objects. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9387).
 
+./src/test/random_tests.cpp - Tests OS-specific random number generation calls for Linux and various BSD OSes (i.e., not /dev/urandom). [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/9821).
+
 ./src/test/README.md - Explains how to run the unit tests.
 
 ./src/test/reverselock_tests.cpp - Tests for the *reverse_lock* class.
