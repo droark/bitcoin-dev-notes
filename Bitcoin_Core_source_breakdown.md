@@ -306,6 +306,8 @@
 
 ./contrib/verify-commits/trusted-keys - Fingerprints of trusted keys used to push commits. Used when going through commits to ensure that all signatures come from keys that are trusted.
 
+./contrib/verify-commits/trusted-sha512-root-commit - The point at which the commit tree stops looking to confirm that the code is accurate. Everything before this commit is assumed to be safe. "Tree-SHA512" is only in merge commits, and is the [SHA512 hash of the resulting merged tree](https://github.com/bitcoin/bitcoin/pull/9871). [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/9880).
+
 ./contrib/verify-commits/verify-commits.sh - Called by ./contrib/verify-commits/pre-push-hook.sh. Verifies that the commits before the current one have been properly signed, and that the commit about to be pushed has been signed by an accepted key.
 
 **./contrib/verifybinaries** - [Script that verifies binaries downloaded from bitcoin.org](https://github.com/bitcoin/bitcoin/pull/1935). [*Moved from ./contrib/verifysfbinaries in 0.13*](https://github.com/bitcoin/bitcoin/pull/7881).
