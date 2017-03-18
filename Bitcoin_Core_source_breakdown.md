@@ -860,7 +860,7 @@
 
 ./src/coincontrol.h - A class (CCoinControl) specifying a set of coins to be used for a given Tx. (This allows the user to control which coins are used.) [*Added in 0.8*](https://github.com/bitcoin/bitcoin/pull/3253).
 
-./src/coins.cpp - Contains code for a pruned transaction that has only metadata and basically represents UTXOs (CCoins). Also includes various helper structs/classes that do things like abstract the "view" of the UTXO database (CCoinsView) and define the actual UTXO database (CCoinsViewCache), entries in the cache (CCoinsCacheEntry), etc. CCoinsViewCache is [consensus-critical](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2015-September/011161.html). [*Moved to the current position in 0.9*](https://github.com/bitcoin/bitcoin/pull/3199).
+./src/coins.cpp - Contains code for a pruned transaction that has only metadata and basically represents UTXOs (CCoins). Also includes various helper structs/classes that do things like abstract the "view" of the UTXO database (CCoinsView) and define the actual UTXO database (CCoinsViewCache), entries in the cache (CCoinsCacheEntry), etc. At a minimum, CCoinsView and CCoinsViewCache are [both](https://github.com/bitcoin/bitcoin/pull/5048#issuecomment-58435406) [consensus-critical](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2015-September/011161.html). [*Moved to the current position in 0.9*](https://github.com/bitcoin/bitcoin/pull/3199).
 
 ./src/coins.h - See the CPP file.
 
@@ -1495,6 +1495,10 @@
 
 ./src/qt/test/uritests.h - See the CPP file.
 
+./src/qt/test/wallettests.cpp - Basic wallet tests (e.g., sending coins). [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/9974).
+
+./src/qt/test/wallettests.h - See the CPP file.
+
 **./src/rpc** - General RPC functionality. *[Most files moved from ./src to ./src/rpc in 0.13](https://github.com/bitcoin/bitcoin/pull/7348).*
 
 ./src/rpc/blockchain.cpp - RPC blockchain command functionality.
@@ -1698,6 +1702,8 @@
 ./src/test/test_bitcoin.h - See the CPP file.
 
 ./src/test/test_bitcoin_fuzzy.cpp - A basic fuzzing harness meant to be used with [American Fuzzy Lop (AFL)](http://lcamtuf.coredump.cx/afl/). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9172).
+
+./src/test/test_bitcoin_main.cpp - Contains the Boost.Test main function and some global overrides. [Makes ./src/test/test_bitcoin.cpp compatible with the Qt test framework](https://github.com/bitcoin/bitcoin/pull/9974/commits/91e303595be2cc2361a5e32000e23a3b744e2fc1). [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/9974).
 
 ./src/test/test_random.h - Adds some tests for the FastRandomContext class, which takes secure random input and then quickly outputs insecure, deterministic data. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8914)*.
 
