@@ -556,205 +556,15 @@
 
 **./doc/release-notes** - Release note archive. *Will not list the files.*
 
-**./qa** - Core and related tests. Deals primarily with the Core binaries and how they respond to external input (flags, messages, etc.), not tests for internal source code.
+**./qa** - Core and related tests. Deals primarily with the Core binaries and how they respond to external input (flags, messages, etc.), not tests for internal source code. [*Moved to ./test in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956) along with all subdirectories, with only a couple of files/subdirectories listed below for historical purposes.
 
-./qa/README.md - Explains how to run tests.
-
-**./qa/pull-tester** - A set of tools that can be used to kick off Python-based tests, primarily based on Core's RPC functionality but including other test types based on external functionality.
-
-./qa/pull-tester/rpc-tests.py - Primary script that kicks off one or more tests found in ./qa/rpc-tests. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/6616).
+**./qa/pull-tester** - A set of tools that can be used to kick off Python-based tests, primarily based on Core's RPC functionality but including other test types based on external functionality. [*Moved to ./test/functional in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956), with only a couple of files listed below for historical purposes.
 
 ./qa/pull-tester/run-bitcoind-for-test.sh.in - Runs an instance of *bitcoind* in regtest mode. AC_CONFIG_FILES() (./configure.ac) processes the file and outputs it as ./qa/pull-tester/run-bitcoind-for-test.sh, which does the actual running of *bitcoind*. ./Makefile.am shows how to run the script, which is done when executing *make check* during the build process. Requires a "pull-tests" JAR file, which can come from [compiling *bitcoinj*](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2014-August/006407.html) or [downloading the pre-compiled JAR file in depends/packages/native_comparisontool.mk](https://github.com/theuni/bitcoind-comparisontool). The Java tools run the same tests using *bitcoinj* and compare the results with those from the original *bitcoind* binary run. Can be run with or without "expensive" reorg tests (the "--enable-comparison-tool-reorg-tests" flag when configuring the Core build). Look [here](https://github.com/TheBlueMatt/test-scripts) to see where the test was developed and where the data driving the tests originated. [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/9276).
 
-./qa/pull-tester/tests_config.ini.in - Sets, via AC_CONFIG_FILES() wizardry, some variables to be used in ./qa/pull-tester/rpc-tests.ini, which is read by Python's *ConfigParser* module. Examples include enabling ØMQ tests. [*Replaced ./qa/pull-tester/tests_config.py.in in 0.15*](https://github.com/bitcoin/bitcoin/pull/9657).
+./qa/pull-tester/tests_config.ini.in - Sets, via AC_CONFIG_FILES() wizardry, some variables to be used in ./qa/pull-tester/rpc-tests.ini, which is read by Python's *ConfigParser* module. Examples include enabling ØMQ tests. [*Moved from ./qa/pull-tester/tests_config.py.in in 0.15*](https://github.com/bitcoin/bitcoin/pull/9657), and [*moved to ./test/functional in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956).
 
-./qa/pull-tester/tests_config.py.in - Sets, via AC_CONFIG_FILES() wizardry, some variables to be used in ./qa/pull-tester/rpc-tests.py. Examples include enabling ØMQ tests. [*Replaced with ./qa/pull-tester/tests_config.ini.in in 0.15*](https://github.com/bitcoin/bitcoin/pull/9657).
-
-**./qa/rpc-tests** - Regression tests to run. [These tests focus on high-level external-facing functionality](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2014-July/006379.html), mostly related to RPC calls, but the tests also includes other test types (e.g., block serialization and various protocols).
-
-./qa/rpc-tests/.gitignore - Files for Git to ignore.
-
-./qa/rpc-tests/abandontransaction.py - Tests the *abandontransaction* RPC call. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/7312).
-
-./qa/rpc-tests/assumevalid.py - Tests the *assumevalid* RPC call. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9484).
-
-./qa/rpc-tests/bipdersig.py - [Confirms that the BIP 66 soft fork/switchover code works properly.](https://github.com/bitcoin/bitcoin/pull/5713) Uses BitcoinTestFramework. [Mike Hearn believes this is incomplete and removed it from Bitcoin XT](https://github.com/bitcoinxt/bitcoinxt/commit/8a4875b9ba9aacbeaead771a4c16ec3747c5a9df).
-
-./qa/rpc-tests/bipdersig-p2p.py - [Confirms that the BIP 66 soft fork/switchover code works properly in a P2P environment.](https://github.com/bitcoin/bitcoin/pull/5981) Uses *comptool*/ComparisonTestFramework.
-
-./qa/rpc-tests/bip9-softforks.py - Tests BIP 9 activation logic. [*Added in 0.12.1*](https://github.com/bitcoin/bitcoin/pull/7648).
-
-./qa/rpc-tests/bip65-cltv.py - [Confirms that the BIP 65 soft fork/switchover code works properly.](https://github.com/bitcoin/bitcoin/pull/6351) Uses BitcoinTestFramework.
-
-./qa/rpc-tests/bip65-cltv-p2p.py - [Confirms that the BIP 65 soft fork/switchover code works properly in a P2P environment.](https://github.com/bitcoin/bitcoin/pull/6351) Uses *comptool*/ComparisonTestFramework.
-
-./qa/rpc-tests/bip68-sequence.py - Tests BIP 68 functionality in the mempool. [*Added in 0.12.1*](https://github.com/bitcoin/bitcoin/pull/7184).
-
-./qa/rpc-tests/bip68-112-113-p2p.py - Tests the activation logic of BIP 9 (aka "versionbits") and the consensus logic for BIPs 68, 112, and 113, all in a P2P environment. [*Added in 0.12.1*](https://github.com/bitcoin/bitcoin/pull/7648).
-
-./qa/rpc-tests/blockchain.py - Tests the *gettxoutsetinfo* RPC functionality.
-
-./qa/rpc-tests/bumpfee.py - Tests the *bumpfee* RPC functionality. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8456).
-
-./qa/rpc-tests/create_cache.py - Helper code that initializes the blockchain cache used by the QA tests. It's meant to be called before any tests are run so that the blockchain is cached by [the *initialize_chain* call in *BitcoinTestFramework* (the parent of *CreateCache*)](https://www.botbot.me/freenode/bitcoin-core-dev/2016-05-12/?msg=65947836&page=3). [*Assists with parallelized RPC tests, and added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7972).
-
-./qa/rpc-tests/decodescript.py - Tests the *decodescript* RPC functionality.
-
-./qa/rpc-tests/disablewallet.py - Confirms that Core will work properly with the -disablewallet option.
-
-./qa/rpc-tests/forknotify.py - Tests the *alertnotify* CL flag for when a fork occurs.
-
-./qa/rpc-tests/fundrawtransaction.py - Tests the *fundrawtransaction* RPC functionality.
-
-./qa/rpc-tests/getblocktemplate_longpoll.py - Tests the "long polling" functionality of the *getblocktemplate* RPC function (BIP 22).
-
-./qa/rpc-tests/getblocktemplate_proposals.py - Tests the "block proposal" functionality of the *getblocktemplate* RPC function (BIP 23).
-
-./qa/rpc-tests/getchaintips.py - Tests the *getchaintips* RPC functionality.
-
-./qa/rpc-tests/httpbasics.py - [Tests HTTP "keep-alive" functionality.](https://github.com/bitcoin/bitcoin/pull/5436)
-
-./qa/rpc-tests/import-rescan.py - Tests the ability of the wallet to rescan after importing keys. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9331).
-
-./qa/rpc-tests/importmulti.py - Tests the *importmulti* RPC functionality. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/7551).
-
-./qa/rpc-tests/importprunedfunds.py - Tests the *importprunedfunds* and *removeprunedfunds* RPC calls. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7558).
-
-./qa/rpc-tests/invalidateblock.py - Tests the hidden *invalidateblock* RPC function.
-
-./qa/rpc-tests/invalidblockrequest.py - Tests P2P ability to process valid and invalid blocks received after requesting blocks.
-
-./qa/rpc-tests/invalidtxrequest.py - Checks to make sure that P2P "reject" mesages are properly sent and handled for transactions and blocks.
-
-./qa/rpc-tests/keypool.py - Wallet keypool tests that interact with wallet locking/unlocking.
-
-./qa/rpc-tests/listsinceblock.py - Tests the *listsinceblock* RPC functionality. In particular, it really wants to make sure that, if there's a reorg, the code will use the fork point as a reference, and not the relative position of a chain with less work. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9516).
-
-./qa/rpc-tests/listtransactions.py - Tests the *listtransactions* RPC functionality.
-
-./qa/rpc-tests/maxblocksinflight.py - Tests whether a node is limiting the number of in-flight block requests.
-
-./qa/rpc-tests/maxuploadtarget.py - Confirms that Core will work properly with the -maxuploadtarget option.
-
-./qa/rpc-tests/mempool_limit.py - [Confirms that Core will work properly with the -maxmempool option](https://github.com/bitcoin/bitcoin/pull/7153).
-
-./qa/rpc-tests/mempool_packages.py - [Tests the *descendantcount*, *descendantsize*, and *descendantfees* values from the *getrawmempool* RPC functionality.](https://github.com/bitcoin/bitcoin/pull/6654#issuecomment-141692820)
-
-./qa/rpc-tests/mempool_reorg.py - [Tests the *invalidateblock* RPC functionality.](https://github.com/bitcoin/bitcoin/pull/5267) In particular, it makes sure that coins that were valid due toinvalidated blocks will no longer be valid.
-
-./qa/rpc-tests/mempool_resurrect_test.py - [Confirms that a Tx in a block that was reorg'ed out is placed back in the mempool.](https://github.com/bitcoin/bitcoin/pull/5369)
-
-./qa/rpc-tests/mempool_spendcoinbase.py - [Confirms that immature coinbase spends aren't allowed.](https://github.com/bitcoin/bitcoin/pull/5407)
-
-./qa/rpc-tests/merkle_blocks.py - [Tests the generation and verification of merkle blocks.](https://github.com/bitcoin/bitcoin/pull/5199) In other words, it tests the *gettxoutproof* and *verifytxoutproof* RPC functionality, which relate to proofs that a given TXID is in a given block. (The proofs are serialized CMerkleBlock classes.)
-
-./qa/rpc-tests/multi_rpc.py - Tests to make sure that multiple *rpcuser* entries in bitcoin.conf will be properly handled by Core.
-
-./qa/rpc-tests/nodehandling.py - [Tests the *setban*, *listbanned*, and *disconnectnode* RPC functionality.](https://github.com/bitcoin/bitcoin/pull/6158)
-
-./qa/rpc-tests/nulldummy.py - Tests the P2P functionality with the [NULLDUMMY](https://github.com/bitcoin/bips/blob/master/bip-0147.mediawiki) softfork. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8636).
-
-./qa/rpc-tests/p2p-acceptblock.py - [Tests *AcceptBlock* functionality from ./src/main.cpp](https://github.com/bitcoin/bitcoin/pull/5875), which is basically how unrequested blocks are handled.
-
-./qa/rpc-tests/p2p-compactblocks.py - Tests various bits of CompactBlock functionality. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8418).
-
-./qa/rpc-tests/p2p-feefilter.py - Tests the *feefilter* P2P message. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7542).
-
-./qa/rpc-tests/p2p-fullblocktest.py - A partial port of [FullBlockTestGenerator.java](https://github.com/TheBlueMatt/test-scripts/blob/master/FullBlockTestGenerator.java), a file driven by BitcoinJ that generates test blockchains used to test/verify the handling of the blockchain in Core and various alternative implementations (e.g., BitcoinJ and BTCD). [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6523)
-
-./qa/rpc-tests/p2p-leaktests.py - Test for "leaky" P2P message behavior (e.g., messages received before a version is received, messages other than version/reject before sending a VERACK, etc.). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9720).
-
-./qa/rpc-tests/p2p-mempool.py - Test for *mempool* RPC command, in conjunction with disabled bloom filters. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8078).
-
-./qa/rpc-tests/p2p-segwit.py - Test for external results of Segregated Witness functionality. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8149).
-
-./qa/rpc-tests/p2p-timeouts.py - Test for peer disconnection logic (i.e., disconnect when no VERACKs are received within one minute). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9715).
-
-./qa/rpc-tests/p2p-versionbits-warning.py - Test for BIP 9 warning logic. [*Added in 0.12.1*](https://github.com/bitcoin/bitcoin/pull/7575).
-
-./qa/rpc-tests/preciousblock.py - Tests the *preciousblock* RPC functionality. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/6996).
-
-./qa/rpc-tests/prioritise_transaction.py - [Tests the *prioritisetransaction* RPC functionality.](https://github.com/bitcoin/bitcoin/pull/7147)
-
-./qa/rpc-tests/proxy_test.py - [Various proxy tests for the *proxy*, *onion*, and *proxyrandomize* CL args.](https://github.com/bitcoin/bitcoin/pull/5911)
-
-./qa/rpc-tests/pruning.py - [Tests block pruning functionality.](https://github.com/bitcoin/bitcoin/pull/5863)
-
-./qa/rpc-tests/rawtransactions.py - [Tests reorg scenarios w/ a mempool that contain a Tx spending (direct or indirect) a coinbase Tx.](https://github.com/bitcoin/bitcoin/pull/5418)
-
-./qa/rpc-tests/README.md - Explains some the test_framework subdirectory’s contents, along with some of the underlying technical details.
-
-./qa/rpc-tests/receivedby.py - [Tests the *getreceivedbyaddress* and *listreceivedbyaddress*  functionality.](https://github.com/bitcoin/bitcoin/pull/3960)
-
-./qa/rpc-tests/reindex.py - [Tests reindexing with CheckBlockIndex functionality enabled, all on the CL.](https://github.com/bitcoin/bitcoin/pull/6012)
-
-./qa/rpc-tests/rest.py - Tests the REST interface functionality.
-
-./qa/rpc-tests/rpcbind_test.py - [Tests binding of RPC functionality to various interfaces.](https://github.com/bitcoin/bitcoin/pull/3695)
-
-./qa/rpc-tests/rpcnamedargs.py - Tests support of JSON-RPC named args. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8811) (this file and the support for JSON-RPC named args).
-
-./qa/rpc-tests/segwit.py - Test for various bits of Segregated Witness functionality. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8149).
-
-./qa/rpc-tests/sendheaders.py - [Tests the *sendheaders* P2P message.](https://github.com/bitcoin/bitcoin/pull/7129)
-
-./qa/rpc-tests/signmessages.py - Tests signatures and verifications using the *signmessagewithprivkey* RPC call. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7953).
-
-./qa/rpc-tests/signrawtransactions.py - [Tests the *signrawtransaction* RPC functionality.](https://github.com/bitcoin/bitcoin/pull/5937)
-
-./qa/rpc-tests/smartfees.py - [Tests the fee estimation code.](https://github.com/bitcoin/bitcoin/pull/3959)
-
-./qa/rpc-tests/txn_clones.py - Confirms that, if a cloned Tx is malleated and sent on the network instead of the original Tx, the malleated Tx will be seen later and the original Tx ignored. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/5881)
-
-./qa/rpc-tests/txn_doublespend.py - [Tests double spend handling functionality.](https://github.com/bitcoin/bitcoin/pull/5317)
-
-./qa/rpc-tests/wallet.py - Various wallet tests.
-
-./qa/rpc-tests/wallet-account.py - Various RPC/JSON wallet unit tests. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8450) to replace ./src/wallet/test/rpc_wallet_tests.cpp.
-
-./qa/rpc-tests/wallet-hd.py - Tests hierarchical deterministic qualities of the Core wallet. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8309).
-
-./qa/rpc-tests/walletbackup.py - Tests wallet backup functionality.
-
-./qa/rpc-tests/zapwallettxes.py - [Tests *zapwallettxes* functionality (CL arg)](https://github.com/bitcoin/bitcoin/pull/5612).
-
-./qa/rpc-tests/zmq_test.py - Tests ØMQ RPC functionality.
-
-**./qa/rpc-tests/test_framework** - Non-test classes. [*Added in 0.11*](https://github.com/bitcoin/bitcoin/pull/6097).
-
-./qa/rpc-tests/test_framework/__init__.py - Standard Python package init file.
-
-./qa/rpc-tests/test_framework/address.py - Encodes and decodes Base58 P2PKH and P2SH addresses. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8499).
-
-./qa/rpc-tests/test_framework/authproxy.py - [Enhanced version of *ServiceProxy* from *python-jsonrpc*](https://github.com/jgarzik/python-bitcoinrpc/blob/master/bitcoinrpc/authproxy.py). Used to handle RPC calls and such.
-
-./qa/rpc-tests/test_framework/bignum.py - Helpers for ./qa/rpc-tests/test_framework/script.py.
-
-./qa/rpc-tests/test_framework/blockstore.py - Helper that implements disk-based block & Tx storage. Useful for replying to *getheaders* & *getdata*, and constructing a *getheaders* message.
-
-./qa/rpc-tests/test_framework/blocktools.py - Helper functs for manipulating blocks & transactions.
-
-./qa/rpc-tests/test_framework/comptool.py - Compare two *bitcoind* instances. Useful for P2P tests.
-
-./qa/rpc-tests/test_framework/coverage.py - [Code allowing for RPC call coverage.](https://github.com/bitcoin/bitcoin/pull/6804)
-
-./qa/rpc-tests/test_framework/key.py - Wrapper around OpenSSL’s *EC_Key* struct. [Fixes a crash in a regression test.](https://github.com/bitcoin/bitcoin/pull/6523#issuecomment-132381873)
-
-./qa/rpc-tests/test_framework/mininode.py - [Basic P2P connectivity to a Bitcoin node via P2P.](https://github.com/bitcoin/bitcoin/pull/5981)
-
-./qa/rpc-tests/test_framework/netutil.py - Generally useful network utilities.
-
-./qa/rpc-tests/test_framework/script.py - Bitcoin script manipulation utilities.
-
-./qa/rpc-tests/test_framework/siphash.py - [SipHash](https://en.wikipedia.org/wiki/SipHash) test utilities. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8418).
-
-./qa/rpc-tests/test_framework/socks5.py - Dummy SOCKS5 server.
-
-./qa/rpc-tests/test_framework/test_framework.py - Basic framework references (plain-or-P2P/BitcoinTestFramework and multiple binary versions/ComparisonTestFramework). Includes descriptions of arguments recognized by test scripts. Referenced by ./qa/pull-tester/rpc-tests.py.
-
-./qa/rpc-tests/test_framework/util.py - Generally useful utilities.
-
-./qa/rpc-tests/test_framework/wallet-dump.py - Tests the *dumpwallet* (and related) RPC functionality. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8417).
+./qa/pull-tester/tests_config.py.in - Sets, via AC_CONFIG_FILES() wizardry, some variables to be used in ./qa/pull-tester/rpc-tests.py. Examples include enabling ØMQ tests. [*Moved to ./qa/pull-tester/tests_config.ini.in in 0.15*](https://github.com/bitcoin/bitcoin/pull/9657).
 
 **./share** - External materials used by Core one way or another but not part of the source code.
 
@@ -1601,13 +1411,15 @@
 
 ./src/test/base64_tests.cpp - Base64 unit tests.
 
-./src/test/bctest.py - [Support code for *bitcoin-tx* binary test.](https://github.com/bitcoin/bitcoin/pull/4624)
+./src/test/bctest.py - [Support code for *bitcoin-tx* binary test](https://github.com/bitcoin/bitcoin/pull/4624). [*Moved to ./test/util/bctest.py in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956).
 
 ./src/test/bignum.h - See the ./src/bignum.h entry. [*Removed in 0.12*](https://github.com/bitcoin/bitcoin/pull/7095) and replaced with ./src/test/scriptnum10.h.
 
+./src/test/bitcoin-util-test.py - [Kicks off *bitcoin-tx* binary test](https://github.com/bitcoin/bitcoin/pull/4624). [*Moved to ./test/util/bitcoin-util-test.py in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956).
+
 ./src/test/bip32_tests.cpp - [Hierarchical deterministic (HD) wallet unit tests.](https://github.com/bitcoin/bitcoin/pull/2829)
 
-./src/test/bitcoin-util-test.py - [Kicks off *bitcoin-tx* binary test.](https://github.com/bitcoin/bitcoin/pull/4624)
+./src/test/bitcoin-util-test.py - [Kicks off *bitcoin-tx* binary test](https://github.com/bitcoin/bitcoin/pull/4624). [*Moved to ./test/util/bitcoin-util-test.py in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956).
 
 ./src/test/blockencodings_test.cpp - Implements Compact Block Relay tests. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8068).
 
@@ -1615,7 +1427,7 @@
 
 ./src/test/bswap_tests.cpp - Tests *bswap_{16/32/64}()* calls to ensure that the calls function properly. (This was a problem in particular on macOS builds.) [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9366).
 
-./src/test/buildenv.py.in - [Helps allow Python tests to run on Windows.](https://github.com/bitcoin/bitcoin/pull/5014)
+./src/test/buildenv.py.in - [Helps allow Python tests to run on Windows](https://github.com/bitcoin/bitcoin/pull/5014). [*Moved to ./test/util/buildenv.py.in in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956).
 
 ./src/test/checkblock_tests.cpp - Now-obsolete test that [was used](https://github.com/bitcoin/bitcoin/commit/8c222dca4f961ad13ec64d690134a40d09b20813) to confirm that Core would handle 1 MB blocks after the temporary 500 KB soft fork imposed in the wake of the Mar. 2013 hard fork. [*Removed in 0.13*](https://github.com/bitcoin/bitcoin/pull/7490).
 
@@ -1725,9 +1537,7 @@
 
 ./src/test/versionbits_tests.cpp - Tests the BIP 9 deployment logic. [*Added in 0.12.1*](https://github.com/bitcoin/bitcoin/pull/7543).
 
-**./src/test/data** - Data for unit tests. [Data is built into the binary](https://github.com/bitcoin/bitcoin/pull/2985) via ./src/Makefile.test.include, which takes .raw and (most) .json files in the ./src/test/data subdirectory and creates .raw.h and .json.h files. The .h files are then compiled into the *./src/test/test_bitcoin* binary. The .hex files are simply included with the binary for distribution and reference when running some of the tests.
-
-./src/test/data/alertTests.raw - Alert data used by ./src/test/alert_tests.cpp. Data generated by ./src/Makefile.test.include. [*Removed in 0.13*](https://github.com/bitcoin/bitcoin/pull/7692).
+**./src/test/data** - Data for unit tests. [Data is built into the binary](https://github.com/bitcoin/bitcoin/pull/2985) via ./src/Makefile.test.include, which takes the .json files in this ./src/test/data subdirectory and creates .json.h files. The .h files are then compiled into the *./src/test/test_bitcoin* binary. [*Many files moved to ./test/util/data in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956).
 
 ./src/test/data/base58_encode_decode.json - Base58 test data used by ./src/tests/base58_tests.cpp to confirm that encoding & decoding work. [Generated by ./contrib/testgen/gen_base58_test_vectors.py](https://github.com/bitcoin/bitcoin/pull/1888).
 
@@ -1735,115 +1545,15 @@
 
 ./src/test/data/base58_keys_valid.json - Base58 test data used by ./src/tests/base58_tests.cpp to confirm that the given Base58 keys are valid across various key types. [Generated by ./contrib/testgen/gen_base58_test_vectors.py.](https://github.com/bitcoin/bitcoin/pull/1888)
 
-./src/test/data/bitcoin-util-test.json - Test data for the *bitcoin-tx* binary test. [Used by ./src/test/bitcoin-util-test.py](https://github.com/bitcoin/bitcoin/pull/4624) to trigger tests.
-
-./src/test/data/blanktx.json - Test data for the *bitcoin-tx* binary test. Checks the results of creating a blank v1 Tx. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
-
-./src/test/data/blanktxv1.hex - Test data for the *bitcoin-tx* binary test. [Used by ./src/test/data/bitcoin-util-test.json](https://github.com/bitcoin/bitcoin/pull/4624) with *bitcoin-tx -create -nversion=1* to ensure that a blank v1 transaction is correct. [*Changed from ./src/test/data/blanktx.hex to ./src/test/data/blanktxv1.hex in 0.14*](https://github.com/bitcoin/bitcoin/pull/7562).
-
-./src/test/data/blanktxv2.hex - Test data for the *bitcoin-tx* binary test. [Used by ./src/test/data/bitcoin-util-test.json](https://github.com/bitcoin/bitcoin/pull/4624) with *bitcoin-tx -create -nversion=1* to ensure that a blank v1 transaction is correct. [*Changed from ./src/test/data/blanktx.hex to ./src/test/data/blanktxv1.hex in 0.14*](https://github.com/bitcoin/bitcoin/pull/7562).
-
-./src/test/data/blanktxv2.json - Test data for the *bitcoin-tx* binary test. Checks the results of creating a blank v2 Tx. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/7562).
-
 ./src/test/data/README.md - Mentions that this is data for various tests.
 
 ./src/test/data/script_tests.json - Data for valid and invalid scripts. [Used by ./src/tests/script_tests.cpp](https://github.com/bitcoin/bitcoin/pull/1121).
 
 ./src/test/data/sighash.json - Sighash data. [Used by ./src/tests/sighash_tests.cpp](https://github.com/bitcoin/bitcoin/pull/3975).
 
-./src/test/data/tt-delin1-out.hex - *bitcoin-tx -delin=1* test data used for output comparison. [Used by ./src/test/data/bitcoin-util-test.json.](https://github.com/bitcoin/bitcoin/pull/4733)
-
-./src/test/data/tt-delin1-out.json - *bitcoin-tx -json -delin=1* test data used for output comparison. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
-
-./src/test/data/tt-delout1-out.hex - *bitcoin-tx -delout=1* test data used for output comparison. [Used by ./src/test/data/bitcoin-util-test.json.](https://github.com/bitcoin/bitcoin/pull/4733)
-
-./src/test/data/tt-delout1-out.json - *bitcoin-tx -json -delout=1* test data used for output comparison. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
-
-./src/test/data/tt-locktime317000-out.hex - *bitcoin-tx -lockout=317000* test data used for output comparison. [Used by ./src/test/data/bitcoin-util-test.json.](https://github.com/bitcoin/bitcoin/pull/4733)
-
-./src/test/data/tt-locktime317000-out.json - *bitcoin-tx -json -lockout=317000* test data used for output comparison. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
-
 ./src/test/data/tx_invalid.json - *bitcoin-tx -delin=1* test data. Consists of invalid, deserialized transactions. [Used by ./src/test/data/bitcoin-util-test.json.](https://github.com/bitcoin/bitcoin/pull/4733)
 
 ./src/test/data/tx_valid.json - *bitcoin-tx -delin=1* test data. Consists of valid, deserialized transactions. [Used by ./src/test/data/bitcoin-util-test.json.](https://github.com/bitcoin/bitcoin/pull/4733)
-
-./src/test/data/tx394b54bb.hex - *bitcoin-tx* input test data. [Used by ./src/test/data/bitcoin-util-test.json.](https://github.com/bitcoin/bitcoin/pull/4733)
-
-./src/test/data/txcreate1.hex - *bitcoin-tx -create *loads of flags** input test data. [Used by ./src/test/data/bitcoin-util-test.json.](https://github.com/bitcoin/bitcoin/pull/4733)
-
-./src/test/data/txcreate1.json - *bitcoin-tx -json -create *loads of flags** input test data. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
-
-./src/test/data/txcreate2.hex - *bitcoin-tx -create outscript=0:* (i.e., null scriptPubKey) test data used for output comparison. [Used by ./src/test/data/bitcoin-util-test.json.](https://github.com/bitcoin/bitcoin/pull/4909)
-
-./src/test/data/txcreate2.json - *bitcoin-tx -json -create outscript=0:* (i.e., null scriptPubKey) test data used for output comparison. Empty when committed. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
-
-./src/test/data/txcreatedata_seq0.hex - Output comparison data for *bitcoin-tx* (RPC) transaction creation. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7957).
-
-./src/test/data/txcreatedata_seq0.json - Output comparison data for *bitcoin-tx* (RPC-JSON) transaction creation. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
-
-./src/test/data/txcreatedata_seq1.hex - Output comparison data for *bitcoin-tx* (RPC) transaction creation. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7957).
-
-./src/test/data/txcreatedata_seq1.json - Output comparison data for *bitcoin-tx* (RPC-JSON) transaction creation. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
-
-./src/test/data/txcreatedata1.hex - [Data for tests regarding data-based outputs (OP_RETURN) from *bitcoin-tx*](https://github.com/bitcoin/bitcoin/pull/6346).
-
-./src/test/data/txcreatedata1.json - Data for tests regarding data-based outputs (OP_RETURN) from *bitcoin-tx* in JSON mode. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
-
-./src/test/data/txcreatedata2.hex - [Data for tests regarding data-based outputs (OP_RETURN) from *bitcoin-tx*](https://github.com/bitcoin/bitcoin/pull/6346).
-
-./src/test/data/txcreatedata2.json - Data for tests regarding data-based outputs (OP_RETURN) from *bitcoin-tx* in JSON mode. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
-
-./src/test/data/txcreatemultisig1.hex - Expected output result (hex) when using *bitcoin-tx* to generate, using some given input data, a 2-of-3 multisig Tx P2PKH output. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
-
-./src/test/data/txcreatemultisig1.json - Expected output result (JSON) when using *bitcoin-tx* to generate, using some given input data, a 2-of-3 multisig Tx P2PKH out. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
-
-./src/test/data/txcreatemultisig2.hex - Expected output result (hex) when using *bitcoin-tx* to generate, using some given input data, a 2-of-3 multisig Tx P2PKH output in P2SH form. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
-
-./src/test/data/txcreatemultisig2.json - Expected output result (JSON) when using *bitcoin-tx* to generate, using some given input data, a 2-of-3 multisig Tx P2PKH output in P2SH form. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
-
-./src/test/data/txcreatemultisig3.hex - Expected output result (hex) when using *bitcoin-tx* to generate, using some given input data, a 2-of-3 multisig Tx P2WSH output. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
-
-./src/test/data/txcreatemultisig3.json - Expected output result (JSON) when using *bitcoin-tx* to generate, using some given input data, a 2-of-3 multisig Tx P2WSH output. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
-
-./src/test/data/txcreatemultisig4.hex - Expected output result (hex) when using *bitcoin-tx* to generate, using some given input data, a 2-of-3 multisig Tx P2WSH output in P2SH form. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
-
-./src/test/data/txcreatemultisig4.json - Expected output result (JSON) when using *bitcoin-tx* to generate, using some given input data, a 2-of-3 multisig Tx P2WSH output in P2SH form. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
-
-./src/test/data/txcreateoutpubkey1.hex - Expected output result (hex) when using *bitcoin-tx* to generate, using some given input data, a Tx P2PK output. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
-
-./src/test/data/txcreateoutpubkey1.json - Expected output result (JSON) when using *bitcoin-tx* to generate, using some given input data, a Tx P2PK output. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
-
-./src/test/data/txcreateoutpubkey2.hex - Expected output result (hex) when using *bitcoin-tx* to generate, using some given input data, a Tx P2WPK output. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
-
-./src/test/data/txcreateoutpubkey2.json - Expected output result (JSON) when using *bitcoin-tx* to generate, using some given input data, a Tx P2WPK output. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
-
-./src/test/data/txcreateoutpubkey3.hex - Expected output result (hex) when using *bitcoin-tx* to generate, using some given input data, a Tx P2WPK output in P2SH form. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
-
-./src/test/data/txcreateoutpubkey3.json - Expected output result (JSON) when using *bitcoin-tx* to generate, using some given input data, a Tx P2WPK output in P2SH form. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
-
-./src/test/data/txcreatescript1.hex - Expected output result (hex) when using *bitcoin-tx* to generate, using some given input data, a Tx P2PKH output with a single script (OP_DROP). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
-
-./src/test/data/txcreatescript1.json - Expected output result (JSON) when using *bitcoin-tx* to generate, using some given input data, a Tx P2PKH output with a single script (OP_DROP). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
-
-./src/test/data/txcreatescript2.hex - Expected output result (hex) when using *bitcoin-tx* to generate, using some given input data, a Tx P2PKH output with a single script (OP_DROP) in P2SH form. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
-
-./src/test/data/txcreatescript2.json - Expected output result (JSON) when using *bitcoin-tx* to generate, using some given input data, a Tx P2PKH output with a single script (OP_DROP) in P2SH form. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
-
-./src/test/data/txcreatescript3.hex - Expected output result (hex) when using *bitcoin-tx* to generate, using some given input data, a Tx P2WSH output with a single script (OP_DROP). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
-
-./src/test/data/txcreatescript3.json - Expected output result (JSON) when using *bitcoin-tx* to generate, using some given input data, a Tx P2WSH output with a single script (OP_DROP). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
-
-./src/test/data/txcreatescript4.hex - Expected output result (hex) when using *bitcoin-tx* to generate, using some given input data, a Tx P2WSH output with a single script (OP_DROP) in P2SH form. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
-
-./src/test/data/txcreatescript4.json - Expected output result (JSON) when using *bitcoin-tx* to generate, using some given input data, a Tx P2WSH output with a single script (OP_DROP) in P2SH form. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
-
-./src/test/data/txcreatesign.json - *bitcoin-tx -json -create *loads of flags** input test data. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829), and [*removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/9376) when it was replaced with ./src/test/data/txcreatesignv1.json.
-
-./src/test/data/txcreatesignv1.hex - *bitcoin-tx -create *loads of flags** input test data. [Used by ./src/test/data/bitcoin-util-test.json](https://github.com/bitcoin/bitcoin/pull/5528) to create a v1 Tx with a signle input and output, and then sign the Tx. [A later change was made to fix some issues](https://github.com/bitcoin/bitcoin/pull/6390). [*Changed from ./src/test/data/txcreatesign.hex to ./src/test/data/txcreatesignv1.hex in 0.14*](https://github.com/bitcoin/bitcoin/pull/7562).
-
-./src/test/data/txcreatesignv1.json - *bitcoin-tx -json -create *loads of flags** input test data. Used to create a v2 Tx with a signle input and output, and then sign the Tx, with the output in json. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/7562).
-
-./src/test/data/txcreatesignv2.hex - *bitcoin-tx -create *loads of flags** input test data. Used by ./src/test/data/bitcoin-util-test.json to create a v2 Tx with a signle input and output, and then sign the Tx. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/7562).
 
 **./src/univalue** - Downstream version of the libunivalue library. Objects are used for parsing and encoding JSON data. [Replaced JSON Spirit.](https://github.com/bitcoin/bitcoin/pull/6121) *No files listed. [Consult the project website](https://github.com/jgarzik/univalue)*.
 
@@ -1902,3 +1612,308 @@
 ./src/zmq/zmqpublishnotifier.cpp - Covers publishing for each covered event type. Has a derived virtual class (CZQAbstractPublishNotifier) that’s used as the base for the classes covering the four event types: block hash (CZMQPublishHashBlockNotifier), raw block (CZMQPublishRawBlockNotifier), Tx hash (CZMQPublishHashTransactionNotifier), and raw Tx (CZMQPublishRawTransactionNotifier).
 
 ./src/zmq/zmqpublishnotifier.h - See the CPP file.
+
+**./test** - Core and related tests. Deals primarily with the Core binaries and how they respond to external input (flags, messages, etc.), not tests for internal source code. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956).
+
+./test/README.md - Explains how to run tests.
+
+**./test/functional** - Regression tests to run and related helper files. [These tests focus on high-level external-facing functionality](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2014-July/006379.html), mostly related to RPC calls, but the tests also includes other test types (e.g., block serialization and various protocols). Also includes a set of tools that can be used to kick off Python-based tests, primarily based on Core's RPC functionality but including other test types based on external functionality. *[Added in 0.15](https://github.com/bitcoin/bitcoin/pull/9956), with files moved from ./qa/pull-tester*.
+
+./test/functional/.gitignore - Files for Git to ignore.
+
+./test/functional/abandontransaction.py - Tests the *abandontransaction* RPC call. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/7312).
+
+./test/functional/assumevalid.py - Tests the *assumevalid* RPC call. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9484).
+
+./test/functional/bipdersig.py - [Confirms that the BIP 66 soft fork/switchover code works properly.](https://github.com/bitcoin/bitcoin/pull/5713) Uses BitcoinTestFramework. [Mike Hearn believes this is incomplete and removed it from Bitcoin XT](https://github.com/bitcoinxt/bitcoinxt/commit/8a4875b9ba9aacbeaead771a4c16ec3747c5a9df).
+
+./test/functional/bipdersig-p2p.py - [Confirms that the BIP 66 soft fork/switchover code works properly in a P2P environment.](https://github.com/bitcoin/bitcoin/pull/5981) Uses *comptool*/ComparisonTestFramework.
+
+./test/functional/bip9-softforks.py - Tests BIP 9 activation logic. [*Added in 0.12.1*](https://github.com/bitcoin/bitcoin/pull/7648).
+
+./test/functional/bip65-cltv.py - [Confirms that the BIP 65 soft fork/switchover code works properly.](https://github.com/bitcoin/bitcoin/pull/6351) Uses BitcoinTestFramework.
+
+./test/functional/bip65-cltv-p2p.py - [Confirms that the BIP 65 soft fork/switchover code works properly in a P2P environment.](https://github.com/bitcoin/bitcoin/pull/6351) Uses *comptool*/ComparisonTestFramework.
+
+./test/functional/bip68-sequence.py - Tests BIP 68 functionality in the mempool. [*Added in 0.12.1*](https://github.com/bitcoin/bitcoin/pull/7184).
+
+./test/functional/bip68-112-113-p2p.py - Tests the activation logic of BIP 9 (aka "versionbits") and the consensus logic for BIPs 68, 112, and 113, all in a P2P environment. [*Added in 0.12.1*](https://github.com/bitcoin/bitcoin/pull/7648).
+
+./test/functional/blockchain.py - Tests the *gettxoutsetinfo* RPC functionality.
+
+./test/functional/bumpfee.py - Tests the *bumpfee* RPC functionality. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8456).
+
+./test/functional/config.ini.in - Sets, via AC_CONFIG_FILES() wizardry, some variables to be used in ./qa/pull-tester/rpc-tests.ini, which is read by Python's *ConfigParser* module. Examples include enabling ØMQ tests. [*Replaced ./qa/pull-tester/tests_config.py.in in 0.15*](https://github.com/bitcoin/bitcoin/pull/9657).
+
+./test/functional/create_cache.py - Helper code that initializes the blockchain cache used by the QA tests. It's meant to be called before any tests are run so that the blockchain is cached by [the *initialize_chain* call in *BitcoinTestFramework* (the parent of *CreateCache*)](https://www.botbot.me/freenode/bitcoin-core-dev/2016-05-12/?msg=65947836&page=3). [*Assists with parallelized RPC tests, and added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7972).
+
+./test/functional/decodescript.py - Tests the *decodescript* RPC functionality.
+
+./test/functional/disablewallet.py - Confirms that Core will work properly with the -disablewallet option.
+
+./test/functional/forknotify.py - Tests the *alertnotify* CL flag for when a fork occurs.
+
+./test/functional/fundrawtransaction.py - Tests the *fundrawtransaction* RPC functionality.
+
+./test/functional/getblocktemplate_longpoll.py - Tests the "long polling" functionality of the *getblocktemplate* RPC function (BIP 22).
+
+./test/functional/getblocktemplate_proposals.py - Tests the "block proposal" functionality of the *getblocktemplate* RPC function (BIP 23).
+
+./test/functional/getchaintips.py - Tests the *getchaintips* RPC functionality.
+
+./test/functional/httpbasics.py - [Tests HTTP "keep-alive" functionality.](https://github.com/bitcoin/bitcoin/pull/5436)
+
+./test/functional/import-rescan.py - Tests the ability of the wallet to rescan after importing keys. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9331).
+
+./test/functional/importmulti.py - Tests the *importmulti* RPC functionality. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/7551).
+
+./test/functional/importprunedfunds.py - Tests the *importprunedfunds* and *removeprunedfunds* RPC calls. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7558).
+
+./test/functional/invalidateblock.py - Tests the hidden *invalidateblock* RPC function.
+
+./test/functional/invalidblockrequest.py - Tests P2P ability to process valid and invalid blocks received after requesting blocks.
+
+./test/functional/invalidtxrequest.py - Checks to make sure that P2P "reject" mesages are properly sent and handled for transactions and blocks.
+
+./test/functional/keypool.py - Wallet keypool tests that interact with wallet locking/unlocking.
+
+./test/functional/listsinceblock.py - Tests the *listsinceblock* RPC functionality. In particular, it really wants to make sure that, if there's a reorg, the code will use the fork point as a reference, and not the relative position of a chain with less work. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9516).
+
+./test/functional/listtransactions.py - Tests the *listtransactions* RPC functionality.
+
+./test/functional/maxblocksinflight.py - Tests whether a node is limiting the number of in-flight block requests.
+
+./test/functional/maxuploadtarget.py - Confirms that Core will work properly with the -maxuploadtarget option.
+
+./test/functional/mempool_limit.py - [Confirms that Core will work properly with the -maxmempool option](https://github.com/bitcoin/bitcoin/pull/7153).
+
+./test/functional/mempool_packages.py - [Tests the *descendantcount*, *descendantsize*, and *descendantfees* values from the *getrawmempool* RPC functionality.](https://github.com/bitcoin/bitcoin/pull/6654#issuecomment-141692820)
+
+./test/functional/mempool_reorg.py - [Tests the *invalidateblock* RPC functionality.](https://github.com/bitcoin/bitcoin/pull/5267) In particular, it makes sure that coins that were valid due toinvalidated blocks will no longer be valid.
+
+./test/functional/mempool_resurrect_test.py - [Confirms that a Tx in a block that was reorg'ed out is placed back in the mempool.](https://github.com/bitcoin/bitcoin/pull/5369)
+
+./test/functional/mempool_spendcoinbase.py - [Confirms that immature coinbase spends aren't allowed.](https://github.com/bitcoin/bitcoin/pull/5407)
+
+./test/functional/merkle_blocks.py - [Tests the generation and verification of merkle blocks.](https://github.com/bitcoin/bitcoin/pull/5199) In other words, it tests the *gettxoutproof* and *verifytxoutproof* RPC functionality, which relate to proofs that a given TXID is in a given block. (The proofs are serialized CMerkleBlock classes.)
+
+./test/functional/multi_rpc.py - Tests to make sure that multiple *rpcuser* entries in bitcoin.conf will be properly handled by Core.
+
+./test/functional/nodehandling.py - [Tests the *setban*, *listbanned*, and *disconnectnode* RPC functionality.](https://github.com/bitcoin/bitcoin/pull/6158)
+
+./test/functional/nulldummy.py - Tests the P2P functionality with the [NULLDUMMY](https://github.com/bitcoin/bips/blob/master/bip-0147.mediawiki) softfork. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8636).
+
+./test/functional/p2p-acceptblock.py - [Tests *AcceptBlock* functionality from ./src/main.cpp](https://github.com/bitcoin/bitcoin/pull/5875), which is basically how unrequested blocks are handled.
+
+./test/functional/p2p-compactblocks.py - Tests various bits of CompactBlock functionality. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8418).
+
+./test/functional/p2p-feefilter.py - Tests the *feefilter* P2P message. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7542).
+
+./test/functional/p2p-fullblocktest.py - A partial port of [FullBlockTestGenerator.java](https://github.com/TheBlueMatt/test-scripts/blob/master/FullBlockTestGenerator.java), a file driven by BitcoinJ that generates test blockchains used to test/verify the handling of the blockchain in Core and various alternative implementations (e.g., BitcoinJ and BTCD). [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6523)
+
+./test/functional/p2p-leaktests.py - Test for "leaky" P2P message behavior (e.g., messages received before a version is received, messages other than version/reject before sending a VERACK, etc.). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9720).
+
+./test/functional/p2p-mempool.py - Test for *mempool* RPC command, in conjunction with disabled bloom filters. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8078).
+
+./test/functional/p2p-segwit.py - Test for external results of Segregated Witness functionality. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8149).
+
+./test/functional/p2p-timeouts.py - Test for peer disconnection logic (i.e., disconnect when no VERACKs are received within one minute). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9715).
+
+./test/functional/p2p-versionbits-warning.py - Test for BIP 9 warning logic. [*Added in 0.12.1*](https://github.com/bitcoin/bitcoin/pull/7575).
+
+./test/functional/preciousblock.py - Tests the *preciousblock* RPC functionality. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/6996).
+
+./test/functional/prioritise_transaction.py - [Tests the *prioritisetransaction* RPC functionality.](https://github.com/bitcoin/bitcoin/pull/7147)
+
+./test/functional/proxy_test.py - [Various proxy tests for the *proxy*, *onion*, and *proxyrandomize* CL args.](https://github.com/bitcoin/bitcoin/pull/5911)
+
+./test/functional/pruning.py - [Tests block pruning functionality.](https://github.com/bitcoin/bitcoin/pull/5863)
+
+./test/functional/rawtransactions.py - [Tests reorg scenarios w/ a mempool that contain a Tx spending (direct or indirect) a coinbase Tx.](https://github.com/bitcoin/bitcoin/pull/5418)
+
+./test/functional/README.md - Explains some the test_framework subdirectory’s contents, along with some of the underlying technical details.
+
+./test/functional/receivedby.py - [Tests the *getreceivedbyaddress* and *listreceivedbyaddress*  functionality.](https://github.com/bitcoin/bitcoin/pull/3960)
+
+./test/functional/reindex.py - [Tests reindexing with CheckBlockIndex functionality enabled, all on the CL.](https://github.com/bitcoin/bitcoin/pull/6012)
+
+./test/functional/rest.py - Tests the REST interface functionality.
+
+./test/functional/rpcbind_test.py - [Tests binding of RPC functionality to various interfaces.](https://github.com/bitcoin/bitcoin/pull/3695)
+
+./test/functional/rpcnamedargs.py - Tests support of JSON-RPC named args. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8811) (this file and the support for JSON-RPC named args).
+
+./test/functional/segwit.py - Test for various bits of Segregated Witness functionality. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8149).
+
+./test/functional/sendheaders.py - [Tests the *sendheaders* P2P message.](https://github.com/bitcoin/bitcoin/pull/7129)
+
+./test/functional/signmessages.py - Tests signatures and verifications using the *signmessagewithprivkey* RPC call. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7953).
+
+./test/functional/signrawtransactions.py - [Tests the *signrawtransaction* RPC functionality.](https://github.com/bitcoin/bitcoin/pull/5937)
+
+./test/functional/smartfees.py - [Tests the fee estimation code.](https://github.com/bitcoin/bitcoin/pull/3959)
+
+./test/functional/test_runner.py - Primary script that kicks off one or more tests found in ./test/functional. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/6616).
+
+./test/functional/txn_clones.py - Confirms that, if a cloned Tx is malleated and sent on the network instead of the original Tx, the malleated Tx will be seen later and the original Tx ignored. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/5881)
+
+./test/functional/txn_doublespend.py - [Tests double spend handling functionality.](https://github.com/bitcoin/bitcoin/pull/5317)
+
+./test/functional/wallet.py - Various wallet tests.
+
+./test/functional/wallet-account.py - Various RPC/JSON wallet unit tests. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8450) to replace ./src/wallet/test/rpc_wallet_tests.cpp.
+
+./test/functional/wallet-hd.py - Tests hierarchical deterministic qualities of the Core wallet. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8309).
+
+./test/functional/walletbackup.py - Tests wallet backup functionality.
+
+./test/functional/zapwallettxes.py - [Tests *zapwallettxes* functionality (CL arg)](https://github.com/bitcoin/bitcoin/pull/5612).
+
+./test/functional/zmq_test.py - Tests ØMQ RPC functionality.
+
+**./test/functional/test_framework** - Non-test classes. *[Added in 0.11](https://github.com/bitcoin/bitcoin/pull/6097) as ./src/data/test_framework and [moved to ./test/functional/test_framework in 0.15](https://github.com/bitcoin/bitcoin/pull/9956)*.
+
+./test/functional/test_framework/__init__.py - Standard Python package init file.
+
+./test/functional/test_framework/address.py - Encodes and decodes Base58 P2PKH and P2SH addresses. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8499).
+
+./test/functional/test_framework/authproxy.py - [Enhanced version of *ServiceProxy* from *python-jsonrpc*](https://github.com/jgarzik/python-bitcoinrpc/blob/master/bitcoinrpc/authproxy.py). Used to handle RPC calls and such.
+
+./test/functional/test_framework/bignum.py - Helpers for ./test/functional/test_framework/script.py.
+
+./test/functional/test_framework/blockstore.py - Helper that implements disk-based block & Tx storage. Useful for replying to *getheaders* & *getdata*, and constructing a *getheaders* message.
+
+./test/functional/test_framework/blocktools.py - Helper functs for manipulating blocks & transactions.
+
+./test/functional/test_framework/comptool.py - Compare two *bitcoind* instances. Useful for P2P tests.
+
+./test/functional/test_framework/coverage.py - [Code allowing for RPC call coverage.](https://github.com/bitcoin/bitcoin/pull/6804)
+
+./test/functional/test_framework/key.py - Wrapper around OpenSSL’s *EC_Key* struct. [Fixes a crash in a regression test.](https://github.com/bitcoin/bitcoin/pull/6523#issuecomment-132381873)
+
+./test/functional/test_framework/mininode.py - [Basic P2P connectivity to a Bitcoin node via P2P.](https://github.com/bitcoin/bitcoin/pull/5981)
+
+./test/functional/test_framework/netutil.py - Generally useful network utilities.
+
+./test/functional/test_framework/script.py - Bitcoin script manipulation utilities.
+
+./test/functional/test_framework/siphash.py - [SipHash](https://en.wikipedia.org/wiki/SipHash) test utilities. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8418).
+
+./test/functional/test_framework/socks5.py - Dummy SOCKS5 server.
+
+./test/functional/test_framework/test_framework.py - Basic framework references (plain-or-P2P/BitcoinTestFramework and multiple binary versions/ComparisonTestFramework). Includes descriptions of arguments recognized by test scripts. Referenced by ./qa/pull-tester/rpc-tests.py.
+
+./test/functional/test_framework/util.py - Generally useful utilities.
+
+./test/functional/test_framework/wallet-dump.py - Tests the *dumpwallet* (and related) RPC functionality. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8417).
+
+**./test/util** - Test-related utility files. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956).
+
+./test/util/bctest.py - [Support code for *bitcoin-tx* binary test](https://github.com/bitcoin/bitcoin/pull/4624). [*Moved from ./src/test/bctest.py in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956).
+
+./test/util/bitcoin-util-test.py - [Kicks off *bitcoin-tx* binary test](https://github.com/bitcoin/bitcoin/pull/4624). [*Moved from ./src/test/bitcoin-util-test.py in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956).
+
+./test/util/buildenv.py.in - [Helps allow Python tests to run on Windows](https://github.com/bitcoin/bitcoin/pull/5014). [*Moved from ./src/test/buildenv.py.in in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956).
+
+**./test/util/data** - Data for unit tests in ./test/functional. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956), consisting of files moved from ./src/test/data.
+
+./test/util/data/bitcoin-util-test.json - Test data for the *bitcoin-tx* binary test. [Used by ./src/test/bitcoin-util-test.py](https://github.com/bitcoin/bitcoin/pull/4624) to trigger tests.
+
+./test/util/data/blanktx.json - Test data for the *bitcoin-tx* binary test. Checks the results of creating a blank v1 Tx. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
+
+./test/util/data/blanktxv1.hex - Test data for the *bitcoin-tx* binary test. [Used by ./test/util/data/bitcoin-util-test.json](https://github.com/bitcoin/bitcoin/pull/4624) with *bitcoin-tx -create -nversion=1* to ensure that a blank v1 transaction is correct. [*Changed from ./src/test/data/blanktx.hex to ./src/test/data/blanktxv1.hex in 0.14*](https://github.com/bitcoin/bitcoin/pull/7562).
+
+./test/util/data/blanktxv2.hex - Test data for the *bitcoin-tx* binary test. [Used by ./test/util/data/bitcoin-util-test.json](https://github.com/bitcoin/bitcoin/pull/4624) with *bitcoin-tx -create -nversion=1* to ensure that a blank v1 transaction is correct. [*Changed from ./src/test/data/blanktx.hex to ./src/test/data/blanktxv1.hex in 0.14*](https://github.com/bitcoin/bitcoin/pull/7562).
+
+./test/util/data/blanktxv2.json - Test data for the *bitcoin-tx* binary test. Checks the results of creating a blank v2 Tx. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/7562).
+
+./test/util/data/README.md - Mentions that this is data for various tests.
+
+./test/util/data/tt-delin1-out.hex - *bitcoin-tx -delin=1* test data used for output comparison. [Used by ./test/util/data/bitcoin-util-test.json.](https://github.com/bitcoin/bitcoin/pull/4733)
+
+./test/util/data/tt-delin1-out.json - *bitcoin-tx -json -delin=1* test data used for output comparison. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
+
+./test/util/data/tt-delout1-out.hex - *bitcoin-tx -delout=1* test data used for output comparison. [Used by ./test/util/data/bitcoin-util-test.json.](https://github.com/bitcoin/bitcoin/pull/4733)
+
+./test/util/data/tt-delout1-out.json - *bitcoin-tx -json -delout=1* test data used for output comparison. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
+
+./test/util/data/tt-locktime317000-out.hex - *bitcoin-tx -lockout=317000* test data used for output comparison. [Used by ./test/util/data/bitcoin-util-test.json.](https://github.com/bitcoin/bitcoin/pull/4733)
+
+./test/util/data/tt-locktime317000-out.json - *bitcoin-tx -json -lockout=317000* test data used for output comparison. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
+
+./test/util/data/tx394b54bb.hex - *bitcoin-tx* input test data. [Used by ./test/util/data/bitcoin-util-test.json.](https://github.com/bitcoin/bitcoin/pull/4733)
+
+./test/util/data/txcreate1.hex - *bitcoin-tx -create *loads of flags** input test data. [Used by ./test/util/data/bitcoin-util-test.json.](https://github.com/bitcoin/bitcoin/pull/4733)
+
+./test/util/data/txcreate1.json - *bitcoin-tx -json -create *loads of flags** input test data. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
+
+./test/util/data/txcreate2.hex - *bitcoin-tx -create outscript=0:* (i.e., null scriptPubKey) test data used for output comparison. [Used by ./test/util/data/bitcoin-util-test.json.](https://github.com/bitcoin/bitcoin/pull/4909)
+
+./test/util/data/txcreate2.json - *bitcoin-tx -json -create outscript=0:* (i.e., null scriptPubKey) test data used for output comparison. Empty when committed. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
+
+./test/util/data/txcreatedata_seq0.hex - Output comparison data for *bitcoin-tx* (RPC) transaction creation. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7957).
+
+./test/util/data/txcreatedata_seq0.json - Output comparison data for *bitcoin-tx* (RPC-JSON) transaction creation. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
+
+./test/util/data/txcreatedata_seq1.hex - Output comparison data for *bitcoin-tx* (RPC) transaction creation. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7957).
+
+./test/util/data/txcreatedata_seq1.json - Output comparison data for *bitcoin-tx* (RPC-JSON) transaction creation. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
+
+./test/util/data/txcreatedata1.hex - [Data for tests regarding data-based outputs (OP_RETURN) from *bitcoin-tx*](https://github.com/bitcoin/bitcoin/pull/6346).
+
+./test/util/data/txcreatedata1.json - Data for tests regarding data-based outputs (OP_RETURN) from *bitcoin-tx* in JSON mode. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
+
+./test/util/data/txcreatedata2.hex - [Data for tests regarding data-based outputs (OP_RETURN) from *bitcoin-tx*](https://github.com/bitcoin/bitcoin/pull/6346).
+
+./test/util/data/txcreatedata2.json - Data for tests regarding data-based outputs (OP_RETURN) from *bitcoin-tx* in JSON mode. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8829).
+
+./test/util/data/txcreatemultisig1.hex - Expected output result (hex) when using *bitcoin-tx* to generate, using some given input data, a 2-of-3 multisig Tx P2PKH output. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./test/util/data/txcreatemultisig1.json - Expected output result (JSON) when using *bitcoin-tx* to generate, using some given input data, a 2-of-3 multisig Tx P2PKH out. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./test/util/data/txcreatemultisig2.hex - Expected output result (hex) when using *bitcoin-tx* to generate, using some given input data, a 2-of-3 multisig Tx P2PKH output in P2SH form. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./test/util/data/txcreatemultisig2.json - Expected output result (JSON) when using *bitcoin-tx* to generate, using some given input data, a 2-of-3 multisig Tx P2PKH output in P2SH form. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./test/util/data/txcreatemultisig3.hex - Expected output result (hex) when using *bitcoin-tx* to generate, using some given input data, a 2-of-3 multisig Tx P2WSH output. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./test/util/data/txcreatemultisig3.json - Expected output result (JSON) when using *bitcoin-tx* to generate, using some given input data, a 2-of-3 multisig Tx P2WSH output. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./test/util/data/txcreatemultisig4.hex - Expected output result (hex) when using *bitcoin-tx* to generate, using some given input data, a 2-of-3 multisig Tx P2WSH output in P2SH form. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./test/util/data/txcreatemultisig4.json - Expected output result (JSON) when using *bitcoin-tx* to generate, using some given input data, a 2-of-3 multisig Tx P2WSH output in P2SH form. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./test/util/data/txcreateoutpubkey1.hex - Expected output result (hex) when using *bitcoin-tx* to generate, using some given input data, a Tx P2PK output. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./test/util/data/txcreateoutpubkey1.json - Expected output result (JSON) when using *bitcoin-tx* to generate, using some given input data, a Tx P2PK output. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+
+./test/util/data/txcreateoutpubkey2.hex - Expected output result (hex) when using *bitcoin-tx* to generate, using some given input data, a Tx P2WPK output. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./test/util/data/txcreateoutpubkey2.json - Expected output result (JSON) when using *bitcoin-tx* to generate, using some given input data, a Tx P2WPK output. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./test/util/data/txcreateoutpubkey3.hex - Expected output result (hex) when using *bitcoin-tx* to generate, using some given input data, a Tx P2WPK output in P2SH form. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./test/util/data/txcreateoutpubkey3.json - Expected output result (JSON) when using *bitcoin-tx* to generate, using some given input data, a Tx P2WPK output in P2SH form. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./test/util/data/txcreatescript1.hex - Expected output result (hex) when using *bitcoin-tx* to generate, using some given input data, a Tx P2PKH output with a single script (OP_DROP). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./test/util/data/txcreatescript1.json - Expected output result (JSON) when using *bitcoin-tx* to generate, using some given input data, a Tx P2PKH output with a single script (OP_DROP). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./test/util/data/txcreatescript2.hex - Expected output result (hex) when using *bitcoin-tx* to generate, using some given input data, a Tx P2PKH output with a single script (OP_DROP) in P2SH form. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./test/util/data/txcreatescript2.json - Expected output result (JSON) when using *bitcoin-tx* to generate, using some given input data, a Tx P2PKH output with a single script (OP_DROP) in P2SH form. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./test/util/data/txcreatescript3.hex - Expected output result (hex) when using *bitcoin-tx* to generate, using some given input data, a Tx P2WSH output with a single script (OP_DROP). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./test/util/data/txcreatescript3.json - Expected output result (JSON) when using *bitcoin-tx* to generate, using some given input data, a Tx P2WSH output with a single script (OP_DROP). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./test/util/data/txcreatescript4.hex - Expected output result (hex) when using *bitcoin-tx* to generate, using some given input data, a Tx P2WSH output with a single script (OP_DROP) in P2SH form. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./test/util/data/txcreatescript4.json - Expected output result (JSON) when using *bitcoin-tx* to generate, using some given input data, a Tx P2WSH output with a single script (OP_DROP) in P2SH form. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8883).
+
+./test/util/data/txcreatesignv1.hex - *bitcoin-tx -create *loads of flags** input test data. [Used by ./test/util/data/bitcoin-util-test.json](https://github.com/bitcoin/bitcoin/pull/5528) to create a v1 Tx with a signle input and output, and then sign the Tx. [A later change was made to fix some issues](https://github.com/bitcoin/bitcoin/pull/6390). [*Changed from ./src/test/data/txcreatesign.hex to ./src/test/data/txcreatesignv1.hex in 0.14*](https://github.com/bitcoin/bitcoin/pull/7562).
+
+./test/util/data/txcreatesignv1.json - *bitcoin-tx -json -create *loads of flags** input test data. Used to create a v2 Tx with a signle input and output, and then sign the Tx, with the output in json. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/7562).
+
+./test/util/data/txcreatesignv2.hex - *bitcoin-tx -create *loads of flags** input test data. Used by ./test/util/data/bitcoin-util-test.json to create a v2 Tx with a signle input and output, and then sign the Tx. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/7562).
