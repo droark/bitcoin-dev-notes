@@ -1643,6 +1643,10 @@
 
 ./test/functional/bumpfee.py - Tests the *bumpfee* RPC functionality. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8456).
 
+./test/functional/combine_logs.py - A script that can aggregate multiple *bitcoind* log files when running ./test/functional/test_runner.py, along with test_framework.log for specific tests. Output can be text or HTML (see ./test/functional/combined_log_template.html). [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/10017).
+
+./test/functional/combined_log_template.html - HTML template for logs put together by ./test/functional/combine_logs.py. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/10017).
+ 
 ./test/functional/config.ini.in - Sets, via AC_CONFIG_FILES() wizardry, some variables to be used in ./qa/pull-tester/rpc-tests.ini, which is read by Python's *ConfigParser* module. Examples include enabling ØMQ tests. [*Replaced ./qa/pull-tester/tests_config.py.in in 0.15*](https://github.com/bitcoin/bitcoin/pull/9657).
 
 ./test/functional/create_cache.py - Helper code that initializes the blockchain cache used by the QA tests. It's meant to be called before any tests are run so that the blockchain is cached by [the *initialize_chain* call in *BitcoinTestFramework* (the parent of *CreateCache*)](https://www.botbot.me/freenode/bitcoin-core-dev/2016-05-12/?msg=65947836&page=3). [*Assists with parallelized RPC tests, and added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7972).
