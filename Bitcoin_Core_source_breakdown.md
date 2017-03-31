@@ -1313,6 +1313,8 @@
 
 ./src/rpc/blockchain.cpp - RPC blockchain command functionality.
 
+./src/rpc/blockchain.h - See the CPP file. As of the initial commit, the only functionality is the prototype for a function getting the difficulty given a block index (or the chain tip if not provided). [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/10095).
+
 ./src/rpc/client.cpp - RPC client functionality.
 
 ./src/rpc/client.h - See the CPP file.
