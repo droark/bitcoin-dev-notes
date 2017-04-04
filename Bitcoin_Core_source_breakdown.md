@@ -1059,6 +1059,8 @@
 
 ./src/qt/bitcoinunits.h - See the CPP file.
 
+./src/qt/callback.h - A workaround solution for Qt 4, where the signals implementation doesn't allow signals to be directly connected to C++11 lambda/closure expressions. A callback QObject with a virtual method that can forward calls to a C++11 lambda/closure is defined. *[Added in 0.15](https://github.com/bitcoin/bitcoin/pull/10098)*.
+
 ./src/qt/clientmodel.cpp - Bitcoin network client model (ClientModel).
 
 ./src/qt/clientmodel.h - See the CPP file.
@@ -1704,6 +1706,8 @@
 ./test/functional/merkle_blocks.py - [Tests the generation and verification of merkle blocks.](https://github.com/bitcoin/bitcoin/pull/5199) In other words, it tests the *gettxoutproof* and *verifytxoutproof* RPC functionality, which relate to proofs that a given TXID is in a given block. (The proofs are serialized CMerkleBlock classes.)
 
 ./test/functional/multi_rpc.py - Tests to make sure that multiple *rpcuser* entries in bitcoin.conf will be properly handled by Core.
+
+./test/functional/net.py - A setnetworkactive() "smoke test." [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/10077).
 
 ./test/functional/nodehandling.py - [Tests the *setban*, *listbanned*, and *disconnectnode* RPC functionality.](https://github.com/bitcoin/bitcoin/pull/6158)
 
