@@ -500,7 +500,9 @@
 
 ./doc/dnsseed-policy.md - [Details regarding DNS seeds.](https://github.com/bitcoin/bitcoin/pull/4566) Explains the rules regarding running a DNS seed. The seed will become a CDNSSeedData entry [as added in ./src/chainparams.cpp](https://github.com/bitcoin/bitcoin/blob/550d4fa7a77c9763d4de9e0c0c48bc2655a65017/src/chainparams.cpp#L97-L102).
 
-./doc/Doxyfile - Doxygen (documentation system) config file. Defines certain variables lused throughout Core related to names (*PACKAGE_NAME*), Core version (*PACKAGE_VERSION*), etc.
+./doc/Doxyfile - Doxygen (documentation system) config file. Defines certain variables lused throughout Core related to names (*PACKAGE_NAME*), Core version (*PACKAGE_VERSION*), etc. [*Moved to ./doc/Doxyfile.in in 0.15*](https://github.com/bitcoin/bitcoin/pull/10155).
+
+./doc/Doxyfile.in - Doxygen (documentation system) config file. Defines certain variables lused throughout Core related to names (*PACKAGE_NAME*), Core version (*PACKAGE_VERSION*), etc. [*Moved from ./doc/Doxyfile in 0.15*](https://github.com/bitcoin/bitcoin/pull/10155).
 
 ./doc/files.md - Explains which files are made by Core (e.g., blockchain files).
 
@@ -1576,6 +1578,10 @@
 ./src/wallet/db.cpp - Classes providing access to a BerkeleyDB instance (CDB) and the DB’s environment (CDBEnv).
 
 ./src/wallet/db.h - See the CPP file.
+
+./src/wallet/db.cpp - Contains code related to wallet fee bumping (CFeeBumper and helper functions). [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/9681).
+
+./src/wallet/db.h - See the CPP file. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/9681).
 
 ./src/wallet/rpcdump.cpp - RPC functions related to exporting/importing wallet info, addresses, etc.
 
