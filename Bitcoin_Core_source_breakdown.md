@@ -418,7 +418,7 @@
 
 ./depends/packages/qt.mk - Qt 5 variables.
 
-./depends/packages/qt46.mk - Qt 4.6 variables. [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/8640), although support for Qt4 was removed in an earlier version (0.13?).
+./depends/packages/qt46.mk - Qt 4.6 variables. [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/8640), although support for Qt 4 was removed in an earlier version (0.13?).
 
 ./depends/packages/xcb_proto.mk - [XML-XCB protocol description bindings](https://xcb.freedesktop.org/XmlXcb/). Used by Qt.
 
@@ -693,6 +693,10 @@
 ./src/dbwrapper.cpp - LevelDB wrapper code. Includes various CDB* classes related to accessing LevelDB.
 
 ./src/dbwrapper.h - See the CPP file.
+
+./src/fs.cpp - A filesystem abstraction designed to make it easier to make filesystem changes in one place instead of across many files. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/9902).
+
+./src/fs.h - See the CPP file. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/9902).
 
 ./src/hash.cpp - Hash160 and Hash256 functions, both classes (CHash160/CHash256) and standalone functions.
 
