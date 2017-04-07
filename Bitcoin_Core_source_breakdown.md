@@ -1579,9 +1579,9 @@
 
 ./src/wallet/db.h - See the CPP file.
 
-./src/wallet/db.cpp - Contains code related to wallet fee bumping (CFeeBumper and helper functions). [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/9681).
+./src/wallet/feebumper.cpp - Contains code related to wallet fee bumping (CFeeBumper and helper functions). [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/9681).
 
-./src/wallet/db.h - See the CPP file. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/9681).
+./src/wallet/feebumper.h - See the CPP file. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/9681).
 
 ./src/wallet/rpcdump.cpp - RPC functions related to exporting/importing wallet info, addresses, etc.
 
