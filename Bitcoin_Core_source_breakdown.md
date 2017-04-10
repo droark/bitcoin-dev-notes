@@ -482,6 +482,8 @@
 
 **./doc** - Various documents. *Graphics are not mentioned.*
 
+./doc/.gitignore - File that prevents certain files from showing up in Git. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/10166).
+
 ./doc/assets-attribution.md - Graphics attributions. Nothing special.
 
 ./doc/benchmarking.md - Describes what the system benchmarks, some things that still need to be benchmarked, and directions for running the benchmarks. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8110).
