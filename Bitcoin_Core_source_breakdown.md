@@ -961,6 +961,10 @@
 
 ./src/crypto/common.h - Endian-specific in/outs for 16, 32, and 64-bit data. Used for implementations of SHA-256 and RIPEMD-160, along with converting arith_uint256 values to little endian uint256 values.
 
+./src/crypto/chacha20.cpp - [ChaCha20](https://en.wikipedia.org/wiki/Salsa20#ChaCha_variant) implementation used for PRNG purposes. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/9792).
+
+./src/crypto/chacha20.h - See the CPP file. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/9792).
+
 ./src/crypto/hmac_sha256.cpp - HMAC-SHA-256 class (CHMAC_SHA256).
 
 ./src/crypto/hmac_sha256.h - See the CPP file.
@@ -1671,6 +1675,8 @@
 
 ./test/functional/disablewallet.py - Confirms that Core will work properly with the -disablewallet option.
 
+./test/functional/disconnect_ban.py - Tests the *setban*, *listbanned*, and *disconnectnode* RPC functionality. [*Moved from ./test/functional/nodehandling.py in 0.15*](https://github.com/bitcoin/bitcoin/pull/10143).
+
 ./test/functional/forknotify.py - Tests the *alertnotify* CL flag for when a fork occurs.
 
 ./test/functional/fundrawtransaction.py - Tests the *fundrawtransaction* RPC functionality.
@@ -1682,6 +1688,8 @@
 ./test/functional/getchaintips.py - Tests the *getchaintips* RPC functionality.
 
 ./test/functional/httpbasics.py - [Tests HTTP "keep-alive" functionality.](https://github.com/bitcoin/bitcoin/pull/5436)
+
+./test/functional/import-abort-rescan.py - Tests the *abortrescan* RPC functionality. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/10225).
 
 ./test/functional/import-rescan.py - Tests the ability of the wallet to rescan after importing keys. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9331).
 
@@ -1701,7 +1709,7 @@
 
 ./test/functional/listtransactions.py - Tests the *listtransactions* RPC functionality.
 
-./test/functional/maxblocksinflight.py - Tests whether a node is limiting the number of in-flight block requests.
+./test/functional/maxblocksinflight.py - Tests whether a node is limiting the number of in-flight block requests. [Functionality reproduced by ./test/functional/sendheaders.py](https://github.com/bitcoin/bitcoin/pull/10023#issuecomment-293891932), so this file was [*removed in 0.15*](https://github.com/bitcoin/bitcoin/pull/10023).
 
 ./test/functional/maxuploadtarget.py - Confirms that Core will work properly with the -maxuploadtarget option.
 
@@ -1721,7 +1729,7 @@
 
 ./test/functional/net.py - A setnetworkactive() "smoke test." [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/10077).
 
-./test/functional/nodehandling.py - [Tests the *setban*, *listbanned*, and *disconnectnode* RPC functionality.](https://github.com/bitcoin/bitcoin/pull/6158)
+./test/functional/nodehandling.py - [Tests the *setban*, *listbanned*, and *disconnectnode* RPC functionality.](https://github.com/bitcoin/bitcoin/pull/6158) [*Moved to ./test/functional/disconnect_ban.py in 0.15*](https://github.com/bitcoin/bitcoin/pull/10143).
 
 ./test/functional/nulldummy.py - Tests the P2P functionality with the [NULLDUMMY](https://github.com/bitcoin/bips/blob/master/bip-0147.mediawiki) softfork. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8636).
 
