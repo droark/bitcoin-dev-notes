@@ -152,6 +152,8 @@
 
 ./contrib/devtools/clang-format-diff.py - [Formats unified Git diffs according to ./src/.clang-format](http://clang.llvm.org/docs/ClangFormat.html). [Taken from the upstream LLVM repo](https://llvm.org/svn/llvm-project/cfe/trunk/tools/clang-format/clang-format-diff.py). *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7304) and [removed in 0.14](https://github.com/bitcoin/bitcoin/pull/9649)*.
 
+./contrib/devtools/commit-script-check.sh - A script that can use commands in a commit to verify that the code pre-commit matches what's in the commit when the commands are executed. Useful for things like mass changes (e.g., removing capitalization in all header files). [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/10189).
+
 ./contrib/devtools/copyright_header.py - Script that does a mass copyright year update. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8674) as a replacement for ./contrib/devtools/fix-copyright-headers.py*.
 
 ./contrib/devtools/fix-copyright-headers.py - Script that does a mass copyright year update. *[Removed in 0.14](https://github.com/bitcoin/bitcoin/pull/8674) by ./contrib/devtools/copyright_header.py*.
@@ -614,7 +616,7 @@
 
 ./src/alert.h - See the CPP file. [*Removed in 0.13*](https://github.com/bitcoin/bitcoin/pull/7692).
 
-./src/amount.cpp - Some basic amount (CAmount, or int64_t) definitions, and a type-safe wrapper class for fee rates (CFeeRate).
+./src/amount.cpp - Some basic amount (CAmount, or int64_t) definitions, and a type-safe wrapper class for fee rates (CFeeRate). [*Moved to ./src/policy/feerate.cpp in 0.15*](https://github.com/bitcoin/bitcoin/pull/9279).
 
 ./src/amount.h - See the CPP file. Includes a bit of consensus-critical code.
 
@@ -1010,6 +1012,10 @@
 ./src/obj-test/.gitignore - Files for Git to ignore.
 
 **./src/policy** - Code related to various Core policies. [Added in 0.11](https://github.com/bitcoin/bitcoin/pull/5159).
+
+./src/policy/feerate.cpp - Some basic amount (CAmount, or int64_t) definitions, and a type-safe wrapper class for fee rates (CFeeRate). [*Moved from ./src/amount.cpp in 0.15*](https://github.com/bitcoin/bitcoin/pull/9279).
+
+./src/policy/feerate.h - See the CPP file. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/9279).
 
 ./src/policy/fees.cpp - Fee policies and estimation code. Includes various constants, the class estimating the fee/priority required to get coins in a block (CBlockPolicyEstimator), and a class to track historical data on Tx confirmations (TxConfirmStats). [*Added in 0.11*](https://github.com/bitcoin/bitcoin/pull/5159).
 
@@ -1689,8 +1695,6 @@
 
 ./test/functional/httpbasics.py - [Tests HTTP "keep-alive" functionality.](https://github.com/bitcoin/bitcoin/pull/5436)
 
-./test/functional/import-abort-rescan.py - Tests the *abortrescan* RPC functionality. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/10225).
-
 ./test/functional/import-rescan.py - Tests the ability of the wallet to rescan after importing keys. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9331).
 
 ./test/functional/importmulti.py - Tests the *importmulti* RPC functionality. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/7551).
@@ -1720,6 +1724,8 @@
 ./test/functional/mempool_reorg.py - [Tests the *invalidateblock* RPC functionality.](https://github.com/bitcoin/bitcoin/pull/5267) In particular, it makes sure that coins that were valid due toinvalidated blocks will no longer be valid.
 
 ./test/functional/mempool_resurrect_test.py - [Confirms that a Tx in a block that was reorg'ed out is placed back in the mempool.](https://github.com/bitcoin/bitcoin/pull/5369)
+
+./test/functional/mempool_persist.py - Tests for memool persistence and the "persistmempool" command line parameter. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/9966).
 
 ./test/functional/mempool_spendcoinbase.py - [Confirms that immature coinbase spends aren't allowed.](https://github.com/bitcoin/bitcoin/pull/5407)
 
