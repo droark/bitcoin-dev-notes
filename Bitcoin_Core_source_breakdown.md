@@ -206,7 +206,11 @@
 
 ./contrib/gitian-descriptors/README.md - Rough instructions explaining how to do Gitian builds. [*Removed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11414)*.
 
-**./contrib/gitian-keys** - PGP keys for people who post verifications of Gitian builds, along with a README file. [Moved from /.contrib/gitian-downloader in 0.13.0](https://github.com/bitcoin/bitcoin/pull/7870). *Will not discuss list individual files.*
+**./contrib/gitian-keys** - PGP keys for people who post verifications of Gitian builds. [Moved from /.contrib/gitian-downloader in 0.13.0](https://github.com/bitcoin/bitcoin/pull/7870). In 0.17, the individual key files [were deleted](https://github.com/bitcoin/bitcoin/pull/11909).
+
+./contrib/gitian-keys/keys.txt - List of PGP keys for people who post verifications of Gitian builds. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/11909).
+
+./contrib/gitian-keys/README.md - README explaining the basic process.
 
 **./contrib/init** - Sample init scripts and service configuration for *bitcoind*. [Used to assist packagers in creating node packages](https://github.com/bitcoin/bitcoin/pull/4611).
 
@@ -507,6 +511,8 @@
 ./doc/benchmarking.md - Describes what the system benchmarks, some things that still need to be benchmarked, and directions for running the benchmarks. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8110).
 
 ./doc/bips.md - List of BIPs implemented by Core, the version where they were added, the PR #, and, if relevant, the block where the BIP was activated.
+
+./doc/build-netbsd.md - Details regarding building under NetBSD. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/12294).
 
 ./doc/build-openbsd.md - Details regarding building under OpenBSD.
 
@@ -1191,7 +1197,7 @@
 
 ./src/qt/peertablemodel.h - See the CPP file.
 
-./src/qt/platformstyle.cpp - Class (PlatformStyle) that has coin network-specific GUI information. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6487)
+./src/qt/platformstyle.cpp - Class (PlatformStyle) that has coin network-specific GUI information. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/6487).
 
 ./src/qt/platformstyle.h - See the CPP file.
 
@@ -1202,6 +1208,8 @@
 ./src/qt/qvaluecombobox.cpp - Combo box that can be used to select ordinal values from a model (QValueComboBox).
 
 ./src/qt/qvaluecombobox.h - See the CPP file.
+
+./src/qt/README.md - Basic info about the GUI side of Bitcoin Core. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/11761).
 
 ./src/qt/receivecoinsdialog.cpp - Dialog for receiving Bitcoin payments (ReceiveCoinsDialog).
 
@@ -1395,6 +1403,10 @@
 
 ./src/rpc/server.h - See the CPP file.
 
+./src/rpc/util.cpp - Miscellaneous utilities (e.g., retrieve a given pub key for a given address). [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11415).
+
+./src/rpc/util.h - See the CPP file. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11415).
+
 **./src/script** - Code that handles Bitcoin scripts. *[Moved to the current location in 0.10 to make the code more modular](https://github.com/bitcoin/bitcoin/pull/4754)*.
 
 ./src/script/bitcoinconsensus.cpp - Some consensus-critical code, centered primarily around script verification.
@@ -1482,6 +1494,8 @@
 ./src/test/bip32\_tests.cpp - [Hierarchical deterministic (HD) wallet unit tests.](https://github.com/bitcoin/bitcoin/pull/2829)
 
 ./src/test/bitcoin-util-test.py - [Kicks off *bitcoin-tx* binary test](https://github.com/bitcoin/bitcoin/pull/4624). [*Moved to ./test/util/bitcoin-util-test.py in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956).
+
+./src/test/blockchain\_tests.cpp - Implements GetDifficulty tests and other blockchain-related tests. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11748).
 
 ./src/test/blockencodings\_test.cpp - Implements Compact Block Relay tests. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8068).
 
@@ -1601,7 +1615,7 @@
 
 ./src/test/uint256\_tests.cpp - Unit tests for uint256, arith\_uint256 and related classes.
 
-./src/test/univalue\_tests.cpp - [Unit tests for the UniValue class.](https://github.com/bitcoin/bitcoin/pull/4730)
+./src/test/univalue\_tests.cpp - [Unit tests for the UniValue class.](https://github.com/bitcoin/bitcoin/pull/4730) *[Removed in 0.16](https://github.com/bitcoin/bitcoin/pull/11879) once the UniValue code [added the test](https://github.com/bitcoin-core/univalue/pull/4) and the new version was [added to Core](https://github.com/bitcoin/bitcoin/pull/11420)*.
 
 ./src/test/util\_tests.cpp - Unit tests for various utility-related files.
 
@@ -1705,33 +1719,13 @@
 
 ./test/README.md - Explains how to run tests.
 
-**./test/functional** - Regression tests to run and related helper files. [These tests focus on high-level external-facing functionality](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2014-July/006379.html), mostly related to RPC calls, but the tests also includes other test types (e.g., block serialization and various protocols). Also includes a set of tools that can be used to kick off Python-based tests, primarily based on Core's RPC functionality but including other test types based on external functionality. *[Added in 0.15](https://github.com/bitcoin/bitcoin/pull/9956), with files moved from ./qa/pull-tester*.
+**./test/functional** - Regression tests to run and related helper files. [These tests focus on high-level external-facing functionality](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2014-July/006379.html), mostly related to RPC calls, but the tests also includes other test types (e.g., block serialization and various protocols). Also includes a set of tools that can be used to kick off Python-based tests, primarily based on Core's RPC functionality but including other test types based on external functionality. *[Added in 0.15](https://github.com/bitcoin/bitcoin/pull/9956), with files moved from ./qa/pull-tester, and [reworked in 0.16](https://github.com/bitcoin/bitcoin/pull/11774) to give virtually all files one of seven prefixes: feature, interface, mempool, mining, p2p, rpc, wallet*.
 
 ./test/functional/.gitignore - Files for Git to ignore.
 
-./test/functional/abandontransaction.py - Tests the *abandontransaction* RPC call. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/7312).
+~~./test/functional/bipdersig.py~~ - [Confirms that the BIP 66 soft fork/switchover code works properly.](https://github.com/bitcoin/bitcoin/pull/5713) Uses BitcoinTestFramework. [Mike Hearn believes this is incomplete and removed it from Bitcoin XT](https://github.com/bitcoinxt/bitcoinxt/commit/8a4875b9ba9aacbeaead771a4c16ec3747c5a9df). [*Removed in 0.15*](https://github.com/bitcoin/bitcoin/pull/10695).
 
-./test/functional/assumevalid.py - Tests the *assumevalid* RPC call. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9484).
-
-./test/functional/bipdersig.py - [Confirms that the BIP 66 soft fork/switchover code works properly.](https://github.com/bitcoin/bitcoin/pull/5713) Uses BitcoinTestFramework. [Mike Hearn believes this is incomplete and removed it from Bitcoin XT](https://github.com/bitcoinxt/bitcoinxt/commit/8a4875b9ba9aacbeaead771a4c16ec3747c5a9df). [*Removed in 0.15*](https://github.com/bitcoin/bitcoin/pull/10695).
-
-./test/functional/bipdersig-p2p.py - [Confirms that the BIP 66 soft fork/switchover code works properly in a P2P environment.](https://github.com/bitcoin/bitcoin/pull/5981) Uses *comptool*/ComparisonTestFramework.
-
-./test/functional/bip9-softforks.py - Tests BIP 9 activation logic. [*Added in 0.12.1*](https://github.com/bitcoin/bitcoin/pull/7648).
-
-./test/functional/bip65-cltv.py - [Confirms that the BIP 65 soft fork/switchover code works properly.](https://github.com/bitcoin/bitcoin/pull/6351) Uses BitcoinTestFramework. [*Removed in 0.15*](https://github.com/bitcoin/bitcoin/pull/10695).
-
-./test/functional/bip65-cltv-p2p.py - [Confirms that the BIP 65 soft fork/switchover code works properly in a P2P environment.](https://github.com/bitcoin/bitcoin/pull/6351) Uses *comptool*/ComparisonTestFramework.
-
-./test/functional/bip68-sequence.py - Tests BIP 68 functionality in the mempool. [*Added in 0.12.1*](https://github.com/bitcoin/bitcoin/pull/7184).
-
-./test/functional/bip68-112-113-p2p.py - Tests the activation logic of BIP 9 (aka "versionbits") and the consensus logic for BIPs 68, 112, and 113, all in a P2P environment. [*Added in 0.12.1*](https://github.com/bitcoin/bitcoin/pull/7648).
-
-./test/functional/bitcoin\_cli.cpp - Tests the *bitcoin-cli* binary, which can differ from the RPC interface. [*Added in 0.15.1*](https://github.com/bitcoin/bitcoin/pull/10798).
-
-./test/functional/blockchain.py - Tests the *gettxoutsetinfo* RPC functionality.
-
-./test/functional/bumpfee.py - Tests the *bumpfee* RPC functionality. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8456).
+~~./test/functional/bip65-cltv~~.py - [Confirms that the BIP 65 soft fork/switchover code works properly.](https://github.com/bitcoin/bitcoin/pull/6351) Uses BitcoinTestFramework. [*Removed in 0.15*](https://github.com/bitcoin/bitcoin/pull/10695).
 
 ./test/functional/combine\_logs.py - A script that can aggregate multiple *bitcoind* log files when running ./test/functional/test\_runner.py, along with test\_framework.log for specific tests. Output can be text or HTML (see ./test/functional/combined\_log\_template.html). [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/10017).
 
@@ -1741,57 +1735,67 @@
 
 ./test/functional/create\_cache.py - Helper code that initializes the blockchain cache used by the QA tests. It's meant to be called before any tests are run so that the blockchain is cached by [the *initialize\_chain* call in *BitcoinTestFramework* (the parent of *CreateCache*)](https://www.botbot.me/freenode/bitcoin-core-dev/2016-05-12/?msg=65947836&page=3). [*Assists with parallelized RPC tests, and added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7972).
 
-./test/functional/dbcrash.py - Tests the *dbcrashratio* parameter to check the logic for recovering from a crash during a chainstate flush. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/10148).
-
-./test/functional/decodescript.py - Tests the *decodescript* RPC functionality.
-
-./test/functional/deprecated\_rpc.py - Checks to see if deprecated RPC functions are actually marked as deprecated when used. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11031).
-
-./test/functional/disablewallet.py - Confirms that Core will work properly with the -disablewallet option.
-
-./test/functional/disconnect\_ban.py - Tests the *setban*, *listbanned*, and *disconnectnode* RPC functionality. [*Moved from ./test/functional/nodehandling.py in 0.15*](https://github.com/bitcoin/bitcoin/pull/10143).
-
 ./test/functional/example\_test.py - An example test that checks some RPC and P2P functionality. Meant to be copied and modified by people adding tests. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/10612).
+
+./test/functional/feature\_assumevalid.py - Tests the *assumevalid* RPC call. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/9484) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
+
+./test/functional/feature\_bip68\_sequence.py - Tests BIP 68 functionality in the mempool. *[Added in 0.12.1](https://github.com/bitcoin/bitcoin/pull/7184) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
+
+./test/functional/feature\_bip9-softforks.py - Tests BIP 9 activation logic. *[Added in 0.12.1](https://github.com/bitcoin/bitcoin/pull/7648) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
+
+./test/functional/feature\_block.py - A partial port of [FullBlockTestGenerator.java](https://github.com/TheBlueMatt/test-scripts/blob/master/FullBlockTestGenerator.java), a file driven by BitcoinJ that generates test blockchains used to test/verify the handling of the blockchain in Core and various alternative implementations (e.g., BitcoinJ and BTCD). *[Added in 0.12](https://github.com/bitcoin/bitcoin/pull/6523) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
+
+./test/functional/feature\_cltv.py - [Confirms that the BIP 65 soft fork/switchover code works properly in a P2P environment.](https://github.com/bitcoin/bitcoin/pull/6351) Uses *comptool*/ComparisonTestFramework. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
+
+./test/functional/feature\_config\_args.py - Tests the config file and its arguments. *[Added in 0.16](https://github.com/bitcoin/bitcoin/pull/11883) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
+ 
+./test/functional/feature\_csv\_activation.py - Tests the activation logic of BIP 9 (aka "versionbits") and the consensus logic for BIPs 68, 112, and 113, all in a P2P environment. *[Added in 0.12.1](https://github.com/bitcoin/bitcoin/pull/7648) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
+ 
+./test/functional/feature\_dbcrash.py - Tests the *dbcrashratio* parameter to check the logic for recovering from a crash during a chainstate flush. *[Added in 0.15](https://github.com/bitcoin/bitcoin/pull/10148) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
+
+./test/functional/feature\_dersig.py - [Confirms that the BIP 66 soft fork/switchover code works properly in a P2P environment.](https://github.com/bitcoin/bitcoin/pull/5981) Uses *comptool*/ComparisonTestFramework. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
+
+./test/functional/feature\_fee\_estimation.py - [Tests the fee estimation code.](https://github.com/bitcoin/bitcoin/pull/3959) [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
 ./test/functional/feature\_logging.py - Tests the *debuglogfile* CL arg. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11781).
 
-./test/functional/forknotify.py - Tests the *alertnotify* CL flag for when a fork occurs. [*Moved to ./test/functional/notifications.py in 0.16*](https://github.com/bitcoin/bitcoin/pull/10941).
+./test/functional/feature\_maxuploadtarget.py - Confirms that Core will work properly with the -maxuploadtarget option. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
-./test/functional/fundrawtransaction.py - Tests the *fundrawtransaction* RPC functionality.
+./test/functional/feature\_minchainwork.py - Tests the *minimumchainwork* CL argument. *[Added in 0.15.1](https://github.com/bitcoin/bitcoin/pull/10357) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
-./test/functional/getblocktemplate\_longpoll.py - Tests the "long polling" functionality of the *getblocktemplate* RPC function (BIP 22).
+./test/functional/feature\_notifications.py - Tests various CL flags related to notifications (e.g., *alertnotify*, *blocknotify*, and *walletnotify*). *[Moved from ./test/functional/forknotify.py in 0.16](https://github.com/bitcoin/bitcoin/pull/10941) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
-./test/functional/getblocktemplate\_proposals.py - Tests the "block proposal" functionality of the *getblocktemplate* RPC function (BIP 23). [*Replaced with ./test/functional/mining.py in 0.15*](https://github.com/bitcoin/bitcoin/pull/10190).
+./test/functional/feature\_nulldummy.py - Tests the P2P functionality with the [NULLDUMMY](https://github.com/bitcoin/bips/blob/master/bip-0147.mediawiki) softfork. *[Added in 0.13.1](https://github.com/bitcoin/bitcoin/pull/8636) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
-./test/functional/getchaintips.py - Tests the *getchaintips* RPC functionality.
+./test/functional/feature\_proxy.py - [Various proxy tests for the *proxy*, *onion*, and *proxyrandomize* CL args.](https://github.com/bitcoin/bitcoin/pull/5911) [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
-./test/functional/httpbasics.py - [Tests HTTP "keep-alive" functionality.](https://github.com/bitcoin/bitcoin/pull/5436)
+./test/functional/feature\_pruning.py - [Tests block pruning functionality.](https://github.com/bitcoin/bitcoin/pull/5863) [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
-./test/functional/import-abort-rescan.py - Tests the *abortrescan* RPC functionality. *[Intended for 0.15](https://github.com/bitcoin/bitcoin/pull/10225) but [quickly pulled due to code flakiness](https://github.com/bitcoin/bitcoin/pull/10327)*.
+./test/functional/feature\_rpc.py - Tests the replace-by-fee functionality. *[Added in 0.12](https://github.com/bitcoin/bitcoin/pull/6871) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
-./test/functional/import-rescan.py - Tests the ability of the wallet to rescan after importing keys. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9331).
+./test/functional/feature\_reindex.py - [Tests reindexing with CheckBlockIndex functionality enabled, all on the CL.](https://github.com/bitcoin/bitcoin/pull/6012) [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
-./test/functional/importmulti.py - Tests the *importmulti* RPC functionality. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/7551).
+./test/functional/feature\_segwit.py - Test for various bits of Segregated Witness functionality. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/8149) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
-./test/functional/importprunedfunds.py - Tests the *importprunedfunds* and *removeprunedfunds* RPC calls. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7558).
+./test/functional/feature\_uacomment.py - Tests the *uacomment* CL flag. *[Added in 0.16](https://github.com/bitcoin/bitcoin/pull/11486) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
-./test/functional/invalidateblock.py - Tests the hidden *invalidateblock* RPC function.
+./test/functional/feature\_versionbits\_warning.py - Test for BIP 9 warning logic. *[Added in 0.12.1](https://github.com/bitcoin/bitcoin/pull/7575) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
-./test/functional/invalidblockrequest.py - Tests P2P ability to process valid and invalid blocks received after requesting blocks.
+~~./test/functional/forknotify~~.py - Tests the *alertnotify* CL flag for when a fork occurs. [*Moved to ./test/functional/notifications.py in 0.16*](https://github.com/bitcoin/bitcoin/pull/10941).
 
-./test/functional/invalidtxrequest.py - Checks to make sure that P2P "reject" mesages are properly sent and handled for transactions and blocks.
+~~./test/functional/getblocktemplate\_proposals~~.py - Tests the "block proposal" functionality of the *getblocktemplate* RPC function (BIP 23). [*Replaced with ./test/functional/mining.py in 0.15*](https://github.com/bitcoin/bitcoin/pull/10190).
 
-./test/functional/keypool.py - Wallet keypool tests that interact with wallet locking/unlocking.
+~~./test/functional/import-abort-rescan~~.py - Tests the *abortrescan* RPC functionality. *[Intended for 0.15](https://github.com/bitcoin/bitcoin/pull/10225) but [quickly pulled due to code flakiness](https://github.com/bitcoin/bitcoin/pull/10327)*.
 
-./test/functional/keytool-popup.py - Tests Core's keypool refilling functionality (and the keys being marked as used when necessary) [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/11022).
+./test/functional/interface\_bitcoin\_cli.cpp - Tests the *bitcoin-cli* binary, which can differ from the RPC interface. *[Added in 0.15.1](https://github.com/bitcoin/bitcoin/pull/10798) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
-./test/functional/listsinceblock.py - Tests the *listsinceblock* RPC functionality. In particular, it really wants to make sure that, if there's a reorg, the code will use the fork point as a reference, and not the relative position of a chain with less work. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9516).
+./test/functional/interface\_http.py - [Tests HTTP "keep-alive" functionality.](https://github.com/bitcoin/bitcoin/pull/5436) [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
-./test/functional/listtransactions.py - Tests the *listtransactions* RPC functionality.
+./test/functional/interface\_rest.py - Tests the REST interface functionality. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
-./test/functional/maxblocksinflight.py - Tests whether a node is limiting the number of in-flight block requests. [Functionality reproduced by ./test/functional/sendheaders.py](https://github.com/bitcoin/bitcoin/pull/10023#issuecomment-293891932), so this file was [*removed in 0.15*](https://github.com/bitcoin/bitcoin/pull/10023).
+./test/functional/interface\_zmq.py - Tests ØMQ RPC functionality. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
-./test/functional/maxuploadtarget.py - Confirms that Core will work properly with the -maxuploadtarget option.
+~~./test/functional/maxblocksinflight.py~~ - Tests whether a node is limiting the number of in-flight block requests. [Functionality reproduced by ./test/functional/sendheaders.py](https://github.com/bitcoin/bitcoin/pull/10023#issuecomment-293891932), so this file was [*removed in 0.15*](https://github.com/bitcoin/bitcoin/pull/10023).
 
 ./test/functional/mempool\_limit.py - [Confirms that Core will work properly with the -maxmempool option](https://github.com/bitcoin/bitcoin/pull/7153).
 
@@ -1801,107 +1805,125 @@
 
 ./test/functional/mempool\_reorg.py - [Tests the *invalidateblock* RPC functionality.](https://github.com/bitcoin/bitcoin/pull/5267) In particular, it makes sure that coins that were valid due toinvalidated blocks will no longer be valid.
 
-./test/functional/mempool\_resurrect\_test.py - [Confirms that a Tx in a block that was reorg'ed out is placed back in the mempool.](https://github.com/bitcoin/bitcoin/pull/5369)
+./test/functional/mempool\_resurrect.py - [Confirms that a Tx in a block that was reorg'ed out is placed back in the mempool.](https://github.com/bitcoin/bitcoin/pull/5369) [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
-./test/functional/mempool\_spendcoinbase.py - [Confirms that immature coinbase spends aren't allowed.](https://github.com/bitcoin/bitcoin/pull/5407)
+./test/functional/mempool\_spend\_coinbase.py - [Confirms that immature coinbase spends aren't allowed.](https://github.com/bitcoin/bitcoin/pull/5407) [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
-./test/functional/merkle\_blocks.py - [Tests the generation and verification of merkle blocks.](https://github.com/bitcoin/bitcoin/pull/5199) In other words, it tests the *gettxoutproof* and *verifytxoutproof* RPC functionality, which relate to proofs that a given TXID is in a given block. (The proofs are serialized CMerkleBlock classes.)
+./test/functional/mining\_basic.py - Tests various bits of mining RPC functionality. *[Added in 0.15](https://github.com/bitcoin/bitcoin/pull/10190) as a replacement for ./test/functional/getblocktemplate\_proposals.py*. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
-./test/functional/minchainwork.py - Tests the *minimumchainwork* CL argument. [*Added in 0.15.1*](https://github.com/bitcoin/bitcoin/pull/10357).
+./test/functional/mining\_getblocktemplate\_longpoll.py - Tests the "long polling" functionality of the *getblocktemplate* RPC function (BIP 22). [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
-./test/functional/mining.py - Tests various bits of mining RPC functionality. *[Added in 0.15](https://github.com/bitcoin/bitcoin/pull/10190) as a replacement for ./test/functional/getblocktemplate\_proposals.py*.
+./test/functional/mining\_prioritisetransaction.py - [Tests the *prioritisetransaction* RPC functionality.](https://github.com/bitcoin/bitcoin/pull/7147) [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
-./test/functional/multi\_rpc.py - Tests to make sure that multiple *rpcuser* entries in bitcoin.conf will be properly handled by Core.
+~~./test/functional/nodehandling.py~~ - [Tests the *setban*, *listbanned*, and *disconnectnode* RPC functionality.](https://github.com/bitcoin/bitcoin/pull/6158) [*Moved to ./test/functional/disconnect\_ban.py in 0.15*](https://github.com/bitcoin/bitcoin/pull/10143).
 
-./test/functional/multiwallet.py - Tests multiwallet functionality. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/10849).
+./test/functional/p2p\_compactblocks.py - Tests various bits of CompactBlock functionality. *[Added in 0.13.1](https://github.com/bitcoin/bitcoin/pull/8418) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
-./test/functional/net.py - A setnetworkactive() "smoke test." [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/10077).
+./test/functional/p2p\_disconnect\_ban.py - Tests the *setban*, *listbanned*, and *disconnectnode* RPC functionality. *[Moved from ./test/functional/nodehandling.py in 0.15](https://github.com/bitcoin/bitcoin/pull/10143) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
-./test/functional/node\_network\_limited.py - Testing for the [BIP 159](https://github.com/bitcoin/bips/blob/master/bip-0159.mediawiki)/NODE\_NETWORK\_LIMITED service bit (i.e., a node is signaling that it's pruned). [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11740).
+./test/functional/p2p\_feefilter.py - Tests the *feefilter* P2P message. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7542) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
-./test/functional/nodehandling.py - [Tests the *setban*, *listbanned*, and *disconnectnode* RPC functionality.](https://github.com/bitcoin/bitcoin/pull/6158) [*Moved to ./test/functional/disconnect\_ban.py in 0.15*](https://github.com/bitcoin/bitcoin/pull/10143).
+./test/functional/p2p\_fingerprint.py - Tests whether or not a node won't return a stale block more than a month old. (Done to help prevent [fingerprinting](https://en.wikipedia.org/wiki/Device_fingerprint).) *[Added in 0.16](https://github.com/bitcoin/bitcoin/pull/11113) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
-./test/functional/forknotify.py - Tests various CL flags related to notifications (e.g., *alertnotify*, *blocknotify*, and *walletnotify*). [*Moved from ./test/functional/forknotify.py in 0.16*](https://github.com/bitcoin/bitcoin/pull/10941).
+./test/functional/p2p\_invalid\_block.py - Tests P2P ability to process valid and invalid blocks received after requesting blocks. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
-./test/functional/nulldummy.py - Tests the P2P functionality with the [NULLDUMMY](https://github.com/bitcoin/bips/blob/master/bip-0147.mediawiki) softfork. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8636).
+./test/functional/p2p\_invalid\_tx.py - Checks to make sure that P2P "reject" mesages are properly sent and handled for transactions and blocks. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
-./test/functional/p2p-acceptblock.py - [Tests *AcceptBlock* functionality from ./src/main.cpp](https://github.com/bitcoin/bitcoin/pull/5875), which is basically how unrequested blocks are handled.
+./test/functional/p2p\_leak.py - Test for "leaky" P2P message behavior (e.g., messages received before a version is received, messages other than version/reject before sending a VERACK, etc.). *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/9720) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
-./test/functional/p2p-compactblocks.py - Tests various bits of CompactBlock functionality. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8418).
+./test/functional/p2p\_mempool.py - Test for *mempool* RPC command, in conjunction with disabled bloom filters. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/8078) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
-./test/functional/p2p-feefilter.py - Tests the *feefilter* P2P message. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7542).
+./test/functional/p2p\_node\_network\_limited.py - Testing for the [BIP 159](https://github.com/bitcoin/bips/blob/master/bip-0159.mediawiki)/NODE\_NETWORK\_LIMITED service bit (i.e., a node is signaling that it's pruned). *[Added in 0.16](https://github.com/bitcoin/bitcoin/pull/11740) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
-./test/functional/p2p-fingerprint.py - Tests whether or not a node won't return a stale block more than a month old. (Done to help prevent [fingerprinting](https://en.wikipedia.org/wiki/Device_fingerprint).) [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11113).
+./test/functional/p2p\_segwit.py - Test for external results of Segregated Witness functionality. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/8149) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
-./test/functional/p2p-fullblocktest.py - A partial port of [FullBlockTestGenerator.java](https://github.com/TheBlueMatt/test-scripts/blob/master/FullBlockTestGenerator.java), a file driven by BitcoinJ that generates test blockchains used to test/verify the handling of the blockchain in Core and various alternative implementations (e.g., BitcoinJ and BTCD). [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6523)
+./test/functional/p2p\_sendheaders.py - [Tests the *sendheaders* P2P message.](https://github.com/bitcoin/bitcoin/pull/7129) [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
-./test/functional/p2p-leaktests.py - Test for "leaky" P2P message behavior (e.g., messages received before a version is received, messages other than version/reject before sending a VERACK, etc.). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9720).
+./test/functional/p2p\_timeouts.py - Test for peer disconnection logic (i.e., disconnect when no VERACKs are received within one minute). *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/9715) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
-./test/functional/p2p-mempool.py - Test for *mempool* RPC command, in conjunction with disabled bloom filters. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8078).
-
-./test/functional/p2p-segwit.py - Test for external results of Segregated Witness functionality. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8149).
-
-./test/functional/p2p-timeouts.py - Test for peer disconnection logic (i.e., disconnect when no VERACKs are received within one minute). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9715).
-
-./test/functional/p2p-versionbits-warning.py - Test for BIP 9 warning logic. [*Added in 0.12.1*](https://github.com/bitcoin/bitcoin/pull/7575).
-
-./test/functional/preciousblock.py - Tests the *preciousblock* RPC functionality. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/6996).
-
-./test/functional/prioritise\_transaction.py - [Tests the *prioritisetransaction* RPC functionality.](https://github.com/bitcoin/bitcoin/pull/7147)
-
-./test/functional/proxy\_test.py - [Various proxy tests for the *proxy*, *onion*, and *proxyrandomize* CL args.](https://github.com/bitcoin/bitcoin/pull/5911)
-
-./test/functional/pruning.py - [Tests block pruning functionality.](https://github.com/bitcoin/bitcoin/pull/5863)
-
-./test/functional/rawtransactions.py - [Tests reorg scenarios w/ a mempool that contain a Tx spending (direct or indirect) a coinbase Tx.](https://github.com/bitcoin/bitcoin/pull/5418)
+./test/functional/p2p\_unrequested\_blocks.py - [Tests *AcceptBlock* functionality from ./src/main.cpp](https://github.com/bitcoin/bitcoin/pull/5875), which is basically how unrequested blocks are handled. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
 ./test/functional/README.md - Explains some the test\_framework subdirectory’s contents, along with some of the underlying technical details.
 
-./test/functional/receivedby.py - [Tests the *getreceivedbyaddress* and *listreceivedbyaddress*  functionality.](https://github.com/bitcoin/bitcoin/pull/3960)
+./test/functional/rpc\_bind.py - [Tests binding of RPC functionality to various interfaces.](https://github.com/bitcoin/bitcoin/pull/3695) [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
-./test/functional/reindex.py - [Tests reindexing with CheckBlockIndex functionality enabled, all on the CL.](https://github.com/bitcoin/bitcoin/pull/6012)
+./test/functional/rpc\_blockchain.py - Tests the *gettxoutsetinfo* RPC functionality. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
-./test/functional/resendwallettransactions.py - Tests *resendwallettransactions* RPC functionality. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/11000)
+./test/functional/rpc\_decodescript.py - Tests the *decodescript* RPC functionality. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
-./test/functional/rest.py - Tests the REST interface functionality.
+./test/functional/rpc\_deprecated.py - Checks to see if deprecated RPC functions are actually marked as deprecated when used. *[Added in 0.16](https://github.com/bitcoin/bitcoin/pull/11031) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
-./test/functional/rpcbind\_test.py - [Tests binding of RPC functionality to various interfaces.](https://github.com/bitcoin/bitcoin/pull/3695)
+./test/functional/rpc\_fundrawtransaction.py - Tests the *fundrawtransaction* RPC functionality. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
-./test/functional/rpcnamedargs.py - Tests support of JSON-RPC named args. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8811) (this file and the support for JSON-RPC named args).
+./test/functional/rpc\_getchaintips.py - Tests the *getchaintips* RPC functionality. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
-./test/functional/segwit.py - Test for various bits of Segregated Witness functionality. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8149).
+./test/functional/rpc\_invalidateblock.py - Tests the hidden *invalidateblock* RPC function. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
-./test/functional/sendheaders.py - [Tests the *sendheaders* P2P message.](https://github.com/bitcoin/bitcoin/pull/7129)
+./test/functional/rpc\_listtransactions.py - Tests the *listtransactions* RPC functionality. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
-./test/functional/signmessages.py - Tests signatures and verifications using the *signmessagewithprivkey* RPC call. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7953).
+./test/functional/rpc\_named\_arguments.py - Tests support of JSON-RPC named args. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8811) (this file and the support for JSON-RPC named args) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
-./test/functional/signrawtransactions.py - [Tests the *signrawtransaction* RPC functionality.](https://github.com/bitcoin/bitcoin/pull/5937)
+./test/functional/rpc\_net.py - A setnetworkactive() "smoke test." *[Added in 0.15](https://github.com/bitcoin/bitcoin/pull/10077) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
-./test/functional/smartfees.py - [Tests the fee estimation code.](https://github.com/bitcoin/bitcoin/pull/3959)
+./test/functional/rpc\_preciousblock.py - Tests the *preciousblock* RPC functionality. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/6996) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
+
+./test/functional/rpc\_rawtransaction.py - [Tests reorg scenarios w/ a mempool that contain a Tx spending (direct or indirect) a coinbase Tx.](https://github.com/bitcoin/bitcoin/pull/5418) [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
+
+./test/functional/rpc\_signmessage.py - Tests signatures and verifications using the *signmessagewithprivkey* RPC call. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7953) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
+
+./test/functional/rpc\_signrawtransaction.py - [Tests the *signrawtransaction* RPC functionality.](https://github.com/bitcoin/bitcoin/pull/5937) [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
+
+./test/functional/rpc\_txoutproof.py - [Tests the generation and verification of merkle blocks.](https://github.com/bitcoin/bitcoin/pull/5199) In other words, it tests the *gettxoutproof* and *verifytxoutproof* RPC functionality, which relate to proofs that a given TXID is in a given block. (The proofs are serialized CMerkleBlock classes.) [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
+
+./test/functional/rpc\_uptime.py - Tests the *uptime* RPC call (length of time *bitcoind* has been running). *[Added in 0.15](https://github.com/bitcoin/bitcoin/pull/10400) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
+
+./test/functional/rpc\_users.py - Tests to make sure that multiple *rpcuser* entries in bitcoin.conf will be properly handled by Core. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
 ./test/functional/test\_runner.py - Primary script that kicks off one or more tests found in ./test/functional. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/6616).
 
-./test/functional/txn\_clones.py - Confirms that, if a cloned Tx is malleated and sent on the network instead of the original Tx, the malleated Tx will be seen later and the original Tx ignored. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/5881).
+./test/functional/wallet\_abandontransaction.py - Tests the *abandontransaction* RPC call. *[Added in 0.12](https://github.com/bitcoin/bitcoin/pull/7312) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
-./test/functional/txn\_doublespend.py - [Tests double spend handling functionality.](https://github.com/bitcoin/bitcoin/pull/5317)
+./test/functional/wallet\_accounts.py - Various RPC/JSON wallet unit tests. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8450) to replace ./src/wallet/test/rpc\_wallet\_tests.cpp. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
-./test/functional/uacomment.py - Tests the *uacomment* CL flag. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11486).
+./test/functional/wallet\_address\_types.py - Tests various address types accepted (and not accepted) by Core. *[Added in 0.16](https://github.com/bitcoin/bitcoin/pull/11403) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
-./test/functional/uptime.py - Tests the *uptime* RPC call (length of time *bitcoind* has been running). [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/10400).
+./test/functional/wallet\_backup.py - Tests wallet backup functionality. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
-./test/functional/wallet.py - Various wallet tests.
+./test/functional/wallet\_basic.py - Various wallet tests. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
-./test/functional/wallet-account.py - Various RPC/JSON wallet unit tests. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8450) to replace ./src/wallet/test/rpc\_wallet\_tests.cpp.
+./test/functional/wallet\_bumpfee.py - Tests the *bumpfee* RPC functionality. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8456) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
-./test/functional/wallet-encryption.py - Tests Core wallet's encryption functionality. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/10551).
+./test/functional/wallet\_disable.py - Confirms that Core will work properly with the -disablewallet option. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
-./test/functional/wallet-hd.py - Tests hierarchical deterministic qualities of the Core wallet. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8309).
+./test/functional/wallet\_dump.py - Tests the *walletdump* RPC functionality. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8417) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
-./test/functional/walletbackup.py - Tests wallet backup functionality.
+./test/functional/wallet\_encryption.py - Tests Core wallet's encryption functionality. *[Added in 0.15](https://github.com/bitcoin/bitcoin/pull/10551) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
-./test/functional/zapwallettxes.py - [Tests *zapwallettxes* functionality (CL arg)](https://github.com/bitcoin/bitcoin/pull/5612).
+./test/functional/wallet\_hd.py - Tests hierarchical deterministic qualities of the Core wallet. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/8309) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
-./test/functional/zmq\_test.py - Tests ØMQ RPC functionality.
+./test/functional/wallet\_import\_rescan.py - Tests the ability of the wallet to rescan after importing keys. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/9331) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
+
+./test/functional/wallet\_importmulti.py - Tests the *importmulti* RPC functionality. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/7551) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
+
+./test/functional/wallet\_importprunedfunds.py - Tests the *importprunedfunds* and *removeprunedfunds* RPC calls. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7558) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
+
+./test/functional/wallet\_keypool.py - Wallet keypool tests that interact with wallet locking/unlocking. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
+
+./test/functional/wallet\_keytool\_topup.py - Tests Core's keypool refilling functionality (and the keys being marked as used when necessary) *[Added in 0.15](https://github.com/bitcoin/bitcoin/pull/11022) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
+
+./test/functional/wallet\_listreceivedby.py - [Tests the *getreceivedbyaddress* and *listreceivedbyaddress*  functionality.](https://github.com/bitcoin/bitcoin/pull/3960) [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
+
+./test/functional/wallet\_listsinceblock.py - Tests the *listsinceblock* RPC functionality. In particular, it really wants to make sure that, if there's a reorg, the code will use the fork point as a reference, and not the relative position of a chain with less work. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/9516) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
+
+./test/functional/wallet\_multiwallet.py - Tests multiwallet functionality. *[Added in 0.15](https://github.com/bitcoin/bitcoin/pull/10849) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
+
+./test/functional/wallet\_resendwallettransactions.py - Tests *resendwallettransactions* RPC functionality. *[Added in 0.15](https://github.com/bitcoin/bitcoin/pull/11000) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
+
+./test/functional/wallet\_txn\_clones.py - Confirms that, if a cloned Tx is malleated and sent on the network instead of the original Tx, the malleated Tx will be seen later and the original Tx ignored. *[Added in 0.12](https://github.com/bitcoin/bitcoin/pull/5881) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
+
+./test/functional/wallet\_txn\_doublespend.py - [Tests double spend handling functionality](https://github.com/bitcoin/bitcoin/pull/5317). [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
+
+./test/functional/wallet\_zapwallettxes.py - [Tests *zapwallettxes* functionality (CL arg)](https://github.com/bitcoin/bitcoin/pull/5612). [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
 **./test/functional/test\_framework** - Non-test classes. *[Added in 0.11](https://github.com/bitcoin/bitcoin/pull/6097) as ./src/data/test\_framework and [moved to ./test/functional/test\_framework in 0.15](https://github.com/bitcoin/bitcoin/pull/9956)*.
 
