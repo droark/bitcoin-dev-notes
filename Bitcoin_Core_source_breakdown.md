@@ -84,7 +84,7 @@
 
 ./contrib/install\_db4.sh - OpenBSD/UNIX shell script for installing BerkeleyDB 4.8. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11702).
 
-./contrib/qt\_translations.py - [Helped OS X include the correct translations](https://github.com/bitcoin/bitcoin/commit/6be6be2ed9d5d4b9dc1657d434a7fed3b3935f6f). [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/8781).
+~~./contrib/qt\_translations.py~~ - [Helped OS X include the correct translations](https://github.com/bitcoin/bitcoin/commit/6be6be2ed9d5d4b9dc1657d434a7fed3b3935f6f). [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/8781).
 
 ./contrib/README.md - Briefly explains many things in the subdirs.
 
@@ -138,7 +138,7 @@
 
 ./contrib/debian/examples/bitcoin.conf
 
-**./contrib/debian/manpages** - Related to Debian packaging. Package manpages. *Will not discuss individual files.* [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/8743).
+**~~./contrib/debian/manpages~~** - Related to Debian packaging. Package manpages. *Will not discuss individual files.* [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/8743).
 
 **./contrib/debian/patches** - Related to Debian packaging. [Used by packagers who need to patch Core’s upstream code.](http://packaging.ubuntu.com/html/patches-to-packages.html) *Not used for now.*
 
@@ -164,7 +164,7 @@
 
 ./contrib/devtools/copyright\_header.py - Script that does a mass copyright year update. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8674) as a replacement for ./contrib/devtools/fix-copyright-headers.py*.
 
-./contrib/devtools/fix-copyright-headers.py - Script that does a mass copyright year update. *[Removed in 0.14](https://github.com/bitcoin/bitcoin/pull/8674) by ./contrib/devtools/copyright\_header.py*.
+~~./contrib/devtools/fix-copyright-headers.py~~ - Script that does a mass copyright year update. *[Removed in 0.14](https://github.com/bitcoin/bitcoin/pull/8674) by ./contrib/devtools/copyright\_header.py*.
 
 ./contrib/devtools/gen-manpages.sh - A script that's used to generate man pages (located at ./doc/man). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8608)
 
@@ -204,7 +204,7 @@
 
 ./contrib/gitian-descriptors/gitian-win-signer.yml - [Descriptor that splices in a signature for the final .exe file.](https://github.com/bitcoin/bitcoin/pull/6303) [Uses osslsigncode to attach the detached signature to the Core binary.](http://development.adaptris.net/users/lchan/blog/2013/06/07/signing-windows-installers-on-linux/) The tool(s) & steps used to generate the signature don’t appear to be listed in the Core repo.
 
-./contrib/gitian-descriptors/README.md - Rough instructions explaining how to do Gitian builds. [*Removed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11414)*.
+~~./contrib/gitian-descriptors/README.md~~ - Rough instructions explaining how to do Gitian builds. [*Removed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11414)*.
 
 **./contrib/gitian-keys** - PGP keys for people who post verifications of Gitian builds. [Moved from /.contrib/gitian-downloader in 0.13.0](https://github.com/bitcoin/bitcoin/pull/7870). In 0.17, the individual key files [were deleted](https://github.com/bitcoin/bitcoin/pull/11909).
 
@@ -296,13 +296,13 @@
 
 ./contrib/seeds/README.md - Gives a bit of context to the tool.
 
-**./contrib/spendfrom** - [Use the raw transactions API to send coins received on a particular address (or addresses).](https://github.com/bitcoin/bitcoin/pull/2162) [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/8779).
+**~~./contrib/spendfrom~~** - [Use the raw transactions API to send coins received on a particular address (or addresses).](https://github.com/bitcoin/bitcoin/pull/2162) [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/8779).
 
-./contrib/spendfrom/README.md - Explains how to use the script.
+~~./contrib/spendfrom/README.md~~ - Explains how to use the script.
 
-./contrib/spendfrom/setup.py - Standard Python setup.py file.
+~~./contrib/spendfrom/setup.py~~ - Standard Python setup.py file.
 
-./contrib/spendfrom/spendfrom.py - The script to run.
+~~./contrib/spendfrom/spendfrom.py~~ - The script to run.
 
 **./contrib/testgen** - [Utilities to generate test vectors for the data-driven Bitcoin tests.](https://github.com/bitcoin/bitcoin/pull/1888)
 
@@ -418,7 +418,7 @@
 
 ./depends/packages/native\_cdrkit.mk - [*cdrkit* toolkit](https://en.wikipedia.org/wiki/Cdrkit) (native). The *genisoimage* tool is used to create DMG files used for Apple builds.
 
-./depends/packages/native\_comparisontool.mk - A [snapshot](https://github.com/theuni/bitcoind-comparisontool) of the [*pull-tests*](https://github.com/TheBlueMatt/test-scripts) code that was eventually merged into to the *bitcoinj* library (native). (*bitcoinj* now contains [the latest version](https://github.com/bitcoinj/bitcoinj/blob/master/core/src/test/java/org/bitcoinj/core/BitcoindComparisonTool.java) but this package doesn't use the latest version for unknown reasons.) Can be used with the *--with-comparison-tool* and *--enable-tests* configuration options to set the Java comparison tool required by ./qa/pull-tester/run-bitcoind-for-test.sh. [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/8504) when support for the Java comparison tool was removed.
+~~./depends/packages/native\_comparisontool.mk~~ - A [snapshot](https://github.com/theuni/bitcoind-comparisontool) of the [*pull-tests*](https://github.com/TheBlueMatt/test-scripts) code that was eventually merged into to the *bitcoinj* library (native). (*bitcoinj* now contains [the latest version](https://github.com/bitcoinj/bitcoinj/blob/master/core/src/test/java/org/bitcoinj/core/BitcoindComparisonTool.java) but this package doesn't use the latest version for unknown reasons.) Can be used with the *--with-comparison-tool* and *--enable-tests* configuration options to set the Java comparison tool required by ./qa/pull-tester/run-bitcoind-for-test.sh. [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/8504) when support for the Java comparison tool was removed.
 
 ./depends/packages/native\_ds\_store.mk - Python [.DS_Store](https://en.wikipedia.org/wiki/.DS_Store) read/write library (native). Used for the OS X build. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7192).
 
@@ -438,7 +438,7 @@
 
 ./depends/packages/qt.mk - Qt 5 variables.
 
-./depends/packages/qt46.mk - Qt 4.6 variables. [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/8640), although support for Qt 4 was removed in an earlier version (0.13?).
+~~./depends/packages/qt46.mk~~ - Qt 4.6 variables. [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/8640), although support for Qt 4 was removed in an earlier version (0.13?).
 
 ./depends/packages/xcb\_proto.mk - [XML-XCB protocol description bindings](https://xcb.freedesktop.org/XmlXcb/). Used by Qt.
 
@@ -462,23 +462,23 @@
 
 ./depends/patches/boost/fix-win-wake-from-sleep.patch - Upstream Boost patch that fixes a "wake from sleep" issue on Windows. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8899).
 
-**./depends/patches/libevent** - *libevent* patches. [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/9471).
+**~~./depends/patches/libevent~~** - *libevent* patches. [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/9471).
 
-./depends/patches/libevent/libevent-2-fixes.patch - Fixes an issue when compiling with *mingw-w64* on Ubuntu 15.10 and beyond. *[Added for intended use in 0.14](https://github.com/bitcoin/bitcoin/pull/8730) but [removed before the final release](https://github.com/bitcoin/bitcoin/pull/9471)*.
+~~./depends/patches/libevent/libevent-2-fixes.patch~~ - Fixes an issue when compiling with *mingw-w64* on Ubuntu 15.10 and beyond. *[Added for intended use in 0.14](https://github.com/bitcoin/bitcoin/pull/8730) but [removed before the final release](https://github.com/bitcoin/bitcoin/pull/9471)*.
 
-./depends/patches/libevent/reuseaddr.patch - [Fixes a Windows socket issue.](https://github.com/bitcoin/bitcoin/pull/5677#issuecomment-135918349) *[Added in 0.12](https://github.com/bitcoin/bitcoin/pull/5677) and [removed in 0.14](https://github.com/bitcoin/bitcoin/pull/9471)*.
+~~./depends/patches/libevent/reuseaddr.patch~~ - [Fixes a Windows socket issue.](https://github.com/bitcoin/bitcoin/pull/5677#issuecomment-135918349) *[Added in 0.12](https://github.com/bitcoin/bitcoin/pull/5677) and [removed in 0.14](https://github.com/bitcoin/bitcoin/pull/9471)*.
 
 **./depends/patches/native\_cdrkit** - cdrkit patches.
 
 ./depends/patches/native\_cdrkit/cdrkit-deterministic.patch - [Makes *cdrkit* deterministic](https://github.com/bitcoin/bitcoin/pull/4592).
 
-**./depends/patches/native\_mac\_alias** - Alias (Python) patches. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7920).
+**~~./depends/patches/native\_mac\_alias~~** - Alias (Python) patches. [*Removed in 0.17*](https://github.com/bitcoin/bitcoin/pull/12417).
 
-./depends/patches/native\_mac\_alias/python3.patch - Makes *Alias* Python3 compatible.
+~~./depends/patches/native\_mac\_alias/python3.patch~~ - Makes *Alias* Python3 compatible. [*Removed in 0.17*](https://github.com/bitcoin/bitcoin/pull/12417).
 
 **./depends/patches/qt** - Qt 5 patches.
 
-./depends/patches/qt/configure-xcoderun.patch - Allows *Qt* compilation (using the *depends* system) to occur when using *Xcode 8*. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8820) but [removed before the final release](https://github.com/bitcoin/bitcoin/pull/9469)*.
+~~./depends/patches/qt/configure-xcoderun.patch~~ - Allows *Qt* compilation (using the *depends* system) to occur when using *Xcode 8*. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8820) but [removed before the final release](https://github.com/bitcoin/bitcoin/pull/9469)*.
 
 ./depends/patches/qt/fix-xcb-include-order.patch - Fixes various compile errors for *libxcb*.
 
@@ -528,8 +528,6 @@
 
 ./doc/dnsseed-policy.md - [Details regarding DNS seeds.](https://github.com/bitcoin/bitcoin/pull/4566) Explains the rules regarding running a DNS seed. The seed will become a CDNSSeedData entry [as added in ./src/chainparams.cpp](https://github.com/bitcoin/bitcoin/blob/550d4fa7a77c9763d4de9e0c0c48bc2655a65017/src/chainparams.cpp#L97-L102).
 
-./doc/Doxyfile - Doxygen (documentation system) config file. Defines certain variables lused throughout Core related to names (*PACKAGE\_NAME*), Core version (*PACKAGE\_VERSION*), etc. [*Moved to ./doc/Doxyfile.in in 0.15*](https://github.com/bitcoin/bitcoin/pull/10155).
-
 ./doc/Doxyfile.in - Doxygen (documentation system) config file. Defines certain variables lused throughout Core related to names (*PACKAGE\_NAME*), Core version (*PACKAGE\_VERSION*), etc. [*Moved from ./doc/Doxyfile in 0.15*](https://github.com/bitcoin/bitcoin/pull/10155).
 
 ./doc/files.md - Explains which files are made by Core (e.g., blockchain files).
@@ -566,11 +564,11 @@
 
 ./doc/travis-ci.md - Details regarding the Travis CI testing system. [*Changed from .txt to .md in 0.14*](https://github.com/bitcoin/bitcoin/pull/8879).
 
-./doc/unit-tests.md - Details regarding running and adding unit tests. *[Removed in 0.14](https://github.com/bitcoin/bitcoin/pull/9065) and placed inside ./src/test/README.md*.
+~~./doc/unit-tests.md~~ - Details regarding running and adding unit tests. *[Removed in 0.14](https://github.com/bitcoin/bitcoin/pull/9065) and placed inside ./src/test/README.md*.
 
 ./doc/zmq.md - Details regarding using ØMQ.
 
-**./doc/gitian-building** - Graphics used in Gitian guide. *Will not list the files. [Removed in 0.16](https://github.com/bitcoin/bitcoin/pull/11401)*.
+**~~./doc/gitian-building~~** - Graphics used in Gitian guide. *Will not list the files. [Removed in 0.16](https://github.com/bitcoin/bitcoin/pull/11401)*.
 
 **./doc/man** - *man* pages that, as of 0.14, are installed by default when running *make install* during the build process.
 
@@ -586,15 +584,15 @@
 
 **./doc/release-notes** - Release note archive. *Will not list the files.*
 
-**./qa** - Core and related tests. Deals primarily with the Core binaries and how they respond to external input (flags, messages, etc.), not tests for internal source code. [*Moved to ./test in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956) along with all subdirectories, with only a couple of files/subdirectories listed below for historical purposes.
+**~~./qa~~** - Core and related tests. Deals primarily with the Core binaries and how they respond to external input (flags, messages, etc.), not tests for internal source code. [*Moved to ./test in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956) along with all subdirectories, with only a couple of files/subdirectories listed below for historical purposes.
 
-**./qa/pull-tester** - A set of tools that can be used to kick off Python-based tests, primarily based on Core's RPC functionality but including other test types based on external functionality. [*Moved to ./test/functional in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956), with only a couple of files listed below for historical purposes.
+**~~./qa/pull-tester~~** - A set of tools that can be used to kick off Python-based tests, primarily based on Core's RPC functionality but including other test types based on external functionality. [*Moved to ./test/functional in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956), with only a couple of files listed below for historical purposes.
 
-./qa/pull-tester/run-bitcoind-for-test.sh.in - Runs an instance of *bitcoind* in regtest mode. AC\_CONFIG\_FILES() (./configure.ac) processes the file and outputs it as ./qa/pull-tester/run-bitcoind-for-test.sh, which does the actual running of *bitcoind*. ./Makefile.am shows how to run the script, which is done when executing *make check* during the build process. Requires a "pull-tests" JAR file, which can come from [compiling *bitcoinj*](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2014-August/006407.html) or [downloading the pre-compiled JAR file in depends/packages/native\_comparisontool.mk](https://github.com/theuni/bitcoind-comparisontool). The Java tools run the same tests using *bitcoinj* and compare the results with those from the original *bitcoind* binary run. Can be run with or without "expensive" reorg tests (the "--enable-comparison-tool-reorg-tests" flag when configuring the Core build). Look [here](https://github.com/TheBlueMatt/test-scripts) to see where the test was developed and where the data driving the tests originated. [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/9276).
+~~./qa/pull-tester/run-bitcoind-for-test.sh.in~~ - Runs an instance of *bitcoind* in regtest mode. AC\_CONFIG\_FILES() (./configure.ac) processes the file and outputs it as ./qa/pull-tester/run-bitcoind-for-test.sh, which does the actual running of *bitcoind*. ./Makefile.am shows how to run the script, which is done when executing *make check* during the build process. Requires a "pull-tests" JAR file, which can come from [compiling *bitcoinj*](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2014-August/006407.html) or [downloading the pre-compiled JAR file in depends/packages/native\_comparisontool.mk](https://github.com/theuni/bitcoind-comparisontool). The Java tools run the same tests using *bitcoinj* and compare the results with those from the original *bitcoind* binary run. Can be run with or without "expensive" reorg tests (the "--enable-comparison-tool-reorg-tests" flag when configuring the Core build). Look [here](https://github.com/TheBlueMatt/test-scripts) to see where the test was developed and where the data driving the tests originated. [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/9276).
 
 ./qa/pull-tester/tests\_config.ini.in - Sets, via AC\_CONFIG\_FILES() wizardry, some variables to be used in ./qa/pull-tester/rpc-tests.ini, which is read by Python's *ConfigParser* module. Examples include enabling ØMQ tests. [*Moved from ./qa/pull-tester/tests\_config.py.in in 0.15*](https://github.com/bitcoin/bitcoin/pull/9657), and [*moved to ./test/functional in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956).
 
-./qa/pull-tester/tests\_config.py.in - Sets, via AC\_CONFIG\_FILES() wizardry, some variables to be used in ./qa/pull-tester/rpc-tests.py. Examples include enabling ØMQ tests. [*Moved to ./qa/pull-tester/tests\_config.ini.in in 0.15*](https://github.com/bitcoin/bitcoin/pull/9657).
+~~./qa/pull-tester/tests\_config.py.in~~ - Sets, via AC\_CONFIG\_FILES() wizardry, some variables to be used in ./qa/pull-tester/rpc-tests.py. Examples include enabling ØMQ tests. [*Moved to ./qa/pull-tester/tests\_config.ini.in in 0.15*](https://github.com/bitcoin/bitcoin/pull/9657).
 
 **./share** - External materials used by Core one way or another but not part of the source code.
 
@@ -608,11 +606,11 @@
 
 ./share/rpcauth/rpcauth.py - Creates multi-user RPC login credentials. [*Moved from ./share/rpcuser/rpcuser.py in 0.16*](https://github.com/bitcoin/bitcoin/pull/11836).
 
-**./share/certs** - Certificate materials used to sign Core binaries. [*Removed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11380).
+**.~~/share/certs*~~* - Certificate materials used to sign Core binaries. [*Removed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11380).
 
-./share/certs/BitcoinFoundation\_Apple\_Cert.pem - [Code-signing cert from Apple (OS X).](https://github.com/bitcoin/bitcoin/pull/2179)
+~~./share/certs/BitcoinFoundation\_Apple\_Cert.pem~~ - [Code-signing cert from Apple (OS X).](https://github.com/bitcoin/bitcoin/pull/2179)
 
-./share/certs/BitcoinFoundation\_Comodo\_Cert.pem - [Code-signing cert from Comodo (Windows).](https://github.com/bitcoin/bitcoin/pull/2179)
+~~./share/certs/BitcoinFoundation\_Comodo\_Cert.pem~~ - [Code-signing cert from Comodo (Windows).](https://github.com/bitcoin/bitcoin/pull/2179)
 
 ./share/certs/PrivateKeyNotes.md - Code signing threat analysis.
 
@@ -624,7 +622,7 @@
 
 ./share/qt/Info.plist.in - OS X bundle kickoff file. Processed by AC\_CONFIG\_FILES() to generate ./share/qt/Info.plist, which is included in the root of the OS X build.
 
-./share/qt/protobuf.pri - *qmake* file integrating Payment Protocol (BIP 70) with *protoc*. [Required OpenSSL & Qt.](https://github.com/bitcoin/bitcoin/pull/2539). [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/8783).
+~~./share/qt/protobuf.pri~~ - *qmake* file integrating Payment Protocol (BIP 70) with *protoc*. [Required OpenSSL & Qt.](https://github.com/bitcoin/bitcoin/pull/2539). [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/8783).
 
 **./src** - The subdirectory with all the Core-specific code.
 
@@ -638,11 +636,11 @@
 
 ./src/addrman.h - See the CPP file.
 
-./src/alert.cpp - Alerts for older versions of Core. There’s an unsigned alert with all the data (CUnsignedAlert) and an unsigned alert + signature (CAlert). [*Removed in 0.13*](https://github.com/bitcoin/bitcoin/pull/7692).
+~~./src/alert.cpp~~ - Alerts for older versions of Core. There’s an unsigned alert with all the data (CUnsignedAlert) and an unsigned alert + signature (CAlert). [*Removed in 0.13*](https://github.com/bitcoin/bitcoin/pull/7692).
 
-./src/alert.h - See the CPP file. [*Removed in 0.13*](https://github.com/bitcoin/bitcoin/pull/7692).
+~~./src/alert.h~~ - See the CPP file. [*Removed in 0.13*](https://github.com/bitcoin/bitcoin/pull/7692).
 
-./src/amount.cpp - Some basic amount (CAmount, or int64\_t) definitions, and a type-safe wrapper class for fee rates (CFeeRate). [*Moved to ./src/policy/feerate.cpp in 0.15*](https://github.com/bitcoin/bitcoin/pull/9279).
+~~./src/amount.cpp~~ - Some basic amount (CAmount, or int64\_t) definitions, and a type-safe wrapper class for fee rates (CFeeRate). [*Moved to ./src/policy/feerate.cpp in 0.15*](https://github.com/bitcoin/bitcoin/pull/9279).
 
 ./src/amount.h - See the CPP file. Includes a bit of consensus-critical code.
 
@@ -658,7 +656,7 @@
 
 ./src/bech32.h - See the CPP file. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11167).
 
-./src/bignum.h - C++ wrapper around OpenSSL's BIGNUM class (CBigNum). Was used when Core had OpenSSL dependencies in things like the scripting system. [*Moved to ./src/test/bignum.h in 0.11*](https://github.com/bitcoin/bitcoin/pull/4160) because only ./src/test/scriptnum\_tests.cpp still required the CBigNum class.
+~~./src/bignum.h~~ - C++ wrapper around OpenSSL's BIGNUM class (CBigNum). Was used when Core had OpenSSL dependencies in things like the scripting system. [*Moved to ./src/test/bignum.h in 0.11*](https://github.com/bitcoin/bitcoin/pull/4160) because only ./src/test/scriptnum\_tests.cpp still required the CBigNum class.
 
 ./src/bitcoin-cli.cpp - Binary used to communicate with / send commands to *bitcoind*.
 
@@ -762,7 +760,7 @@
 
 ./src/limitedmap.h - STL-like map container class that only keeps the N elements with the highest value (limitedmap).
 
-./src/main.cpp - Loads of critical functionality. Examples include script op count functions (GetP2SHSigOpCount & the like), checking inputs (CheckInputs), applying Tx effects to the UTXO (UpdateCoins), validity checks (CheckTransaction), consensus-critical functions telling if a Tx is final at a given time/location (IsFinalTx) or in the next block (CheckFinalTx), etc. Also includes the CScriptCheck, and CVerifyDB classes. [*Moved to ./src/net\_processing.{cpp/h} and ./src/validation.{cpp/h} in 0.14*](https://github.com/bitcoin/bitcoin/pull/9260).
+~~./src/main.cpp~~ - Loads of critical functionality. Examples include script op count functions (GetP2SHSigOpCount & the like), checking inputs (CheckInputs), applying Tx effects to the UTXO (UpdateCoins), validity checks (CheckTransaction), consensus-critical functions telling if a Tx is final at a given time/location (IsFinalTx) or in the next block (CheckFinalTx), etc. Also includes the CScriptCheck, and CVerifyDB classes. [*Moved to ./src/net\_processing.{cpp/h} and ./src/validation.{cpp/h} in 0.14*](https://github.com/bitcoin/bitcoin/pull/9260).
 
 ./src/main.h - See the CPP file. Includes loads of important definitions.
 
@@ -1455,9 +1453,9 @@
 
 ./src/support/lockedpool.h - See the CPP file. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8753).
 
-./src/support/pagelocker.cpp - [Deals with memory locking.](https://github.com/bitcoin/bitcoin/pull/5952) Includes an OS-dependent memory lock/unlock class (MemoryPageLocker), a thread-safe base class that keeps track of locked (i.e., non-swappable) memory pages (LockedPageManagerBase), and a derived singleton class that tracks locked memory pages for use in std::allocator templates (LockedPageManager). [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/8753).
+~~./src/support/pagelocker.cpp~~ - [Deals with memory locking.](https://github.com/bitcoin/bitcoin/pull/5952) Includes an OS-dependent memory lock/unlock class (MemoryPageLocker), a thread-safe base class that keeps track of locked (i.e., non-swappable) memory pages (LockedPageManagerBase), and a derived singleton class that tracks locked memory pages for use in std::allocator templates (LockedPageManager). [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/8753).
 
-./src/support/pagelocker.h - See the CPP file. [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/8753).
+~~./src/support/pagelocker.h~~ - See the CPP file. [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/8753).
 
 **./src/support/allocators** - Secure memory allocation/deallocation code.
 
@@ -1469,7 +1467,7 @@
 
 ./src/test/addrman\_tests.cpp - Tests for the CAddrMan class. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/6720).
 
-./src/test/alert\_tests.cpp - [Alert system (CAlert) unit tests.](https://github.com/bitcoin/bitcoin/pull/1393) Used to determine if a set of blocks are getting fed to the system too quickly or slowly. [*Removed in 0.13*](https://github.com/bitcoin/bitcoin/pull/8275).
+~~./src/test/alert\_tests.cpp~~ - [Alert system (CAlert) unit tests.](https://github.com/bitcoin/bitcoin/pull/1393) Used to determine if a set of blocks are getting fed to the system too quickly or slowly. [*Removed in 0.13*](https://github.com/bitcoin/bitcoin/pull/8275).
 
 ./src/test/allocator\_tests.cpp - Memory allocation tests. [Has to do with memory "stacking."](https://github.com/bitcoin/bitcoin/pull/1699)
 
@@ -1485,15 +1483,15 @@
 
 ./src/test/bech32\_tests.cpp - Bech32 unit tests. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11167).
 
-./src/test/bctest.py - [Support code for *bitcoin-tx* binary test](https://github.com/bitcoin/bitcoin/pull/4624). [*Moved to ./test/util/bctest.py in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956).
+~~./src/test/bctest.py~~ - [Support code for *bitcoin-tx* binary test](https://github.com/bitcoin/bitcoin/pull/4624). [*Moved to ./test/util/bctest.py in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956).
 
-./src/test/bignum.h - See the ./src/bignum.h entry. [*Removed in 0.12*](https://github.com/bitcoin/bitcoin/pull/7095) and replaced with ./src/test/scriptnum10.h.
+~~./src/test/bignum.h~~ - See the ./src/bignum.h entry. [*Removed in 0.12*](https://github.com/bitcoin/bitcoin/pull/7095) and replaced with ./src/test/scriptnum10.h.
 
-./src/test/bitcoin-util-test.py - [Kicks off *bitcoin-tx* binary test](https://github.com/bitcoin/bitcoin/pull/4624). [*Moved to ./test/util/bitcoin-util-test.py in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956).
+~~./src/test/bitcoin-util-test.py~~ - [Kicks off *bitcoin-tx* binary test](https://github.com/bitcoin/bitcoin/pull/4624). [*Moved to ./test/util/bitcoin-util-test.py in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956).
 
 ./src/test/bip32\_tests.cpp - [Hierarchical deterministic (HD) wallet unit tests.](https://github.com/bitcoin/bitcoin/pull/2829)
 
-./src/test/bitcoin-util-test.py - [Kicks off *bitcoin-tx* binary test](https://github.com/bitcoin/bitcoin/pull/4624). [*Moved to ./test/util/bitcoin-util-test.py in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956).
+~~./src/test/bitcoin-util-test.py~~ - [Kicks off *bitcoin-tx* binary test](https://github.com/bitcoin/bitcoin/pull/4624). [*Moved to ./test/util/bitcoin-util-test.py in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956).
 
 ./src/test/blockchain\_tests.cpp - Implements GetDifficulty tests and other blockchain-related tests. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11748).
 
@@ -1503,11 +1501,11 @@
 
 ./src/test/bswap\_tests.cpp - Tests *bswap\_{16/32/64}()* calls to ensure that the calls function properly. (This was a problem in particular on macOS builds.) [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9366).
 
-./src/test/buildenv.py.in - [Helps allow Python tests to run on Windows](https://github.com/bitcoin/bitcoin/pull/5014). [*Moved to ./test/util/buildenv.py.in in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956).
+~~./src/test/buildenv.py.in~~ - [Helps allow Python tests to run on Windows](https://github.com/bitcoin/bitcoin/pull/5014). [*Moved to ./test/util/buildenv.py.in in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956).
 
-./src/test/checkblock\_tests.cpp - Now-obsolete test that [was used](https://github.com/bitcoin/bitcoin/commit/8c222dca4f961ad13ec64d690134a40d09b20813) to confirm that Core would handle 1 MB blocks after the temporary 500 KB soft fork imposed in the wake of the Mar. 2013 hard fork. [*Removed in 0.13*](https://github.com/bitcoin/bitcoin/pull/7490).
+~~./src/test/checkblock\_tests.cpp~~ - Now-obsolete test that [was used](https://github.com/bitcoin/bitcoin/commit/8c222dca4f961ad13ec64d690134a40d09b20813) to confirm that Core would handle 1 MB blocks after the temporary 500 KB soft fork imposed in the wake of the Mar. 2013 hard fork. [*Removed in 0.13*](https://github.com/bitcoin/bitcoin/pull/7490).
 
-./src/test/Checkpoints\_tests.cpp - A checkpoint-related unit test. *[Removed in 0.13.2](https://github.com/bitcoin/bitcoin/pull/9293)*. This was [part of a larger push to remove checkpoints and replace them with most-work chain metrics](https://github.com/bitcoin/bitcoin/pull/9053).
+~~./src/test/Checkpoints\_tests.cpp~~ - A checkpoint-related unit test. *[Removed in 0.13.2](https://github.com/bitcoin/bitcoin/pull/9293)*. This was [part of a larger push to remove checkpoints and replace them with most-work chain metrics](https://github.com/bitcoin/bitcoin/pull/9053).
 
 ./src/test/checkqueue\_tests.cpp - Various CCheckQueue tests. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/9497).
 
@@ -1615,7 +1613,7 @@
 
 ./src/test/uint256\_tests.cpp - Unit tests for uint256, arith\_uint256 and related classes.
 
-./src/test/univalue\_tests.cpp - [Unit tests for the UniValue class.](https://github.com/bitcoin/bitcoin/pull/4730) *[Removed in 0.16](https://github.com/bitcoin/bitcoin/pull/11879) once the UniValue code [added the test](https://github.com/bitcoin-core/univalue/pull/4) and the new version was [added to Core](https://github.com/bitcoin/bitcoin/pull/11420)*.
+~~./src/test/univalue\_tests.cpp~~ - [Unit tests for the UniValue class.](https://github.com/bitcoin/bitcoin/pull/4730) *[Removed in 0.16](https://github.com/bitcoin/bitcoin/pull/11879) once the UniValue code [added the test](https://github.com/bitcoin-core/univalue/pull/4) and the new version was [added to Core](https://github.com/bitcoin/bitcoin/pull/11420)*.
 
 ./src/test/util\_tests.cpp - Unit tests for various utility-related files.
 
@@ -1969,7 +1967,7 @@
 
 **./test/util** - Test-related utility files. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956).
 
-./test/util/bctest.py - [Support code for *bitcoin-tx* binary test](https://github.com/bitcoin/bitcoin/pull/4624). *[Moved from ./src/test/bctest.py in 0.15](https://github.com/bitcoin/bitcoin/pull/9956) and [quickly deleted and moved into ./test/util/bitoin-util-test.py in 0.15](https://github.com/bitcoin/bitcoin/pull/10331)*.
+~~./test/util/bctest.py~~ - [Support code for *bitcoin-tx* binary test](https://github.com/bitcoin/bitcoin/pull/4624). *[Moved from ./src/test/bctest.py in 0.15](https://github.com/bitcoin/bitcoin/pull/9956) and [quickly deleted and moved into ./test/util/bitoin-util-test.py in 0.15](https://github.com/bitcoin/bitcoin/pull/10331)*.
 
 ./test/util/bitcoin-util-test.py - [Kicks off *bitcoin-tx* binary test](https://github.com/bitcoin/bitcoin/pull/4624). [*Moved from ./src/test/bitcoin-util-test.py in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956).
 
