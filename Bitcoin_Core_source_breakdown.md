@@ -1391,6 +1391,8 @@
 
 ./src/rpc/rawtransaction.cpp - RPC raw transaction command functionality.
 
+./src/rpc/rawtransaction.h - See the CPP file. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/10579).
+
 ./src/rpc/register.h - Contains prototypes for functions used to register various types of RPC commands. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7766).
 
 ./src/rpc/safemode.cpp - Has an "ObserveSafeMode" function that checks whether or not "safe mode" (a soon-to-be-deprecated feature [disabling some RPC commands](https://github.com/bitcoin/bitcoin/pull/10563)) has been activated. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11179).
