@@ -778,7 +778,7 @@
 
 ./src/memusage.h - Some tools to track basic memory usage.
 
-./src/merkleblock.cpp - Tied to Bloom filters. Classes covering partial merkle trees that covers a subset of the TXIDs in a block such that the complete list and the merkle root can be recovered (CPartialMerkleTree), and blocks used to relay headers & vector<merkle branch> to filtered nodes (CMerkleBlock). The blocks are what are sent to bloom filters (CBloomFilter).
+./src/merkleblock.cpp - Tied to Bloom filters. Classes covering partial merkle trees that covers a subset of the TXIDs in a block such that the complete list and the merkle root can be recovered (CPartialMerkleTree), and blocks used to relay headers & vector\<merkle branch\> to filtered nodes (CMerkleBlock). The blocks are what are sent to bloom filters (CBloomFilter).
 
 ./src/merkleblock.h - See the CPP file.
 
@@ -812,7 +812,7 @@
 
 ./src/pow.h - See the CPP file.
 
-./src/prevector.h - vector<T> replacement that allocates N elements of T, switching to heap allocation only if more elements are needed. Used only by CScript. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6914)
+./src/prevector.h - vector\<T\> replacement that allocates N elements of T, switching to heap allocation only if more elements are needed. Used only by CScript. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/6914).
 
 ./src/protocol.cpp - P2P protocol stuff. Includes the message header (CMessageHeader), IP:Port with peer info (CAddress), *Inv* message data (CInv), and NetMsgType and nServices enums.
 
@@ -942,7 +942,9 @@
 
 ./src/bench/perf.h - See the CPP file. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9202).
 
-./src/bench/perf.h - Code that benchmarks the destruction of non-trivial prevector objects. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/9505).
+./src/bench/prevector.cpp - Code that benchmarks various bits of *prevector* (see ./src/prevector.h) functionality. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12549).
+
+~~./src/bench/prevector\_destructor.cpp~~ - Code that benchmarks the destruction of non-trivial prevector objects. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/9505) and [*placed inside ./src/bench/prevector.cpp in 0.17*](https://github.com/bitcoin/bitcoin/pull/12549).
 
 ./src/bench/rollingbloom.cpp - Code that benchmarks rolling bloom filters. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7934).
 
@@ -1898,6 +1900,8 @@
 ./test/functional/wallet\_dump.py - Tests the *walletdump* RPC functionality. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8417) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
 ./test/functional/wallet\_encryption.py - Tests Core wallet's encryption functionality. *[Added in 0.15](https://github.com/bitcoin/bitcoin/pull/10551) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
+
+./test/functional/wallet\_fallbackfee.py - Tests Core wallet's replace-by-fee capabilities in conjunction with the *fallbackfee* CL arg. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/11882).
 
 ./test/functional/wallet\_hd.py - Tests hierarchical deterministic qualities of the Core wallet. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/8309) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
