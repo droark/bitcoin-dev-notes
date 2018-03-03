@@ -204,7 +204,7 @@
 
 ./contrib/gitian-descriptors/gitian-win-signer.yml - [Descriptor that splices in a signature for the final .exe file.](https://github.com/bitcoin/bitcoin/pull/6303) [Uses osslsigncode to attach the detached signature to the Core binary.](http://development.adaptris.net/users/lchan/blog/2013/06/07/signing-windows-installers-on-linux/) The tool(s) & steps used to generate the signature don’t appear to be listed in the Core repo.
 
-~~./contrib/gitian-descriptors/README.md~~ - Rough instructions explaining how to do Gitian builds. [*Removed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11414)*.
+~~./contrib/gitian-descriptors/README.md~~ - Rough instructions explaining how to do Gitian builds. [*Removed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11414).
 
 **./contrib/gitian-keys** - PGP keys for people who post verifications of Gitian builds. [Moved from /.contrib/gitian-downloader in 0.13.0](https://github.com/bitcoin/bitcoin/pull/7870). In 0.17, the individual key files [were deleted](https://github.com/bitcoin/bitcoin/pull/11909).
 
