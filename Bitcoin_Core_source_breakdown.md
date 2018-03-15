@@ -186,7 +186,7 @@
 
 ./contrib/devtools/split-debug.sh.in - Splits the debug information from a built binary and places it in a separate file. [Used to keep debugging info handy if a stripped binary needs to be debugged](https://sourceware.org/gdb/onlinedocs/gdb/Separate-Debug-Files.html). AC\_CONFIG\_FILES() (./configure.ac) processes the file and outputs it as ./contrib/devtools/split-debug.sh, which does the actual splitting. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8188).
 
-./contrib/devtools/symbol-check.py - [Makes sure a Linux binary has only gcc, glibc, and libstdc++ version symbols](https://github.com/bitcoin/bitcoin/pull/4089), thereby maintaining compatibility with minimum supported Linux distro versions.
+./contrib/devtools/symbol-check.py - [Makes sure a Linux binary has only gcc, glibc, and libstdc++ version symbols](https://github.com/bitcoin/bitcoin/pull/4089) supported by given versions, thereby maintaining compatibility with minimum supported Linux distro versions.
 
 ./contrib/devtools/test-security-check.py - Compiles a simple program in C and confirms that the binary has the security features tested in ./contrib/devtools/security-check.py. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6854)
 
@@ -222,7 +222,7 @@
 
 ./contrib/init/bitcoind.openrcconf - *OpenRC* conf.d file.
 
-./contrib/init/bitcoind.service - *systemd* service unit configuration.
+./contrib/init/bitcoind.service - *systemd* service unit configuration. Useful for things like hardening `bitcoind` by limiting the ability of the binary to gain new, unintended privileges.
 
 ./contrib/init/org.bitcoin.bitcoind.plist - [Launch agent](https://developer.apple.com/library/mac/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html) that OS X can use to launch *bitcoind* at startup. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/6621).
 
@@ -410,15 +410,15 @@
 
 ./depends/packages/miniupnpc.mk - MiniUPnP. Used by all versions of the [UPnP](https://en.wikipedia.org/wiki/Universal_Plug_and_Play) feature of Core.
 
-./depends/packages/native\_biplist.mk - Python binary property list ([plist](https://en.wikipedia.org/wiki/Property_list)) read/write library (native). Used for the OS X build. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7192) to make software name consistency easier.
+~~./depends/packages/native\_biplist.mk~~ - Python binary property list ([plist](https://en.wikipedia.org/wiki/Property_list)) read/write library (native). Used for the OS X build. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7192) to make software name consistency easier and  [removed in 0.17](https://github.com/bitcoin/bitcoin/pull/12625)*.
 
-./depends/packages/native\_ccache.mk - [C/C++ compiler cache](https://ccache.samba.org/) (native).
+~~./depends/packages/native\_ccache.mk~~ - [C/C++ compiler cache](https://ccache.samba.org/) (native). [*Removed in 0.17*](https://github.com/bitcoin/bitcoin/pull/12607)
 
-./depends/packages/native\_cctools.mk - [Apple (cctools) toolchain for Linux](https://code.google.com/p/ios-toolchain-based-on-clang-for-linux/) (native). Contains the code used to build the binaries needed to create Apple binaries (e.g., *dyld*, *ld64*, etc.). [Needed to link binaries in an Apple-friendly manner.](http://www.ninthavenue.com.au/how-to-build-an-ios-toolchain-for-linux-debian-7)
+./depends/packages/native\_cctools.mk - [Apple (cctools) toolchain for Linux](https://code.google.com/p/ios-toolchain-based-on-clang-for-linux/) (native). Contains the code used to build the binaries needed to create Apple binaries (e.g., *dyld*, *ld64*, etc.). [Needed to link binaries in an Apple-friendly manner](http://www.ninthavenue.com.au/how-to-build-an-ios-toolchain-for-linux-debian-7).
 
 ./depends/packages/native\_cdrkit.mk - [*cdrkit* toolkit](https://en.wikipedia.org/wiki/Cdrkit) (native). The *genisoimage* tool is used to create DMG files used for Apple builds.
 
-~~./depends/packages/native\_comparisontool.mk~~ - A [snapshot](https://github.com/theuni/bitcoind-comparisontool) of the [*pull-tests*](https://github.com/TheBlueMatt/test-scripts) code that was eventually merged into to the *bitcoinj* library (native). (*bitcoinj* now contains [the latest version](https://github.com/bitcoinj/bitcoinj/blob/master/core/src/test/java/org/bitcoinj/core/BitcoindComparisonTool.java) but this package doesn't use the latest version for unknown reasons.) Can be used with the *--with-comparison-tool* and *--enable-tests* configuration options to set the Java comparison tool required by ./qa/pull-tester/run-bitcoind-for-test.sh. [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/8504) when support for the Java comparison tool was removed.
+~~./depends/packages/native\_comparisontool.mk~~ - A [snapshot](https://github.com/theuni/bitcoind-comparisontool) of the [*pull-tests*](https://github.com/TheBlueMatt/test-scripts) code that was eventually merged into to the *bitcoinj* library (native). (*bitcoinj* now contains [the latest version](https://github.com/bitcoinj/bitcoinj/blob/master/core/src/test/java/org/bitcoinj/core/BitcoindComparisonTool.java) but this package doesn't use the latest version for unknown reasons.) Can be used with the *--with-comparison-tool* and *--enable-tests* configuration options to set the Java comparison tool required by ./qa/pull-tester/run-bitcoind-for-test.sh. *[Removed in 0.14](https://github.com/bitcoin/bitcoin/pull/8504) when support for the Java comparison tool was removed*.
 
 ./depends/packages/native\_ds\_store.mk - Python [.DS_Store](https://en.wikipedia.org/wiki/.DS_Store) read/write library (native). Used for the OS X build. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7192).
 
@@ -438,7 +438,7 @@
 
 ./depends/packages/qt.mk - Qt 5 variables.
 
-~~./depends/packages/qt46.mk~~ - Qt 4.6 variables. [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/8640), although support for Qt 4 was removed in an earlier version (0.13?).
+~~./depends/packages/qt46.mk~~ - Qt 4.6 variables. *[Removed in 0.14](https://github.com/bitcoin/bitcoin/pull/8640), although support for Qt 4 was removed in an earlier version (0.13?)*.
 
 ./depends/packages/xcb\_proto.mk - [XML-XCB protocol description bindings](https://xcb.freedesktop.org/XmlXcb/). Used by Qt.
 
@@ -480,6 +480,8 @@
 
 ~~./depends/patches/qt/configure-xcoderun.patch~~ - Allows *Qt* compilation (using the *depends* system) to occur when using *Xcode 8*. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8820) but [removed before the final release](https://github.com/bitcoin/bitcoin/pull/9469)*.
 
+./depends/patches/qt/fix-cocoahelpers-macos.patch - Fixes a `make depends` build error for Qt. [*Added in 0.16.1*](https://github.com/bitcoin/bitcoin/pull/12636).
+
 ./depends/patches/qt/fix-xcb-include-order.patch - Fixes various compile errors for *libxcb*.
 
 ./depends/patches/qt/fix\_qt\_pkgconfig.patch - Mods a [Qt feature file](http://doc.qt.io/qt-5/qmake-project-files.html) such that [*pkg-config*](http://pkg-config.freedesktop.org/) support continues to be enabled. Undoes a Qt [commit](https://github.com/qtproject/qtbase/commit/6c5d227da1709eb81968823f38a133747c0e95b0) that disabled .pc files for Qt frameworks and internal modules. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8210).
@@ -498,9 +500,11 @@
 
 ./depends/patches/zeromq/0001-fix-build-with-older-mingw64.patch - Patch fixing an issue with builds from pre-4.0 MinGW builds. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/9254).
 
-./depends/patches/zeromq/9114d3957725acd34aa8b8d011585812f3369411.patch - Upstream patch that enables MinGW static linking. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8238) and [removed in 0.16](https://github.com/bitcoin/bitcoin/pull/9254).
+./depends/patches/zeromq/0002-disable-pthread-set-name-np.patch - Disables ØMQ's usage of *pthread_setname_np()*, a call that [can't be checked by ./contrib/devtools/symbol-check.py due to a lack of *glibc* support](https://github.com/bitcoin/bitcoin/pull/11986#issuecomment-367779254). [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/11986).
 
-./depends/patches/zeromq/9e6745c12e0b100cd38acecc16ce7db02905e27c.patch - Upstream patch that fixes an issue with MinGW static linking. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8238) and [removed in 0.16](https://github.com/bitcoin/bitcoin/pull/9254).
+~~./depends/patches/zeromq/9114d3957725acd34aa8b8d011585812f3369411.patch~~ - Upstream patch that enables MinGW static linking. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8238) and [removed in 0.16](https://github.com/bitcoin/bitcoin/pull/9254).
+
+~~./depends/patches/zeromq/9e6745c12e0b100cd38acecc16ce7db02905e27c.patch~~ - Upstream patch that fixes an issue with MinGW static linking. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8238) and [removed in 0.16](https://github.com/bitcoin/bitcoin/pull/9254).
 
 **./doc** - Various documents. *Graphics are not mentioned.*
 
@@ -648,7 +652,7 @@
 
 ./src/arith\_uint256.h - See the CPP file. [*Added in 0.11*](https://github.com/bitcoin/bitcoin/pull/5490).
 
-./src/base58.cpp - Base58 support code, including CBitcoinAddress and CSecret, along with a derived (from CBase58Data) external class (CBitcoinExtKey) that, when typedef’d, is used for external, Base58-encoded private (CBitcoinExtKeyBase) and public (CBitcoinExtPubKeyBase) keys.
+./src/base58.cpp - Base58 implementation.
 
 ./src/base58.h - See the CPP file.
 
@@ -753,6 +757,10 @@
 ./src/key.cpp - Private keys, encapsulated (CKey class) and serialized (CPrivKey typedef). There’s also a CExtKey and CExtPubKey structs (basically the actual, Base58-encoded private/public keys without the metadata from CBitcoinExtKeyBase) and global ECC start/stop functions.
 
 ./src/key.h - See the CPP file.
+
+./src/key\_io.cpp - Bitcoin-specific Base58 functionality (e.g., CBitcoinAddress and CBitcoinSecret classes), along with a derived (from CBase58Data) external class (CBitcoinExtKey) that, when typedef’d, is used for external, Base58-encoded private (CBitcoinExtKeyBase) and public (CBitcoinExtPubKeyBase) keys. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/11372).
+
+./src/key\_io.h - See the CPP file. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/11372).
 
 ./src/keystore.cpp - A key store base class (CKeyStore) and a store with address->secret maps (CBasicKeyStore).
 
@@ -1531,6 +1539,8 @@
 
 ./src/test/key\_tests.cpp - [EC key unit tests.](https://github.com/bitcoin/bitcoin/pull/649)
 
+./src/test/key\_io\_tests.cpp - Bitcoin-specific Base58 functionality tests. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/11372).
+
 ./src/test/limitedmap\_tests.cpp - Tests for the *limitedmap* class.
 
 ./src/test/main\_tests.cpp - [Unit tests related to money supplies.](https://github.com/bitcoin/bitcoin/pull/3768)
@@ -1631,6 +1641,10 @@
 
 ./src/test/data/base58\_keys\_valid.json - Base58 test data used by ./src/tests/base58\_tests.cpp to confirm that the given Base58 keys are valid across various key types. [Generated by ./contrib/testgen/gen\_base58\_test\_vectors.py.](https://github.com/bitcoin/bitcoin/pull/1888)
 
+./src/test/data/key\_io\_invalid.json - Base58 test data used by ./src/tests/key\_io\_tests.cpp to confirm that the given Base58 keys are invalid across various key types. [*Moved from ./src/test/data/base58\_keys\_invalid.json in 0.17*](https://github.com/bitcoin/bitcoin/pull/11372).
+
+./src/test/data/key\_io\_valid.json - Base58 test data used by ./src/tests/key\_io\_tests.cpp to confirm that the given Base58 keys are valid across various key types. [*Moved from ./src/test/data/base58\_keys\_valid.json in 0.17*](https://github.com/bitcoin/bitcoin/pull/11372).
+
 ./src/test/data/README.md - Mentions that this is data for various tests.
 
 ./src/test/data/script\_tests.json - Data for valid and invalid scripts. [Used by ./src/tests/script\_tests.cpp](https://github.com/bitcoin/bitcoin/pull/1121).
@@ -1646,6 +1660,10 @@
 **./src/wallet** - Core’s wallet functionality. Any code here should be used solely by the wallet.
 
 ./src/wallet/coincontrol.h - A class (CCoinControl) specifying a set of coins to be used for a given Tx. (This allows the user to control which coins are used.) *[Added to the src subdirectory in 0.8](https://github.com/bitcoin/bitcoin/pull/3253), and [moved to the src/wallet subdirectory in 0.14](https://github.com/bitcoin/bitcoin/pull/8990)*.
+
+./src/wallet/coinselection.cpp - Code for selecting coins based on the ["Branch and Bound" algorithm](http://murch.one/wp-content/uploads/2016/11/erhardt2016coinselection.pdf), falling back to Core's previous coin selection algorithm if the algorithm fails. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/10637).
+
+./src/wallet/coinselection.h - See the CPP file. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/10637).
 
 ./src/wallet/crypter.cpp - Includes the master key class for a wallet’s private key encryption (CMasterKey), encryption/decryption context class w/ key info (CCrypter), and a keystore keeping the private keys (CCryptoKeyStore).
 
