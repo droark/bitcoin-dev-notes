@@ -1707,6 +1707,8 @@
 
 ./src/wallet/test/accounting\_tests.cpp - [Wallet accounting entry tests](https://github.com/bitcoin/bitcoin/pull/1393). [*Moved here from ./src/test in 0.13*](https://github.com/bitcoin/bitcoin/pull/7905).
 
+./src/wallet/test/coinselector\_tests.cpp - Tests Core's coin selection algorithms. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/10637).
+
 ./src/wallet/tests/crypto\_tests.cpp - Various tests for the CTAES code. Ensures functionality matches OpenSSL, and that failures occur exactly like failures in OpenSSL. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7689) as a replacement for OpenSSL-dependent functionality.
 
 ./src/wallet/test/rpc\_wallet\_tests.cpp - Internal RPC/JSON wallet unit tests. [*Moved here from ./src/test in 0.13*](https://github.com/bitcoin/bitcoin/pull/7905) and [*replaced with ./qa/rpc-tests/wallet-accounts.py in 0.14*](https://github.com/bitcoin/bitcoin/pull/8450).
