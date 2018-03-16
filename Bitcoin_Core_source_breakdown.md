@@ -184,7 +184,7 @@
 
 ./contrib/devtools/security-check.py - Confirms that certain security features (e.g., [PIE](https://en.wikipedia.org/wiki/Position-independent_code#PIE), [NX](https://en.wikipedia.org/wiki/NX_bit), [RELRO](http://tk-blog.blogspot.com/2009/02/relro-not-so-well-known-memory.html), and [canaries](https://en.wikipedia.org/wiki/Stack_buffer_overflow#Stack_canaries)) are used for a given binary. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/6854).
 
-./contrib/devtools/split-debug.sh.in - Splits the debug information from a built binary and places it in a separate file. [Used to keep debugging info handy if a stripped binary needs to be debugged](https://sourceware.org/gdb/onlinedocs/gdb/Separate-Debug-Files.html). AC\_CONFIG\_FILES() (./configure.ac) processes the file and outputs it as ./contrib/devtools/split-debug.sh, which does the actual splitting. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8188).
+./contrib/devtools/split-debug.sh.in - Splits the debug information from a built binary and places it in a separate file. [Used to keep debugging info handy if a stripped binary needs to be debugged](https://sourceware.org/gdb/onlinedocs/gdb/Separate-Debug-Files.html). Autoconfig processes the file and outputs it as ./contrib/devtools/split-debug.sh, which does the actual splitting. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8188).
 
 ./contrib/devtools/symbol-check.py - [Makes sure a Linux binary has only gcc, glibc, and libstdc++ version symbols](https://github.com/bitcoin/bitcoin/pull/4089) supported by given versions, thereby maintaining compatibility with minimum supported Linux distro versions.
 
@@ -348,7 +348,7 @@
 
 ./depends/config.guess - [Used by *Autoconf* to guess a canonical system name.](http://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/html_node/Specifying-Target-Triplets.html)
 
-./depends/config.site.in - Defines some variables. ./depends/Makefile processes the file and uses it to output ./share/config.site, which causes the build to [override some build settings on the building machine.](http://www.gnu.org/software/automake/manual/html_node/config_002esite.html#config_002esite)
+./depends/config.site.in - Defines some variables. ./depends/Makefile processes the file and uses it to output ./depends/config.site, which causes the build to [override some build settings on the building machine.](http://www.gnu.org/software/automake/manual/html_node/config_002esite.html#config_002esite)
 
 ./depends/config.sub - [Used by *Autoconf* to convert system aliases into full canonical names.](http://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/html_node/Specifying-Target-Triplets.html)
 
@@ -356,7 +356,7 @@
 
 ./depends/funcs.mk - Various functions and variables related to building the dependencies in the ./depends/packages subdirectory.
 
-./depends/Makefile - Makefile called from elsewhere.
+./depends/Makefile - Root makefile for shared dependency building.
 
 ./depends/packages.md - Steps for adding packages. Low-level "recipe" details. Good for devs.
 
@@ -380,7 +380,7 @@
 
 ./depends/hosts/mingw32.mk - Overriding Windows (MinGW) build variable values.
 
-**./depends/packages** - Info on packages to download and compile as Core dependencies. Almost all the packages are actually required only by Qt 4 or 5. Native packages are used to build towards particular host/target platforms when the host requires tools not directly found on the build/host platform, so the build/host platform must use alternate tools.
+**./depends/packages** - Info on packages to download and compile as Core dependencies. Almost all the packages are actually required only by Qt 4 or 5. Native packages are used to build towards particular host/target platforms when the host requires tools not directly found on the native (i.e., build) platform, so the native platform must use alternate tools.
 
 ./depends/packages/bdb.mk - BerkeleyDB 4.8. Used by all versions of the Bitcoin Core wallet.
 
@@ -428,7 +428,7 @@
 
 ./depends/packages/native\_protobuf.mk - [Protocol Buffers](https://en.wikipedia.org/wiki/Protocol_Buffers) library (native). Used by Qt as part of BIP 70 support.
 
-./depends/packages/openssl.mk - [OpenSSL](https://www.openssl.org/) library. Provides some cryptographic functionality. Used by all versions of Core. Used to be part of consensus-critical functionality, all of which has since been changed to use *libsecp256k1*.
+./depends/packages/openssl.mk - [OpenSSL](https://www.openssl.org/) library. Provides some cryptographic functionality. Used by all versions of Core, [primarily to support BIP 70](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2018-January/015490.html). Used to be part of consensus-critical functionality, all of which has since been changed to use *libsecp256k1*.
 
 ./depends/packages/packages.mk - Package variables. Specifies the packages requried by various platforms, including packages required by Qt.
 
@@ -594,15 +594,15 @@
 
 ~~./qa/pull-tester/run-bitcoind-for-test.sh.in~~ - Runs an instance of *bitcoind* in regtest mode. AC\_CONFIG\_FILES() (./configure.ac) processes the file and outputs it as ./qa/pull-tester/run-bitcoind-for-test.sh, which does the actual running of *bitcoind*. ./Makefile.am shows how to run the script, which is done when executing *make check* during the build process. Requires a "pull-tests" JAR file, which can come from [compiling *bitcoinj*](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2014-August/006407.html) or [downloading the pre-compiled JAR file in depends/packages/native\_comparisontool.mk](https://github.com/theuni/bitcoind-comparisontool). The Java tools run the same tests using *bitcoinj* and compare the results with those from the original *bitcoind* binary run. Can be run with or without "expensive" reorg tests (the "--enable-comparison-tool-reorg-tests" flag when configuring the Core build). Look [here](https://github.com/TheBlueMatt/test-scripts) to see where the test was developed and where the data driving the tests originated. [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/9276).
 
-./qa/pull-tester/tests\_config.ini.in - Sets, via AC\_CONFIG\_FILES() wizardry, some variables to be used in ./qa/pull-tester/rpc-tests.ini, which is read by Python's *ConfigParser* module. Examples include enabling ØMQ tests. [*Moved from ./qa/pull-tester/tests\_config.py.in in 0.15*](https://github.com/bitcoin/bitcoin/pull/9657), and [*moved to ./test/functional in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956).
+~~./qa/pull-tester/tests\_config.ini.in~~ - Sets, via Autoconfig wizardry, some variables to be used in ./qa/pull-tester/rpc-tests.ini, which is read by Python's *ConfigParser* module. Examples include enabling ØMQ tests. [*Moved from ./qa/pull-tester/tests\_config.py.in in 0.15*](https://github.com/bitcoin/bitcoin/pull/9657), and [*moved to ./test/functional in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956).
 
-~~./qa/pull-tester/tests\_config.py.in~~ - Sets, via AC\_CONFIG\_FILES() wizardry, some variables to be used in ./qa/pull-tester/rpc-tests.py. Examples include enabling ØMQ tests. [*Moved to ./qa/pull-tester/tests\_config.ini.in in 0.15*](https://github.com/bitcoin/bitcoin/pull/9657).
+~~./qa/pull-tester/tests\_config.py.in~~ - Sets, via Autoconfig wizardry, some variables to be used in ./qa/pull-tester/rpc-tests.py. Examples include enabling ØMQ tests. [*Moved to ./qa/pull-tester/tests\_config.ini.in in 0.15*](https://github.com/bitcoin/bitcoin/pull/9657).
 
 **./share** - External materials used by Core one way or another but not part of the source code.
 
 ./share/genbuild.sh - [Used to generate build info (and ./src/build.h).](https://github.com/bitcoin/bitcoin/pull/1054)
 
-./share/setup.nsi.in - [Autotools stuff.](https://github.com/bitcoin/bitcoin/pull/2943) AC\_CONFIG\_FILES() will cause it to be processed and output as ./share/setup.nsi, which is a [Windows setup file.](https://en.wikipedia.org/wiki/Nullsoft_Scriptable_Install_System)
+./share/setup.nsi.in - [Autotools stuff.](https://github.com/bitcoin/bitcoin/pull/2943) Autoconfig will process it and output it as ./share/setup.nsi, which is a [Windows setup file.](https://en.wikipedia.org/wiki/Nullsoft_Scriptable_Install_System)
 
 **./share/rpcauth** - Helps create multi-user RPC login credentials. *[Added as ./src/rpcauth in 0.12](https://github.com/bitcoin/bitcoin/pull/7044) and [moved from there in 0.16](https://github.com/bitcoin/bitcoin/pull/11836)*.
 
@@ -624,7 +624,7 @@
 
 ./share/qt/extract\_strings\_qt.py - [Converts certain strings into Qt 4-friendly strings if needed.](https://github.com/bitcoin/bitcoin/pull/521)
 
-./share/qt/Info.plist.in - OS X bundle kickoff file. Processed by AC\_CONFIG\_FILES() to generate ./share/qt/Info.plist, which is included in the root of the OS X build.
+./share/qt/Info.plist.in - OS X bundle kickoff file. Processed by Autoconfig to generate ./share/qt/Info.plist, which is included in the root of the OS X build.
 
 ~~./share/qt/protobuf.pri~~ - *qmake* file integrating Payment Protocol (BIP 70) with *protoc*. [Required OpenSSL & Qt.](https://github.com/bitcoin/bitcoin/pull/2539). [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/8783).
 
@@ -1737,7 +1737,7 @@
 
 **./test** - Core and related tests. Deals primarily with the Core binaries and how they respond to external input (flags, messages, etc.), not tests for internal source code. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956).
 
-./test/config.ini.in - Sets, via AC\_CONFIG\_FILES() wizardry, some variables to be used in ./qa/pull-tester/rpc-tests.ini, which is read by Python's *ConfigParser* module. Examples include enabling ØMQ tests. [*Replaced ./test/functional/config.ini.in in 0.15*](https://github.com/bitcoin/bitcoin/pull/10331).
+./test/config.ini.in - Sets, via Autoconfig wizardry, some variables to be used in ./qa/pull-tester/rpc-tests.ini, which is read by Python's *ConfigParser* module. Examples include enabling ØMQ tests. [*Replaced ./test/functional/config.ini.in in 0.15*](https://github.com/bitcoin/bitcoin/pull/10331).
 
 ./test/README.md - Explains how to run tests.
 
@@ -1753,7 +1753,7 @@
 
 ./test/functional/combined\_log\_template.html - HTML template for logs put together by ./test/functional/combine\_logs.py. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/10017).
  
-./test/functional/config.ini.in - Sets, via AC\_CONFIG\_FILES() wizardry, some variables to be used in ./qa/pull-tester/rpc-tests.ini, which is read by Python's *ConfigParser* module. Examples include enabling ØMQ tests. *[Replaced ./qa/pull-tester/tests\_config.py.in in 0.15](https://github.com/bitcoin/bitcoin/pull/9657) and also [moved to ./test/config.ini.in in 0.15](https://github.com/bitcoin/bitcoin/pull/10331)*.
+./test/functional/config.ini.in - Sets, via Autoconfig wizardry, some variables to be used in ./qa/pull-tester/rpc-tests.ini, which is read by Python's *ConfigParser* module. Examples include enabling ØMQ tests. *[Replaced ./qa/pull-tester/tests\_config.py.in in 0.15](https://github.com/bitcoin/bitcoin/pull/9657) and also [moved to ./test/config.ini.in in 0.15](https://github.com/bitcoin/bitcoin/pull/10331)*.
 
 ./test/functional/create\_cache.py - Helper code that initializes the blockchain cache used by the QA tests. It's meant to be called before any tests are run so that the blockchain is cached by [the *initialize\_chain* call in *BitcoinTestFramework* (the parent of *CreateCache*)](https://www.botbot.me/freenode/bitcoin-core-dev/2016-05-12/?msg=65947836&page=3). [*Assists with parallelized RPC tests, and added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7972).
 
