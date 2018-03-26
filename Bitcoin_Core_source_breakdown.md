@@ -1905,7 +1905,7 @@
 
 ./test/functional/wallet\_abandontransaction.py - Tests the *abandontransaction* RPC call. *[Added in 0.12](https://github.com/bitcoin/bitcoin/pull/7312) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
-./test/functional/wallet\_accounts.py - Various RPC/JSON wallet unit tests. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8450) to replace ./src/wallet/test/rpc\_wallet\_tests.cpp. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
+~~./test/functional/wallet\_accounts.py~~ - Various RPC/JSON wallet unit tests. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8450) to replace ./src/wallet/test/rpc\_wallet\_tests.cpp, then [renamed to ./test/functional/wallet\_accounts.py in 0.16](https://github.com/bitcoin/bitcoin/pull/11774) and finally [renamed to ./test/functional/wallet\_labels.py in 0.17](https://github.com/bitcoin/bitcoin/pull/11536)*.
 
 ./test/functional/wallet\_address\_types.py - Tests various address types accepted (and not accepted) by Core. *[Added in 0.16](https://github.com/bitcoin/bitcoin/pull/11403) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
@@ -1934,6 +1934,8 @@
 ./test/functional/wallet\_keypool.py - Wallet keypool tests that interact with wallet locking/unlocking. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
 ./test/functional/wallet\_keytool\_topup.py - Tests Core's keypool refilling functionality (and the keys being marked as used when necessary) *[Added in 0.15](https://github.com/bitcoin/bitcoin/pull/11022) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
+
+./test/functional/wallet\_labels.py - Various RPC/JSON wallet unit tests. [*Renamed from ./test/functional/wallet\_labels.py in 0.17*](https://github.com/bitcoin/bitcoin/pull/11536).
 
 ./test/functional/wallet\_listreceivedby.py - [Tests the *getreceivedbyaddress* and *listreceivedbyaddress*  functionality.](https://github.com/bitcoin/bitcoin/pull/3960) [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
