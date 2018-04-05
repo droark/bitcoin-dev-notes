@@ -174,7 +174,11 @@
 
 ./contrib/devtools/lint-all.sh - Generic shell script that executes all [lint](https://en.wikipedia.org/wiki/Lint_(software)) scripts in ./contrib/devtools. Used primarily for automated testing by the Core team. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11300).
 
+./contrib/devtools/lint-include-guards.sh - A lint script that enforces the usage of [include guards](https://en.wikipedia.org/wiki/Include_guard) in C++ header files. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11300).
+
 ./contrib/devtools/lint-python.sh - A lint script that looks for unused Python imports. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11835).
+
+./contrib/devtools/lint-tests.sh - A lint script that enforces the naming convention of files in ./src/test/ and ./src/wallet/test/. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11300).
 
 ./contrib/devtools/lint-whitespace.sh - A lint script that looks for trailing whitespace added by new commits. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11300).
 
@@ -915,6 +919,8 @@
 ./src/versionbits.cpp - Implements BIP 9 versionbits logic. [*Added in 0.12.1*](https://github.com/bitcoin/bitcoin/pull/7575).
 
 ./src/versionbits.h - See the CPP file.
+
+./src/walletinterface.h - Contains wallet interface code, primarily meant to remove wallet dependencies from ./src/init.cpp. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/10762).
 
 ./src/warnings.cpp - Contains code for dealing with various warnings and warning situations. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9236).
 
@@ -1767,6 +1773,8 @@
 
 ./test/functional/feature\_block.py - A partial port of [FullBlockTestGenerator.java](https://github.com/TheBlueMatt/test-scripts/blob/master/FullBlockTestGenerator.java), a file driven by BitcoinJ that generates test blockchains used to test/verify the handling of the blockchain in Core and various alternative implementations (e.g., BitcoinJ and BTCD). *[Added in 0.12](https://github.com/bitcoin/bitcoin/pull/6523) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
+./test/function/feature\_blocksdir.py - Checks to make sure the *blocksdir* command line parameter works as expected. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12653).
+
 ./test/functional/feature\_cltv.py - [Confirms that the BIP 65 soft fork/switchover code works properly in a P2P environment.](https://github.com/bitcoin/bitcoin/pull/6351) Uses *comptool*/ComparisonTestFramework. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
 ./test/functional/feature\_config\_args.py - Tests the config file and its arguments. *[Added in 0.16](https://github.com/bitcoin/bitcoin/pull/11883) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
@@ -1778,6 +1786,8 @@
 ./test/functional/feature\_dersig.py - [Confirms that the BIP 66 soft fork/switchover code works properly in a P2P environment.](https://github.com/bitcoin/bitcoin/pull/5981) Uses *comptool*/ComparisonTestFramework. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
 ./test/functional/feature\_fee\_estimation.py - [Tests the fee estimation code.](https://github.com/bitcoin/bitcoin/pull/3959) [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
+
+./test/function/feature\_help.py - Checks to make sure the *help* and *version* command line parameters work as expected. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12843).
 
 ./test/functional/feature\_logging.py - Tests the *debuglogfile* CL arg. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11781).
 
@@ -1818,6 +1828,8 @@
 ./test/functional/interface\_zmq.py - Tests ØMQ RPC functionality. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
 ~~./test/functional/maxblocksinflight.py~~ - Tests whether a node is limiting the number of in-flight block requests. [Functionality reproduced by ./test/functional/sendheaders.py](https://github.com/bitcoin/bitcoin/pull/10023#issuecomment-293891932), so this file was [*removed in 0.15*](https://github.com/bitcoin/bitcoin/pull/10023).
+
+./test/functional/mempool\_accept.py - Tests the acceptance of raw transactions into the mempool. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/11742).
 
 ./test/functional/mempool\_limit.py - [Confirms that Core will work properly with the -maxmempool option](https://github.com/bitcoin/bitcoin/pull/7153).
 
