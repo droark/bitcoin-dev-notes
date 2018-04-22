@@ -176,7 +176,15 @@
 
 ./contrib/devtools/lint-include-guards.sh - A lint script that enforces the usage of [include guards](https://en.wikipedia.org/wiki/Include_guard) in C++ header files. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11300).
 
+./contrib/devtools/lint-includes.sh - A lint script that enforces Core's include guidelines (i.e., no duplicate header includes). [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11300).
+
+./contrib/devtools/lint-logs.sh - Checks for newline termination in log files. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12891).
+
 ./contrib/devtools/lint-python.sh - A lint script that looks for unused Python imports. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11835).
+
+./contrib/devtools/lint-python-shebang.sh - A lint script that looks for missing Python [shebangs](https://en.wikipedia.org/wiki/Shebang_(Unix)). [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12972).
+
+./contrib/devtools/lint-shell.sh - A lint script that looks for [shellcheck](https://www.shellcheck.net/) warnings in shell scripts (i.e., shell script bugs). [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12871).
 
 ./contrib/devtools/lint-tests.sh - A lint script that enforces the naming convention of files in ./src/test/ and ./src/wallet/test/. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11300).
 
@@ -496,6 +504,8 @@
 
 ./depends/patches/qt/pidlist\_absolute.patch - Fixes Qt "PIDLIST\_ABSOLUTE" issue. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/commit/0b416c6e9c3f9f81bea16168f82af77f4e8724bb).
 
+./depends/patches/qt/qfixed-coretext.patch - Fixes an issue preventing Qt from compiling when using Xcode 9.3. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12946).
+
 **./depends/patches/qt46** - Qt 4.6 patches.
 
 ./depends/patches/qt46/stlfix.patch - [Fixes compile issue under Qt 4.6.](https://github.com/bitcoin/bitcoin/commit/0b416c6e9c3f9f81bea16168f82af77f4e8724bb)
@@ -557,6 +567,10 @@
 ./doc/reduce-traffic.md - Ways to reduce traffic on an Internet connection when running Core.
 
 ./doc/release-notes.md - Release notes for the latest version.
+
+./doc/release-notes-pr12823.md - Explains how to use one Bitcoin config file across multiple networks (i.e., mainnet, testnet, and regtest). [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/11862).
+
+./doc/release-notes-pr12892.md - Explains the "label" API for Core wallets, and how to migrate from the deprecated "account" API. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12892).
 
 ./doc/release-process.md - Steps for putting out new releases.
 
@@ -772,6 +786,10 @@
 
 ./src/limitedmap.h - STL-like map container class that only keeps the N elements with the highest value (limitedmap).
 
+./src/logging.cpp - Basic logging code. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13021).
+
+./src/logging.h - See the CPP file. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13021).
+
 ~~./src/main.cpp~~ - Loads of critical functionality. Examples include script op count functions (GetP2SHSigOpCount & the like), checking inputs (CheckInputs), applying Tx effects to the UTXO (UpdateCoins), validity checks (CheckTransaction), consensus-critical functions telling if a Tx is final at a given time/location (IsFinalTx) or in the next block (CheckFinalTx), etc. Also includes the CScriptCheck, and CVerifyDB classes. [*Moved to ./src/net\_processing.{cpp/h} and ./src/validation.{cpp/h} in 0.14*](https://github.com/bitcoin/bitcoin/pull/9260).
 
 ./src/main.h - See the CPP file. Includes loads of important definitions.
@@ -850,6 +868,8 @@
 
 ./src/serialize.h - General purpose data input/output materials, on-and-off-network, including streaming data. Also includes the VarInt class (CVarInt) and CompactSize functions that can read/write VarInt-compatible values, various #defines, and other miscellaneous functionality.
 
+./src/span.h - Adds a "span" data type, similar to Boost's "slice" or C++20's "span". An object that refers to a contiguously laid out set of objects in memory. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12886).
+
 ./src/streams.h - Double-ended buffer combining vector and stream-like interfaces (CDataStream), non-refcounted RAII wrapper for FILE*, without (CAutoFile) and with (CBufferedFile) ring buffers that allow the rewinding of X bytes.
 
 ./src/sync.cpp - Various synchronization-related mechanisms: Classes, #defs, typedefs, etc.
@@ -890,7 +910,7 @@
 
 ./src/undo.h - Undo info for CTxIn (CTxInUndo), CTransaction (CTxUndo), and CBlock (CBlockUndo).
 
-./src/util.cpp - Code related to the client/server environment. Used for argument handling, config file parsing, logging, thread wrappers, global environment setup, Windows network setup, etc.
+./src/util.cpp - Code related to the client/server environment. Used for argument handling, config file parsing, logging (pre-0.17), thread wrappers, global environment setup, Windows network setup, etc.
 
 ./src/util.h - See the CPP file.
 
@@ -952,9 +972,9 @@
 
 ./src/bench/mempool\_eviction.cpp - Code that benchmarks mempool eviction code. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8873).
 
-./src/bench/perf.cpp - Code that benchmarks CPU cycles. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9202).
+~~./src/bench/perf.cpp~~ - Code that benchmarks CPU cycles. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/9202) and [removed in 0.17](https://github.com/bitcoin/bitcoin/pull/13025)*.
 
-./src/bench/perf.h - See the CPP file. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9202).
+~~./src/bench/perf.h~~ - See the CPP file. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/9202) and [removed in 0.17](https://github.com/bitcoin/bitcoin/pull/13025)*.
 
 ./src/bench/prevector.cpp - Code that benchmarks various bits of *prevector* (see ./src/prevector.h) functionality. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12549).
 
@@ -1056,6 +1076,22 @@
 ./src/crypto/ctaes/README.md - README explaining the CTAES library, some benchmarks, compilation instructions, and formal code review results. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7689).
 
 ./src/crypto/ctaes/test.c - Test suites from FIPS 197 (AES) and SP 800-38A (AES-CBC). [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7689).
+
+**./src/interfaces** - Code used to define boundaries between major components of Core (i.e., node, wallet, and GUI). Not necessarily stable or meant to be used by outside code. *[Added in 0.17](https://github.com/bitcoin/bitcoin/pull/10244) and [renamed in 0.17](https://github.com/bitcoin/bitcoin/pull/12906)*.
+
+./src/interfaces/handler.cpp - Used by the GUi for "handleEvent" methods on interfaces in order to manage their lifetimes. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/10244).
+
+./src/interfaces/handler.h - See the CPP file. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/10244).
+
+./src/interfaces/node.cpp - Used by the GUI to start and stop Core nodes. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/10244).
+
+./src/interfaces/node.h - See the CPP file. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/10244).
+
+./src/interfaces/README.md - Explains the defined interfaces. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/10244).
+
+./src/interfaces/wallet.cpp - Used by the GUI to access wallets. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/10244).
+
+./src/interfaces/wallet.h - See the CPP file. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/10244).
 
 **./src/leveldb** - [*LevelDB*](http://leveldb.org/) code maintained by Core. *Will not list individual files (too many)*.
 
@@ -1689,7 +1725,7 @@
 
 ./src/wallet/init.cpp - Static wallet initialization code, taken from ./src/wallet/wallet.cpp. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/10976).
 
-./src/wallet/init.h - See the CPP file. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/10976).
+~~./src/wallet/init.h~~ - See the CPP file. *[Added in 0.16](https://github.com/bitcoin/bitcoin/pull/10976) and [removed in 0.17](https://github.com/bitcoin/bitcoin/pull/12836)*.
 
 ./src/wallet/rpcdump.cpp - RPC functions related to exporting/importing wallet info, addresses, etc.
 
@@ -1715,9 +1751,9 @@
 
 ./src/wallet/test/coinselector\_tests.cpp - Tests Core's coin selection algorithms. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/10637).
 
-./src/wallet/tests/crypto\_tests.cpp - Various tests for the CTAES code. Ensures functionality matches OpenSSL, and that failures occur exactly like failures in OpenSSL. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7689) as a replacement for OpenSSL-dependent functionality.
-
 ./src/wallet/test/rpc\_wallet\_tests.cpp - Internal RPC/JSON wallet unit tests. [*Moved here from ./src/test in 0.13*](https://github.com/bitcoin/bitcoin/pull/7905) and [*replaced with ./qa/rpc-tests/wallet-accounts.py in 0.14*](https://github.com/bitcoin/bitcoin/pull/8450).
+
+./src/wallet/tests/wallet\_crypto\_tests.cpp - Various tests for the CTAES code. Ensures functionality matches OpenSSL, and that failures occur exactly like failures in OpenSSL. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7689) as a replacement for OpenSSL-dependent functionality, and [renamed in 0.17](https://github.com/bitcoin/bitcoin/pull/12895)*.
 
 ./src/wallet/test/wallet\_test\_fixture.cpp - Does some wallet test setup. Forces the wallet to use its own test fixtures, and not those for the rest of Core. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7905).
 
@@ -1769,7 +1805,7 @@
 
 ./test/functional/feature\_bip68\_sequence.py - Tests BIP 68 functionality in the mempool. *[Added in 0.12.1](https://github.com/bitcoin/bitcoin/pull/7184) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
-./test/functional/feature\_bip9-softforks.py - Tests BIP 9 activation logic. *[Added in 0.12.1](https://github.com/bitcoin/bitcoin/pull/7648) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
+~~./test/functional/feature\_bip9-softforks.py~~ - Intended to test BIP 9 activation logic but only ever tested CSV activation, which is duplicated by ./test/functional/feature\_csv\_activation.py. *[Added in 0.12.1](https://github.com/bitcoin/bitcoin/pull/7648), [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774), and [removed in 0.17](https://github.com/bitcoin/bitcoin/pull/11818)*.
 
 ./test/functional/feature\_block.py - A partial port of [FullBlockTestGenerator.java](https://github.com/TheBlueMatt/test-scripts/blob/master/FullBlockTestGenerator.java), a file driven by BitcoinJ that generates test blockchains used to test/verify the handling of the blockchain in Core and various alternative implementations (e.g., BitcoinJ and BTCD). *[Added in 0.12](https://github.com/bitcoin/bitcoin/pull/6523) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
@@ -1973,11 +2009,11 @@
 
 ./test/functional/test\_framework/bignum.py - Helpers for ./test/functional/test\_framework/script.py.
 
-./test/functional/test\_framework/blockstore.py - Helper that implements disk-based block & Tx storage. Useful for replying to *getheaders* & *getdata*, and constructing a *getheaders* message.
+~~./test/functional/test\_framework/blockstore.py~~ - Helper that implements disk-based block & Tx storage. Useful for replying to *getheaders* & *getdata*, and constructing a *getheaders* message. [*Removed in 0.17*](https://github.com/bitcoin/bitcoin/pull/11818).
 
 ./test/functional/test\_framework/blocktools.py - Helper functs for manipulating blocks & transactions.
 
-./test/functional/test\_framework/comptool.py - Compare two *bitcoind* instances. Useful for P2P tests.
+~~./test/functional/test\_framework/comptool.py~~ - Compare two *bitcoind* instances. Useful for P2P tests. [*Removed in 0.17*](https://github.com/bitcoin/bitcoin/pull/11818).
 
 ./test/functional/test\_framework/coverage.py - [Code allowing for RPC call coverage.](https://github.com/bitcoin/bitcoin/pull/6804)
 
@@ -1997,7 +2033,7 @@
 
 ./test/functional/test\_framework/socks5.py - Dummy SOCKS5 server.
 
-./test/functional/test\_framework/test\_framework.py - Basic framework references (plain-or-P2P/BitcoinTestFramework and multiple binary versions/ComparisonTestFramework). Includes descriptions of arguments recognized by test scripts. Referenced by ./qa/pull-tester/rpc-tests.py.
+./test/functional/test\_framework/test\_framework.py - Basic framework references (plain-or-P2P/BitcoinTestFramework and, pre-0.17, multiple binary versions/ComparisonTestFramework). Includes descriptions of arguments recognized by test scripts. Referenced by ./qa/pull-tester/rpc-tests.py.
 
 ./test/functional/test\_framework/test\_node.py - Includes TestNode, a class responsible for all state related to a bitcoind node under test. It stores local state, is responsible for tracking the bitcoind process and delegates unrecognised messages to the RPC connection. [*Added in 0.15.1*](https://github.com/bitcoin/bitcoin/pull/10711).
 
