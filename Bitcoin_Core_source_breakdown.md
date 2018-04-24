@@ -1465,7 +1465,7 @@
 
 ./src/script/bitcoinconsensus.h - See the CPP file.
 
-./src/script/interpreter.cpp - Covers transaction signature checking. BaseSignatureChecker class, which is the parent of TransactionSignatureChecker and MutableTransactionSignatureChecker. Loads of code and comments.
+./src/script/interpreter.cpp - Covers transaction signature checking. BaseSignatureChecker class, which is the parent of TransactionSignatureChecker and MutableTransactionSignatureChecker. Loads of code and comments. [Consensus-critical](https://github.com/bitcoin/bitcoin/pull/12885).
 
 ./src/script/interpreter.h - See the CPP file. Also includes many script hash & verification flags.
 
@@ -1473,7 +1473,7 @@
 
 ./src/script/ismine.h - See the CPP file. [*Moved here from ./src/wallet in 0.13*](https://github.com/bitcoin/bitcoin/pull/7905).
 
-./src/script/script.cpp - Covers classes like the serialized script used in Tx inputs & outputs (CScript), and the class that enforces the arithmetic operation semantics of opcodes (CScriptNum).
+./src/script/script.cpp - Covers classes like the serialized script used in Tx inputs & outputs (CScript), and the class that enforces the arithmetic operation semantics of opcodes (CScriptNum). [Consensus-critical](https://github.com/bitcoin/bitcoin/pull/12885).
 
 ./src/script/script.h - See the CPP file. Has the script enums and related script constants.
 
@@ -1821,9 +1821,9 @@
 
 ./test/functional/feature\_dersig.py - [Confirms that the BIP 66 soft fork/switchover code works properly in a P2P environment.](https://github.com/bitcoin/bitcoin/pull/5981) Uses *comptool*/ComparisonTestFramework. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
-./test/functional/feature\_fee\_estimation.py - [Tests the fee estimation code.](https://github.com/bitcoin/bitcoin/pull/3959) [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
+./test/functional/feature\_fee\_estimation.py - [Tests the fee estimation code.](https://github.com/bitcoin/bitcoin/pull/3959) [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/13049).
 
-./test/function/feature\_help.py - Checks to make sure the *help* and *version* command line parameters work as expected. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12843).
+./test/function/feature\_help.py - Checks to make sure the *help* and *version* command line parameters work as expected. [*Added in 0.16.1*](https://github.com/bitcoin/bitcoin/pull/12843).
 
 ./test/functional/feature\_logging.py - Tests the *debuglogfile* CL arg. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11781).
 
@@ -1929,7 +1929,7 @@
 
 ./test/functional/rpc\_invalidateblock.py - Tests the hidden *invalidateblock* RPC function. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
-./test/functional/rpc\_listtransactions.py - Tests the *listtransactions* RPC functionality. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
+~~./test/functional/rpc\_listtransactions.py~~ - Tests the *listtransactions* RPC functionality. *[Renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774) and [moved to ./test/functional/wallet\_listtransactions in 0.17](https://github.com/bitcoin/bitcoin/pull/12953)*.
 
 ./test/functional/rpc\_named\_arguments.py - Tests support of JSON-RPC named args. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8811) (this file and the support for JSON-RPC named args) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
@@ -1988,6 +1988,8 @@
 ./test/functional/wallet\_listreceivedby.py - [Tests the *getreceivedbyaddress* and *listreceivedbyaddress*  functionality.](https://github.com/bitcoin/bitcoin/pull/3960) [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
 ./test/functional/wallet\_listsinceblock.py - Tests the *listsinceblock* RPC functionality. In particular, it really wants to make sure that, if there's a reorg, the code will use the fork point as a reference, and not the relative position of a chain with less work. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/9516) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
+
+./test/functional/wallet\_listtransactions.py - Tests the *listtransactions* wallet API. [*Moved from ./test/functional/rpc\_listtransactions in 0.17*](https://github.com/bitcoin/bitcoin/pull/12953).
 
 ./test/functional/wallet\_multiwallet.py - Tests multiwallet functionality. *[Added in 0.15](https://github.com/bitcoin/bitcoin/pull/10849) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
