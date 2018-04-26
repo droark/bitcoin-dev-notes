@@ -572,6 +572,8 @@
 
 ./doc/release-notes-pr12892.md - Explains the "label" API for Core wallets, and how to migrate from the deprecated "account" API. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12892).
 
+./doc/release-notes-pr13033.md - Explains how the *txindex* CL flag functionality has changed. (Basically, the flag can be turned on and off without wrecking the DB and requiring a full rebuild when re-enabling it.) [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13033).
+
 ./doc/release-process.md - Steps for putting out new releases.
 
 ./doc/REST-interface.md - Details regarding using the REST interface ("-test" option).
@@ -1063,7 +1065,7 @@
 
 ./src/crypto/sha512.h - See the CPP file.
 
-**./src/crypto/ctaes** - Constant-time AES implementation written by Pieter Wuille. [Written as a replacement for OpenSSL-dependent functionality](https://github.com/bitcoin/bitcoin/pull/7689). *Added in 0.13*.
+**./src/crypto/ctaes** - Constant-time AES implementation written by Pieter Wuille. [*Added in 0.13 as a replacement for OpenSSL-dependent functionality*](https://github.com/bitcoin/bitcoin/pull/7689).
 
 ./src/crypto/ctaes/bench.c - CTAES benchmarking code. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7689).
 
@@ -1076,6 +1078,12 @@
 ./src/crypto/ctaes/README.md - README explaining the CTAES library, some benchmarks, compilation instructions, and formal code review results. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7689).
 
 ./src/crypto/ctaes/test.c - Test suites from FIPS 197 (AES) and SP 800-38A (AES-CBC). [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7689).
+
+**./src/index** - Code related to transaction indexing. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13033).
+
+./src/index/txindex.cpp - Contains the TxClass class, which builds the transaction index concurrently with the main validation thread. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13033).
+
+./src/index/txindex.h - See the implementation file. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13033).
 
 **./src/interfaces** - Code used to define boundaries between major components of Core (i.e., node, wallet, and GUI). Not necessarily stable or meant to be used by outside code. *[Added in 0.17](https://github.com/bitcoin/bitcoin/pull/10244) and [renamed in 0.17](https://github.com/bitcoin/bitcoin/pull/12906)*.
 
@@ -1670,6 +1678,8 @@
 ./src/test/torcontrol\_tests.cpp - Unit tests for Tor reply parsers. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/10408).
 
 ./src/test/transaction\_tests.cpp - Transaction unit tests.
+
+./src/test/txindex\_tests.cpp - Unit test for the *TxIndex* class. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13033).
 
 ./src/test/txvalidation\_tests.cpp - Tests the mempool rejecting coinbase transactions. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11714).
 
