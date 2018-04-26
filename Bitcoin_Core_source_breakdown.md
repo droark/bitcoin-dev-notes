@@ -1393,6 +1393,10 @@
 
 **./src/qt/test** - Bitcoin Core (GUI) test code.
 
+./src/qt/test/addressbooktests.cpp - Address book manipulation tests. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12830).
+
+./src/qt/test/addressbooktests.h - See the CPP file. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12830).
+
 ./src/qt/test/compattests.cpp - Some Qt cross-platform compatibility tests. It started with *bswap\_{16/32/64}()* calls to ensure that the macOS build functions properly, particularly with protobuf defining its own bswap calls. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9366).
 
 ./src/qt/test/compattests.h - See the CPP file. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9366).
@@ -1414,6 +1418,10 @@
 ./src/qt/test/uritests.cpp - [Bitcoin URI test code.](https://github.com/bitcoin/bitcoin/pull/987)
 
 ./src/qt/test/uritests.h - See the CPP file.
+
+./src/qt/test/util.cpp - Qt test utilities (e.g., pressing a button). [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12830).
+
+./src/qt/test/util.h - See the CPP file. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12830).
 
 ./src/qt/test/wallettests.cpp - Basic wallet tests (e.g., sending coins). [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/9974).
 
@@ -2050,6 +2058,8 @@
 ./test/util/bitcoin-util-test.py - [Kicks off *bitcoin-tx* binary test](https://github.com/bitcoin/bitcoin/pull/4624). [*Moved from ./src/test/bitcoin-util-test.py in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956).
 
 ./test/util/buildenv.py.in - [Helps allow Python tests to run on Windows](https://github.com/bitcoin/bitcoin/pull/5014). [*Moved from ./src/test/buildenv.py.in in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956).
+
+./test/util/rpcauth-test.py - RPC authentication tests. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13056).
 
 **./test/util/data** - Data for unit tests in ./test/functional. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956), consisting of files moved from ./src/test/data.
 
