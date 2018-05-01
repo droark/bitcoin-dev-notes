@@ -88,7 +88,7 @@
 
 ./contrib/README.md - Briefly explains many things in the subdirs.
 
-./contrib/tidy\_datadir.sh - [Script that cleans up Core datadir](https://github.com/bitcoin/bitcoin/pull/2295) (e.g., wallet.dat, blk00001.dat).
+~~./contrib/tidy\_datadir.sh~~ - [Script that cleans up Core datadir](https://github.com/bitcoin/bitcoin/pull/2295) (e.g., wallet.dat, blk00001.dat). Obsolete circa Core 0.7/0.8. [*Removed in 0.17*](https://github.com/bitcoin/bitcoin/pull/13119).
 
 ./contrib/valgrind.supp - [Valgrind](https://en.wikipedia.org/wiki/Valgrind) suppression file. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11035).
 
