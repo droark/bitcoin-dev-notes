@@ -568,6 +568,8 @@
 
 ./doc/release-notes.md - Release notes for the latest version.
 
+./doc/release-notes-pr10267.md - Explains how to use the *includeconf* configuration parameter. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/10267).
+
 ./doc/release-notes-pr12823.md - Explains how to use one Bitcoin config file across multiple networks (i.e., mainnet, testnet, and regtest). [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/11862).
 
 ./doc/release-notes-pr12892.md - Explains the "label" API for Core wallets, and how to migrate from the deprecated "account" API. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12892).
@@ -1842,6 +1844,8 @@
 ./test/functional/feature\_fee\_estimation.py - [Tests the fee estimation code.](https://github.com/bitcoin/bitcoin/pull/3959) [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/13049).
 
 ./test/function/feature\_help.py - Checks to make sure the *help* and *version* command line parameters work as expected. [*Added in 0.16.1*](https://github.com/bitcoin/bitcoin/pull/12843).
+
+./test/function/feature\_includeconf.py - Checks to make sure the *includeconf* command line parameters work as expected. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/10267).
 
 ./test/functional/feature\_logging.py - Tests the *debuglogfile* CL arg. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11781).
 
