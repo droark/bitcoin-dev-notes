@@ -156,6 +156,8 @@
 
 ./contrib/devtools/check-rpc-mappings.py - Checks if RPC commands are documented. Used primarily for automated testing by the Core team. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/10751).
 
+./contrib/devtools/circular-dependencies.py - A script looking for circular dependencies in C++ code. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13228).
+
 ./contrib/devtools/clang-format.py - Sets the rules for *clang-format*, a program that formats C/C++/ObjC code. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/6790).
 
 ./contrib/devtools/clang-format-diff.py - [Formats unified Git diffs according to ./src/.clang-format](http://clang.llvm.org/docs/ClangFormat.html). [Taken from the upstream LLVM repo](https://llvm.org/svn/llvm-project/cfe/trunk/tools/clang-format/clang-format-diff.py). *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7304) and [removed in 0.14](https://github.com/bitcoin/bitcoin/pull/9649)*.
