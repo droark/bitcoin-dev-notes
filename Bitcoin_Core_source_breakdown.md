@@ -152,9 +152,9 @@
 
 **./contrib/devtools** - Specific tools for devs working on the Core repo.
 
-./contrib/devtools/check-doc.py - Checks if all command line args are documented. Used primarily for automated testing by the Core team. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7280).
+~~./contrib/devtools/check-doc.py~~ - Checks if all command line args are documented. Used primarily for automated testing by the Core team. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7280) and [moved to ./test/lint/check-doc.py in 0.17](https://github.com/bitcoin/bitcoin/pull/13281)*.
 
-./contrib/devtools/check-rpc-mappings.py - Checks if RPC commands are documented. Used primarily for automated testing by the Core team. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/10751).
+~~./contrib/devtools/check-rpc-mappings.py~~ - Checks if RPC commands are documented. Used primarily for automated testing by the Core team. *[Added in 0.16](https://github.com/bitcoin/bitcoin/pull/10751) and [moved to ./test/lint/check-rpc-mappings.py in 0.17](https://github.com/bitcoin/bitcoin/pull/13281)*.
 
 ./contrib/devtools/circular-dependencies.py - A script looking for circular dependencies in C++ code. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13228).
 
@@ -162,7 +162,7 @@
 
 ./contrib/devtools/clang-format-diff.py - [Formats unified Git diffs according to ./src/.clang-format](http://clang.llvm.org/docs/ClangFormat.html). [Taken from the upstream LLVM repo](https://llvm.org/svn/llvm-project/cfe/trunk/tools/clang-format/clang-format-diff.py). *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7304) and [removed in 0.14](https://github.com/bitcoin/bitcoin/pull/9649)*.
 
-./contrib/devtools/commit-script-check.sh - A script that can use commands in a commit to verify that the code pre-commit matches what's in the commit when the commands are executed. Useful for things like mass changes (e.g., removing capitalization in all header files). [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/10189).
+~~./contrib/devtools/commit-script-check.sh~~ - A script that can use commands in a commit to verify that the code pre-commit matches what's in the commit when the commands are executed. Useful for things like mass changes (e.g., removing capitalization in all header files). *[Added in 0.15](https://github.com/bitcoin/bitcoin/pull/10189) and [moved to ./test/lint/commit-script-check.py in 0.17](https://github.com/bitcoin/bitcoin/pull/13281)*.
 
 ./contrib/devtools/copyright\_header.py - Script that does a mass copyright year update. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8674) as a replacement for ./contrib/devtools/fix-copyright-headers.py*.
 
@@ -172,25 +172,25 @@
 
 ./contrib/devtools/github-merge.sh - [Used to merge PRs securely and to sign the merge commits.](https://github.com/bitcoin/bitcoin/pull/3302) Used only by those with commit access to the Core repo.
 
-./contrib/devtools/git-subtree-check.sh - [Verifies that subtree contents match upstream subtrees.](https://github.com/bitcoin/bitcoin/pull/5965) Must run from repo root. Currently useful for libsecp256k1 and LevelDB.
+~~./contrib/devtools/git-subtree-check.sh~~ - [Verifies that subtree contents match upstream subtrees.](https://github.com/bitcoin/bitcoin/pull/5965) Must run from repo root. Currently useful for libsecp256k1 and LevelDB. [*Moved to ./test/lint/git-subtree-check.py in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
 
-./contrib/devtools/lint-all.sh - Generic shell script that executes all [lint](https://en.wikipedia.org/wiki/Lint_(software)) scripts in ./contrib/devtools. Used primarily for automated testing by the Core team. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11300).
+~~./contrib/devtools/lint-all.sh~~ - Generic shell script that executes all [lint](https://en.wikipedia.org/wiki/Lint_(software)) scripts in ./contrib/devtools. Used primarily for automated testing by the Core team. *[Added in 0.16](https://github.com/bitcoin/bitcoin/pull/11300) and [moved to ./test/lint/lint-all.sh in 0.17](https://github.com/bitcoin/bitcoin/pull/13281)*.
 
-./contrib/devtools/lint-include-guards.sh - A lint script that enforces the usage of [include guards](https://en.wikipedia.org/wiki/Include_guard) in C++ header files. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11300).
+~~./contrib/devtools/lint-include-guards.sh~~ - A lint script that enforces the usage of [include guards](https://en.wikipedia.org/wiki/Include_guard) in C++ header files. *[Added in 0.16](https://github.com/bitcoin/bitcoin/pull/11300) and [moved to ./test/lint/lint-include-guards.sh in 0.17](https://github.com/bitcoin/bitcoin/pull/13281)*.
 
-./contrib/devtools/lint-includes.sh - A lint script that enforces Core's include guidelines (i.e., no duplicate header includes). [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11300).
+~~./contrib/devtools/lint-includes.sh~~ - A lint script that enforces Core's include guidelines (i.e., no duplicate header includes). *[Added in 0.16](https://github.com/bitcoin/bitcoin/pull/11300) and [moved to ./test/lint/lint-includes.sh in 0.17](https://github.com/bitcoin/bitcoin/pull/13281)*.
 
-./contrib/devtools/lint-logs.sh - Checks for newline termination in log files. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12891).
+~~./contrib/devtools/lint-logs.sh~~ - Checks for newline termination in log files. *[Added in 0.17](https://github.com/bitcoin/bitcoin/pull/12891) and [moved to ./test/lint/lint-logs.sh in 0.17](https://github.com/bitcoin/bitcoin/pull/13281)*.
 
-./contrib/devtools/lint-python.sh - A lint script that looks for unused Python imports. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11835).
+~~./contrib/devtools/lint-python.sh~~ - A lint script that looks for unused Python imports. *[Added in 0.16](https://github.com/bitcoin/bitcoin/pull/11835) and [moved to ./test/lint/lint-python.sh in 0.17](https://github.com/bitcoin/bitcoin/pull/13281)*.
 
-./contrib/devtools/lint-python-shebang.sh - A lint script that looks for missing Python [shebangs](https://en.wikipedia.org/wiki/Shebang_(Unix)). [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12972).
+~~./contrib/devtools/lint-python-shebang.sh~~ - A lint script that looks for missing Python [shebangs](https://en.wikipedia.org/wiki/Shebang_(Unix)). *[Added in 0.17](https://github.com/bitcoin/bitcoin/pull/12972) and [moved to ./test/lint/lint-python-shebang.sh in 0.17](https://github.com/bitcoin/bitcoin/pull/13281)*.
 
-./contrib/devtools/lint-shell.sh - A lint script that looks for [shellcheck](https://www.shellcheck.net/) warnings in shell scripts (i.e., shell script bugs). [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12871).
+~~./contrib/devtools/lint-shell.sh~~ - A lint script that looks for [shellcheck](https://www.shellcheck.net/) warnings in shell scripts (i.e., shell script bugs). *[Added in 0.17](https://github.com/bitcoin/bitcoin/pull/12871) and [moved to ./test/lint/lint-shell.sh in 0.17](https://github.com/bitcoin/bitcoin/pull/13281)*.
 
-./contrib/devtools/lint-tests.sh - A lint script that enforces the naming convention of files in ./src/test/ and ./src/wallet/test/. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11300).
+~~./contrib/devtools/lint-tests.sh~~ - A lint script that enforces the naming convention of files in ./src/test/ and ./src/wallet/test/. *[Added in 0.16](https://github.com/bitcoin/bitcoin/pull/11300) and [moved to ./test/lint/lint-test.sh in 0.17](https://github.com/bitcoin/bitcoin/pull/13281)*.
 
-./contrib/devtools/lint-whitespace.sh - A lint script that looks for trailing whitespace added by new commits. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11300).
+~~./contrib/devtools/lint-whitespace.sh~~ - A lint script that looks for trailing whitespace added by new commits. [*Added in 0.16](https://github.com/bitcoin/bitcoin/pull/11300)* and [moved to ./test/lint/lint-whitespace.sh in 0.17](https://github.com/bitcoin/bitcoin/pull/13281)*.
 
 ./contrib/devtools/optimize-pngs.py - [Optimize data in PNG files.](https://github.com/bitcoin/bitcoin/pull/5489)
 
@@ -506,7 +506,7 @@
 
 ./depends/patches/qt/pidlist\_absolute.patch - Fixes Qt "PIDLIST\_ABSOLUTE" issue. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/commit/0b416c6e9c3f9f81bea16168f82af77f4e8724bb).
 
-./depends/patches/qt/qfixed-coretext.patch - Fixes an issue preventing Qt from compiling when using Xcode 9.3. [*Added in 0.16.1*](https://github.com/bitcoin/bitcoin/pull/12946).
+./depends/patches/qt/qfixed-coretext.patch - Allows *Qt* compilation (using the *depends* system) to occur when using *Xcode 9.3*. [*Added in 0.16.1*](https://github.com/bitcoin/bitcoin/pull/12946).
 
 **./depends/patches/qt46** - Qt 4.6 patches.
 
@@ -575,6 +575,8 @@
 ./doc/release-notes-pr12823.md - Explains how to use one Bitcoin config file across multiple networks (i.e., mainnet, testnet, and regtest). [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/11862).
 
 ./doc/release-notes-pr12892.md - Explains the "label" API for Core wallets, and how to migrate from the deprecated "account" API. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12892).
+
+./doc/release-notes-pr12924.md - Explains low-level RPC changes that more accurately name HD seed IDs. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12924).
 
 ./doc/release-notes-pr13033.md - Explains how the *txindex* CL flag functionality has changed. (Basically, the flag can be turned on and off without wrecking the DB and requiring a full rebuild when re-enabling it.) [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13033).
 
@@ -1695,7 +1697,7 @@
 
 ./src/test/util\_tests.cpp - Unit tests for various utility-related files.
 
-./src/test/validation\_block\_tests.cpp - Unit tests for signals generated by the *ProcessNewBlock* function. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13023).
+./src/test/validation\_block\_tests.cpp - Unit tests for signals generated by the *ProcessNewBlock* function. [*Added in 0.16.1*](https://github.com/bitcoin/bitcoin/pull/13023).
 
 ./src/test/versionbits\_tests.cpp - Tests the BIP 9 deployment logic. [*Added in 0.12.1*](https://github.com/bitcoin/bitcoin/pull/7543).
 
@@ -1951,6 +1953,8 @@
 
 ./test/functional/rpc\_fundrawtransaction.py - Tests the *fundrawtransaction* RPC functionality. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
+./test/functional/rpc\_getblockstats.py - Tests the *getblockstats* RPC functionality. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/10757).
+
 ./test/functional/rpc\_getchaintips.py - Tests the *getchaintips* RPC functionality. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
 ./test/functional/rpc\_invalidateblock.py - Tests the hidden *invalidateblock* RPC function. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
@@ -2027,6 +2031,10 @@
 
 ./test/functional/wallet\_zapwallettxes.py - [Tests *zapwallettxes* functionality (CL arg)](https://github.com/bitcoin/bitcoin/pull/5612). [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
+**./test/functional/data** - Data for tests in the ./test/functional subdirectory. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/10757).
+
+./test/functional/data/rpc\_getblockstats.json - Data for the *getblockstats* test. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/10757).
+
 **./test/functional/test\_framework** - Non-test classes. *[Added in 0.11](https://github.com/bitcoin/bitcoin/pull/6097) as ./src/data/test\_framework and [moved to ./test/functional/test\_framework in 0.15](https://github.com/bitcoin/bitcoin/pull/9956)*.
 
 ./test/functional/test\_framework/\_\_init\_\_.py - Standard Python package init file.
@@ -2068,6 +2076,36 @@
 ./test/functional/test\_framework/util.py - Generally useful utilities.
 
 ./test/functional/test\_framework/wallet-dump.py - Tests the *dumpwallet* (and related) RPC functionality. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8417).
+
+**./test/lint** - Files related to the *lint* test tool. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
+
+./test/lint/check-doc.py - Checks if all command line args are documented. Used primarily for automated testing by the Core team. [*Moved from ./contrib/devtools in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
+
+./test/lint/check-rpc-mappings.py - Checks if RPC commands are documented. Used primarily for automated testing by the Core team. [*Moved from ./contrib/devtools in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
+
+./test/lint/commit-script-check.sh - A script that can use commands in a commit to verify that the code pre-commit matches what's in the commit when the commands are executed. Useful for things like mass changes (e.g., removing capitalization in all header files). *[Added in 0.15](https://github.com/bitcoin/bitcoin/pull/10189) and [moved to ./test/lint/commit-script-check.py in 0.17](https://github.com/bitcoin/bitcoin/pull/13281)*.
+
+./test/lint/git-subtree-check.sh - [Verifies that subtree contents match upstream subtrees.](https://github.com/bitcoin/bitcoin/pull/5965) Must run from repo root. Currently useful for libsecp256k1 and LevelDB. [*Moved from ./contrib/devtools in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
+
+./test/lint/lint-all.sh - Generic shell script that executes all [lint](https://en.wikipedia.org/wiki/Lint_(software)) scripts in ./contrib/devtools. Used primarily for automated testing by the Core team. [*Moved from ./contrib/devtools in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
+
+./test/lint/lint-include-guards.sh - A lint script that enforces the usage of [include guards](https://en.wikipedia.org/wiki/Include_guard) in C++ header files. [*Moved from ./contrib/devtools in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
+
+./test/lint/lint-includes.sh - A lint script that enforces Core's include guidelines (i.e., no duplicate header includes). [*Moved from ./contrib/devtools in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
+
+./test/lint/lint-logs.sh - Checks for newline termination in log files. [*Moved from ./contrib/devtools in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
+
+./test/lint/lint-python.sh - A lint script that looks for unused Python imports. [*Moved from ./contrib/devtools in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
+
+./test/lint/lint-python-shebang.sh - A lint script that looks for missing Python [shebangs](https://en.wikipedia.org/wiki/Shebang_(Unix)). [*Moved from ./contrib/devtools in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
+
+./test/lint/lint-shell.sh - A lint script that looks for [shellcheck](https://www.shellcheck.net/) warnings in shell scripts (i.e., shell script bugs). [*Moved from ./contrib/devtools in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
+
+./test/lint/lint-tests.sh - A lint script that enforces the naming convention of files in ./src/test/ and ./src/wallet/test/. [*Moved from ./contrib/devtools in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
+
+./test/lint/lint-whitespace.sh - A lint script that looks for trailing whitespace added by new commits. [*Moved from ./contrib/devtools in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
+
+./test/lint/README.md - Explains some of the tests and their functionality. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
 
 **./test/util** - Test-related utility files. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/9956).
 
