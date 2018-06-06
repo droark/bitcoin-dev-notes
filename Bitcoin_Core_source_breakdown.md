@@ -532,6 +532,8 @@
 
 ./doc/bips.md - List of BIPs implemented by Core, the version where they were added, the PR #, and, if relevant, the block where the BIP was activated.
 
+./doc/build-freebsd.md - Details regarding building under FreeBSD. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13372).
+
 ./doc/build-netbsd.md - Details regarding building under NetBSD. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/12294).
 
 ./doc/build-openbsd.md - Details regarding building under OpenBSD.
@@ -980,6 +982,8 @@
 
 ./src/bench/mempool\_eviction.cpp - Code that benchmarks mempool eviction code. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8873).
 
+./src/bench/merkle\_root.cpp - Code that benchmarks merkle root computation code. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13191).
+
 ~~./src/bench/perf.cpp~~ - Code that benchmarks CPU cycles. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/9202) and [removed in 0.17](https://github.com/bitcoin/bitcoin/pull/13025)*.
 
 ~~./src/bench/perf.h~~ - See the CPP file. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/9202) and [removed in 0.17](https://github.com/bitcoin/bitcoin/pull/13025)*.
@@ -1065,7 +1069,11 @@
 
 ./src/crypto/sha256.h - See the CPP file.
 
-./src/crypto/sha256.cpp - [SSE4](https://en.wikipedia.org/wiki/SSE4)-optimized SHA-256 class (CSHA256). *[Added in 0.15](https://github.com/bitcoin/bitcoin/pull/10821) and [*enabled by default in 0.16*](https://github.com/bitcoin/bitcoin/pull/111	76)*.
+./src/crypto/sha256\_avx2.cpp - [AVX2](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#AVX2)-optimized SHA-256 class (CSHA256). [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13191).
+
+./src/crypto/sha256\_sse4.cpp - [SSE4](https://en.wikipedia.org/wiki/SSE4)-optimized SHA-256 class (CSHA256). *[Added in 0.15](https://github.com/bitcoin/bitcoin/pull/10821) and [*enabled by default in 0.16*](https://github.com/bitcoin/bitcoin/pull/11176)*.
+
+./src/crypto/sha256\_sse41.cpp - [SSE4.1](https://en.wikipedia.org/wiki/SSE4)-optimized SHA-256 class (CSHA256). [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13191).
 
 ./src/crypto/sha512.cpp - SHA-512 class (CSHA512).
 
