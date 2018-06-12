@@ -328,7 +328,11 @@
 
 **./contrib/verify-commits** - [Git tool to verify that every merge commit was signed by a trusted key using ./contrib/devtools/github-merge.sh](https://github.com/bitcoin/bitcoin/pull/5149), along with forcing PGP-signed commits. It’s meant only for those with commit access.
 
+./contrib/verify-commits/allow-incorrect-sha512-commits - Whitelisted commits that cause errors when checking Core's SHA-512 commit tree. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13066).
+
 ./contrib/verify-commits/allow-revsig-commits - Whitelisted commits signed by a revoked key. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/6875).
+
+./contrib/verify-commits/allow-unclean-merge-commits - Whitelisted commits that had unclean merges. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13066).
 
 ./contrib/verify-commits/gpg.sh - The "gpg.program" Git variable is set to this script, which will [act as a *GnuPG* substitute](https://git-scm.com/docs/git-config). Used instead of *GnuPG* to do the actual signature verification.
 
@@ -342,7 +346,9 @@
 
 ./contrib/verify-commits/trusted-sha512-root-commit - The point at which the commit tree stops looking to confirm that the code is accurate. Everything before this commit is assumed to be safe. "Tree-SHA512" is only in merge commits, and is the [SHA512 hash of the resulting merged tree](https://github.com/bitcoin/bitcoin/pull/9871). [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/9880).
 
-./contrib/verify-commits/verify-commits.sh - Called by ./contrib/verify-commits/pre-push-hook.sh. Verifies that the commits before the current one have been properly signed, and that the commit about to be pushed has been signed by an accepted key.
+./contrib/verify-commits/verify-commits.py - Called by ./contrib/verify-commits/pre-push-hook.sh. Verifies that the commits before the current one have been properly signed, and that the commit about to be pushed has been signed by an accepted key. [*Replaced ./contrib/verify-commits/verify-commits.sh in 0.17*](https://github.com/bitcoin/bitcoin/pull/13066).
+
+~~./contrib/verify-commits/verify-commits.sh~~ - Called by ./contrib/verify-commits/pre-push-hook.sh. Verifies that the commits before the current one have been properly signed, and that the commit about to be pushed has been signed by an accepted key. [*Replaced by ./contrib/verify-commits/verify-commits.py in 0.17*](https://github.com/bitcoin/bitcoin/pull/13066).
 
 **./contrib/verifybinaries** - [Script that verifies binaries downloaded from bitcoin.org](https://github.com/bitcoin/bitcoin/pull/1935) [and bitcoincore.org](https://github.com/bitcoin/bitcoin/pull/10651). [*Moved from ./contrib/verifysfbinaries in 0.13*](https://github.com/bitcoin/bitcoin/pull/7881).
 
@@ -976,7 +982,9 @@
 
 ./src/bench/coin\_selection.cpp - Code that benchmarks coin selection code. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8873).
 
-./src/bench/Examples.cpp - Examples of how to apply the benchmark code.
+~~./src/bench/Examples.cpp~~ - Examples of how to apply the benchmark code. [*Renamed to ./src/bench/examples.cpp in 0.17*](https://github.com/bitcoin/bitcoin/pull/13312).
+
+./src/bench/examples.cpp - Examples of how to apply the benchmark code. [*Renamed from ./src/bench/Examples.cpp in 0.17*](https://github.com/bitcoin/bitcoin/pull/13312).
 
 ./src/bench/lockedpool.cpp - Code that benchmarks the LockedPoolManager. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8753).
 
@@ -1094,6 +1102,10 @@
 ./src/crypto/ctaes/test.c - Test suites from FIPS 197 (AES) and SP 800-38A (AES-CBC). [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7689).
 
 **./src/index** - Code related to transaction indexing. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13033).
+
+./src/index/base.cpp - Base class for blockchain data indices. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13243).
+
+./src/index/base.h - See the implementation file. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13243).
 
 ./src/index/txindex.cpp - Contains the TxClass class, which builds the transaction index concurrently with the main validation thread. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13033).
 
@@ -1603,7 +1615,9 @@
 
 ./src/test/dbwrapper\_tests.cpp - Tests for the LevelDB wrappers.
 
-./src/test/DoS\_tests.cpp - Denial of Service unit tests.
+./src/test/denialofservice\_tests.cpp - Denial of Service unit tests. [*Renamed from ./src/test/DoS\_tests.cpp in 0.17*](https://github.com/bitcoin/bitcoin/pull/13312).
+
+~~./src/test/DoS\_tests.cpp~~ - Denial of Service unit tests. [*Renamed to ./src/test/denialofservice\_tests.cpp in 0.17*](https://github.com/bitcoin/bitcoin/pull/13312).
 
 ./src/test/getarg\_tests.cpp - *GetArg()* and *GetBoolArg()* unit tests.
 
@@ -1657,7 +1671,9 @@
 
 ./src/test/scheduler\_tests.cpp - [CScheduler unit tests.](https://github.com/bitcoin/bitcoin/pull/5964)
 
-./src/test/script\_P2SH\_tests.cpp - Unit tests for the inner workings of P2SH scripts.
+~~./src/test/script\_P2SH\_tests.cpp~~ - Unit tests for the inner workings of P2SH scripts. [*Renamed to ./src/test/script\_p2sh\_tests.cpp in 0.17*](https://github.com/bitcoin/bitcoin/pull/13312).
+
+./src/test/script\_p2sh\_tests.cpp - Unit tests for the inner workings of P2SH scripts. [*Renamed from ./src/test/script\_P2SH\_tests.cpp in 0.17*](https://github.com/bitcoin/bitcoin/pull/13312).
 
 ./src/test/script\_tests.cpp - Unit tests for general script validity.
 
@@ -2100,6 +2116,8 @@
 ./test/lint/lint-include-guards.sh - A lint script that enforces the usage of [include guards](https://en.wikipedia.org/wiki/Include_guard) in C++ header files. [*Moved from ./contrib/devtools in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
 
 ./test/lint/lint-includes.sh - A lint script that enforces Core's include guidelines (i.e., no duplicate header includes). [*Moved from ./contrib/devtools in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
+
+./test/lint/lint-locale-dependence.sh - Checks for C/C++ calls that have [locale dependencies](https://www.math.hkbu.edu.hk/parallel/pgi/doc/pgC++_lib/stdlibug/sta_9169.htm) (e.g., *atoi*). [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13041).
 
 ./test/lint/lint-logs.sh - Checks for newline termination in log files. [*Moved from ./contrib/devtools in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
 
