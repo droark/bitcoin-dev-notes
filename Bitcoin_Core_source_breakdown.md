@@ -2113,6 +2113,8 @@
 
 ./test/lint/lint-all.sh - Generic shell script that executes all [lint](https://en.wikipedia.org/wiki/Lint_(software)) scripts in ./contrib/devtools. Used primarily for automated testing by the Core team. [*Moved from ./contrib/devtools in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
 
+./test/lint/lint-filenames.sh - A lint script that enforces the Core filename policy. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13450).
+
 ./test/lint/lint-include-guards.sh - A lint script that enforces the usage of [include guards](https://en.wikipedia.org/wiki/Include_guard) in C++ header files. [*Moved from ./contrib/devtools in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
 
 ./test/lint/lint-includes.sh - A lint script that enforces Core's include guidelines (i.e., no duplicate header includes). [*Moved from ./contrib/devtools in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
@@ -2125,7 +2127,11 @@
 
 ./test/lint/lint-python-shebang.sh - A lint script that looks for missing Python [shebangs](https://en.wikipedia.org/wiki/Shebang_(Unix)). [*Moved from ./contrib/devtools in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
 
+./test/lint/lint-python-utf8-encoding.sh - A lint script that ensures all Python files can be opened using UTF-8 or ASCII encoding. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13448).
+
 ./test/lint/lint-shell.sh - A lint script that looks for [shellcheck](https://www.shellcheck.net/) warnings in shell scripts (i.e., shell script bugs). [*Moved from ./contrib/devtools in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
+
+./test/lint/lint-shell-locale.sh - A lint script that enforces the usage of ["LC_ALL=C"](https://unix.stackexchange.com/questions/87745/what-does-lc-all-c-do) in all shell scripts. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13454).
 
 ./test/lint/lint-tests.sh - A lint script that enforces the naming convention of files in ./src/test/ and ./src/wallet/test/. [*Moved from ./contrib/devtools in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
 
