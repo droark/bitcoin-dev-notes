@@ -972,6 +972,8 @@
 
 ./src/bench/bench\_bitcoin.cpp - Code that kicks off the *bench\_bitcoin* binary.
 
+./src/bench/block\_assemble.cpp - Benchmarks for block assembly from blocks mined in regtest mode (done to speed up mining). [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13219).
+
 ./src/bench/checkblock.cpp - Benchmarks block deserialization and validation (*CheckBlock()*) code. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9049).
 
 ./src/bench/checkqueue.cpp - Benchmarks some code related to CCheckQueue. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9498).
