@@ -884,6 +884,10 @@
 
 ./src/serialize.h - General purpose data input/output materials, on-and-off-network, including streaming data. Also includes the VarInt class (CVarInt) and CompactSize functions that can read/write VarInt-compatible values, various #defines, and other miscellaneous functionality.
 
+./src/shutdown.cpp - Shutdown-related functionality. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13235).
+
+./src/shutdown.h - See the CPP file. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13235).
+
 ./src/span.h - Adds a "span" data type, similar to Boost's "slice" or C++20's "span". An object that refers to a contiguously laid out set of objects in memory. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12886).
 
 ./src/streams.h - Double-ended buffer combining vector and stream-like interfaces (CDataStream), non-refcounted RAII wrapper for FILE*, without (CAutoFile) and with (CBufferedFile) ring buffers that allow the rewinding of X bytes.
