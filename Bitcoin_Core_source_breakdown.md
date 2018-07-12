@@ -500,19 +500,23 @@
 
 ~~./depends/patches/qt/configure-xcoderun.patch~~ - Allows *Qt* compilation (using the *depends* system) to occur when using *Xcode 8*. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8820) but [removed before the final release](https://github.com/bitcoin/bitcoin/pull/9469)*.
 
-./depends/patches/qt/fix-cocoahelpers-macos.patch - Fixes a `make depends` build error for Qt. [*Added in 0.16.1*](https://github.com/bitcoin/bitcoin/pull/12636).
+~~./depends/patches/qt/fix-cocoahelpers-macos.patch~~ - Fixes a `make depends` build error for Qt. *[Added in 0.16.1](https://github.com/bitcoin/bitcoin/pull/12636) and [removed in 0.17](https://github.com/bitcoin/bitcoin/pull/12971)*.
 
-./depends/patches/qt/fix-xcb-include-order.patch - Fixes various compile errors for *libxcb*.
+~~./depends/patches/qt/fix-xcb-include-order.patch~~ - Fixes various compile errors for *libxcb*. [*Removed in 0.17*](https://github.com/bitcoin/bitcoin/pull/12971).
+
+./depends/patches/qt/fix\_configure\_mac.patch - Updates the Mac config module for Qt 5.9.4. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12971).
+
+./depends/patches/qt/fix\_no\_printer.patch - Fixes the print module for Qt 5.9.4. Required due to Mac issues. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12971).
 
 ./depends/patches/qt/fix\_qt\_pkgconfig.patch - Mods a [Qt feature file](http://doc.qt.io/qt-5/qmake-project-files.html) such that [*pkg-config*](http://pkg-config.freedesktop.org/) support continues to be enabled. Undoes a Qt [commit](https://github.com/qtproject/qtbase/commit/6c5d227da1709eb81968823f38a133747c0e95b0) that disabled .pc files for Qt frameworks and internal modules. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8210).
 
 ./depends/patches/qt/mac-qmake.conf - *qmake* config variables and such.
 
-./depends/patches/qt/mingw-uuidof.patch - Required to build with MinGW. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/6471).
+~~./depends/patches/qt/mingw-uuidof.patch~~ - Required to build with MinGW. *[Added in 0.12](https://github.com/bitcoin/bitcoin/pull/6471) and [removed in 0.17](https://github.com/bitcoin/bitcoin/pull/12971)*.
 
-./depends/patches/qt/pidlist\_absolute.patch - Fixes Qt "PIDLIST\_ABSOLUTE" issue. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/commit/0b416c6e9c3f9f81bea16168f82af77f4e8724bb).
+~~./depends/patches/qt/pidlist\_absolute.patch~~ - Fixes Qt "PIDLIST\_ABSOLUTE" issue. *[Added in 0.12](https://github.com/bitcoin/bitcoin/commit/0b416c6e9c3f9f81bea16168f82af77f4e8724bb) and [removed in 0.17](https://github.com/bitcoin/bitcoin/pull/12971)*.
 
-./depends/patches/qt/qfixed-coretext.patch - Allows *Qt* compilation (using the *depends* system) to occur when using *Xcode 9.3*. [*Added in 0.16.1*](https://github.com/bitcoin/bitcoin/pull/12946).
+~~./depends/patches/qt/qfixed-coretext.patch~~ - Allows *Qt* compilation (using the *depends* system) to occur when using *Xcode 9.3*. *[Added in 0.16.1](https://github.com/bitcoin/bitcoin/pull/12946) and [removed in 0.17](https://github.com/bitcoin/bitcoin/pull/12971)*.
 
 **./depends/patches/qt46** - Qt 4.6 patches.
 
@@ -970,6 +974,8 @@
 
 ./src/bench/base58.cpp - Base58 encoding/decoding benchmarks. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8107).
 
+./src/bench/bech32.cpp - Bech32 encoding/decoding benchmarks. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13586).
+
 ./src/bench/bench.cpp - Code that can be added to other code in order to perform basic benchmarking.
 
 ./src/bench/bench.h - See the CPP file.
@@ -1083,11 +1089,13 @@
 
 ./src/crypto/sha256.h - See the CPP file.
 
-./src/crypto/sha256\_avx2.cpp - [AVX2](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#AVX2)-optimized SHA-256 class (CSHA256). [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13191).
+./src/crypto/sha256\_avx2.cpp - [AVX2](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#AVX2)-optimized SHA-256 code. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13191).
 
-./src/crypto/sha256\_sse4.cpp - [SSE4](https://en.wikipedia.org/wiki/SSE4)-optimized SHA-256 class (CSHA256). *[Added in 0.15](https://github.com/bitcoin/bitcoin/pull/10821) and [*enabled by default in 0.16*](https://github.com/bitcoin/bitcoin/pull/11176)*.
+./src/crypto/sha256\_shani.cpp - [Intel SHA Extensions](https://en.wikipedia.org/wiki/Intel_SHA_extensions)-optimized SHA-256 code. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13386).
 
-./src/crypto/sha256\_sse41.cpp - [SSE4.1](https://en.wikipedia.org/wiki/SSE4)-optimized SHA-256 class (CSHA256). [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13191).
+./src/crypto/sha256\_sse4.cpp - [SSE4](https://en.wikipedia.org/wiki/SSE4)-optimized SHA-256 code. *[Added in 0.15](https://github.com/bitcoin/bitcoin/pull/10821) and [*enabled by default in 0.16*](https://github.com/bitcoin/bitcoin/pull/11176)*.
+
+./src/crypto/sha256\_sse41.cpp - [SSE4.1](https://en.wikipedia.org/wiki/SSE4)-optimized SHA-256 code. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13191).
 
 ./src/crypto/sha512.cpp - SHA-512 class (CSHA512).
 
@@ -1817,7 +1825,7 @@
 
 ./src/wallet/test/wallet\_tests.cpp - Test code for the wallet.
 
-**./src/zmq** - Code supporting ØMQ. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6103)
+**./src/zmq** - Code supporting ØMQ. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/6103).
 
 ./src/zmq/zmqabstractnotifier.cpp - Contains a pure virtual notifier class (CZMQAbstractNotifier).
 
@@ -1828,6 +1836,10 @@
 ./src/zmq/zmqnotificationinterface.cpp - Has a derived notification interface class (CZMQNotificationInterface).
 
 ./src/zmq/zmqnotificationinterface.h - See the CPP file.
+
+./src/zmq/zmqrpc.cpp - RPC call (*getzmqnotifications*) returning all active ZMQ notifications on the system. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13570).
+
+./src/zmq/zmqrpc.h - See the CPP file. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13570).
 
 ./src/zmq/zmqpublishnotifier.cpp - Covers publishing for each covered event type. Has a derived virtual class (CZQAbstractPublishNotifier) that’s used as the base for the classes covering the four event types: block hash (CZMQPublishHashBlockNotifier), raw block (CZMQPublishRawBlockNotifier), Tx hash (CZMQPublishHashTransactionNotifier), and raw Tx (CZMQPublishRawTransactionNotifier).
 
@@ -2008,6 +2020,8 @@
 ./test/functional/rpc\_uptime.py - Tests the *uptime* RPC call (length of time *bitcoind* has been running). *[Added in 0.15](https://github.com/bitcoin/bitcoin/pull/10400) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
 ./test/functional/rpc\_users.py - Tests to make sure that multiple *rpcuser* entries in bitcoin.conf will be properly handled by Core. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
+
+./test/functional/rpc\_zmq.py - Tests the *getzmqnotifications* call. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13570).
 
 ./test/functional/test\_runner.py - Primary script that kicks off one or more tests found in ./test/functional. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/6616).
 
