@@ -1027,7 +1027,7 @@
 
 ./src/compat/endian.h - [Endian compatibility.](https://github.com/bitcoin/bitcoin/pull/5510)
 
-./src/compat/glibc\_compat.cpp - *glibc* compatibility.
+./src/compat/glibc\_compat.cpp - *glibc* compatibility. Used primarily for times when binaries are built with symbols that aren't compatible with older versions of *GCC* and *glibc*. (./contrib/devtools/symbol-check.py is a tool that can expose such holes.) An example is found [here](https://github.com/bitcoin/bitcoin/pull/13171).
 
 ./src/compat/glibc\_sanity.cpp - [Tests the environment sanity.](https://github.com/bitcoin/bitcoin/pull/4339)
 
