@@ -858,6 +858,10 @@
 
 ./src/noui.h - See the CPP file.
 
+./src/outputtype.cpp - Code related to the available output transaction types (P2PKH/"legacy," PS2SH-SegWit, and Bech32 as of July 2018). [*Added in 0.17 from part of ./src/wallet/wallet.cpp*](https://github.com/bitcoin/bitcoin/pull/13072).
+
+./src/outputtype.h - See the CPP file. [*Added in 0.17 from part of ./src/wallet/wallet.h*](https://github.com/bitcoin/bitcoin/pull/13072).
+
 ./src/pow.cpp - Functions related to difficulty. Consensus-critical.
 
 ./src/pow.h - See the CPP file.
@@ -1988,6 +1992,8 @@
 ./test/functional/rpc\_bind.py - [Tests binding of RPC functionality to various interfaces.](https://github.com/bitcoin/bitcoin/pull/3695) [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
 ./test/functional/rpc\_blockchain.py - Tests the *gettxoutsetinfo* RPC functionality. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
+
+./test/functional/rpc\_createmultisig.py - Tests the *createmultisig* RPC functionality. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13072).
 
 ./test/functional/rpc\_decodescript.py - Tests the *decodescript* RPC functionality. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
