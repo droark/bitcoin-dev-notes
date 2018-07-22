@@ -40,15 +40,15 @@
 
 ./build-aux/m4/ax\_boost\_base.m4 - Checks if Boost C++ libraries meet a particular version.
 
-./build-aux/m4/ax\_boost\_chrono.m4 - Checks for "Chrono" library from Boost.
+./build-aux/m4/ax\_boost\_chrono.m4 - Checks for *Chrono* library from Boost.
 
-./build-aux/m4/ax\_boost\_filesystem.m4 - Checks for "Filesystem" library from Boost.
+./build-aux/m4/ax\_boost\_filesystem.m4 - Checks for the *Filesystem* library from Boost.
 
-./build-aux/m4/ax\_boost\_program\_options.m4 - Checks for program options library from Boost.
+~~./build-aux/m4/ax\_boost\_program\_options.m4~~ - Checks for the *program\_options* library from Boost. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13482).
 
-./build-aux/m4/ax\_boost\_system.m4 - Checks for "System" library from Boost.
+./build-aux/m4/ax\_boost\_system.m4 - Checks for the *System* library from Boost.
 
-./build-aux/m4/ax\_boost\_thread.m4 - Checks for "Thread" library from Boost.
+./build-aux/m4/ax\_boost\_thread.m4 - Checks for the *Thread* library from Boost.
 
 ./build-aux/m4/ax\_boost\_unit\_test\_framework.m4 - Checks for unit test framework library from Boost.
 
@@ -80,7 +80,9 @@
 
 ./contrib/filter-lcov.py - A Python script that, when combined with *lcov -r* (removes duplicate entries), acts as a significantly faster version of *lcov -r*. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/10565).
 
-./contrib/gitian-build.sh - Script that simplifies the process of creating a Gitian build. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8566).
+./contrib/gitian-build.py - Script that simplifies the process of creating a Gitian build. [*Moved from ./contrib/gitian-build.sh in 0.17*](https://github.com/bitcoin/bitcoin/pull/13623).
+
+~~./contrib/gitian-build.sh~~ - Script that simplifies the process of creating a Gitian build. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8566) and [moved to ./contrib/gitian-build.py in 0.17](https://github.com/bitcoin/bitcoin/pull/13623).
 
 ./contrib/install\_db4.sh - OpenBSD/UNIX shell script for installing BerkeleyDB 4.8. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11702).
 
@@ -941,6 +943,8 @@
 ./src/util.cpp - Code related to the client/server environment. Used for argument handling, config file parsing, logging (pre-0.17), thread wrappers, global environment setup, Windows network setup, etc.
 
 ./src/util.h - See the CPP file.
+
+./src/utilmemory.h - A replacement for [C++14's *make_unique()* function](https://en.cppreference.com/w/cpp/memory/unique_ptr/make_unique). [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13690).
 
 ./src/utilmoneystr.cpp - Various money utilities (e.g., *ParseMoney()*).
 
@@ -1819,6 +1823,8 @@
 
 ./src/wallet/test/coinselector\_tests.cpp - Tests Core's coin selection algorithms. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/10637).
 
+./src/wallet/test/psbt\_wallet\_tests.cpp - Tests for [Partially Signed Bitcoin Transaction](https://github.com/bitcoin/bips/blob/master/bip-0174.mediawiki) wallet functionality. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13557).
+
 ./src/wallet/test/rpc\_wallet\_tests.cpp - Internal RPC/JSON wallet unit tests. [*Moved here from ./src/test in 0.13*](https://github.com/bitcoin/bitcoin/pull/7905) and [*replaced with ./qa/rpc-tests/wallet-accounts.py in 0.14*](https://github.com/bitcoin/bitcoin/pull/8450).
 
 ./src/wallet/tests/wallet\_crypto\_tests.cpp - Various tests for the CTAES code. Ensures functionality matches OpenSSL, and that failures occur exactly like failures in OpenSSL. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7689) as a replacement for OpenSSL-dependent functionality, and [renamed in 0.17](https://github.com/bitcoin/bitcoin/pull/12895)*.
@@ -2015,7 +2021,11 @@
 
 ./test/functional/rpc\_preciousblock.py - Tests the *preciousblock* RPC functionality. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/6996) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
+./test/functional/rpc\_psbt.py - Tests the [Partially Signed Bitcoin Transaction](https://github.com/bitcoin/bips/blob/master/bip-0174.mediawiki) RPC functionality. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13557).
+
 ./test/functional/rpc\_rawtransaction.py - [Tests reorg scenarios w/ a mempool that contain a Tx spending (direct or indirect) a coinbase Tx.](https://github.com/bitcoin/bitcoin/pull/5418) [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
+
+./test/functional/rpc\_scantxoutset.py - Tests the *scantxoutset* RPC functionality. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12196).
 
 ./test/functional/rpc\_signmessage.py - Tests signatures and verifications using the *signmessagewithprivkey* RPC call. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7953) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
@@ -2044,6 +2054,8 @@
 ./test/functional/wallet\_bumpfee.py - Tests the *bumpfee* RPC functionality. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8456) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
 ./test/functional/wallet\_disable.py - Confirms that Core will work properly with the -disablewallet option. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
+
+./test/functional/wallet\_disableprivatekeys.py - Confirms that Core will work properly with the -disableprivatekeys option for the wallet. [*Renamed in 0.17*](https://github.com/bitcoin/bitcoin/pull/9662).
 
 ./test/functional/wallet\_dump.py - Tests the *walletdump* RPC functionality. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8417) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
@@ -2084,6 +2096,8 @@
 **./test/functional/data** - Data for tests in the ./test/functional subdirectory. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/10757).
 
 ./test/functional/data/rpc\_getblockstats.json - Data for the *getblockstats* test. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/10757).
+
+./test/functional/data/rpc\_psbt.json - Data for the [Partially Signed Bitcoin Transaction](https://github.com/bitcoin/bips/blob/master/bip-0174.mediawiki) RPC functionality tests. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13557).
 
 **./test/functional/test\_framework** - Non-test classes. *[Added in 0.11](https://github.com/bitcoin/bitcoin/pull/6097) as ./src/data/test\_framework and [moved to ./test/functional/test\_framework in 0.15](https://github.com/bitcoin/bitcoin/pull/9956)*.
 
@@ -2138,6 +2152,8 @@
 ./test/lint/git-subtree-check.sh - [Verifies that subtree contents match upstream subtrees.](https://github.com/bitcoin/bitcoin/pull/5965) Must run from repo root. Currently useful for libsecp256k1 and LevelDB. [*Moved from ./contrib/devtools in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
 
 ./test/lint/lint-all.sh - Generic shell script that executes all [lint](https://en.wikipedia.org/wiki/Lint_(software)) scripts in ./contrib/devtools. Used primarily for automated testing by the Core team. [*Moved from ./contrib/devtools in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
+
+./test/lint/lint-circular-dependencies.sh - Checks for circular dependencies in the Core code. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13695).
 
 ./test/lint/lint-filenames.sh - A lint script that enforces the Core filename policy. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13450).
 
