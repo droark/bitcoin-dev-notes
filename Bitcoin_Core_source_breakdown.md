@@ -586,6 +586,8 @@
 
 ./doc/release-notes-pr10267.md - Explains how to use the *includeconf* configuration parameter. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/10267).
 
+./doc/release-notes-pr12257.md - Explains the *avoidpartialspends* configuration parameter and how to use it. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12257).
+
 ./doc/release-notes-pr12823.md - Explains how to use one Bitcoin config file across multiple networks (i.e., mainnet, testnet, and regtest). [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/11862).
 
 ./doc/release-notes-pr12892.md - Explains the "label" API for Core wallets, and how to migrate from the deprecated "account" API. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12892).
@@ -1773,7 +1775,9 @@
 
 **./src/wallet** - Core’s wallet functionality. Any code here should be used solely by the wallet.
 
-./src/wallet/coincontrol.h - A class (CCoinControl) specifying a set of coins to be used for a given Tx. (This allows the user to control which coins are used.) *[Added to the src subdirectory in 0.8](https://github.com/bitcoin/bitcoin/pull/3253), and [moved to the src/wallet subdirectory in 0.14](https://github.com/bitcoin/bitcoin/pull/8990)*.
+./src/wallet/coincontrol.cpp -  A class (CCoinControl) specifying a set of coins to be used for a given Tx. (This allows the user to control which coins are used.) [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12257).
+
+./src/wallet/coincontrol.h -See the CPP file. *[Added to the src subdirectory in 0.8](https://github.com/bitcoin/bitcoin/pull/3253), and [moved to the src/wallet subdirectory in 0.14](https://github.com/bitcoin/bitcoin/pull/8990)*.
 
 ./src/wallet/coinselection.cpp - Code for selecting coins based on the ["Branch and Bound" algorithm](http://murch.one/wp-content/uploads/2016/11/erhardt2016coinselection.pdf), falling back to Core's previous coin selection algorithm if the algorithm fails. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/10637).
 
@@ -2062,6 +2066,8 @@
 ./test/functional/wallet\_encryption.py - Tests Core wallet's encryption functionality. *[Added in 0.15](https://github.com/bitcoin/bitcoin/pull/10551) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
 ./test/functional/wallet\_fallbackfee.py - Tests Core wallet's replace-by-fee capabilities in conjunction with the *fallbackfee* CL arg. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/11882).
+
+./test/functional/wallet\_groups.py - Tests Core's ability to combine UTXOs for one address and apply all of them towards one spend. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12257).
 
 ./test/functional/wallet\_hd.py - Tests hierarchical deterministic qualities of the Core wallet. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/8309) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
