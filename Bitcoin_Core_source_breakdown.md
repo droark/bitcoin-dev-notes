@@ -94,63 +94,19 @@
 
 ./contrib/valgrind.supp - [Valgrind](https://en.wikipedia.org/wiki/Valgrind) suppression file. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11035).
 
-**./contrib/debian** - Contains files used to package bitcoind/bitcoin-qt for Debian-based Linux systems. *[Added in 0.5](https://github.com/bitcoin/bitcoin/pull/608) [to control PPA builds](https://github.com/bitcoin/bitcoin/pull/600#issuecomment-2631226)*.
+**./contrib/debian** - Contains files used to package bitcoind/bitcoin-qt for Debian-based Linux systems. *[Added in 0.5](https://github.com/bitcoin/bitcoin/pull/608) [to control PPA builds](https://github.com/bitcoin/bitcoin/pull/600#issuecomment-2631226)*. *[Mostly removed in 0.17](https://github.com/bitcoin/bitcoin/pull/13809) (files moved to [this repo](https://github.com/bitcoin-core/packaging/tree/master/debian)*. All files that were listed here have been removed from this list.
 
-./contrib/debian/bitcoin-qt.desktop - [Desktop menu entry registration.](https://developer.gnome.org/integration-guide/stable/desktop-files.html.en)
+./contrib/debian/copyright - Copyright info file usable by Debian.
 
-./contrib/debian/bitcoin-qt.install - [Indicates which files need to go where when installing a package.](https://wiki.ubuntu.com/UbuntuOpenWeek/Packaging101)
+~~**./contrib/debian/examples**~~ - Related to Debian packaging. Contains examples for PPA users. *[Removed in 0.17](https://github.com/bitcoin/bitcoin/pull/13809) (files moved to [this repo](https://github.com/bitcoin-core/packaging/tree/master/debian)*.
 
-./contrib/debian/bitcoin-qt.lintian-overrides - [Manual warning/error overrides for *lintian*, the program that inspects Debian packages.](http://man.he.net/man1/dh_lintian)
-
-./contrib/debian/bitcoin-qt.manpages - *Bitcoin-Qt* manpage. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8743)*.
-
-./contrib/debian/bitcoin-qt.protocol - [GNOME/KDE support for the "bitcoin" URI.](https://github.com/bitcoin/bitcoin/pull/593)
-
-./contrib/debian/bitcoin-tx.install - [Used to indicate what to install for *bitcoin-tx*](https://www.debian.org/doc/manuals/maint-guide/dother.en.html#install).
-
-./contrib/debian/bitcoin-tx.manpages - *bitcoin-tx* manpage. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8743).
-
-./contrib/debian/bitcoind.bash-completion - Rule that [installs ./contrib/bitcoind.bash-completion in Debian systems](https://github.com/bitcoin/bitcoin/pull/1366) as part of the Debian build process. [Adds BASH shell completion for *bitcoind*](http://manpages.ubuntu.com/manpages/trusty/man1/dh_bash-completion.1.html). *[Added in 0.7](https://github.com/bitcoin/bitcoin/pull/1366)*.
-
-./contrib/debian/bitcoind.examples - Contains a list of places to find examples. [Used by lintian.](https://www.debian.org/doc/manuals/maint-guide/dother.en.html#examples)
-
-./contrib/debian/bitcoind.install - [Used to indicate what to install for *bitcoind*](https://www.debian.org/doc/manuals/maint-guide/dother.en.html#install).
-
-./contrib/debian/bitcoind.lintian-overrides - Manual warning/error overrides for *lintian*.
-
-./contrib/debian/bitcoind.manpages - [Indicates where manpages should go.](https://www.debian.org/doc/manuals/maint-guide/dother.en.html#manpages)
-
-./contrib/debian/changelog - Changelog. Required by *lintian*.
-
-./contrib/debian/compat - [*debhelpe*r](https://www.debian.org/doc/manuals/maint-guide/dother.en.html#compat)[ compatibility level.](https://www.debian.org/doc/manuals/maint-guide/dother.en.html#compat)
-
-./contrib/debian/control - [Values used by various packaging tools (e.g., *dpkg*, *apt-get*, etc.) to manage a package.](https://www.debian.org/doc/manuals/maint-guide/dreq.en.html#control)
-
-./contrib/debian/copyright - Copyright notice. Required by *lintian*.
-
-./contrib/debian/gbp.conf - [Config file for *git-buildpackage* & such.](https://wiki.debian.org/PackagingWithGit)
-
-./contrib/debian/README.md - Minimal README. Mostly talks about the "bitcoin" URI.
-
-./contrib/debian/rules - [Rules applied by dpkg-buikdpackage.](https://www.debian.org/doc/manuals/maint-guide/dreq.en.html#rules)
-
-./contrib/debian/watch - [Used by *uscan* to monitor where the source was obtained.](https://www.debian.org/doc/manuals/maint-guide/dother.en.html#watch) Seems to use a qa.debian.org redirector.
-
-**./contrib/debian/examples** - Related to Debian packaging. Contains examples for PPA users. *Will not discuss individual files.*
-
-./contrib/debian/examples/bitcoin.conf
+~~./contrib/debian/examples/bitcoin.conf~~ - Example of a Bitcoin configuration. [*Moved to ./share/examples/bitcoin.conf in 0.17*](https://github.com/bitcoin/bitcoin/pull/13809).
 
 **~~./contrib/debian/manpages~~** - Related to Debian packaging. Package manpages. *Will not discuss individual files.* [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/8743).
 
-**./contrib/debian/patches** - Related to Debian packaging. [Used by packagers who need to patch Core’s upstream code.](http://packaging.ubuntu.com/html/patches-to-packages.html) *Not used for now.*
+~~**./contrib/debian/patches**~~ - Related to Debian packaging. [Used by packagers who need to patch Core’s upstream code.](http://packaging.ubuntu.com/html/patches-to-packages.html) *[Removed in 0.17](https://github.com/bitcoin/bitcoin/pull/13809) (files moved to [this repo](https://github.com/bitcoin-core/packaging/tree/master/debian)*. All files that were listed here have been removed from this list.
 
-./contrib/debian/patches/README - Basic info regarding patch nature.
-
-./contrib/debian/patches/series - Order of patches to apply.
-
-**./contrib/debian/source** - Related to Debian packaging. [Enforces program used to apply packages (Quilt).](http://packaging.ubuntu.com/html/patches-to-packages.html) *Not used for now.*
-
-./contrib/debian/source/format - Enforces program used to apply packages (Quilt).
+~~**./contrib/debian/source**~~ - Related to Debian packaging. [Enforces program used to apply packages (Quilt).](http://packaging.ubuntu.com/html/patches-to-packages.html) *[Removed in 0.17](https://github.com/bitcoin/bitcoin/pull/13809) (files moved to [this repo](https://github.com/bitcoin-core/packaging/tree/master/debian)*. All files that were listed here have been removed from this list.
 
 **./contrib/devtools** - Specific tools for devs working on the Core repo.
 
@@ -286,19 +242,7 @@
 
 ./contrib/qos/tc.sh - Script that uses *tc* to limit the bandwidth.
 
-**./contrib/rpm** - Spec files for generating [RPM packages](https://en.wikipedia.org/wiki/RPM_Package_Manager). [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7609).
-
-./contrib/rpm/bitcoin-0.12.0-libressl.patch - Needed only if building Core against [*LibreSSL*](http://www.libressl.org/). *[Added in 0.13, although it'll probably be deleted eventually](https://github.com/bitcoin/bitcoin/pull/7609#discussion-diff-54885829)*.
-
-./contrib/rpm/bitcoin.fc - RPM file contexts file. [Used by *SELinux*](http://man7.org/linux/man-pages/man8/sepolicy-generate.8.html).
-
-./contrib/rpm/bitcoin.if - RPM interface file. [Used by *SELinux*](http://man7.org/linux/man-pages/man8/sepolicy-generate.8.html).
-
-./contrib/rpm/bitcoin.spec - RPM spec file. [Used by *SELinux*](http://man7.org/linux/man-pages/man8/sepolicy-generate.8.html).
-
-./contrib/rpm/bitcoin.te - RPM type enforcement. [Used by *SELinux*](http://man7.org/linux/man-pages/man8/sepolicy-generate.8.html).
-
-./contrib/rpm/README.md - Notes explaining both the concept and the purpose of some of the files in the subdir.
+~~**./contrib/rpm**~~ - Spec files for generating [RPM packages](https://en.wikipedia.org/wiki/RPM_Package_Manager). *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7609) and [removed in 0.17](https://github.com/bitcoin/bitcoin/pull/13809) (files moved to [this repo](https://github.com/bitcoin-core/packaging/tree/master/rpm)*. All files that were listed here have been removed from this list.
 
 **./contrib/seeds** - [Generates a list of fixed seed nodes.](https://github.com/bitcoin/bitcoin/commit/9126e08739f5115c3032997cabd23f27037131ef) Nodes are then used to update ./src/chainparamsseeds.h
 
@@ -647,6 +591,10 @@
 ./share/genbuild.sh - [Used to generate build info (and ./src/build.h).](https://github.com/bitcoin/bitcoin/pull/1054)
 
 ./share/setup.nsi.in - [Autotools stuff.](https://github.com/bitcoin/bitcoin/pull/2943) Autoconfig will process it and output it as ./share/setup.nsi, which is a [Windows setup file.](https://en.wikipedia.org/wiki/Nullsoft_Scriptable_Install_System)
+
+**./share/examples** - Exmaples of user-configurable Core-related files. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13809).
+
+./share/examples/bitcoin.conf - Example of a Bitcoin configuration. [*Moved from ./contrib/debian/examples/bitcoin.conf in 0.17*](https://github.com/bitcoin/bitcoin/pull/13809).
 
 **./share/rpcauth** - Helps create multi-user RPC login credentials. *[Added as ./src/rpcauth in 0.12](https://github.com/bitcoin/bitcoin/pull/7044) and [moved from there in 0.16](https://github.com/bitcoin/bitcoin/pull/11836)*.
 
@@ -1533,6 +1481,10 @@
 
 ./src/script/bitcoinconsensus.h - See the CPP file.
 
+./src/script/descriptor.cpp - Code that outputs human-readable descriptions of scriptPubKey objects. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13697).
+
+./src/script/descriptor.h - See the CPP file. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13697).
+
 ./src/script/interpreter.cpp - Covers transaction signature checking. BaseSignatureChecker class, which is the parent of TransactionSignatureChecker and MutableTransactionSignatureChecker. Loads of code and comments. [Consensus-critical](https://github.com/bitcoin/bitcoin/pull/12885).
 
 ./src/script/interpreter.h - See the CPP file. Also includes many script hash & verification flags.
@@ -1642,6 +1594,8 @@
 ./src/test/dbwrapper\_tests.cpp - Tests for the LevelDB wrappers.
 
 ./src/test/denialofservice\_tests.cpp - Denial of Service unit tests. [*Renamed from ./src/test/DoS\_tests.cpp in 0.17*](https://github.com/bitcoin/bitcoin/pull/13312).
+
+./src/test/descriptor\_tests.cpp - Unit tests for human-readable scriptPubKey descriptors. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13697).
 
 ~~./src/test/DoS\_tests.cpp~~ - Denial of Service unit tests. [*Renamed to ./src/test/denialofservice\_tests.cpp in 0.17*](https://github.com/bitcoin/bitcoin/pull/13312).
 
