@@ -2119,6 +2119,10 @@
 
 ./test/lint/lint-filenames.sh - A lint script that enforces the Core filename policy. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13450).
 
+./test/lint/lint-format-strings.py - A lint script that checks the number of args in a variadic format string function and ensures that they match the number of format specifiers in the format string. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13705).
+
+./test/lint/lint-format-strings.sh - A script that kicks off ./test/lint/lint-format-strings.py. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13705).
+
 ./test/lint/lint-include-guards.sh - A lint script that enforces the usage of [include guards](https://en.wikipedia.org/wiki/Include_guard) in C++ header files. [*Moved from ./contrib/devtools in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
 
 ./test/lint/lint-includes.sh - A lint script that enforces Core's include guidelines (i.e., no duplicate header includes). [*Moved from ./contrib/devtools in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
