@@ -1937,6 +1937,8 @@
 
 ./test/functional/p2p\_invalid\_block.py - Tests P2P ability to process valid and invalid blocks received after requesting blocks. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
+./test/functional/p2p\_invalid\_locator.py - Tests the maximum number of entries in a [locator](https://github.com/bitcoin/bitcoin/blob/e254ff5d53b79bee29203b965fca572f218bff54/src/primitives/block.h#L122-L125). [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13915).
+
 ./test/functional/p2p\_invalid\_tx.py - Checks to make sure that P2P "reject" mesages are properly sent and handled for transactions and blocks. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
 ./test/functional/p2p\_leak.py - Test for "leaky" P2P message behavior (e.g., messages received before a version is received, messages other than version/reject before sending a VERACK, etc.). *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/9720) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
