@@ -72,6 +72,8 @@
 
 ./build-aux/m4/l\_atomic.m4 - Checks if *libatomic* is available for std::atomic operations. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8563).
 
+**./build\_msvc** - Files that allow Core to be built using [Microsoft Visual Studio 2017](https://en.wikipedia.org/wiki/Microsoft_Visual_Studio) or later. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/11526). *Files will not be discussed here.*
+
 **./contrib** - External tools that may be useful but aren’t directly related to Core.
 
 ./contrib/bitcoin-qt.pro - [Qt file used by *qmake*](http://doc.qt.io/qt-4.8/qmake-project-files.html) to help compile Qt-related code for Core.
@@ -530,17 +532,17 @@
 
 ./doc/release-notes.md - Release notes for the latest version.
 
-./doc/release-notes-pr10267.md - Explains how to use the *includeconf* configuration parameter. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/10267).
+~~./doc/release-notes-pr10267.md~~ - Explains how to use the *includeconf* configuration parameter. *[Added in 0.17](https://github.com/bitcoin/bitcoin/pull/10267) and [moved to ./doc/release-notes.md in 0.17](https://github.com/bitcoin/bitcoin/pull/13950)*.
 
-./doc/release-notes-pr12257.md - Explains the *avoidpartialspends* configuration parameter and how to use it. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12257).
+~~./doc/release-notes-pr12257.md~~ - Explains the *avoidpartialspends* configuration parameter and how to use it. *[Added in 0.17](https://github.com/bitcoin/bitcoin/pull/12257) and [moved to ./doc/release-notes.md in 0.17](https://github.com/bitcoin/bitcoin/pull/13950)*.
 
-./doc/release-notes-pr12823.md - Explains how to use one Bitcoin config file across multiple networks (i.e., mainnet, testnet, and regtest). [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/11862).
+~~./doc/release-notes-pr12823.md~~ - Explains how to use one Bitcoin config file across multiple networks (i.e., mainnet, testnet, and regtest). *[Added in 0.17](https://github.com/bitcoin/bitcoin/pull/11862) and [moved to ./doc/release-notes.md in 0.17](https://github.com/bitcoin/bitcoin/pull/13950)*.
 
-./doc/release-notes-pr12892.md - Explains the "label" API for Core wallets, and how to migrate from the deprecated "account" API. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12892).
+~~./doc/release-notes-pr12892.md~~ - Explains the "label" API for Core wallets, and how to migrate from the deprecated "account" API. *[Added in 0.17](https://github.com/bitcoin/bitcoin/pull/12892) and [moved to ./doc/release-notes.md in 0.17](https://github.com/bitcoin/bitcoin/pull/13950)*.
 
-./doc/release-notes-pr12924.md - Explains low-level RPC changes that more accurately name HD seed IDs. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12924).
+~~./doc/release-notes-pr12924.md~~ - Explains low-level RPC changes that more accurately name HD seed IDs. *[Added in 0.17](https://github.com/bitcoin/bitcoin/pull/12924) and [moved to ./doc/release-notes.md in 0.17](https://github.com/bitcoin/bitcoin/pull/13950)*.
 
-./doc/release-notes-pr13033.md - Explains how the *txindex* CL flag functionality has changed. (Basically, the flag can be turned on and off without wrecking the DB and requiring a full rebuild when re-enabling it.) [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13033).
+~~./doc/release-notes-pr13033.md~~ - Explains how the *txindex* CL flag functionality has changed. (Basically, the flag can be turned on and off without wrecking the DB and requiring a full rebuild when re-enabling it.) *[Added in 0.17](https://github.com/bitcoin/bitcoin/pull/13033) and [moved to ./doc/release-notes.md in 0.17](https://github.com/bitcoin/bitcoin/pull/13950)*.
 
 ./doc/release-process.md - Steps for putting out new releases.
 
