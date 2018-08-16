@@ -8,7 +8,9 @@
 
 ./.gitignore - File that prevents certain files from showing up in Git.
 
-./.travis.yml - Provides project-specific info to Travis CI.
+./.travis.yml - Provides project-specific info to [Travis CI](https://travis-ci.org/), allowing Linux builds and cross-compiled builds (MacOS and Windows) to be created after PRs are created or updated.
+
+./appveyor.yml - Provides project-specific info to [AppVeyor](https://www.appveyor.com/), allowing native Windows builds to be created after PRs are created or updated. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/13964).
 
 ./autogen.sh - The first script called in the build process. Does a bit of setup and then calls *autoreconf* to do a proper setup of the autotools build environment.
 
@@ -458,7 +460,7 @@
 
 ./depends/patches/qt/fix\_qt\_pkgconfig.patch - Mods a [Qt feature file](http://doc.qt.io/qt-5/qmake-project-files.html) such that [*pkg-config*](http://pkg-config.freedesktop.org/) support continues to be enabled. Undoes a Qt [commit](https://github.com/qtproject/qtbase/commit/6c5d227da1709eb81968823f38a133747c0e95b0) that disabled .pc files for Qt frameworks and internal modules. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8210).
 
-./depends/patches/qt/fix\_rcc\_determinism.patch - Fixes an issue with [RCC](https://doc.qt.io/qt-5/rcc.html) non-deterministic output in Qt 5.9 (backport from Qt 5.11). Used to make Gitian builds deterministic. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13732).
+./depends/patches/qt/fix\_riscv64\_arch.patch - Fixes a compilation issue for 64-bit [RISC](https://en.wikipedia.org/wiki/Reduced_instruction_set_computer) processors in Qt 5.9.4. Used to enable Qt `depends` support for 64-bit RISC processors. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/13665).
 
 ./depends/patches/qt/mac-qmake.conf - *qmake* config variables and such.
 
