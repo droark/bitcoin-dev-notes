@@ -528,6 +528,8 @@
 
 ./doc/multiwallet-qt.md - "Multiwallet Qt Development and Integration Strategy". *Old document that was [removed in 0.14](https://github.com/bitcoin/bitcoin/pull/8879)*.
 
+./doc/psbt.md - Explains Partially Signed Bitcoin Transactions and how to use/create them. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/13941).
+
 ./doc/README.md - General catch-all / index of sorts.
 
 ./doc/README\_osx.md - Details regarding on the deterministic build. [*Changed from .txt to .md in 0.13*](https://github.com/bitcoin/bitcoin/pull/8229).
@@ -2146,6 +2148,8 @@
 ./test/lint/lint-python-shebang.sh - A lint script that looks for missing Python [shebangs](https://en.wikipedia.org/wiki/Shebang_(Unix)). [*Moved from ./contrib/devtools in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
 
 ./test/lint/lint-python-utf8-encoding.sh - A lint script that ensures all Python files can be opened using UTF-8 or ASCII encoding. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13448).
+
+./test/lint/lint-qt.sh - A lint script that ensures Core code uses Qt5-style [connect syntax](https://wiki.qt.io/New_Signal_Slot_Syntax). [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13529).
 
 ./test/lint/lint-shell.sh - A lint script that looks for [shellcheck](https://www.shellcheck.net/) warnings in shell scripts (i.e., shell script bugs). [*Moved from ./contrib/devtools in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
 
