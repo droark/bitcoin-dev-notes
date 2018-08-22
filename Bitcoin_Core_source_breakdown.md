@@ -472,7 +472,7 @@
 
 ~~./depends/patches/qt/qfixed-coretext.patch~~ - Allows *Qt* compilation (using the *depends* system) to occur when using *Xcode 9.3*. *[Added in 0.16.1](https://github.com/bitcoin/bitcoin/pull/12946) and [removed in 0.17](https://github.com/bitcoin/bitcoin/pull/12971)*.
 
-./depends/patches/qt/xkb-default.patch~~ - A temporary fix for a determinism build issue that was introduced by Qt 5.8. *[Added in 0.18](https://github.com/bitcoin/bitcoin/pull/14000)*.
+./depends/patches/qt/xkb-default.patch~~ - A temporary fix for a determinism build issue that was introduced by Qt 5.8. *[Added in 0.17](https://github.com/bitcoin/bitcoin/pull/14000)*.
 
 ~~**./depends/patches/qt46**~~ - Qt 4.6 patches. [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/8645).
 
