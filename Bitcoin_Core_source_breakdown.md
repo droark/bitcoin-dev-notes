@@ -32,6 +32,8 @@
 
 ./.github/ISSUE\_TEMPLATE.md - GitHub [issue template](https://github.com/blog/2111-issue-and-pull-request-templates). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8058).
 
+**./.travis** - .travis.yml support scripts. Files added here in part to subject the scripts to *shellcheck*, thereby making them more reliable. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/13863). *Files will not be listed.*
+
 **./.tx** - Transifex (i.e., translation) stuff. Used by Qt.
 
 ./.tx/config - Transifex config file.
@@ -74,7 +76,9 @@
 
 ./build-aux/m4/l\_atomic.m4 - Checks if *libatomic* is available for std::atomic operations. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8563).
 
-**./build\_msvc** - Files that allow Core to be built using [Microsoft Visual Studio 2017](https://en.wikipedia.org/wiki/Microsoft_Visual_Studio) or later. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/11526). *Files will not be discussed here.*
+**./build\_msvc** - Files that allow Core to be built using [Microsoft Visual Studio 2017](https://en.wikipedia.org/wiki/Microsoft_Visual_Studio) or later. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/11526). *Unless mentioned below, files will not be discussed here.*
+
+./build\_msvc/msvc-autogen.py - Python script that can auto-generate MSVS project files. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14062).
 
 **./contrib** - External tools that may be useful but aren’t directly related to Core.
 
@@ -272,7 +276,9 @@
 
 ./contrib/testgen/base58.py - Support script for Base58 encode/decode.
 
-./contrib/testgen/gen\_base58_test\_vectors.py - The script to run.
+./contrib/testgen/gen\_base58_test\_vectors.py - The script to run. [*Removed in 0.18*](https://github.com/bitcoin/bitcoin/pull/13935).
+
+./contrib/testgen/gen\_key\_io_test\_vectors.py - The script to run. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/13935).
 
 ./contrib/testgen/README.md - Shows how to run the script but doesn’t explain what it all means.
 
@@ -552,6 +558,8 @@
 
 ~~./doc/release-notes-pr13033.md~~ - Explains how the *txindex* CL flag functionality has changed. (Basically, the flag can be turned on and off without wrecking the DB and requiring a full rebuild when re-enabling it.) *[Added in 0.17](https://github.com/bitcoin/bitcoin/pull/13033) and [moved to ./doc/release-notes.md in 0.17](https://github.com/bitcoin/bitcoin/pull/13950)*.
 
+./doc/release-notes-pr14023.md~~ - Explains the removal of the account RPC from Core. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14023).
+
 ./doc/release-process.md - Steps for putting out new releases.
 
 ./doc/REST-interface.md - Details regarding using the REST interface ("-test" option).
@@ -679,6 +687,10 @@
 ./src/blockencodings.cpp - Implements multiple classes representing objects from [BIP 152](https://github.com/bitcoin/bips/blob/master/bip-0152.mediawiki) (e.g., BlockTransacions, BlockRequest, CBlockHeadAndShortTxIDs), aka Compact Block Relay. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8068).
 
 ./src/blockencodings.h - See the CPP file.
+
+./src/blockfilter.cpp - Block filters as defined in [BIP 157](https://github.com/bitcoin/bips/blob/master/bip-0157.mediawiki) and [BIP 158](https://github.com/bitcoin/bips/blob/master/bip-0158.mediawiki). [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/12254).
+
+./src/blockfilter.h - See the CPP file. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/12254).
 
 ./src/bloom.cpp - Bloom filter material. Includes bloom filters (CBloomFilter) and "rolling" filters (CRollingBloomFilter), which tracks the last N items you’ve seen if you can tolerate a small number of false positives. [*Added in 0.8*](https://github.com/bitcoin/bitcoin/pull/1795), with [*rolling filters added in 0.12*](https://github.com/bitcoin/bitcoin/pull/6064).
 
@@ -967,6 +979,8 @@
 ~~./src/bench/Examples.cpp~~ - Examples of how to apply the benchmark code. [*Renamed to ./src/bench/examples.cpp in 0.17*](https://github.com/bitcoin/bitcoin/pull/13312).
 
 ./src/bench/examples.cpp - Examples of how to apply the benchmark code. [*Renamed from ./src/bench/Examples.cpp in 0.17*](https://github.com/bitcoin/bitcoin/pull/13312).
+
+./src/bench/gfs\_filter.cpp - [Golomb-coded set](http://giovanni.bajo.it/post/47119962313/golomb-coded-sets-smaller-than-bloom-filters) filter benchmarking. (Related to BIP 158.) [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/12254).
 
 ./src/bench/lockedpool.cpp - Code that benchmarks the LockedPoolManager. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8753).
 
@@ -1581,6 +1595,8 @@
 
 ./src/test/blockencodings\_test.cpp - Implements Compact Block Relay tests. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8068).
 
+./src/test/blockfilter\_tests.cpp - Tests related to BIP 157-associated block filters. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/12254).
+
 ./src/test/bloom\_tests.cpp - [CBloomFilter and CMerkleBlock unit tests.](https://github.com/bitcoin/bitcoin/pull/1795)
 
 ./src/test/bswap\_tests.cpp - Tests *bswap\_{16/32/64}()* calls to ensure that the calls function properly. (This was a problem in particular on macOS builds.) [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9366).
@@ -1723,6 +1739,8 @@
 
 ./src/test/data/base58\_keys\_valid.json - Base58 test data used by ./src/tests/base58\_tests.cpp to confirm that the given Base58 keys are valid across various key types. [Generated by ./contrib/testgen/gen\_base58\_test\_vectors.py.](https://github.com/bitcoin/bitcoin/pull/1888)
 
+./src/test/data/blockfilters.json - Data for tests related to BIP 157-associated block filters. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/12254).
+
 ./src/test/data/key\_io\_invalid.json - Base58 test data used by ./src/tests/key\_io\_tests.cpp to confirm that the given Base58 keys are invalid across various key types. [*Moved from ./src/test/data/base58\_keys\_invalid.json in 0.17*](https://github.com/bitcoin/bitcoin/pull/11372).
 
 ./src/test/data/key\_io\_valid.json - Base58 test data used by ./src/tests/key\_io\_tests.cpp to confirm that the given Base58 keys are valid across various key types. [*Moved from ./src/test/data/base58\_keys\_valid.json in 0.17*](https://github.com/bitcoin/bitcoin/pull/11372).
@@ -1789,7 +1807,7 @@
 
 **./src/wallet/test** - Test code for the wallet.
 
-./src/wallet/test/accounting\_tests.cpp - [Wallet accounting entry tests](https://github.com/bitcoin/bitcoin/pull/1393). [*Moved here from ./src/test in 0.13*](https://github.com/bitcoin/bitcoin/pull/7905).
+~~./src/wallet/test/accounting\_tests.cpp~~ - [Wallet accounting entry tests](https://github.com/bitcoin/bitcoin/pull/1393). *[Moved here from ./src/test in 0.13](https://github.com/bitcoin/bitcoin/pull/7905) and [removed in 0.18](https://github.com/bitcoin/bitcoin/pull/14023)*.
 
 ./src/wallet/test/coinselector\_tests.cpp - Tests Core's coin selection algorithms. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/10637).
 
