@@ -1685,15 +1685,17 @@
 
 ./src/test/scriptnum\_tests.cpp - CScriptNum unit tests. Added to ensure that CScriptNum continued to function properly after the scripting system removed its OpenSSL dependency. [*Added in 0.10*](https://github.com/bitcoin/bitcoin/pull/3965).
 
-./src/test/serialize\_tests.cpp - [CVarInt unit tests.](https://github.com/bitcoin/bitcoin/pull/1677)
+./src/test/serialize\_tests.cpp - [CVarInt unit tests](https://github.com/bitcoin/bitcoin/pull/1677).
 
-./src/test/sighash\_tests.cpp - [Sighash flag unit tests.](https://github.com/bitcoin/bitcoin/pull/2645)
+./src/test/sighash\_tests.cpp - [Sighash flag unit tests](https://github.com/bitcoin/bitcoin/pull/2645).
 
-./src/test/sigopcount\_tests.cpp - [Sigop count unit tests.](https://github.com/bitcoin/bitcoin/pull/748)
+./src/test/sigopcount\_tests.cpp - [Sigop count unit tests](https://github.com/bitcoin/bitcoin/pull/748).
 
-./src/test/skiplist\_tests.cpp - [Skip list (related to CBlockIndex/headers-first block propagation) unit tests.](https://github.com/bitcoin/bitcoin/pull/4420)
+./src/test/skiplist\_tests.cpp - [Skip list (related to CBlockIndex/headers-first block propagation) unit tests](https://github.com/bitcoin/bitcoin/pull/4420).
 
-./src/test/streams\_tests.cpp - Tests the *CDataStream* class. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6650)
+./src/test/streams\_tests.cpp - Tests the *CDataStream* class. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/6650).
+
+./src/test/sync\_tests.cpp - Tests for lock (threading) functionality. [*Added in 0.18*.](https://github.com/bitcoin/bitcoin/pull/11640).
 
 ./src/test/test\_bitcoin.cpp - Some basic test setup code and other functionality (e.g., testing insecure random number generation). Mainly used to configure logging and chain parameters.
 
@@ -2001,6 +2003,8 @@
 
 ./test/functional/rpc\_getchaintips.py - Tests the *getchaintips* RPC functionality. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
+./test/functional/rpc\_help.py - Tests RPC help functionality. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14020).
+
 ./test/functional/rpc\_invalidateblock.py - Tests the hidden *invalidateblock* RPC function. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
 ~~./test/functional/rpc\_listtransactions.py~~ - Tests the *listtransactions* RPC functionality. *[Renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774) and [moved to ./test/functional/wallet\_listtransactions in 0.17](https://github.com/bitcoin/bitcoin/pull/12953)*.
@@ -2144,6 +2148,8 @@
 ./test/lint/git-subtree-check.sh - [Verifies that subtree contents match upstream subtrees.](https://github.com/bitcoin/bitcoin/pull/5965) Must run from repo root. Currently useful for libsecp256k1 and LevelDB. [*Moved from ./contrib/devtools in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
 
 ./test/lint/lint-all.sh - Generic shell script that executes all [lint](https://en.wikipedia.org/wiki/Lint_(software)) scripts in ./contrib/devtools. Used primarily for automated testing by the Core team. [*Moved from ./contrib/devtools in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
+
+./test/lint/lint-assertions.sh - Checks that assertions don't have side effects (e.g., variable assignments). [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14088).
 
 ./test/lint/lint-circular-dependencies.sh - Checks for circular dependencies in the Core code. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13695).
 
