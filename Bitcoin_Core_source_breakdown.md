@@ -372,9 +372,9 @@
 
 ./depends/packages/libevent.mk - *libevent* (event notification) library. Used by all versions of Core.
 
-./depends/packages/libICE.mk - Inter-Client Exchange (ICE) library. Used by Qt.
+~~./depends/packages/libICE.mk~~ - Inter-Client Exchange (ICE) library. Used by Qt 4. [*Removed in 0.18*](https://github.com/bitcoin/bitcoin/pull/14183).
 
-./depends/packages/libSM.mk - Session Management library (SMlib). Used by Qt.
+~~./depends/packages/libSM.mk~~ - Session Management library (SMlib). Used by Qt 4. [*Removed in 0.18*](https://github.com/bitcoin/bitcoin/pull/14183).
 
 ./depends/packages/libX11.mk - X11 library. Used by Qt.
 
@@ -388,7 +388,7 @@
 
 ~~./depends/packages/native\_biplist.mk~~ - Python binary property list ([plist](https://en.wikipedia.org/wiki/Property_list)) read/write library (native). Used for the OS X build. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7192) to make software name consistency easier and  [removed in 0.17](https://github.com/bitcoin/bitcoin/pull/12625)*.
 
-~~./depends/packages/native\_ccache.mk~~ - [C/C++ compiler cache](https://ccache.samba.org/) (native). [*Removed in 0.17*](https://github.com/bitcoin/bitcoin/pull/12607)
+~~./depends/packages/native\_ccache.mk~~ - [C/C++ compiler cache](https://ccache.samba.org/) (native). [*Removed in 0.17*](https://github.com/bitcoin/bitcoin/pull/12607).
 
 ./depends/packages/native\_cctools.mk - [Apple (cctools) toolchain for Linux](https://code.google.com/p/ios-toolchain-based-on-clang-for-linux/) (native). Contains the code used to build the binaries needed to create Apple binaries (e.g., *dyld*, *ld64*, etc.). [Needed to link binaries in an Apple-friendly manner](http://www.ninthavenue.com.au/how-to-build-an-ios-toolchain-for-linux-debian-7).
 
@@ -415,6 +415,8 @@
 ./depends/packages/qt.mk - Qt 5 variables.
 
 ~~./depends/packages/qt46.mk~~ - Qt 4.6 variables. *[Removed in 0.14](https://github.com/bitcoin/bitcoin/pull/8640), although support for Qt 4 was removed in an earlier version (0.13?)*.
+
+./depends/packages/rapidcheck.mk - [rapidcheck](https://github.com/emil-e/rapidcheck) variables. Used for [property-based testing](https://en.wikipedia.org/wiki/QuickCheck). [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/12775).
 
 ./depends/packages/xcb\_proto.mk - [XML-XCB protocol description bindings](https://xcb.freedesktop.org/XmlXcb/). Used by Qt.
 
@@ -517,6 +519,8 @@
 ./doc/build-windows.md - General (non-Gitian) build notes for cross-compiling the Windows (MinGW) build.
 
 ./doc/dependencies.md - Provides information on the dependencies required by Core. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/10779).
+
+./doc/descriptors.md - Provides info on the [output descriptors](https://gist.github.com/sipa/e3d23d498c430bb601c5bca83523fa82) used in Core. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/14076).
 
 ./doc/developer-notes.md - General dev notes. Lots of miscellaneous things.
 
@@ -745,6 +749,8 @@
 ./src/dbwrapper.cpp - LevelDB wrapper code. Includes various CDB* classes related to accessing LevelDB.
 
 ./src/dbwrapper.h - See the CPP file.
+
+./src/dummywallet.cpp - A dummy wallet used to placate code that doesn't actually use wallets (e.g., *libbitcoin\_server*). [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14168).
 
 ./src/fs.cpp - A filesystem abstraction designed to make it easier to make filesystem changes in one place instead of across many files. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/9902).
 
@@ -1629,6 +1635,8 @@
 
 ./src/test/hash\_tests.cpp - *MurmurHash3()* unit tests. [Useful for Bloom filter work.](https://github.com/bitcoin/bitcoin/pull/2915)
 
+./src/test/key\_properties.cpp - Unit tests (property-based) for key generation, using *rapidcheck*. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/12775).
+
 ./src/test/key\_tests.cpp - [EC key unit tests.](https://github.com/bitcoin/bitcoin/pull/649)
 
 ./src/test/key\_io\_tests.cpp - Bitcoin-specific Base58 functionality tests. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/11372).
@@ -1756,6 +1764,12 @@
 ./src/test/data/tx\_invalid.json - *bitcoin-tx -delin=1* test data. Consists of invalid, deserialized transactions. [Used by ./src/test/data/bitcoin-util-test.json.](https://github.com/bitcoin/bitcoin/pull/4733)
 
 ./src/test/data/tx\_valid.json - *bitcoin-tx -delin=1* test data. Consists of valid, deserialized transactions, [including one Tx that was valid pre-BIP66](https://github.com/bitcoin/bitcoin/pull/11077). [Used by ./src/test/data/bitcoin-util-test.json.](https://github.com/bitcoin/bitcoin/pull/4733)
+
+**./src/test/gen** - Data generated for property-based test sets. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/12775).
+
+./src/test/gen/crypto\_gen.cpp - Data generated for key-based property tests using *rapidcheck*. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/12775).
+
+./src/test/gen/crypto\_gen.h - See the CPP file. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/12775).
 
 **./src/univalue** - Downstream version of the libunivalue library. Objects are used for parsing and encoding JSON data. [Replaced JSON Spirit.](https://github.com/bitcoin/bitcoin/pull/6121) *No files listed. [Consult the project website](https://github.com/jgarzik/univalue)*.
 
@@ -2178,6 +2192,10 @@
 ./test/lint/lint-shell.sh - A lint script that looks for [shellcheck](https://www.shellcheck.net/) warnings in shell scripts (i.e., shell script bugs). [*Moved from ./contrib/devtools in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
 
 ./test/lint/lint-shell-locale.sh - A lint script that enforces the usage of ["LC_ALL=C"](https://unix.stackexchange.com/questions/87745/what-does-lc-all-c-do) in all shell scripts. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13454).
+
+./test/lint/lint-spelling.ignore-words.txt - A list of words to ignore when looking for spelling errors in ./test/list/lint-spelling.sh. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/13954).
+
+./test/lint/lint-spelling.sh - A lint script that throws up warnings on misspelled words, using [*codespell*](https://github.com/codespell-project/codespell) to find the words. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/13954).
 
 ./test/lint/lint-tests.sh - A lint script that enforces the naming convention of files in ./src/test/ and ./src/wallet/test/. [*Moved from ./contrib/devtools in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
 
