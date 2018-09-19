@@ -496,7 +496,7 @@
 
 ~~./depends/patches/zeromq/9e6745c12e0b100cd38acecc16ce7db02905e27c.patch~~ - Upstream patch that fixes an issue with MinGW static linking. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8238) and [removed in 0.16](https://github.com/bitcoin/bitcoin/pull/9254).
 
-**./doc** - Various documents. *Graphics are not mentioned.*
+**./doc** - Various documents. *Graphics and some docs not included in official releases are not mentioned. To see the doc contents, look in ./doc/release-notes.md in official releases.*
 
 ./doc/.gitignore - File that prevents certain files from showing up in Git. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/10166).
 
@@ -549,20 +549,6 @@
 ./doc/reduce-traffic.md - Ways to reduce traffic on an Internet connection when running Core.
 
 ./doc/release-notes.md - Release notes for the latest version.
-
-~~./doc/release-notes-pr10267.md~~ - Explains how to use the *includeconf* configuration parameter. *[Added in 0.17](https://github.com/bitcoin/bitcoin/pull/10267) and [moved to ./doc/release-notes.md in 0.17](https://github.com/bitcoin/bitcoin/pull/13950)*.
-
-~~./doc/release-notes-pr12257.md~~ - Explains the *avoidpartialspends* configuration parameter and how to use it. *[Added in 0.17](https://github.com/bitcoin/bitcoin/pull/12257) and [moved to ./doc/release-notes.md in 0.17](https://github.com/bitcoin/bitcoin/pull/13950)*.
-
-~~./doc/release-notes-pr12823.md~~ - Explains how to use one Bitcoin config file across multiple networks (i.e., mainnet, testnet, and regtest). *[Added in 0.17](https://github.com/bitcoin/bitcoin/pull/11862) and [moved to ./doc/release-notes.md in 0.17](https://github.com/bitcoin/bitcoin/pull/13950)*.
-
-~~./doc/release-notes-pr12892.md~~ - Explains the "label" API for Core wallets, and how to migrate from the deprecated "account" API. *[Added in 0.17](https://github.com/bitcoin/bitcoin/pull/12892) and [moved to ./doc/release-notes.md in 0.17](https://github.com/bitcoin/bitcoin/pull/13950)*.
-
-~~./doc/release-notes-pr12924.md~~ - Explains low-level RPC changes that more accurately name HD seed IDs. *[Added in 0.17](https://github.com/bitcoin/bitcoin/pull/12924) and [moved to ./doc/release-notes.md in 0.17](https://github.com/bitcoin/bitcoin/pull/13950)*.
-
-~~./doc/release-notes-pr13033.md~~ - Explains how the *txindex* CL flag functionality has changed. (Basically, the flag can be turned on and off without wrecking the DB and requiring a full rebuild when re-enabling it.) *[Added in 0.17](https://github.com/bitcoin/bitcoin/pull/13033) and [moved to ./doc/release-notes.md in 0.17](https://github.com/bitcoin/bitcoin/pull/13950)*.
-
-./doc/release-notes-pr14023.md~~ - Explains the removal of the account RPC from Core. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14023).
 
 ./doc/release-process.md - Steps for putting out new releases.
 
