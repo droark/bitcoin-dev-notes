@@ -4,13 +4,13 @@
 
 **NB 3**: Some of these files may not be in the source code downloads for various releases. They should be available in the Core repo on GitHub.
 
+./.appveyor.yml - Provides project-specific info to [AppVeyor](https://www.appveyor.com/), allowing native Windows builds to be created after PRs are created or updated. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/13964).
+
 ./.gitattributes - Settings that can be specified for a path. *[Used for version info stuff](https://github.com/bitcoin/bitcoin/commit/a20c0d0f6792acf532309eee2e9f29120c801ee4)*.
 
 ./.gitignore - File that prevents certain files from showing up in Git.
 
 ./.travis.yml - Provides project-specific info to [Travis CI](https://travis-ci.org/), allowing Linux builds and cross-compiled builds (MacOS and Windows) to be created after PRs are created or updated.
-
-./appveyor.yml - Provides project-specific info to [AppVeyor](https://www.appveyor.com/), allowing native Windows builds to be created after PRs are created or updated. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/13964).
 
 ./autogen.sh - The first script called in the build process. Does a bit of setup and then calls *autoreconf* to do a proper setup of the autotools build environment.
 
@@ -936,7 +936,11 @@
 
 ./src/versionbits.cpp - Implements BIP 9 versionbits logic. [*Added in 0.12.1*](https://github.com/bitcoin/bitcoin/pull/7575).
 
-./src/versionbits.h - See the CPP file.
+./src/versionbits.h - See the CPP file. [*Added in 0.12.1*](https://github.com/bitcoin/bitcoin/pull/7575).
+
+./src/versionbitsinfo.cpp - Minimal implementation of a struct with info on features deployed by versionbits usage. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/13311).
+
+./src/versionbitsinfo.h - See the CPP file. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/13311).
 
 ./src/walletinterface.h - Contains wallet interface code, primarily meant to remove wallet dependencies from ./src/init.cpp. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/10762).
 
