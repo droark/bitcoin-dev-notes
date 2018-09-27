@@ -496,7 +496,7 @@
 
 ~~./depends/patches/zeromq/9e6745c12e0b100cd38acecc16ce7db02905e27c.patch~~ - Upstream patch that fixes an issue with MinGW static linking. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8238) and [removed in 0.16](https://github.com/bitcoin/bitcoin/pull/9254).
 
-**./doc** - Various documents. *Graphics and some docs not included in official releases are not mentioned. To see the doc contents, look in ./doc/release-notes.md in official releases.*
+**./doc** - Various documents. *Graphics and some docs not included in official releases are not mentioned. To see the contents of docs in unofficial builds, look in ./doc/release-notes.md in official releases.*
 
 ./doc/.gitignore - File that prevents certain files from showing up in Git. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/10166).
 
