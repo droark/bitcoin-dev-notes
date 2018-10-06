@@ -32,6 +32,8 @@
 
 ./.github/ISSUE\_TEMPLATE.md - GitHub [issue template](https://github.com/blog/2111-issue-and-pull-request-templates). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8058).
 
+./.github/PULL\_REQUEST\_TEMPLATE.md - Explains how the pull request process works for Core, and encourages people to submit only meaningful PRs. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14217).
+
 **./.travis** - .travis.yml support scripts. Files added here in part to subject the scripts to *shellcheck*, thereby making them more reliable. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/13863). *Files will not be listed.*
 
 **./.tx** - Transifex (i.e., translation) stuff. Used by Qt.
