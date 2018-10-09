@@ -2037,7 +2037,7 @@
 
 ./test/functional/rpc\_users.py - Tests to make sure that multiple *rpcuser* entries in bitcoin.conf will be properly handled by Core. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
-./test/functional/rpc\_zmq.py - Tests the *getzmqnotifications* call. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13570).
+~~./test/functional/rpc\_zmq.py~~ - Tests the *getzmqnotifications* call. *[Added in 0.17](https://github.com/bitcoin/bitcoin/pull/13570) and [removed in 0.18](https://github.com/bitcoin/bitcoin/pull/14419)*.
 
 ./test/functional/test\_runner.py - Primary script that kicks off one or more tests found in ./test/functional. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/6616).
 
