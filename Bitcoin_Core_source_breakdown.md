@@ -96,7 +96,7 @@
 
 ./contrib/install\_db4.sh - OpenBSD/UNIX shell script for installing BerkeleyDB 4.8. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11702).
 
-~~./contrib/qt\_translations.py~~ - [Helped OS X include the correct translations](https://github.com/bitcoin/bitcoin/commit/6be6be2ed9d5d4b9dc1657d434a7fed3b3935f6f). [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/8781).
+~~./contrib/qt\_translations.py~~ - [Helped macOS include the correct translations](https://github.com/bitcoin/bitcoin/commit/6be6be2ed9d5d4b9dc1657d434a7fed3b3935f6f). [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/8781).
 
 ./contrib/README.md - Briefly explains many things in the subdirs.
 
@@ -178,7 +178,7 @@
 
 ./contrib/gitian-descriptors/gitian-linux.yml - Linux (32-bit & 64-bit) descriptor.
 
-./contrib/gitian-descriptors/gitian-osx.yml - OS X (64-bit only) descriptor. Uses an *Xcode* SDK (not available in the repo) to compile the OS X binary under Linux. Code not signed for [Gatekeeper](https://en.wikipedia.org/wiki/Gatekeeper_%28OS_X%29).
+./contrib/gitian-descriptors/gitian-osx.yml - macOS (64-bit only) descriptor. Uses an *Xcode* SDK (not available in the repo) to compile the macOS binary under Linux. Code not signed for [Gatekeeper](https://en.wikipedia.org/wiki/Gatekeeper_%28OS_X%29).
 
 ./contrib/gitian-descriptors/gitian-osx-signer.yml - [Descriptor that splices in a signature for the final .dmg file.](https://github.com/bitcoin/bitcoin/pull/5363) See ./contrib/macdeploy/ for the signing key tools.
 
@@ -206,7 +206,7 @@
 
 ./contrib/init/bitcoind.service - *systemd* service unit configuration. Useful for things like hardening `bitcoind` by limiting the ability of the binary to gain new, unintended privileges.
 
-./contrib/init/org.bitcoin.bitcoind.plist - [Launch agent](https://developer.apple.com/library/mac/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html) that OS X can use to launch *bitcoind* at startup. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/6621).
+./contrib/init/org.bitcoin.bitcoind.plist - [Launch agent](https://developer.apple.com/library/mac/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html) that macOS can use to launch *bitcoind* at startup. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/6621).
 
 ./contrib/init/README.md - Mostly a short version of doc/init.md.
 
@@ -226,19 +226,19 @@
 
 ./contrib/macdeploy/custom\_dsstore.py - Creates a custom .DS\_Store file added to DMG files that deploy Bitcoin Core software to end users. (The file allows for background images and other features.) *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7192)*.
 
-./contrib/macdeploy/detached-sig-apply.sh - Applies a detached signature from a repo and attached the signature to an unsigned OS X build to create a signed build. ./contrib/gitian-descriptors/gitian-osx-signer.yml contains a usage example.
+./contrib/macdeploy/detached-sig-apply.sh - Applies a detached signature from a repo and attached the signature to an unsigned macOS build to create a signed build. ./contrib/gitian-descriptors/gitian-osx-signer.yml contains a usage example.
 
-./contrib/macdeploy/detached-sig-create.sh - Creates a detached signature of an OS X build that can then be uploaded to a repo for downloading and attachment via the ./contrib/macdeploy/detached-sig-apply.sh script that [basically uses *codesign* to create a detached signature covering Core’s entire .app directory](http://blog.erickdransch.com/2012/02/signing-mac-builds/). To be used only by somebody with the Apple-supplied signing key.
+./contrib/macdeploy/detached-sig-create.sh - Creates a detached signature of an macOS build that can then be uploaded to a repo for downloading and attachment via the ./contrib/macdeploy/detached-sig-apply.sh script that [basically uses *codesign* to create a detached signature covering Core’s entire .app directory](http://blog.erickdransch.com/2012/02/signing-mac-builds/). To be used only by somebody with the Apple-supplied signing key.
 
 ./contrib/macdeploy/DS\_Store - Apple-specific binary file. [Used for packaging purposes.](https://github.com/bitcoin/bitcoin/pull/3885)
 
-./contrib/macdeploy/extract-osx-sdk.sh - Shell script used to extract the OS X SDK from [*Xcode*](https://en.wikipedia.org/wiki/Xcode). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8617).
+./contrib/macdeploy/extract-osx-sdk.sh - Shell script used to extract the macOS SDK from [*Xcode*](https://en.wikipedia.org/wiki/Xcode). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8617).
 
 ./contrib/macdeploy/fancy.plist - Used to generate a "fancy" DMG disk image (i.e., the screen that allows the user, when a DMG file is double-clicked, to install Core).
 
 ./contrib/macdeploy/LICENSE - GNUv3 license.
 
-./contrib/macdeploy/macdeployqtplus - The Python script that’s used to assemble everything into an OS X-friendly app format (i.e., the .app directory) and place it in a .dmg file that's ready for distribution.
+./contrib/macdeploy/macdeployqtplus - The Python script that’s used to assemble everything into an macOS-friendly app format (i.e., the .app directory) and place it in a .dmg file that's ready for distribution.
 
 ./contrib/macdeploy/README.md - Deployment instructions. Presumably up-to-date.
 
@@ -342,7 +342,7 @@
 
 **./depends/builders** - [Shared dependency builder.](https://github.com/bitcoin/bitcoin/pull/4592) Compiler/Linker variables and such required by the machine building the binary. (The "builder" identity is automated and determined by ./config.guess.) Used by ./depends/Makefile.
 
-./depends/builders/darwin.mk - Overriding values for OS X building systems.
+./depends/builders/darwin.mk - Overriding values for macOS building systems.
 
 ./depends/builders/default.mk - Default values for all builders. Called by ./depends/Makefile, along with the appropriate builder-specific .mk file.
 
@@ -350,7 +350,7 @@
 
 **./depends/hosts** - [Shared dependency builder.](https://github.com/bitcoin/bitcoin/pull/4592) Compiler/Linker variables and such required to build for the host machine (i.e., the machine that’ll run the final binary). The host may be specified, otherwise it’ll default to the builder. Used by ./depends/Makefile.
 
-./depends/hosts/darwin.mk - Overriding OS X build variable values.
+./depends/hosts/darwin.mk - Overriding macOS build variable values.
 
 ./depends/hosts/default.mk - Default build variable values. Called by ./depends/Makefile, along with the appropriate host-specific .mk file.
 
@@ -388,7 +388,7 @@
 
 ./depends/packages/miniupnpc.mk - MiniUPnP. Used by all versions of the [UPnP](https://en.wikipedia.org/wiki/Universal_Plug_and_Play) feature of Core.
 
-~~./depends/packages/native\_biplist.mk~~ - Python binary property list ([plist](https://en.wikipedia.org/wiki/Property_list)) read/write library (native). Used for the OS X build. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7192) to make software name consistency easier and  [removed in 0.17](https://github.com/bitcoin/bitcoin/pull/12625)*.
+~~./depends/packages/native\_biplist.mk~~ - Python binary property list ([plist](https://en.wikipedia.org/wiki/Property_list)) read/write library (native). Used for the macOS build. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7192) to make software name consistency easier and  [removed in 0.17](https://github.com/bitcoin/bitcoin/pull/12625)*.
 
 ~~./depends/packages/native\_ccache.mk~~ - [C/C++ compiler cache](https://ccache.samba.org/) (native). [*Removed in 0.17*](https://github.com/bitcoin/bitcoin/pull/12607).
 
@@ -398,11 +398,11 @@
 
 ~~./depends/packages/native\_comparisontool.mk~~ - A [snapshot](https://github.com/theuni/bitcoind-comparisontool) of the [*pull-tests*](https://github.com/TheBlueMatt/test-scripts) code that was eventually merged into to the *bitcoinj* library (native). (*bitcoinj* now contains [the latest version](https://github.com/bitcoinj/bitcoinj/blob/master/core/src/test/java/org/bitcoinj/core/BitcoindComparisonTool.java) but this package doesn't use the latest version for unknown reasons.) Can be used with the *--with-comparison-tool* and *--enable-tests* configuration options to set the Java comparison tool required by ./qa/pull-tester/run-bitcoind-for-test.sh. *[Removed in 0.14](https://github.com/bitcoin/bitcoin/pull/8504) when support for the Java comparison tool was removed*.
 
-./depends/packages/native\_ds\_store.mk - Python [.DS_Store](https://en.wikipedia.org/wiki/.DS_Store) read/write library (native). Used for the OS X build. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7192).
+./depends/packages/native\_ds\_store.mk - Python [.DS_Store](https://en.wikipedia.org/wiki/.DS_Store) read/write library (native). Used for the macOS build. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7192).
 
-./depends/packages/native\_libdmg-hfsplus.mk - HFS+/DMG manipulation libraries (native). The *dmg* tool is used to compress DMG files used for OS X builds.
+./depends/packages/native\_libdmg-hfsplus.mk - HFS+/DMG manipulation libraries (native). The *dmg* tool is used to compress DMG files used for macOS builds.
 
-./depends/packages/native\_mac\_alias.mk - Python [Alias](https://en.wikipedia.org/wiki/Alias_%28Mac_OS%29) read/write library (native). Used for the OS X build. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7192).
+./depends/packages/native\_mac\_alias.mk - Python [Alias](https://en.wikipedia.org/wiki/Alias_%28Mac_OS%29) read/write library (native). Used for the macOS build. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7192).
 
 ./depends/packages/native\_protobuf.mk - [Protocol Buffers](https://en.wikipedia.org/wiki/Protocol_Buffers) library (native). Used by Qt as part of BIP 70 support.
 
@@ -436,7 +436,7 @@
 
 **./depends/patches/biplist** - [*biplist*](https://bitbucket.org/wooster/biplist) patches. *Added in 0.13 via a direct commit to the 0.13 branch, and not a pull request. See [here](https://github.com/bitcoin/bitcoin/pull/8373) for the master commit*.
 
-./depends/patches/biplist/sorted\_list.patch - Patch that makes the *biplist* output in the .DS\_Store file of OSX DMG files deterministic. *Added in 0.13 via a direct commit to the 0.13 branch, and not a pull request. See [here](https://github.com/bitcoin/bitcoin/pull/8373) for the master commit*.
+./depends/patches/biplist/sorted\_list.patch - Patch that makes the *biplist* output in the .DS\_Store file of macOS DMG files deterministic. *Added in 0.13 via a direct commit to the 0.13 branch, and not a pull request. See [here](https://github.com/bitcoin/bitcoin/pull/8373) for the master commit*.
 
 **./depends/patches/boost** - [*Boost*](http://www.boost.org/) patches.
 
@@ -514,7 +514,7 @@
 
 ./doc/build-openbsd.md - Details regarding building under OpenBSD.
 
-./doc/build-osx.md - Details regarding regular (non-Gitian) OSX builds.
+./doc/build-osx.md - Details regarding regular (non-Gitian) macOS builds.
 
 ./doc/build-unix.md - General (non-Gitian) build notes for Linux.
 
@@ -614,7 +614,7 @@
 
 **.~~/share/certs*~~* - Certificate materials used to sign Core binaries. [*Removed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11380).
 
-~~./share/certs/BitcoinFoundation\_Apple\_Cert.pem~~ - [Code-signing cert from Apple (OS X).](https://github.com/bitcoin/bitcoin/pull/2179)
+~~./share/certs/BitcoinFoundation\_Apple\_Cert.pem~~ - [Code-signing cert from Apple (macOS).](https://github.com/bitcoin/bitcoin/pull/2179)
 
 ~~./share/certs/BitcoinFoundation\_Comodo\_Cert.pem~~ - [Code-signing cert from Comodo (Windows).](https://github.com/bitcoin/bitcoin/pull/2179)
 
@@ -626,7 +626,7 @@
 
 ./share/qt/extract\_strings\_qt.py - [Converts certain strings into Qt-friendly strings if needed.](https://github.com/bitcoin/bitcoin/pull/521)
 
-./share/qt/Info.plist.in - OS X bundle kickoff file. Processed by Autoconfig to generate ./share/qt/Info.plist, which is included in the root of the OS X build.
+./share/qt/Info.plist.in - macOS bundle kickoff file. Processed by Autoconfig to generate ./share/qt/Info.plist, which is included in the root of the macOS build.
 
 ~~./share/qt/protobuf.pri~~ - *qmake* file integrating Payment Protocol (BIP 70) with *protoc*. [Required OpenSSL & Qt.](https://github.com/bitcoin/bitcoin/pull/2539). [*Removed in 0.14*](https://github.com/bitcoin/bitcoin/pull/8783).
 
@@ -1229,11 +1229,11 @@
 
 ./src/qt/macdockiconhandler.h - See the MM file.
 
-./src/qt/macdockiconhandler.mm - OS X-specific dock icon handler (MacDockIconHandler).
+./src/qt/macdockiconhandler.mm - macOS-specific dock icon handler (MacDockIconHandler).
 
 ./src/qt/macnotificationhandler.h - See the MM file.
 
-./src/qt/macnotificationhandler.mm - OS X-specific notification handler (MacNotificationHandler).
+./src/qt/macnotificationhandler.mm - macOS-specific notification handler (MacNotificationHandler).
 
 ./src/qt/Makefile - Kicks off Bitcoin Core (GUI) builds in the parent directory.
 
