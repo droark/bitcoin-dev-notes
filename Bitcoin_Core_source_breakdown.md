@@ -358,7 +358,7 @@
 
 ./depends/hosts/mingw32.mk - Overriding Windows (MinGW) build variable values.
 
-**./depends/packages** - Info on packages to download and compile as Core dependencies. Almost all the packages are actually required only by Qt 4 or 5. Native packages are used to build towards particular host/target platforms when the host requires tools not directly found on the native (i.e., build) platform, so the native platform must use alternate tools.
+**./depends/packages** - Info on packages to download and compile as Core dependencies. Almost all the packages are actually required only by Qt 5. Native packages are used to build towards particular host/target platforms when the host requires tools not directly found on the native (i.e., build) platform, so the native platform must use alternate tools.
 
 ./depends/packages/bdb.mk - BerkeleyDB 4.8. Used by all versions of the Bitcoin Core wallet.
 
@@ -624,7 +624,7 @@
 
 **./share/qt** - Materials related to Qt but not directly used by Core.
 
-./share/qt/extract\_strings\_qt.py - [Converts certain strings into Qt 4-friendly strings if needed.](https://github.com/bitcoin/bitcoin/pull/521)
+./share/qt/extract\_strings\_qt.py - [Converts certain strings into Qt-friendly strings if needed.](https://github.com/bitcoin/bitcoin/pull/521)
 
 ./share/qt/Info.plist.in - OS X bundle kickoff file. Processed by Autoconfig to generate ./share/qt/Info.plist, which is included in the root of the OS X build.
 
@@ -1195,7 +1195,7 @@
 
 ./src/qt/bitcoinunits.h - See the CPP file.
 
-./src/qt/callback.h - A workaround solution for Qt 4, where the signals implementation doesn't allow signals to be directly connected to C++11 lambda/closure expressions. A callback QObject with a virtual method that can forward calls to a C++11 lambda/closure is defined. *[Added in 0.15](https://github.com/bitcoin/bitcoin/pull/10098)*.
+./src/qt/callback.h - A workaround solution for Qt 4, where the signals implementation doesn't allow signals to be directly connected to C++11 lambda/closure expressions. A callback QObject with a virtual method that can forward calls to a C++11 lambda/closure is defined. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/10098).
 
 ./src/qt/clientmodel.cpp - Bitcoin network client model (ClientModel).
 
