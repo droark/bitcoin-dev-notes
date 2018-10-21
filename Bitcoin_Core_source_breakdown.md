@@ -508,6 +508,8 @@
 
 ./doc/bips.md - List of BIPs implemented by Core, the version where they were added, the PR #, and, if relevant, the block where the BIP was activated.
 
+./doc/bitcoin-conf.md - Explains the *bitcoin.conf* config file. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14497).
+
 ./doc/build-freebsd.md - Details regarding building under FreeBSD. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13372).
 
 ./doc/build-netbsd.md - Details regarding building under NetBSD. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/12294).
@@ -1195,7 +1197,7 @@
 
 ./src/qt/bitcoinunits.h - See the CPP file.
 
-./src/qt/callback.h - A workaround solution for Qt 4, where the signals implementation doesn't allow signals to be directly connected to C++11 lambda/closure expressions. A callback QObject with a virtual method that can forward calls to a C++11 lambda/closure is defined. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/10098).
+./src/qt/callback.h - A workaround solution for Qt 4, where the signals implementation doesn't allow signals to be directly connected to C++11 lambda/closure expressions. A callback QObject with a virtual method that can forward calls to a C++11 lambda/closure is defined. *[Added in 0.15](https://github.com/bitcoin/bitcoin/pull/10098) and [removed in 0.18](https://github.com/bitcoin/bitcoin/pull/14527)*.
 
 ./src/qt/clientmodel.cpp - Bitcoin network client model (ClientModel).
 
@@ -1623,6 +1625,8 @@
 
 ~~./src/test/DoS\_tests.cpp~~ - Denial of Service unit tests. [*Renamed to ./src/test/denialofservice\_tests.cpp in 0.17*](https://github.com/bitcoin/bitcoin/pull/13312).
 
+./src/test/fs\_tests.cpp - Unit test for a Windows Unicode *fstream* wrapper. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/13878).
+
 ./src/test/getarg\_tests.cpp - *GetArg()* and *GetBoolArg()* unit tests.
 
 ./src/test/hash\_tests.cpp - *MurmurHash3()* unit tests. [Useful for Bloom filter work.](https://github.com/bitcoin/bitcoin/pull/2915)
@@ -1819,6 +1823,12 @@
 
 ./src/wallet/test/coinselector\_tests.cpp - Tests Core's coin selection algorithms. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/10637).
 
+./src/wallet/test/init\_test\_fixture.cpp - Wallet test setup. Used for things like testing the *walletdir* option. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14146).
+
+./src/wallet/test/init\_test\_fixture.h - See the CPP file. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14146).
+
+./src/wallet/test/init\_tests.cpp - Tests the *walletdir* option. See the CPP file. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14146).
+
 ./src/wallet/test/psbt\_wallet\_tests.cpp - Tests for [Partially Signed Bitcoin Transaction](https://github.com/bitcoin/bips/blob/master/bip-0174.mediawiki) wallet functionality. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13557).
 
 ./src/wallet/test/rpc\_wallet\_tests.cpp - Internal RPC/JSON wallet unit tests. [*Moved here from ./src/test in 0.13*](https://github.com/bitcoin/bitcoin/pull/7905) and [*replaced with ./qa/rpc-tests/wallet-accounts.py in 0.14*](https://github.com/bitcoin/bitcoin/pull/8450).
@@ -1883,7 +1893,7 @@
 
 ./test/functional/feature\_block.py - A partial port of [FullBlockTestGenerator.java](https://github.com/TheBlueMatt/test-scripts/blob/master/FullBlockTestGenerator.java), a file driven by BitcoinJ that generates test blockchains used to test/verify the handling of the blockchain in Core and various alternative implementations (e.g., BitcoinJ and BTCD). *[Added in 0.12](https://github.com/bitcoin/bitcoin/pull/6523) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
-./test/function/feature\_blocksdir.py - Checks to make sure the *blocksdir* command line parameter works as expected. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12653).
+./test/functional/feature\_blocksdir.py - Checks to make sure the *blocksdir* command line parameter works as expected. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12653).
 
 ./test/functional/feature\_cltv.py - [Confirms that the BIP 65 soft fork/switchover code works properly in a P2P environment.](https://github.com/bitcoin/bitcoin/pull/6351) Uses *comptool*/ComparisonTestFramework. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
@@ -1896,6 +1906,8 @@
 ./test/functional/feature\_dersig.py - [Confirms that the BIP 66 soft fork/switchover code works properly in a P2P environment.](https://github.com/bitcoin/bitcoin/pull/5981) Uses *comptool*/ComparisonTestFramework. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
 ./test/functional/feature\_fee\_estimation.py - [Tests the fee estimation code.](https://github.com/bitcoin/bitcoin/pull/3959) [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/13049).
+
+./test/functional/feature\_filelock.py - Tests the lock on data directories (*datadir*). [*Renamed in 0.18*](https://github.com/bitcoin/bitcoin/pull/14426).
 
 ./test/function/feature\_help.py - Checks to make sure the *help* and *version* command line parameters work as expected. [*Added in 0.16.1*](https://github.com/bitcoin/bitcoin/pull/12843).
 
