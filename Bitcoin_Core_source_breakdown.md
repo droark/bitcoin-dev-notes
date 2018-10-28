@@ -1991,6 +1991,8 @@
 
 ./test/functional/p2p\_leak.py - Test for "leaky" P2P message behavior (e.g., messages received before a version is received, messages other than version/reject before sending a VERACK, etc.). *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/9720) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
+./test/functional/p2p\_leak\_tx.py - Test for particular "leaky" P2P message behavior: responding to a *getdata* message with *notfound* so as to avoid Tx origination privacy leaks. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14571).
+
 ./test/functional/p2p\_mempool.py - Test for *mempool* RPC command, in conjunction with disabled bloom filters. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/8078) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
 ./test/functional/p2p\_node\_network\_limited.py - Testing for the [BIP 159](https://github.com/bitcoin/bips/blob/master/bip-0159.mediawiki)/NODE\_NETWORK\_LIMITED service bit (i.e., a node is signaling that it's pruned). *[Added in 0.16](https://github.com/bitcoin/bitcoin/pull/11740) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
@@ -2021,7 +2023,7 @@
 
 ./test/functional/rpc\_getchaintips.py - Tests the *getchaintips* RPC functionality. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
-./test/functional/rpc\_help.py - Tests RPC help functionality. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14020).
+./test/functional/rpc\_help.py - Tests RPC help functionality. [*Added in 0.17.1*](https://github.com/bitcoin/bitcoin/pull/14020).
 
 ./test/functional/rpc\_invalidateblock.py - Tests the hidden *invalidateblock* RPC function. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
