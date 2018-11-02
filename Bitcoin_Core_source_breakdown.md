@@ -540,6 +540,8 @@
 
 ./doc/init.md - "Sample init scripts and service configuration for bitcoind".
 
+./doc/JSON-RPC-interface.md - Discusses RPC consistency in mempools and wallets. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14592).
+
 ./doc/multiwallet-qt.md - "Multiwallet Qt Development and Integration Strategy". *Old document that was [removed in 0.14](https://github.com/bitcoin/bitcoin/pull/8879)*.
 
 ./doc/psbt.md - Explains Partially Signed Bitcoin Transactions and how to use/create them. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/13941).
