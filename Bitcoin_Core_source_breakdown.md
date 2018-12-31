@@ -544,7 +544,7 @@
 
 ./doc/multiwallet-qt.md - "Multiwallet Qt Development and Integration Strategy". *Old document that was [removed in 0.14](https://github.com/bitcoin/bitcoin/pull/8879)*.
 
-./doc/psbt.md - Explains Partially Signed Bitcoin Transactions and how to use/create them. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/13941).
+./doc/psbt.md - Explains Partially Signed Bitcoin Transactions and how to use/create them. [*Added in 0.17.2*](https://github.com/bitcoin/bitcoin/pull/13941).
 
 ./doc/README.md - General catch-all / index of sorts.
 
@@ -2064,6 +2064,8 @@
 ./test/functional/wallet\_address\_types.py - Tests various address types accepted (and not accepted) by Core. *[Added in 0.16](https://github.com/bitcoin/bitcoin/pull/11403) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
 ./test/functional/wallet\_backup.py - Tests wallet backup functionality. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
+
+./test/functional/wallet\_balance.py - Tests the *getbalance* and *getunconfirmedbalance* RPC calls. [*Added in 0.17.1*](https://github.com/bitcoin/bitcoin/pull/14845).
 
 ./test/functional/wallet\_basic.py - Various wallet tests. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
