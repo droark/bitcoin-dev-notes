@@ -664,6 +664,10 @@
 
 ./src/attributes.h - Miscellaneous source code #define attributes. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/13815).
 
+./src/banman.cpp - The P2P node ban/unban functionality. Essentially just database entries. Separate from connect/disconnect functionality. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14605).
+
+./src/banman.h - See the CPP file. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14605).
+
 ./src/base58.cpp - Base58 implementation.
 
 ./src/base58.h - See the CPP file.
@@ -1382,6 +1386,10 @@
 ./src/qt/utilitydialog.cpp - ["Help message" (HelpMessageDialog) and "Shutdown" (ShutdownWindow) dialog boxes.](https://github.com/bitcoin/bitcoin/pull/3548)
 
 ./src/qt/utilitydialog.h - See the CPP file.
+
+./src/qt/walletcontroller.cpp - Coordinates wallet operations and window actions. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/15101).
+
+./src/qt/walletcontroller.h - See the CPP file. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/15101).
 
 ./src/qt/walletframe.cpp - [Embeds all wallet-related controls (WalletFrame).](https://github.com/bitcoin/bitcoin/pull/2220)
 
