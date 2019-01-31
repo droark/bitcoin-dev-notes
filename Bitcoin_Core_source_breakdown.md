@@ -842,6 +842,8 @@
 
 ./src/noui.h - See the CPP file.
 
+./src/optional.h - Implementation of C++17's [std::optional class template](https://en.cppreference.com/w/cpp/utility/optional) and [std::nullopt constant](https://en.cppreference.com/w/cpp/utility/optional/nullopt). [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14711).
+
 ./src/outputtype.cpp - Code related to the available output transaction types (P2PKH/"legacy," PS2SH-SegWit, and Bech32 as of July 2018). [*Added in 0.17 from part of ./src/wallet/wallet.cpp*](https://github.com/bitcoin/bitcoin/pull/13072).
 
 ./src/outputtype.h - See the CPP file. [*Added in 0.17 from part of ./src/wallet/wallet.h*](https://github.com/bitcoin/bitcoin/pull/13072).
@@ -1798,6 +1800,12 @@
 ./src/test/data/tx\_invalid.json - *bitcoin-tx -delin=1* test data. Consists of invalid, deserialized transactions. [Used by ./src/test/data/bitcoin-util-test.json.](https://github.com/bitcoin/bitcoin/pull/4733)
 
 ./src/test/data/tx\_valid.json - *bitcoin-tx -delin=1* test data. Consists of valid, deserialized transactions, [including one Tx that was valid pre-BIP66](https://github.com/bitcoin/bitcoin/pull/11077). [Used by ./src/test/data/bitcoin-util-test.json.](https://github.com/bitcoin/bitcoin/pull/4733)
+
+**./src/test/fuzz** - Data generated for fuzzing sets. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/15043).
+
+./src/test/fuzz/fuzz.cpp - Functions required by [*libFuzzer*](https://llvm.org/docs/LibFuzzer.html). [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/1504).
+
+./src/test/fuzz/fuzz.h - See the CPP file. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/15043).
 
 **./src/test/gen** - Data generated for property-based test sets. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/12775).
 
