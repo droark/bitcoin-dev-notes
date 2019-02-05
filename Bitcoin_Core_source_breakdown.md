@@ -552,7 +552,7 @@
 
 ./doc/README.md - General catch-all / index of sorts.
 
-./doc/README\_osx.md - Details regarding on the deterministic build. [*Changed from .txt to .md in 0.13*](https://github.com/bitcoin/bitcoin/pull/8229).
+~~./doc/README\_osx.md~~ - Details regarding on the deterministic build. [*Deleted in 0.18*](https://github.com/bitcoin/bitcoin/pull/15176).
 
 ./doc/README\_windows.txt - Vague Windows README. Not much useful info.
 
@@ -682,13 +682,15 @@
 
 ./src/bitcoin-cli-res.rc - [Resource definition script for Windows.](https://en.wikipedia.org/wiki/Resource_%28Windows%29) Needed for the *bitcoin-cli* binary.
 
-./src/bitcoind.cpp - Command line binary that executes Bitcoin Core functionality. *[Added in 0.9 to accommodate refactoring](https://github.com/bitcoin/bitcoin/pull/2700)*.
+./src/bitcoind.cpp - Command line binary that executes Bitcoin Core functionality. [*Added in 0.9 to accommodate refactoring*](https://github.com/bitcoin/bitcoin/pull/2700).
 
 ./src/bitcoind-res.rc - [Resource definition script for Windows.](https://en.wikipedia.org/wiki/Resource_%28Windows%29) Needed for the *bitcoind* binary.
 
 ./src/bitcoin-tx.cpp - Command line binary that can create, parse, or modify transactions.
 
 ./src/bitcoin-tx-res.rc - [Resource definition script for Windows.](https://en.wikipedia.org/wiki/Resource_%28Windows%29) Needed for the *bitcoin-tx* binary.
+
+./src/bitcoin-wallet.cpp - Code for *bitcoin-wallet*, a tool for wallet creation and maintenance. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/13926).
 
 ./src/blockencodings.cpp - Implements multiple classes representing objects from [BIP 152](https://github.com/bitcoin/bips/blob/master/bip-0152.mediawiki) (e.g., BlockTransacions, BlockRequest, CBlockHeadAndShortTxIDs), aka Compact Block Relay. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8068).
 
@@ -1873,7 +1875,7 @@
 
 ./src/wallet/rpcwallet.cpp - RPC functionality not related to exporting/importing wallet info & such.
 
-./src/wallet/rpcwallet.h - See the CPP file. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7307)*.
+./src/wallet/rpcwallet.h - See the CPP file. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7307).
 
 ./src/wallet/wallet.cpp - The basic wallet functionality. Includes many constants & policy defaults, keypool entries (CKeyPool), address book data (CAddressBookData), Tx w/ merkle branch linking the Tx to the blockchain (CMerkleTx), Tx w/ only info needed by the owner (CWalletTx), wallet Tx as represented in a TxOut (COutput), private wallet key (CWalletKey), a keystore extension w/ Tx/balance info (CWallet), keys allocated from the keypool (CReserveKey), account info (CAccount), internal accounting info (CAccountEntry), and many structs. The accounting stuff is more-or-less an abandoned concept from Core’s early days.
 
@@ -1882,6 +1884,10 @@
 ./src/wallet/walletdb.cpp - Classes that provide key metadata (CKeyMetadata) and a derived class providing access to the wallet DB (wallet.dat) (CWalletDB).
 
 ./src/wallet/walletdb.h - See the CPP file.
+
+./src/wallet/wallettool.cpp - Basic wallet manipulation (wallet creation and info displaying). Meant primarily for the *bitcoin-wallet* tool. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/13926).
+
+./src/wallet/wallettool.h - See the CPP file. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/13926).
 
 ./src/wallet/walletutil.cpp - Extra wallet functionality. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11466).
 
@@ -1892,6 +1898,8 @@
 ~~./src/wallet/test/accounting\_tests.cpp~~ - [Wallet accounting entry tests](https://github.com/bitcoin/bitcoin/pull/1393). *[Moved here from ./src/test in 0.13](https://github.com/bitcoin/bitcoin/pull/7905) and [removed in 0.18](https://github.com/bitcoin/bitcoin/pull/14023)*.
 
 ./src/wallet/test/coinselector\_tests.cpp - Tests Core's coin selection algorithms. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/10637).
+
+./src/wallet/test/db\_tests.cpp - *GetWalletEnv* tests. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/11911).
 
 ./src/wallet/test/init\_test\_fixture.cpp - Wallet test setup. Used for things like testing the *walletdir* option. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14146).
 
@@ -2130,6 +2138,8 @@
 ~~./test/functional/rpc\_zmq.py~~ - Tests the *getzmqnotifications* call. *[Added in 0.17](https://github.com/bitcoin/bitcoin/pull/13570) and [removed in 0.18](https://github.com/bitcoin/bitcoin/pull/14419)*.
 
 ./test/functional/test\_runner.py - Primary script that kicks off one or more tests found in ./test/functional. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/6616).
+
+./test/functional/tool\_wallet.py - Tests the *bitcoin-wallet* binary. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/13926).
 
 ./test/functional/wallet\_abandontransaction.py - Tests the *abandontransaction* RPC call. *[Added in 0.12](https://github.com/bitcoin/bitcoin/pull/7312) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
