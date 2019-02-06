@@ -582,15 +582,17 @@
 
 **./doc/man** - *man* pages that, as of 0.14, are installed by default when running *make install* during the build process.
 
-./doc/man/bitcoin-cli.1 - The *man* page for the *bitcoin-cli* binary. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8608)
+./doc/man/bitcoin-cli.1 - The *man* page for the *bitcoin-cli* binary. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8608).
 
-./doc/man/bitcoin-qt.1 - The *man* page for the *bitcoin-qt* binary. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8608)
+./doc/man/bitcoin-qt.1 - The *man* page for the *bitcoin-qt* binary. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8608).
 
-./doc/man/bitcoin-tx.1 - The *man* page for the *bitcoin-tx* binary. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8608)
+./doc/man/bitcoin-tx.1 - The *man* page for the *bitcoin-tx* binary. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8608).
 
-./doc/man/bitcoind.1 - The *man* page for the *bitcoind* binary. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8608)
+./doc/man/bitcoin-wallet.1 - The *man* page for the *bitcoin-wallet* binary. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/15354).
 
-./doc/man/Makefile.am - The Makefile that's used to instal the *man* pages. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8608)
+./doc/man/bitcoind.1 - The *man* page for the *bitcoind* binary. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8608).
+
+./doc/man/Makefile.am - The Makefile that's used to instal the *man* pages. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8608).
 
 **./doc/release-notes** - Release note archive. *Will not list the files.*
 
