@@ -2103,6 +2103,8 @@
 
 ./test/functional/rpc\_deprecated.py - Checks to see if deprecated RPC functions are actually marked as deprecated when used. *[Added in 0.16](https://github.com/bitcoin/bitcoin/pull/11031) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
+./test/functional/rpc\_deriveaddresses.py - Tests the *deriveaddresses* RPC functionality. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14667).
+
 ./test/functional/rpc\_fundrawtransaction.py - Tests the *fundrawtransaction* RPC functionality. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
 ./test/functional/rpc\_getblockstats.py - Tests the *getblockstats* RPC functionality. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/10757).
