@@ -2163,9 +2163,11 @@
 
 ./test/functional/wallet\_create\_tx.py - Tests the ability of a wallet to create transactions. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/15039).
 
+./test/functional/wallet\_createwallet.py - Tests the *createwallet* RPC command. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/15226).
+
 ./test/functional/wallet\_disable.py - Confirms that Core will work properly with the -disablewallet option. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
-./test/functional/wallet\_disableprivatekeys.py - Confirms that Core will work properly with the -disableprivatekeys option for the wallet. [*Renamed in 0.17*](https://github.com/bitcoin/bitcoin/pull/9662).
+~~./test/functional/wallet\_disableprivatekeys.py~~ - Confirms that Core will work properly with the -disableprivatekeys option for the wallet. *[Renamed in 0.17](https://github.com/bitcoin/bitcoin/pull/9662) and[deleted in 0.18](https://github.com/bitcoin/bitcoin/pull/15226)*.
 
 ./test/functional/wallet\_dump.py - Tests the *walletdump* RPC functionality. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8417) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
