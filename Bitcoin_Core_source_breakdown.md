@@ -4,7 +4,7 @@
 
 **NB 3**: Some of these files may not be in the source code downloads for various releases. They should be available in the Core repo on GitHub.
 
-./.appveyor.yml - Provides project-specific info to [AppVeyor](https://www.appveyor.com/), allowing native Windows builds to be created after PRs are created or updated. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/13964).
+./.appveyor.yml - Provides project-specific info to [AppVeyor](https://www.appveyor.com/), allowing native Windows builds to be generated & tested after PRs are created or updated. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/13964).
 
 ./.gitattributes - Settings that can be specified for a path. *[Used for version info stuff](https://github.com/bitcoin/bitcoin/commit/a20c0d0f6792acf532309eee2e9f29120c801ee4)*.
 
@@ -548,7 +548,7 @@
 
 ./doc/multiwallet-qt.md - "Multiwallet Qt Development and Integration Strategy". *Old document that was [removed in 0.14](https://github.com/bitcoin/bitcoin/pull/8879)*.
 
-./doc/psbt.md - Explains Partially Signed Bitcoin Transactions and how to use/create them. [*Added in 0.17.2*](https://github.com/bitcoin/bitcoin/pull/13941).
+./doc/psbt.md - Explains [Partially Signed Bitcoin Transaction](https://github.com/bitcoin/bips/blob/master/bip-0174.mediawiki) and how to use/create them. [*Added in 0.17.2*](https://github.com/bitcoin/bitcoin/pull/13941).
 
 ./doc/README.md - General catch-all / index of sorts.
 
@@ -862,6 +862,10 @@
 
 ./src/protocol.h - See the CPP file.
 
+./src/psbt.cpp - Contains most [Partially Signed Bitcoin Transaction](https://github.com/bitcoin/bips/blob/master/bip-0174.mediawiki) code. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14978).
+
+./src/psbt.h - See the CPP file. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14978).
+
 ./src/pubkey.cpp - Public key analogue of ./src/key.cpp. Includes a CKey reference (CKeyID), encapsulated public keys (CPubKey), external public keys (CExtPubKey struct), and a handle for the ECC verification module (ECCVerifyHandle).
 
 ./src/pubkey.h - See the CPP file.
@@ -1027,6 +1031,8 @@
 
 **./src/compat** - Added to allow Core binaries to be compiled on older computers. *glibc* & *libstdc++*, when compiled into Core on newer machines, will have symbols that are undefined when dynamically linked on older machines. This code can be compiled in to define the newer stuff while allowing dynamic linking for *glibc* & *libstdc++*. *[Added in 0.9.2](https://github.com/bitcoin/bitcoin/pull/4042)*.
 
+./src/compat/assumptions.h - Compile-time verification of various assumptions made by the code. *[Added in 0.18](https://github.com/bitcoin/bitcoin/pull/15391)*.
+
 ./src/compat/byteswap.h - [Endian compatibility.](https://github.com/bitcoin/bitcoin/pull/5510)
 
 ./src/compat/endian.h - [Endian compatibility.](https://github.com/bitcoin/bitcoin/pull/5510)
@@ -1049,7 +1055,7 @@
 
 ./src/consensus/consensus.h - Has some important values (e.g., blocksize and sigops).
 
-./src/consensus/merkle.cpp - The merkle tree computation code. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6508)
+./src/consensus/merkle.cpp - The merkle tree computation code. *[Added in 0.12](https://github.com/bitcoin/bitcoin/pull/6508)*.
 
 ./src/consensus/merkle.h - See the CPP file.
 
@@ -1154,6 +1160,8 @@
 ./src/interfaces/wallet.h - See the CPP file. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/10244).
 
 **./src/leveldb** - [*LevelDB*](http://leveldb.org/) code maintained by Core. *Will not list individual files (too many)*.
+
+**./src/node** - A directory meant for network code that can be used by both command line and GUI binaries. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14978).
 
 **./src/obj-test** - Doesn’t seem to be used anymore.
 
@@ -1503,7 +1511,7 @@
 
 ./src/qt/test/wallettests.h - See the CPP file.
 
-**./src/rpc** - General RPC functionality. *[Most files moved from ./src to ./src/rpc in 0.13](https://github.com/bitcoin/bitcoin/pull/7348).*
+**./src/rpc** - General RPC functionality. Code isn't accessible from the GUI. *[Most files moved from ./src to ./src/rpc in 0.13](https://github.com/bitcoin/bitcoin/pull/7348).*
 
 ./src/rpc/blockchain.cpp - RPC blockchain command functionality.
 
@@ -1749,7 +1757,7 @@
 
 ./src/test/test\_bitcoin.h - See the CPP file.
 
-./src/test/test\_bitcoin\_fuzzy.cpp - A basic fuzzing harness meant to be used with [American Fuzzy Lop (AFL)](http://lcamtuf.coredump.cx/afl/) or [libFuzzer](https://llvm.org/docs/LibFuzzer.html). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9172).
+~~./src/test/test\_bitcoin\_fuzzy.cpp~~ - A basic fuzzing harness meant to be used with [American Fuzzy Lop (AFL)](http://lcamtuf.coredump.cx/afl/) or [libFuzzer](https://llvm.org/docs/LibFuzzer.html). *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/9172) and [moved to ./src/test/fuzz/deserialize.cpp in 0.18](https://github.com/bitcoin/bitcoin/pull/15399)*.
 
 ./src/test/test\_bitcoin\_main.cpp - Contains the Boost.Test main function and some global overrides. [Makes ./src/test/test\_bitcoin.cpp compatible with the Qt test framework](https://github.com/bitcoin/bitcoin/pull/9974/commits/91e303595be2cc2361a5e32000e23a3b744e2fc1). [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/9974).
 
@@ -1807,9 +1815,13 @@
 
 **./src/test/fuzz** - Data generated for fuzzing sets. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/15043).
 
-./src/test/fuzz/fuzz.cpp - Functions required by [*libFuzzer*](https://llvm.org/docs/LibFuzzer.html). [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/1504).
+~~./src/test/deserialize.cpp~~ - A basic fuzzing harness meant to be used with [American Fuzzy Lop (AFL)](http://lcamtuf.coredump.cx/afl/) or [libFuzzer](https://llvm.org/docs/LibFuzzer.html). *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/9172) and [moved to ./src/test/fuzz/deserialize.cpp in 0.18](https://github.com/bitcoin/bitcoin/pull/15399)*.
+
+./src/test/fuzz/fuzz.cpp - Functions required by [*libFuzzer*](https://llvm.org/docs/LibFuzzer.html). [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/15043).
 
 ./src/test/fuzz/fuzz.h - See the CPP file. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/15043).
+
+./src/test/fuzz/script\_flags.cpp - Binary program for testing script validation flags. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/15399).
 
 **./src/test/gen** - Data generated for property-based test sets. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/12775).
 
@@ -1820,6 +1832,10 @@
 **./src/univalue** - Downstream version of the libunivalue library. Objects are used for parsing and encoding JSON data. [Replaced JSON Spirit.](https://github.com/bitcoin/bitcoin/pull/6121) *No files listed. [Consult the project website](https://github.com/jgarzik/univalue)*.
 
 **./src/util** - Utility functionality. [*Created in 0.18*](https://github.com/bitcoin/bitcoin/pull/14555).
+
+./src/util/bip32.cpp - Code for implementation of [BIP 32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki). [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14021).
+
+./src/util/bip32.h - See the CPP file. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14021).
 
 ./src/util/bytevectorhash.cpp - Implementation of hash-named requirement for types that internally store a byte array. Useful primarily as a hash function for unordered sets or unordered maps. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14074).
 
@@ -1872,6 +1888,10 @@
 ./src/wallet/init.cpp - Static wallet initialization code, taken from ./src/wallet/wallet.cpp. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/10976).
 
 ~~./src/wallet/init.h~~ - See the CPP file. *[Added in 0.16](https://github.com/bitcoin/bitcoin/pull/10976) and [removed in 0.17](https://github.com/bitcoin/bitcoin/pull/12836)*.
+
+./src/wallet/psbtwallet.cpp - Code for adding PSBT support to wallets. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14978).
+
+./src/wallet/psbtwallet.h - See the CPP file. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14978).
 
 ./src/wallet/rpcdump.cpp - RPC functions related to exporting/importing wallet info, addresses, etc.
 
@@ -2260,6 +2280,10 @@
 ./test/functional/test\_framework/wallet-dump.py - Tests the *dumpwallet* (and related) RPC functionality. [*Added in 0.13.1*](https://github.com/bitcoin/bitcoin/pull/8417).
 
 ./test/functional/test\_framework/wallet\_util.py - Various wallet utility tests. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/15108).
+
+**./test/fuzz** - Files related to the fuzzing test tools. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/15295).
+
+./test/fuzz/test\_runner.py - Runs fuzzing test tools. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/15295).
 
 **./test/lint** - Files related to the *lint* test tool. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
 
