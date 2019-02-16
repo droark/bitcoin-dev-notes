@@ -2255,6 +2255,8 @@
 
 ./test/functional/test\_framework/coverage.py - [Code allowing for RPC call coverage.](https://github.com/bitcoin/bitcoin/pull/6804)
 
+./test/functional/test\_framework/descriptors.py - Utility functions related to output descriptors. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/15368).
+
 ./test/functional/test\_framework/key.py - Wrapper around OpenSSL’s *EC\_Key* struct. [Fixes a crash in a regression test.](https://github.com/bitcoin/bitcoin/pull/6523#issuecomment-132381873)
 
 ./test/functional/test\_framework/messages.py - P2P message functionality. [*Added in 0.16*](https://github.com/bitcoin/bitcoin/pull/11648)
