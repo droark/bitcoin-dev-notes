@@ -548,6 +548,8 @@
 
 ./doc/multiwallet-qt.md - "Multiwallet Qt Development and Integration Strategy". *Old document that was [removed in 0.14](https://github.com/bitcoin/bitcoin/pull/8879)*.
 
+./doc/productivity.md - List of methods to improve productivity. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/15348).
+
 ./doc/psbt.md - Explains [Partially Signed Bitcoin Transaction](https://github.com/bitcoin/bips/blob/master/bip-0174.mediawiki) and how to use/create them. [*Added in 0.17.2*](https://github.com/bitcoin/bitcoin/pull/13941).
 
 ./doc/README.md - General catch-all / index of sorts.
