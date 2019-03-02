@@ -6,6 +6,8 @@
 
 ./.appveyor.yml - Provides project-specific info to [AppVeyor](https://www.appveyor.com/), allowing native Windows builds to be generated & tested after PRs are created or updated. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/13964).
 
+./.cirrus.yml - Provides project-specific info to [Cirrus](https://github.com/marketplace/cirrus-ci), allowing FreeBSD builds to be generated & tested after PRs are created or updated. Not currently active. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/15338).
+
 ./.gitattributes - Settings that can be specified for a path. *[Used for version info stuff](https://github.com/bitcoin/bitcoin/commit/a20c0d0f6792acf532309eee2e9f29120c801ee4)*.
 
 ./.gitignore - File that prevents certain files from showing up in Git.
@@ -174,7 +176,9 @@
 
 ./contrib/devtools/symbol-check.py - [Makes sure a Linux binary has only gcc, glibc, and libstdc++ version symbols](https://github.com/bitcoin/bitcoin/pull/4089) supported by given versions, thereby maintaining compatibility with minimum supported Linux distro versions.
 
-./contrib/devtools/test-security-check.py - Compiles a simple program in C and confirms that the binary has the security features tested in ./contrib/devtools/security-check.py. [*Added in 0.12*.](https://github.com/bitcoin/bitcoin/pull/6854)
+./contrib/devtools/test\_deterministic\_coverage.sh - Script that checks if unit tests have deterministic line coverage. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/15296).
+
+./contrib/devtools/test-security-check.py - Compiles a simple program in C and confirms that the binary has the security features tested in ./contrib/devtools/security-check.py. [*Added in 0.12*](https://github.com/bitcoin/bitcoin/pull/6854).
 
 ./contrib/devtools/update-translations.py - [Used to fetch new translations from Transifex.](https://github.com/bitcoin/bitcoin/pull/4110)
 
@@ -759,6 +763,10 @@
 ./src/dbwrapper.h - See the CPP file.
 
 ./src/dummywallet.cpp - A dummy wallet used to placate code that doesn't actually use wallets (e.g., *libbitcoin\_server*). [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14168).
+
+./src/flatfile.cpp - Implementation of [flat-file database data files](https://en.wikipedia.org/wiki/Flat-file_database). [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/15118).
+
+./src/flatfile.h - See the CPP file. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/15118).
 
 ./src/fs.cpp - A filesystem abstraction designed to make it easier to make filesystem changes in one place instead of across many files. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/9902).
 
@@ -1678,6 +1686,8 @@
 ./src/test/descriptor\_tests.cpp - Unit tests for human-readable scriptPubKey descriptors. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13697).
 
 ~~./src/test/DoS\_tests.cpp~~ - Denial of Service unit tests. [*Renamed to ./src/test/denialofservice\_tests.cpp in 0.17*](https://github.com/bitcoin/bitcoin/pull/13312).
+
+./src/test/flatfile\_tests.cpp - Unit test for flat file writing. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/15118).
 
 ./src/test/fs\_tests.cpp - Unit test for a Windows Unicode *fstream* wrapper. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/13878).
 
