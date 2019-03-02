@@ -2139,6 +2139,8 @@
 
 ~~./test/functional/rpc\_listtransactions.py~~ - Tests the *listtransactions* RPC functionality. *[Renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774) and [moved to ./test/functional/wallet\_listtransactions in 0.17](https://github.com/bitcoin/bitcoin/pull/12953)*.
 
+./test/functional/rpc\_misc.py - Tests miscellaneous RPC functions that don't have their own files. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/15485).
+
 ./test/functional/rpc\_named\_arguments.py - Tests support of JSON-RPC named args. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8811) (this file and the support for JSON-RPC named args) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
 ./test/functional/rpc\_net.py - A setnetworkactive() "smoke test." *[Added in 0.15](https://github.com/bitcoin/bitcoin/pull/10077) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
