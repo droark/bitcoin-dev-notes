@@ -14,6 +14,8 @@
 
 ./.python-version - Enforce usage of particular versions of Python via linter. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14884).
 
+./.style.yapf - A [yapf](https://github.com/google/yapf) file that can be used to format Python files. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/15479).
+
 ./.travis.yml - Provides project-specific info to [Travis CI](https://travis-ci.org/), allowing Linux builds and cross-compiled builds (MacOS and Windows) to be created after PRs are created or updated.
 
 ./autogen.sh - The first script called in the build process. Does a bit of setup and then calls *autoreconf* to do a proper setup of the autotools build environment.
@@ -326,7 +328,7 @@
 
 ./contrib/verifysfbinaries/zmq\_sub.py - Working example of adding ØMQ support. [*Requires Python 3.5 or higher as of 0.15*](https://github.com/bitcoin/bitcoin/pull/6103).
 
-./contrib/verifysfbinaries/zmq\_sub3.4.py - Working example of adding ØMQ support using Python 3.4. Basically the same as ./contrib/verifysfbinaries/zmq\_sub.py, with the only difference being in how the [*asyncio*](https://docs.python.org/3/library/asyncio.html) library is used. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/9485).
+~~./contrib/verifysfbinaries/zmq\_sub3.4.py~~ - Working example of adding ØMQ support using Python 3.4. Basically the same as ./contrib/verifysfbinaries/zmq\_sub.py, with the only difference being in how the [*asyncio*](https://docs.python.org/3/library/asyncio.html) library is used. *[Added in 0.15](https://github.com/bitcoin/bitcoin/pull/9485) and [removed in 0.19](https://github.com/bitcoin/bitcoin/pull/14954)*.
 
 **./depends** - A shared dependency builder. See AC\_CONFIG\_AUX\_DIR() in ./configure.ac to see how Autotools connects to these files. [*Added in 0.10*](https://github.com/bitcoin/bitcoin/pull/4592).
 
