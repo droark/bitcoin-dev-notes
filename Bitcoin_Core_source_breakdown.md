@@ -1941,7 +1941,7 @@
 
 ./src/wallet/test/coinselector\_tests.cpp - Tests Core's coin selection algorithms. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/10637).
 
-./src/wallet/test/db\_tests.cpp - *GetWalletEnv* tests. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/11911).
+./src/wallet/test/db\_tests.cpp - *GetWalletEnv* tests. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/15297).
 
 ./src/wallet/test/init\_test\_fixture.cpp - Wallet test setup. Used for things like testing the *walletdir* option. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14146).
 
