@@ -1040,6 +1040,8 @@
 
 ./src/bench/rpc\_mempool.cpp - Code that benchmarks the RPC mempool. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/15473).
 
+./src/bench/util\_time.cpp - Code that benchmarks the calls that get the current time. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/16046).
+
 ./src/bench/verify\_script.cpp - Code that benchmarks script verification code. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8873).
 
 ./src/bench/wallet\_balance.cpp - Code that benchmarks wallet balance code. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/15779).
