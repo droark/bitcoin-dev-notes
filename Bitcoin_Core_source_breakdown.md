@@ -34,6 +34,8 @@
 
 ./README.md - Base README file.
 
+./SECURITY.md - Bitcoin Core security policy. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/16140).
+
 **./.github** - GitHub-specific materials.
 
 ./.github/ISSUE\_TEMPLATE.md - GitHub [issue template](https://github.com/blog/2111-issue-and-pull-request-templates). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8058).
@@ -1728,6 +1730,8 @@
 ./src/test/checkqueue\_tests.cpp - Various CCheckQueue tests. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/9497).
 
 ./src/test/coins\_tests.cpp - [Tests for CCoinsView and related classes.](https://github.com/bitcoin/bitcoin/pull/4834)
+
+./src/test/compilerbug\_tests.cpp - Tests for compiler bugs (e.g., [GCC #90348](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=90348)). [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/15985).
 
 ./src/test/compress\_tests.cpp - [Tests for amount serializer/deserializer code.](https://github.com/bitcoin/bitcoin/pull/1677)
 
