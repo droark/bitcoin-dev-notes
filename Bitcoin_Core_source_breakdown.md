@@ -2291,6 +2291,8 @@
 
 ./test/functional/wallet\_address\_types.py - Tests various address types accepted (and not accepted) by Core. *[Added in 0.16](https://github.com/bitcoin/bitcoin/pull/11403) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
+./test/functional/wallet\_avoidreuse.py - Tests the "avoid_reuse" wallet flag. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/13756).
+
 ./test/functional/wallet\_backup.py - Tests wallet backup functionality. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
 ./test/functional/wallet\_balance.py - Tests the *getbalance* and *getunconfirmedbalance* RPC calls. [*Added in 0.17.1*](https://github.com/bitcoin/bitcoin/pull/14845).
