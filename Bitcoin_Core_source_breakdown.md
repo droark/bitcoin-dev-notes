@@ -1631,9 +1631,9 @@
 
 ./src/script/interpreter.h - See the CPP file. Also includes many script hash & verification flags.
 
-./src/script/ismine.cpp - Helps determine the wallet type and how many keys are in the wallet. [*Moved here from ./src/wallet in 0.13*](https://github.com/bitcoin/bitcoin/pull/7905).
+~~./src/script/ismine.cpp~~ - Helps determine the wallet type and how many keys are in the wallet. *[Moved here from ./src in 0.13](https://github.com/bitcoin/bitcoin/pull/7905) and [moved to ./src/wallet/ismine.cpp in 0.19](https://github.com/bitcoin/bitcoin/pull/16226)*.
 
-./src/script/ismine.h - See the CPP file. [*Moved here from ./src/wallet in 0.13*](https://github.com/bitcoin/bitcoin/pull/7905).
+~~./src/script/ismine.h~~ - See the CPP file. *[Moved here from ./src in 0.13](https://github.com/bitcoin/bitcoin/pull/7905) and [moved to ./src/wallet/ismine.cpp in 0.19](https://github.com/bitcoin/bitcoin/pull/16226)*.
 
 ./src/script/script.cpp - Covers classes like the serialized script used in Tx inputs & outputs (CScript), and the class that enforces the arithmetic operation semantics of opcodes (CScriptNum). [Consensus-critical](https://github.com/bitcoin/bitcoin/pull/12885).
 
@@ -1999,6 +1999,10 @@
 
 ~~./src/wallet/init.h~~ - See the CPP file. *[Added in 0.16](https://github.com/bitcoin/bitcoin/pull/10976) and [removed in 0.17](https://github.com/bitcoin/bitcoin/pull/12836)*.
 
+./src/script/ismine.cpp - Helps determine the wallet type and how many keys are in the wallet. [*Moved here from ./src/script in 0.19*](https://github.com/bitcoin/bitcoin/pull/16226).
+
+./src/script/ismine.h - See the CPP file. [*Moved here from ./src/script in 0.19*](https://github.com/bitcoin/bitcoin/pull/16226).
+
 ./src/wallet/load.cpp - Wallet loading code (e.g., `VerifyWallets()`, `LoadWallets()`, `FlushWallets()`, etc.). [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/15638).
 
 ./src/wallet/load.h - See the CPP file. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/15638).
@@ -2041,7 +2045,9 @@
 
 ./src/wallet/test/init\_test\_fixture.h - See the CPP file. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14146).
 
-./src/wallet/test/init\_tests.cpp - Tests the *walletdir* option. See the CPP file. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14146).
+./src/wallet/test/init\_tests.cpp - Tests the *walletdir* option. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14146).
+
+./src/wallet/test/ismine\_tests.cpp - Tests the IsMine() functionality. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/16226).
 
 ./src/wallet/test/psbt\_wallet\_tests.cpp - Tests for [Partially Signed Bitcoin Transaction](https://github.com/bitcoin/bips/blob/master/bip-0174.mediawiki) wallet functionality. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/13557).
 
