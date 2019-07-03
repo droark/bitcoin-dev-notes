@@ -1014,6 +1014,10 @@
 
 ./src/bench/coin\_selection.cpp - Code that benchmarks coin selection code. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8873).
 
+./src/bench/data.cpp - Pre-generated data for branchmarks. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/16299).
+
+./src/bench/data.h - See the CPP file. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/16299).
+
 ./src/bench/duplicate\_inputs.cpp - Code that tests de-duplication speed. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14400).
 
 ~~./src/bench/Examples.cpp~~ - Examples of how to apply the benchmark code. [*Renamed to ./src/bench/examples.cpp in 0.17*](https://github.com/bitcoin/bitcoin/pull/13312).
