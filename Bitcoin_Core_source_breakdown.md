@@ -1735,7 +1735,7 @@
 
 ./src/test/coins\_tests.cpp - [Tests for CCoinsView and related classes.](https://github.com/bitcoin/bitcoin/pull/4834)
 
-./src/test/compilerbug\_tests.cpp - Tests for compiler bugs (e.g., [GCC #90348](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=90348)). [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/15985).
+./src/test/compilerbug\_tests.cpp - Tests for compiler bugs (e.g., [GCC #90348](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=90348)). [*Added in 0.18.1*](https://github.com/bitcoin/bitcoin/pull/15985).
 
 ./src/test/compress\_tests.cpp - [Tests for amount serializer/deserializer code.](https://github.com/bitcoin/bitcoin/pull/1677)
 
@@ -2203,7 +2203,7 @@
 
 ~~./test/functional/nodehandling.py~~ - [Tests the *setban*, *listbanned*, and *disconnectnode* RPC functionality.](https://github.com/bitcoin/bitcoin/pull/6158) [*Moved to ./test/functional/disconnect\_ban.py in 0.15*](https://github.com/bitcoin/bitcoin/pull/10143).
 
-./test/functional/p2p\_blocksonly.py - Tests the *blocksonly* P2P functionality. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/15990).
+./test/functional/p2p\_blocksonly.py - Tests the *blocksonly* P2P functionality. [*Added in 0.18.1*](https://github.com/bitcoin/bitcoin/pull/15990).
 
 ./test/functional/p2p\_compactblocks.py - Tests various bits of CompactBlock functionality. *[Added in 0.13.1](https://github.com/bitcoin/bitcoin/pull/8418) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
