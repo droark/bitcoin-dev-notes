@@ -206,6 +206,18 @@
 
 ./contrib/gitian-keys/README.md - README explaining the basic process.
 
+**./contrib/guix** - Files required for deterministic builds created using [Guix](https://en.wikipedia.org/wiki/GNU_Guix). [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/15277).
+
+./contrib/guix/guix-build.sh - The kickoff script. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/15277).
+
+./contrib/guix/manifest.scm - The Guix manifest file. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/15277).
+
+./contrib/guix/README.md - The README. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/15277).
+
+**./contrib/guix/libexec** - Low-level build script materials. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/15277).
+
+./contrib/guix/libexec/build.sh - The actual Guix build script, kicked off from the manifest. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/15277).
+
 **./contrib/init** - Sample init scripts and service configuration for *bitcoind*. [Used to assist packagers in creating node packages](https://github.com/bitcoin/bitcoin/pull/4611).
 
 ./contrib/init/bitcoind.conf - *Upstart* service configuration file.
@@ -376,7 +388,7 @@
 
 ./depends/packages/boost.mk - Boost. Used by all versions of Core, including for consensus-critical functionality.
 
-./depends/packages/dbus.mk - D-Bus. Used by Qt.
+~~./depends/packages/dbus.mk~~ - D-Bus. Used by Qt. [*Deleted in 0.19*](https://github.com/bitcoin/bitcoin/pull/16352).
 
 ./depends/packages/expat.mk - Expat (XML parser). Used by Qt.
 
@@ -565,6 +577,8 @@
 ~~./doc/README\_osx.md~~ - Details regarding on the deterministic build. [*Deleted in 0.18*](https://github.com/bitcoin/bitcoin/pull/15176).
 
 ./doc/README\_windows.txt - Vague Windows README. Not much useful info.
+
+./doc/reduce-memory.md - Ways to reduce memory usage when running Bitcoin Core. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/16339).
 
 ./doc/reduce-traffic.md - Ways to reduce traffic on an Internet connection when running Core.
 
@@ -802,9 +816,9 @@
 
 ./src/key\_io.h - See the CPP file. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/11372).
 
-./src/keystore.cpp - A key store base class (CKeyStore) and a store with address->secret maps (CBasicKeyStore).
+~~./src/keystore.cpp~~ - A key store base class (CKeyStore) and a store with address->secret maps (CBasicKeyStore). [*Moved to ./src/script/signingprovider.cpp in 0.19*](https://github.com/bitcoin/bitcoin/pull/16227).
 
-./src/keystore.h - See the CPP file.
+~~./src/keystore.h - See the CPP file.~~ [*Removed in 0.19*](https://github.com/bitcoin/bitcoin/pull/16227).
 
 ./src/limitedmap.h - STL-like map container class that only keeps the N elements with the highest value (limitedmap).
 
@@ -1006,6 +1020,8 @@
 
 ./src/bench/checkqueue.cpp - Benchmarks some code related to CCheckQueue. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9498).
 
+./src/bench/chacha\_poly\_aead.cpp - Benchmarks for ChaCha20Poly1305 [AEAD](https://en.wikipedia.org/wiki/Authenticated_encryption#Authenticated_encryption_with_associated_data). [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/15649).
+
 ./src/bench/chacha20.cpp - Benchmarks ChaCha20 encryption code. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/15512).
 
 ./src/bench/crypto\_hash.cpp - Code that benchmarks various crypto hashing algorithms used by Core. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/8039).
@@ -1044,6 +1060,8 @@
 
 ./src/bench/rollingbloom.cpp - Code that benchmarks rolling bloom filters. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7934).
 
+./src/bench/rpc\_blockchain.cpp - Code that benchmarks the *blockToJSON* RPC call. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/16267).
+
 ./src/bench/rpc\_mempool.cpp - Code that benchmarks the RPC mempool. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/15473).
 
 ./src/bench/util\_time.cpp - Code that benchmarks the calls that get the current time. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/16046).
@@ -1055,7 +1073,6 @@
 **./src/bench/data** - Data used by code benchmarks. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/9049)*.
 
 ./src/bench/data/block413567.raw - Contains block 413,567. Used in the *CheckBlock()* benchmarking code. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/9049)*.
-
 
 **./src/compat** - Added to allow Core binaries to be compiled on older computers. *glibc* & *libstdc++*, when compiled into Core on newer machines, will have symbols that are undefined when dynamically linked on older machines. This code can be compiled in to define the newer stuff while allowing dynamic linking for *glibc* & *libstdc++*. *[Added in 0.9.2](https://github.com/bitcoin/bitcoin/pull/4042)*.
 
@@ -1106,6 +1123,10 @@
 ./src/crypto/aes.h - See the implementation file.
 
 ./src/crypto/common.h - Endian-specific in/outs for 16, 32, and 64-bit data. Used for implementations of SHA-256 and RIPEMD-160, along with converting arith\_uint256 values to little endian uint256 values.
+
+./src/crypto/chacha\_poly\_aead.cpp - [AEAD](https://en.wikipedia.org/wiki/Authenticated_encryption#Authenticated_encryption_with_associated_data) construct for ChaCha20Poly1305. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/15649).
+
+./src/crypto/chacha\_poly\_aead.h - See the CPP file. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/15649).
 
 ./src/crypto/chacha20.cpp - [ChaCha20](https://en.wikipedia.org/wiki/Salsa20#ChaCha_variant) implementation used for PRNG purposes. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/9792).
 
@@ -1595,9 +1616,9 @@
 
 ./src/rpc/net.cpp - RPC network command functionality.
 
-./src/rpc/protocol.cpp - RPC protocol commands/enums/etc.
+~~./src/rpc/protocol.cpp~~ - RPC protocol commands/enums/etc. [*Moved to ./src/rpc/request.cpp in 0.19*](https://github.com/bitcoin/bitcoin/pull/16240).
 
-./src/rpc/protocol.h - See the CPP file.
+./src/rpc/protocol.h - RPC protocol commands/enums/etc.
 
 ./src/rpc/rawtransaction.cpp - RPC raw transaction command functionality.
 
@@ -1608,6 +1629,10 @@
 ./src/rpc/rawtransaction\_util.h - See the CPP file. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/15638).
 
 ./src/rpc/register.h - Contains prototypes for functions used to register various types of RPC commands. [*Added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7766).
+
+./src/rpc/request.cpp - *JSONRPCRequest* functionality. [*Moved from ./src/rpc/protocol.cpp in 0.19*](https://github.com/bitcoin/bitcoin/pull/16240).
+
+./src/rpc/request.h - See the CPP file. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/16240).
 
 ~~./src/rpc/safemode.cpp~~ - Has an "ObserveSafeMode" function that checks whether or not "safe mode" (a now-disabled feature the [disabled some RPC commands](https://github.com/bitcoin/bitcoin/pull/10563)) has been activated. *[Added in 0.16](https://github.com/bitcoin/bitcoin/pull/11179) and [removed in 0.17](https://github.com/bitcoin/bitcoin/pull/13090)*.
 
@@ -1639,6 +1664,8 @@
 
 ~~./src/script/ismine.h~~ - See the CPP file. *[Moved here from ./src in 0.13](https://github.com/bitcoin/bitcoin/pull/7905) and [moved to ./src/wallet/ismine.cpp in 0.19](https://github.com/bitcoin/bitcoin/pull/16226)*.
 
+./src/script/keyorigin.h - Contains a struct with info on a wallet's BIP32 chain info. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/16227).
+
 ./src/script/script.cpp - Covers classes like the serialized script used in Tx inputs & outputs (CScript), and the class that enforces the arithmetic operation semantics of opcodes (CScriptNum). [Consensus-critical](https://github.com/bitcoin/bitcoin/pull/12885).
 
 ./src/script/script.h - See the CPP file. Has the script enums and related script constants.
@@ -1654,6 +1681,10 @@
 ./src/script/sign.cpp - Signature creation. Includes the virtual base (BaseSignatureCreator), creator for transactions (TransactionSignatureCreator), creator of empty 72 byte signatures (DummySignatureCreator), and various helper functions.
 
 ./src/script/sign.h - See the CPP file.
+
+./src/script/signingprovider.cpp - A key store base class (CKeyStore) and a store with address->secret maps (CBasicKeyStore). Multiple signer types are defined. [*Moved from ./src/keystore.cpp in 0.19*](https://github.com/bitcoin/bitcoin/pull/16227).
+
+./src/script/signingprovider.h - See the CPP file. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/16227).
 
 ./src/script/standard.cpp - Code related to standard transaction types (e.g., P2PKH, P2SH, etc.). Some functions and a Hash160 of the script’s serialization (CScriptID).
 
@@ -1735,7 +1766,7 @@
 
 ./src/test/coins\_tests.cpp - [Tests for CCoinsView and related classes.](https://github.com/bitcoin/bitcoin/pull/4834)
 
-./src/test/compilerbug\_tests.cpp - Tests for compiler bugs (e.g., [GCC #90348](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=90348)). [*Added in 0.18.1*](https://github.com/bitcoin/bitcoin/pull/15985).
+./src/test/compilerbug\_tests.cpp - Tests for compiler bugs (e.g., [GCC #90348](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=90348)). [*Added in 0.17.2*](https://github.com/bitcoin/bitcoin/pull/15985).
 
 ./src/test/compress\_tests.cpp - [Tests for amount serializer/deserializer code.](https://github.com/bitcoin/bitcoin/pull/1677)
 
@@ -2426,6 +2457,10 @@
 ./test/lint/check-rpc-mappings.py - Checks if RPC commands are documented. Used primarily for automated testing by the Core team. [*Moved from ./contrib/devtools in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
 
 ./test/lint/commit-script-check.sh - A script that can use commands in a commit to verify that the code pre-commit matches what's in the commit when the commands are executed. Useful for things like mass changes (e.g., removing capitalization in all header files). *[Added in 0.15](https://github.com/bitcoin/bitcoin/pull/10189) and [moved to ./test/lint/commit-script-check.py in 0.17](https://github.com/bitcoin/bitcoin/pull/13281)*.
+
+./test/lint/extended-lint-all.sh - Runs *extended-lint-\** scripts. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/14505).
+
+./test/lint/extended-lint-cppcheck.sh - Checks if single-parameter C++ constuctors are marked *explicit*. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/14505).
 
 ./test/lint/git-subtree-check.sh - [Verifies that subtree contents match upstream subtrees.](https://github.com/bitcoin/bitcoin/pull/5965) Must run from repo root. Currently useful for libsecp256k1 and LevelDB. [*Moved from ./contrib/devtools in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
 
