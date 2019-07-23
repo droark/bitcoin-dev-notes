@@ -402,13 +402,13 @@
 
 ~~./depends/packages/libSM.mk~~ - Session Management library (SMlib). Used by Qt 4. [*Removed in 0.18*](https://github.com/bitcoin/bitcoin/pull/14183).
 
-./depends/packages/libX11.mk - X11 library. Used by Qt.
+~~./depends/packages/libX11.mk~~ - X11 library. Used by Qt. [*Removed in 0.19*](https://github.com/bitcoin/bitcoin/pull/16408).
 
 ./depends/packages/libXau.mk - X11 Authorization Protocol library. Used by Qt.
 
 ./depends/packages/libxcb.mk - X protocol C-language Binding (XCB) library. Used by Qt.
 
-./depends/packages/libXext.mk - X Record Extension library. Used by Qt.
+~~./depends/packages/libXext.mk~~ - X Record Extension library. Used by Qt. [*Removed in 0.19*](https://github.com/bitcoin/bitcoin/pull/16408).
 
 ./depends/packages/miniupnpc.mk - MiniUPnP. Used by all versions of the [UPnP](https://en.wikipedia.org/wiki/Universal_Plug_and_Play) feature of Core.
 
@@ -446,11 +446,11 @@
 
 ./depends/packages/xcb\_proto.mk - [XML-XCB protocol description bindings](https://xcb.freedesktop.org/XmlXcb/). Used by Qt.
 
-./depends/packages/xextproto.mk - [X protocol extensions](https://community.linuxmint.com/software/view/libxext6) library. Used by Qt.
+~~./depends/packages/xextproto.mk~~ - [X protocol extensions](https://community.linuxmint.com/software/view/libxext6) library. Used by Qt. [*Removed in 0.19*](https://github.com/bitcoin/bitcoin/pull/16408).
 
 ./depends/packages/xproto.mk - [X window system core protocol](http://www.x.org/releases/X11R7.7/doc/xproto/x11protocol.html) library. Used by Qt.
 
-./depends/packages/xtrans.mk - [xtrans](http://www.x.org/releases/X11R7.7/doc/xtrans/xtrans.html) library. Used by Qt.
+~~./depends/packages/xtrans.mk~~ - [xtrans](http://www.x.org/releases/X11R7.7/doc/xtrans/xtrans.html) library. Used by Qt. [*Removed in 0.19*](https://github.com/bitcoin/bitcoin/pull/16408).
 
 ./depends/packages/zlib.mk - [zlib](http://www.zlib.net/). Used by all versions of Core built for Qt 5.7 and beyond. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9646).
 
@@ -499,6 +499,8 @@
 ./depends/patches/qt/mac-qmake.conf - *qmake* config variables and such.
 
 ~~./depends/patches/qt/mingw-uuidof.patch~~ - Required to build with MinGW. *[Added in 0.12](https://github.com/bitcoin/bitcoin/pull/6471) and [removed in 0.17](https://github.com/bitcoin/bitcoin/pull/12971)*.
+
+./depends/patches/qt/no-xlib.patch - Allows Qt to be built without libX11 and libXext. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/16408).
 
 ~~./depends/patches/qt/pidlist\_absolute.patch~~ - Fixes Qt "PIDLIST\_ABSOLUTE" issue. *[Added in 0.12](https://github.com/bitcoin/bitcoin/commit/0b416c6e9c3f9f81bea16168f82af77f4e8724bb) and [removed in 0.17](https://github.com/bitcoin/bitcoin/pull/12971)*.
 
@@ -2216,9 +2218,11 @@
 
 ./test/functional/mempool\_limit.py - [Confirms that Core will work properly with the -maxmempool option](https://github.com/bitcoin/bitcoin/pull/7153).
 
+./test/functional/mempool\_package\_oncemore.py - Confirms that Core follows a change in BIP 125 rules designed to partially mitigate CPFP-using attacks against Lightning. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/15681).
+
 ./test/functional/mempool\_packages.py - [Tests the *descendantcount*, *descendantsize*, and *descendantfees* values from the *getrawmempool* RPC functionality.](https://github.com/bitcoin/bitcoin/pull/6654#issuecomment-141692820)
 
-./test/functional/mempool\_persist.py - Tests the *persistmempool* CL flag, which, when false, causes Core to not read mempool.dat upon startup (i.e., the mempool isn't persistent across restarts). [Added in 0.15](https://github.com/bitcoin/bitcoin/pull/9966)
+./test/functional/mempool\_persist.py - Tests the *persistmempool* CL flag, which, when false, causes Core to not read mempool.dat upon startup (i.e., the mempool isn't persistent across restarts). [Added in 0.15](https://github.com/bitcoin/bitcoin/pull/9966).
 
 ./test/functional/mempool\_reorg.py - [Tests the *invalidateblock* RPC functionality.](https://github.com/bitcoin/bitcoin/pull/5267) In particular, it makes sure that coins that were valid due toinvalidated blocks will no longer be valid.
 
