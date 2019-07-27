@@ -1998,6 +1998,8 @@
 
 ./src/util/time.h - See the CPP file. [*Moved from ./src/utiltime.h in 0.18*](https://github.com/bitcoin/bitcoin/pull/14555).
 
+./src/util/translation.h - Helper file for bilingual messages. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/16362).
+
 ./src/util/url.cpp - URL handling code. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/15638).
 
 ./src/util/url.h - See the CPP file. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/15638).
@@ -2141,6 +2143,8 @@
 ./test/functional/create\_cache.py - Helper code that initializes the blockchain cache used by the QA tests. It's meant to be called before any tests are run so that the blockchain is cached by [the *initialize\_chain* call in *BitcoinTestFramework* (the parent of *CreateCache*)](https://www.botbot.me/freenode/bitcoin-core-dev/2016-05-12/?msg=65947836&page=3). [*Assists with parallelized RPC tests, and added in 0.13*](https://github.com/bitcoin/bitcoin/pull/7972).
 
 ./test/functional/example\_test.py - An example test that checks some RPC and P2P functionality. Meant to be copied and modified by people adding tests. [*Added in 0.15*](https://github.com/bitcoin/bitcoin/pull/10612).
+
+./test/functional/feature\_abortnode.py - Confirms that, when disconnecting from a chain (e.g., a chain with more work has been discovered), the node aborts instead of staying on the same chain. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/15305).
 
 ./test/functional/feature\_assumevalid.py - Tests the *assumevalid* RPC call. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/9484) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
@@ -2345,6 +2349,8 @@
 ./test/functional/wallet\_basic.py - Various wallet tests. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
 ./test/functional/wallet\_bumpfee.py - Tests the *bumpfee* RPC functionality. *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/8456) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
+
+./test/functional/wallet\_bumpfee\_totalfee\_deprecation.py - Confirms that the *totalFee* option is deprecated from the *bumpFee* RPC. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/15996).
 
 ./test/functional/wallet\_coinbase\_category.py - Tests that coinbase transactions return the correct categories (listtransactions, listsinceblock, gettransaction. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14653).
 
