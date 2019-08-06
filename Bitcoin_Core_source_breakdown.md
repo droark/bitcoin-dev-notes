@@ -2274,6 +2274,8 @@
 
 ./test/functional/p2p\_timeouts.py - Test for peer disconnection logic (i.e., disconnect when no VERACKs are received within one minute). *[Added in 0.14](https://github.com/bitcoin/bitcoin/pull/9715) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
+./test/functional/p2p\_tx\_download.py - Test for behavior when data is downloaded via P2P. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/16197).
+
 ./test/functional/p2p\_unrequested\_blocks.py - [Tests *AcceptBlock* functionality from ./src/main.cpp](https://github.com/bitcoin/bitcoin/pull/5875), which is basically how unrequested blocks are handled. [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
 ./test/functional/README.md - Explains some the test\_framework subdirectory’s contents, along with some of the underlying technical details.
