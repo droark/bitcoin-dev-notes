@@ -42,7 +42,7 @@
 
 ./.github/PULL\_REQUEST\_TEMPLATE.md - Explains how the pull request process works for Core, and encourages people to submit only meaningful PRs. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14217).
 
-**./.travis** - .travis.yml support scripts. Files added here in part to subject the scripts to *shellcheck*, thereby making them more reliable. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/13863). *Files will not be listed.*
+~~**./.travis**~~ - .travis.yml support scripts. Files added here in part to subject the scripts to *shellcheck*, thereby making them more reliable. *[Added in 0.18](https://github.com/bitcoin/bitcoin/pull/13863) and [moved to ./ci in 0.19](https://github.com/bitcoin/bitcoin/pull/16582)*. *Files will not be listed.*
 
 **./.tx** - Transifex (i.e., translation) stuff. Used by Qt.
 
@@ -89,6 +89,8 @@
 **./build\_msvc** - Files that allow Core to be built using [Microsoft Visual Studio 2017](https://en.wikipedia.org/wiki/Microsoft_Visual_Studio) or later. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/11526). *Unless mentioned below, files will not be discussed here.*
 
 ./build\_msvc/msvc-autogen.py - Python script that can auto-generate MSVS project files. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14062).
+
+**./ci** - Continuous Integration environment support scripts. [*Moved from ./travis in 0.19*](https://github.com/bitcoin/bitcoin/pull/16582). *Files will not be listed.*
 
 **./contrib** - External tools that may be useful but aren’t directly related to Core.
 
@@ -598,7 +600,7 @@
 
 ./doc/translation\_strings\_policy.md - Details on how the translation system works.
 
-~~./doc/travis-ci.md~~ - Details regarding the Travis CI testing system. [*Moved into .travis.yml in 0.19*](https://github.com/bitcoin/bitcoin/pull/15693).
+~~./doc/travis-ci.md~~ - Details regarding the Travis CI testing system. [*Moved into .travis.yml in 0.18.2*](https://github.com/bitcoin/bitcoin/pull/15693).
 
 ~~./doc/unit-tests.md~~ - Details regarding running and adding unit tests. *[Removed in 0.14](https://github.com/bitcoin/bitcoin/pull/9065) and placed inside ./src/test/README.md*.
 
@@ -867,6 +869,10 @@
 ./src/netbase.h - See the CPP file.
 
 ./src/netmessagemaker.h - Contains the *CNetMsgMaker* class, which is a shortcut for creating on-the-fly messages suitable for pushing to the *CConnman* class. [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/9128).
+
+./src/net\_permissions.cpp - Contains code related to various network-related permissions. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/16248).
+
+./src/net\_permissions.h - See the CPP file. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/16248).
 
 ./src/net\_processing.cpp - Contains the network message processing code. [*Added in 0.14 from part of ./src/main.cpp*](https://github.com/bitcoin/bitcoin/pull/9260).
 
@@ -1243,10 +1249,6 @@
 ./src/node/transaction.cpp - Some basic transaction functionality (e.g., TX broadcasting). [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14978).
 
 ./src/node/transaction.h - See the CPP file. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14978).
-
-**./src/obj-test** - Doesn’t seem to be used anymore.
-
-./src/obj-test/.gitignore - Files for Git to ignore.
 
 **./src/policy** - Code related to various Core policies (i.e., core functionality in Bitcoin that isn't necessarily consensus-critical). [Added in 0.11](https://github.com/bitcoin/bitcoin/pull/5159).
 
@@ -2268,6 +2270,8 @@
 
 ./test/functional/p2p\_node\_network\_limited.py - Testing for the [BIP 159](https://github.com/bitcoin/bips/blob/master/bip-0159.mediawiki)/NODE\_NETWORK\_LIMITED service bit (i.e., a node is signaling that it's pruned). *[Added in 0.16](https://github.com/bitcoin/bitcoin/pull/11740) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
+./test/functional/p2p\_permissions.py - Test for network-related permissions. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/16248).
+
 ./test/functional/p2p\_segwit.py - Test for external results of Segregated Witness functionality. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/8149) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
 ./test/functional/p2p\_sendheaders.py - [Tests the *sendheaders* P2P message.](https://github.com/bitcoin/bitcoin/pull/7129) [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
@@ -2319,6 +2323,8 @@
 ./test/functional/rpc\_rawtransaction.py - [Tests reorg scenarios w/ a mempool that contain a Tx spending (direct or indirect) a coinbase Tx.](https://github.com/bitcoin/bitcoin/pull/5418) [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
 ./test/functional/rpc\_scantxoutset.py - Tests the *scantxoutset* RPC functionality. [*Added in 0.17*](https://github.com/bitcoin/bitcoin/pull/12196).
+
+./test/functional/rpc\_setban.py - Tests the *setban* RPC functionality. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/16618).
 
 ./test/functional/rpc\_signmessage.py - Tests signatures and verifications using the *signmessagewithprivkey* RPC call. *[Added in 0.13](https://github.com/bitcoin/bitcoin/pull/7953) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
@@ -2401,6 +2407,8 @@
 ./test/functional/wallet\_txn\_clones.py - Confirms that, if a cloned Tx is malleated and sent on the network instead of the original Tx, the malleated Tx will be seen later and the original Tx ignored. *[Added in 0.12](https://github.com/bitcoin/bitcoin/pull/5881) and [renamed in 0.16](https://github.com/bitcoin/bitcoin/pull/11774)*.
 
 ./test/functional/wallet\_txn\_doublespend.py - [Tests double spend handling functionality](https://github.com/bitcoin/bitcoin/pull/5317). [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
+
+./test/functional/wallet\_watchonly.py - Watch-only wallet tests. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/16383).
 
 ./test/functional/wallet\_zapwallettxes.py - [Tests *zapwallettxes* functionality (CL arg)](https://github.com/bitcoin/bitcoin/pull/5612). [*Renamed in 0.16*](https://github.com/bitcoin/bitcoin/pull/11774).
 
@@ -2497,6 +2505,8 @@
 ./test/lint/lint-logs.sh - Checks for newline termination in log files. [*Moved from ./contrib/devtools in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
 
 ./test/lint/lint-python.sh - A lint script that looks for unused Python imports. [*Moved from ./contrib/devtools in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
+
+./test/lint/lint-python-dead-code-whitelist - False positive code for Python linter. [*Added in 0.19*](https://github.com/bitcoin/bitcoin/pull/16465).
 
 ./test/lint/lint-python-dead-code.sh - A lint script that uses [Vulture](https://github.com/jendrikseipp/vulture) to remove dead Python code. [*Added in 0.18*](https://github.com/bitcoin/bitcoin/pull/14365).
 
