@@ -150,7 +150,7 @@
 
 ./contrib/devtools/gen-manpages.sh - A script that's used to generate man pages (located at ./doc/man). [*Added in 0.14*](https://github.com/bitcoin/bitcoin/pull/8608)
 
-./contrib/devtools/github-merge.sh - [Used to merge PRs securely and to sign the merge commits.](https://github.com/bitcoin/bitcoin/pull/3302) Used only by those with commit access to the Core repo.
+~~./contrib/devtools/github-merge.sh~~ - [Used to merge PRs securely and to sign the merge commits.](https://github.com/bitcoin/bitcoin/pull/3302) Used only by those with commit access to the Core repo. [*Moved to https://github.com/bitcoin-core/bitcoin-maintainer-tools in 0.19*](https://github.com/bitcoin/bitcoin/pull/16625).
 
 ~~./contrib/devtools/git-subtree-check.sh~~ - [Verifies that subtree contents match upstream subtrees.](https://github.com/bitcoin/bitcoin/pull/5965) Must run from repo root. Currently useful for libsecp256k1 and LevelDB. [*Moved to ./test/lint/git-subtree-check.py in 0.17*](https://github.com/bitcoin/bitcoin/pull/13281).
 
